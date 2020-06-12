@@ -2,7 +2,7 @@ export default {
   name: 'siteSettings',
   type: 'document',
   title: 'Site Settings',
-  __experimental_actions: ['update' /* 'create' , 'delete'  */, 'publish'],
+  __experimental_actions: ['update', /* 'create', 'delete', */ 'publish'],
   fieldsets: [{ name: 'company', title: 'Company details' }],
   fields: [
     {
