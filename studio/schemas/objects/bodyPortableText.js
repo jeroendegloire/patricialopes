@@ -1,12 +1,3 @@
-import React from 'react'
-
-import {
-  mathInlineIcon,
-  mathIcon,
-  highlightIcon,
-  highlightRender
-} from '../components/PortableTextEditorComponents'
-
 export default {
   name: 'bodyPortableText',
   type: 'array',
@@ -37,26 +28,7 @@ export default {
         decorators: [
           { title: 'Strong', value: 'strong' },
           { title: 'Emphasis', value: 'em' },
-          { title: 'Code', value: 'code' },
-          {
-            title: 'Highlight',
-            value: 'highlight',
-            blockEditor: {
-              icon: highlightIcon,
-              render: highlightRender
-            }
-          }
-
-          /*
-          {
-            title: 'Math',
-            value: 'latex',
-            blockEditor: {
-              icon: latexIcon,
-              render: latexRender
-            }
-          }
-          */
+          { title: 'Code', value: 'code' }
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -73,8 +45,7 @@ export default {
             ]
           }
         ]
-      },
-      of: [{ type: 'math', icon: mathInlineIcon, title: 'Inline math' }]
+      }
     },
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
@@ -83,8 +54,6 @@ export default {
       type: 'mainImage',
       options: { hotspot: true }
     },
-    { type: 'instagram' },
-    { type: 'videoEmbed' },
-    { type: 'math', icon: mathIcon, title: 'Math block' }
+    { type: 'videoEmbed' }
   ]
 }

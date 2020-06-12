@@ -18,7 +18,11 @@ const PreviewIFrame = () =>
             <div style={{ padding: '0 0.5em' }}>
               <p>
                 This is your{' '}
-                <a href="https://maisonbeige.netlify.app" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://patricialopes.netlify.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   production site on Netlify
                 </a>
                 . <a href="/dashboard">Trigger a deploy</a> to see published changes.

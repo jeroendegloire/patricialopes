@@ -14,13 +14,13 @@ export default {
                 {
                   buildHookId: '5eda0209d1afe06a48843a8a',
                   title: 'Patricia Lopes CMS',
-                  name: 'patricialopes-sanity',
+                  name: 'patricialopes-cms',
                   apiId: '5c1db3ee-1712-4437-bbab-bfb4952a2475'
                 },
                 {
                   buildHookId: '5eda0209a83b8b04611b62a8',
                   title: 'Patricia Lopes Frontend',
-                  name: 'patricialopes-gatsby',
+                  name: 'patricialopes',
                   apiId: 'to create'
                 }
               ]

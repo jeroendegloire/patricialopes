@@ -2,8 +2,8 @@ export default {
   name: 'siteSettings',
   type: 'document',
   title: 'Site Settings',
-  __experimental_actions: ['update', /* 'create', 'delete', */ 'publish'],
-  fieldsets: [{ name: 'footer', title: 'Footer settings' }],
+  //__experimental_actions: ['update', /* 'create', 'delete', */ 'publish'],
+  fieldsets: [{ name: 'company', title: 'Company details' }],
   fields: [
     {
       name: 'title',
@@ -17,16 +17,34 @@ export default {
       type: 'openGraph'
     },
     {
-      title: 'Company details',
-      name: 'companyDetails',
-      type: 'slimPortableText',
-      fieldset: 'footer'
+      title: 'Logo',
+      name: 'logo',
+      type: 'mainImage',
+      fieldset: 'company'
     },
     {
-      title: 'Contact details',
-      name: 'contactDetails',
-      type: 'slimPortableText',
-      fieldset: 'footer'
+      title: 'Facebook url',
+      name: 'fb',
+      type: 'url',
+      fieldset: 'company'
+    },
+    {
+      title: 'Twitter url',
+      name: 'twitter',
+      type: 'url',
+      fieldset: 'company'
+    },
+    {
+      title: 'Linkedin url',
+      name: 'linkedin',
+      type: 'url',
+      fieldset: 'company'
+    },
+    {
+      title: 'Imdb url',
+      name: 'imdb',
+      type: 'url',
+      fieldset: 'company'
     }
   ]
 }

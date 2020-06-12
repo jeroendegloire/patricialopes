@@ -29,13 +29,7 @@ export default {
       type: 'array',
       title: 'Page sections',
       description: 'Add, edit, and reorder sections',
-      of: [
-        { type: 'hero' },
-        { type: 'bookDescription' },
-        { type: 'gallery' },
-        { type: 'about' },
-        { type: 'contact' }
-      ]
+      of: [{ type: 'slideshow' }, { type: 'videoEmbed' }, { type: 'gallery' }]
     },
     {
       name: 'slug',

@@ -1,25 +1,5 @@
 import MdVideocam from 'react-icons/lib/md/videocam'
-import MdPhotoCamera from 'react-icons/lib/md/photo-camera'
-import InstagramPreview from '../components/preview/Instagram'
 import EmbedPlayer from '../components/preview/EmbedPlayer'
-
-export const instagram = {
-  type: 'object',
-  name: 'instagram',
-  title: 'Instagram Post',
-  icon: MdPhotoCamera,
-  fields: [
-    {
-      type: 'url',
-      name: 'url',
-      description: 'The URL to the post as seen in a desktop browser'
-    }
-  ],
-  preview: {
-    select: { url: 'url' },
-    component: InstagramPreview
-  }
-}
 
 export const videoEmbed = {
   type: 'object',
@@ -30,6 +10,12 @@ export const videoEmbed = {
     {
       type: 'url',
       name: 'url'
+    },
+    {
+      name: 'posterImage',
+      type: 'mainImage',
+      title: 'Poster image',
+      description: 'Sizes: 1600x800'
     }
   ],
   preview: {

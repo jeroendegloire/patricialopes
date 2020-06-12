@@ -22,14 +22,6 @@ export default {
       name: 'image',
       type: 'mainImage'
     }
-    /*
-    // You can add videos to Open Graph tags too
-    {
-      name: 'video',
-      title: 'Video',
-      type: 'mux.video'
-    }
-    */
   ],
   preview: {
     select: {
