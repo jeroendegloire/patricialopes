@@ -15,13 +15,13 @@ export default {
                   buildHookId: '5eda0209d1afe06a48843a8a',
                   title: 'Maison Beige CMS',
                   name: 'maisonbeige',
-                  apiId: '5f21daed-82c0-47cf-9c6d-288385b538dd'
+                  apiId: '5c1db3ee-1712-4437-bbab-bfb4952a2475'
                 },
                 {
                   buildHookId: '5eda0209a83b8b04611b62a8',
                   title: 'Maison beige Frontend',
                   name: 'maisonbeige',
-                  apiId: '25299521-03d7-468e-8c7a-f9c1413aa21e'
+                  apiId: 'to create'
                 }
               ]
             }
@@ -30,12 +30,12 @@ export default {
         data: [
           {
             title: 'GitHub repo',
-            value: 'https://github.com/jeroendegloire/maisonbeige',
+            value: 'https://github.com/jeroendegloire/patricalopes',
             category: 'Code'
           },
           {
             title: 'Frontend',
-            value: 'https://maisonbeige.netlify.app',
+            value: 'https://patricialopes.netlify.app',
             category: 'apps'
           }
         ]
