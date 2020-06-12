@@ -12,13 +12,13 @@ export default {
                 'NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.',
               sites: [
                 {
-                  buildHookId: '5ee3c39e6dd7c350d389db56',
+                  buildHookId: '5eda0209d1afe06a48843a8a',
                   title: 'Patricia Lopes CMS',
                   name: 'patricialopes-sanity',
                   apiId: '5c1db3ee-1712-4437-bbab-bfb4952a2475'
                 },
                 {
-                  buildHookId: '5ee3c39e6dd7c350d389db56',
+                  buildHookId: '5eda0209a83b8b04611b62a8',
                   title: 'Patricia Lopes Frontend',
                   name: 'patricialopes-gatsby',
                   apiId: 'to create'
