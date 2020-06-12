@@ -44,7 +44,8 @@ export default createSchema({
       slimPortableText,
       bodyPortableText,
       slideshow,
-      gallery
+      gallery,
+      cinematography
     ])
     .concat(allPlugs)
 })
