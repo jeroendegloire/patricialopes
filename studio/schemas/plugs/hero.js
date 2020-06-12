@@ -2,38 +2,41 @@ export default {
   type: 'object',
   name: 'hero',
   title: 'Hero',
+  fieldsets: [{ name: 'headline', title: 'Headline', collapsible: false }],
   fields: [
     {
-      name: 'label',
-      type: 'string'
+      name: 'heading_before',
+      type: 'string',
+      title: 'Before',
+      fieldset: 'headline'
     },
     {
       name: 'heading',
       type: 'string',
-      title: 'Heading'
+      title: 'Heading',
+      fieldset: 'headline'
     },
     {
-      name: 'tagline',
-      type: 'simpleBlockContent'
+      name: 'heading_after',
+      type: 'string',
+      title: 'After',
+      fieldset: 'headline'
     },
     {
       name: 'illustration',
       type: 'illustration'
-    },
-    {
-      name: 'cta',
-      type: 'cta'
     }
   ],
   preview: {
     select: {
-      title: 'heading',
-      subtitle: 'label',
+      heading_before: 'heading_before',
+      heading: 'heading',
+      heading_after: 'heading_after',
       disabled: 'disabled'
     },
-    prepare({ title, disabled }) {
+    prepare({ heading_before, heading, heading_after, disabled }) {
       return {
-        title: `Hero: ${disabled ? 'DISABLED' : title}`
+        title: `Hero: ${heading_before} ${heading} ${heading_after} ${disabled ? 'DISABLED' : ''}`
       }
     }
   }

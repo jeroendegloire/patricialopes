@@ -1,1 +1,1 @@
-sanity-kitchen-sink-studio
+maisonbeige-studio

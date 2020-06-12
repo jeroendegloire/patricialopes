@@ -1,1 +1,1 @@
-sanity-kitchen-sink-web
+maisonbeige-sink-web

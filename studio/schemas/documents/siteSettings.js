@@ -3,6 +3,7 @@ export default {
   type: 'document',
   title: 'Site Settings',
   __experimental_actions: ['update', /* 'create', 'delete', */ 'publish'],
+  fieldsets: [{ name: 'footer', title: 'Footer settings' }],
   fields: [
     {
       name: 'title',
@@ -16,16 +17,16 @@ export default {
       type: 'openGraph'
     },
     {
-      type: 'color',
-      name: 'primaryColor',
-      title: 'Primary brand color',
-      description: 'Used to generate the primary accent color for websites, press materials, etc'
+      title: 'Company details',
+      name: 'companyDetails',
+      type: 'slimPortableText',
+      fieldset: 'footer'
     },
     {
-      type: 'color',
-      name: 'secondaryColor',
-      title: 'Secondary brand color',
-      description: 'Used to generate the secondary accent color for websites, press materials, etc'
+      title: 'Contact details',
+      name: 'contactDetails',
+      type: 'slimPortableText',
+      fieldset: 'footer'
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "root": true,
   "project": {
-    "name": "Kitchen Sink"
+    "name": "Maison Beige"
   },
   "api": {
     "projectId": "z3w69i7w",
@@ -17,14 +17,14 @@
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
-    "asset-source-thispersondoesnotexist",
     "@sanity/vision",
     "asset-source-unsplash",
     "@sanity/code-input",
     "@sanity/color-input",
     "mux-input",
     "google-analytics",
-    "@sanity/production-preview"
+    "@sanity/production-preview",
+    "seo-tools"
   ],
   "parts": [
     {

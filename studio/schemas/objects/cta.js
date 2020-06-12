@@ -20,7 +20,7 @@ export default {
       name: 'landingPageRoute',
       type: 'reference',
       fieldset: 'link',
-      to: [{type: 'route'}]
+      to: [{ type: 'page' }]
     },
     {
       title: 'Path',
@@ -53,7 +53,7 @@ export default {
       route: 'route',
       link: 'link'
     },
-    prepare ({title, landingPage, route, link}) {
+    prepare({ title, landingPage, route, link }) {
       let subtitle = 'Not set'
       if (landingPage) {
         subtitle = `Route: /${landingPage}`

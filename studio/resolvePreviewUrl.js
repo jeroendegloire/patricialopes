@@ -1,15 +1,14 @@
 const env = process.env.NODE_ENV || 'development'
 
 export default function resolvePreviewUrl(document) {
-  const baseUrl = env === 'development' ? 'http://localhost:8000' : 'https://sanity-kitchen-sink-web-r8gd3151.netlify.app'
+  const baseUrl =
+    env === 'development' ? 'http://localhost:8000' : 'https://maisonbeige.netlify.app'
   switch (document._type) {
     case 'route':
       if (!document.slug || !document.slug.current) {
         return baseUrl
       }
       return `${baseUrl}/${document.slug.current}`
-    case 'post':
-      return `${baseUrl}/blog/${document.slug.current}`
     case 'siteSettings':
       return baseUrl
     case 'page':

@@ -34,7 +34,7 @@ export default {
   preview: {
     select: {
       title: 'title',
-      route: 'route.slug.current',
+      route: 'page.slug.current',
       link: 'link'
     },
     prepare({ title, route, link }) {

@@ -19,9 +19,6 @@ export default {
       }
       return {
         title: `Illustration`,
-        subtitle: `${image.caption ||
-          image.alt ||
-          'Missing capton or alt text'} | Size: ${image.size || 'default'}`,
         media: image
       }
     }

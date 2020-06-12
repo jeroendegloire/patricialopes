@@ -9,24 +9,24 @@ export default S.listItem()
     S.list()
       .title('Landing Pages')
       .items([
-        S.listItem()
-          .title('Navigation Menus')
-          .icon(MdMenu)
-          .schemaType('navigationMenu')
-          .child(S.documentTypeList('navigationMenu').title('Navigation Menus')),
-        S.listItem()
-          .title('Routes')
-          .schemaType('route')
-          .child(
-            S.documentTypeList('route')
-              .title('Routes')
-              .child((documentId) =>
-                S.document()
-                  .documentId(documentId)
-                  .schemaType('route')
-                  .views([S.view.form(), PreviewIFrame()])
-              )
-          ),
+        //        S.listItem()
+        //          .title('Navigation Menus')
+        //          .icon(MdMenu)
+        //          .schemaType('navigationMenu')
+        //          .child(S.documentTypeList('navigationMenu').title('Navigation Menus')),
+        // S.listItem()
+        //   .title('Routes')
+        //   .schemaType('route')
+        //   .child(
+        //     S.documentTypeList('route')
+        //       .title('Routes')
+        //       .child(documentId =>
+        //         S.document()
+        //           .documentId(documentId)
+        //           .schemaType('route')
+        //           .views([S.view.form(), PreviewIFrame()])
+        //       )
+        //   ),
         S.listItem()
           .title('Pages')
           .schemaType('page')
@@ -35,6 +35,12 @@ export default S.listItem()
               .title('Pages')
               .menuItems(S.documentTypeList('page').getMenuItems())
               .filter('_type == "page" && _id != "frontpage"')
-          ),
+              .child(documentId =>
+                S.document()
+                  .documentId(documentId)
+                  .schemaType('page')
+                  .views([S.view.form(), PreviewIFrame()])
+              )
+          )
       ])
   )

@@ -12,13 +12,13 @@ export const instagram = {
     {
       type: 'url',
       name: 'url',
-      description: 'The URL to the post as seen in a desktop browser',
-    },
+      description: 'The URL to the post as seen in a desktop browser'
+    }
   ],
   preview: {
     select: { url: 'url' },
-    component: InstagramPreview,
-  },
+    component: InstagramPreview
+  }
 }
 
 export const videoEmbed = {
@@ -29,11 +29,11 @@ export const videoEmbed = {
   fields: [
     {
       type: 'url',
-      name: 'url',
-    },
+      name: 'url'
+    }
   ],
   preview: {
     select: { url: 'url' },
-    component: EmbedPlayer,
-  },
+    component: EmbedPlayer
+  }
 }
