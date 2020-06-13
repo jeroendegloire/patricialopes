@@ -7,7 +7,8 @@ export default {
       title: 'Images',
       name: 'images',
       type: 'array',
-      of: [{ type: 'mainImage' }]
+      of: [{ type: 'mainImage' }],
+      validation: Rule => Rule.required()
     }
   ]
 }

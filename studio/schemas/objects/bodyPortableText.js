@@ -11,11 +11,9 @@ export default {
       // and decide how it will be formatted or displayed where your content is used.
       styles: [
         { title: 'Normal', value: 'normal' },
-        { title: 'H1', value: 'h1' },
         { title: 'H2', value: 'h2' },
         { title: 'H3', value: 'h3' },
-        { title: 'H4', value: 'h4' },
-        { title: 'Quote', value: 'blockquote' }
+        { title: 'H4', value: 'h4' }
       ],
       lists: [
         { title: 'Bullet', value: 'bullet' },
@@ -27,8 +25,7 @@ export default {
         // preference or highlighting by editors.
         decorators: [
           { title: 'Strong', value: 'strong' },
-          { title: 'Emphasis', value: 'em' },
-          { title: 'Code', value: 'code' }
+          { title: 'Emphasis', value: 'em' }
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -41,6 +38,16 @@ export default {
                 title: 'URL',
                 name: 'href',
                 type: 'url'
+              },
+              {
+                title: 'Title',
+                name: 'title',
+                type: 'string'
+              },
+              {
+                title: 'Open in new window',
+                name: 'target',
+                type: 'boolean'
               }
             ]
           }

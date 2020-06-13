@@ -15,7 +15,8 @@ export const videoEmbed = {
       name: 'posterImage',
       type: 'mainImage',
       title: 'Poster image',
-      description: 'Sizes: 1600x800'
+      description: 'Sizes: 1600x800',
+      validation: Rule => Rule.required()
     }
   ],
   preview: {

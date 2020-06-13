@@ -51,7 +51,12 @@ export default {
       type: 'array',
       title: 'Page sections',
       description: 'Add, edit, and reorder sections',
-      of: [{ type: 'slideshow' }, { type: 'videoEmbed' }, { type: 'gallery' }]
+      of: [
+        { type: 'slideshow' },
+        { type: 'videoEmbed' },
+        { type: 'gallery' },
+        { type: 'textContent' }
+      ]
     },
     {
       title: 'Sharing image',

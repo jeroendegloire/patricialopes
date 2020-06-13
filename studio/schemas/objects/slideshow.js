@@ -7,7 +7,8 @@ export default {
       title: 'Images',
       name: 'images',
       type: 'array',
-      of: [{ type: 'mainImage' }]
+      of: [{ type: 'mainImage' }],
+      validation: Rule => Rule.required()
     }
   ],
   preview: {
@@ -19,7 +20,7 @@ export default {
       const { imageUrl } = selection
       return {
         title: 'Slideshow',
-        imageUrl: imageUrl
+        imageUrl
       }
     }
   }

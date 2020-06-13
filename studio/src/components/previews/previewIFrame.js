@@ -1,6 +1,6 @@
 import React from 'react'
 import S from '@sanity/desk-tool/structure-builder'
-import resolveUrl from '../../resolvePreviewUrl'
+import resolveUrl from '../../../resolvePreviewUrl'
 
 const env = process.env.NODE_ENV || 'development'
 
@@ -40,6 +40,6 @@ const PreviewIFrame = () =>
         </React.Fragment>
       )
     })
-    .title('Web preview')
+    .title('Web preview core')
 
 export default PreviewIFrame
