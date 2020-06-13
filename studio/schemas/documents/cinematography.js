@@ -147,12 +147,9 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title'
-    },
-    prepare({ title }) {
-      return {
-        title
-      }
+      title: 'title',
+      subtitle: 'category',
+      imageUrl: 'featuredImage.asset.url'
     }
   }
 }
