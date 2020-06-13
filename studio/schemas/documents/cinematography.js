@@ -20,6 +20,28 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'slug',
+      type: 'slug',
+      description: 'This is the website path the page will accessible on',
+      title: 'Path',
+      validation: Rule =>
+        Rule.required().custom(slug => {
+          if (slug && slug.current && slug.current === '/') {
+            return 'Cannot be /'
+          }
+          return true
+        }),
+      options: {
+        source: 'title',
+        maxLength: 200, // will be ignored if slugify is set
+        slugify: input =>
+          input
+            .toLowerCase()
+            .replace(/\s+/g, '-')
+            .slice(0, 200)
+      }
+    },
+    {
       name: 'category',
       type: 'string',
       title: 'Category',

@@ -1,7 +1,7 @@
 export default {
   type: 'object',
   name: 'gallery',
-  title: 'Masonry grid.',
+  title: 'Photo grid',
   fields: [
     {
       title: 'Images',

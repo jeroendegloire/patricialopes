@@ -19,7 +19,7 @@ export default {
   ],
   preview: {
     select: {
-      imageUrl: 'asset.url'
+      imageUrl: 'image.asset->url'
     }
   }
 }

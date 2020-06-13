@@ -9,5 +9,10 @@ export default {
       type: 'array',
       of: [{ type: 'mainImage' }]
     }
-  ]
+  ],
+  preview: {
+    select: {
+      imageUrl: 'images.0.asset->url'
+    }
+  }
 }

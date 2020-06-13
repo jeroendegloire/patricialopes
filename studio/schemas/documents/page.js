@@ -25,18 +25,10 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: 'content',
-      type: 'array',
-      title: 'Page sections',
-      description: 'Add, edit, and reorder sections',
-      of: [{ type: 'slideshow' }, { type: 'videoEmbed' }, { type: 'gallery' }]
-    },
-    {
       name: 'slug',
       type: 'slug',
       description: 'This is the website path the page will accessible on',
       title: 'Path',
-      fieldset: 'seo',
       validation: Rule =>
         Rule.required().custom(slug => {
           if (slug && slug.current && slug.current === '/') {
@@ -53,6 +45,20 @@ export default {
             .replace(/\s+/g, '-')
             .slice(0, 200)
       }
+    },
+    {
+      name: 'content',
+      type: 'array',
+      title: 'Page sections',
+      description: 'Add, edit, and reorder sections',
+      of: [{ type: 'slideshow' }, { type: 'videoEmbed' }, { type: 'gallery' }]
+    },
+    {
+      title: 'Sharing image',
+      description: 'Facebook recommends 1200x630 (will be auto resized)',
+      name: 'image',
+      type: 'mainImage',
+      fieldset: 'seo'
     },
     {
       name: 'seo',
@@ -83,34 +89,27 @@ export default {
         },
         contentSelector: 'body' // (OPTIONAL) option to finetune where Yoast will look for the content. (only applicable for scraping without content function)
       }
-    },
-    {
-      title: 'Sharing image',
-      description: 'Facebook recommends 1200x630 (will be auto resized)',
-      name: 'image',
-      type: 'mainImage',
-      fieldset: 'seo'
-    },
-    {
-      title: 'Include in sitemap',
-      description: 'For search engines. Will be generateed to /sitemap.xml',
-      name: 'includeInSitemap',
-      type: 'boolean',
-      fieldset: 'seo'
-    },
-    {
-      title: 'Disallow in robots.txt',
-      description: 'Hide this route for search engines like google',
-      name: 'disallowRobots',
-      type: 'boolean',
-      fieldset: 'seo'
-    },
-    {
-      name: 'campaign',
-      type: 'string',
-      title: 'Campaign',
-      description: 'UTM for campaings'
     }
+    // {
+    //   title: 'Include in sitemap',
+    //   description: 'For search engines. Will be generateed to /sitemap.xml',
+    //   name: 'includeInSitemap',
+    //   type: 'boolean',
+    //   fieldset: 'seo'
+    // },
+    // {
+    //   title: 'Disallow in robots.txt',
+    //   description: 'Hide this route for search engines like google',
+    //   name: 'disallowRobots',
+    //   type: 'boolean',
+    //   fieldset: 'seo'
+    // },
+    // {
+    //   name: 'campaign',
+    //   type: 'string',
+    //   title: 'Campaign',
+    //   description: 'UTM for campaings'
+    // }
   ],
   preview: {
     select: {
