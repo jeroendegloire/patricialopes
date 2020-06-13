@@ -35,6 +35,12 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'featuredImage',
+      type: 'mainImage',
+      title: 'Featured image',
+      validation: Rule => Rule.required()
+    },
+    {
       name: 'fragments',
       type: 'array',
       title: 'Fragments',
