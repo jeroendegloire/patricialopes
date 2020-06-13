@@ -1,7 +1,10 @@
+import MovieIcon from 'react-icons/lib/md/local-movies'
+
 export default {
   type: 'document',
   name: 'cinematography',
   title: 'Cinematography',
+  icon: MovieIcon,
   fieldsets: [
     {
       name: 'details',

@@ -8,7 +8,7 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title'
+      title: 'Site name'
     },
     {
       title: 'Open graph',

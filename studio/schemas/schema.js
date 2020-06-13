@@ -23,6 +23,7 @@ import link from './objects/link'
 import openGraph from './objects/openGraph'
 import gallery from './objects/gallery'
 import slideshow from './objects/slideshow'
+import menuItem from './objects/menuItem'
 
 const allPlugs = Object.values(plugs).map(plug => {
   return { ...plug, fields: plugDefaultFields.concat(plug.fields) }
@@ -45,7 +46,8 @@ export default createSchema({
       bodyPortableText,
       slideshow,
       gallery,
-      cinematography
+      cinematography,
+      menuItem
     ])
     .concat(allPlugs)
 })
