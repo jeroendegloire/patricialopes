@@ -24,7 +24,13 @@ export default {
     },
     {
       title: 'Facebook url',
-      name: 'fb',
+      name: 'facebook',
+      type: 'url',
+      fieldset: 'company'
+    },
+    {
+      title: 'Instagram url',
+      name: 'instagram',
       type: 'url',
       fieldset: 'company'
     },
