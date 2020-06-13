@@ -14,5 +14,11 @@ export default {
       title: 'Url',
       validation: Rule => Rule.uri({ allowRelative: true })
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'name',
+      subtitle: 'link'
+    }
+  }
 }

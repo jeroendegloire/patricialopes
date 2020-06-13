@@ -13,8 +13,7 @@ export default {
   ],
   preview: {
     select: {
-      imageUrl: 'images.0.asset.url',
-      title: 'Slideshow'
+      imageUrl: 'images.0.asset.url'
     },
     prepare(selection) {
       const { imageUrl } = selection

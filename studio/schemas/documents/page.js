@@ -55,7 +55,8 @@ export default {
         { type: 'slideshow' },
         { type: 'videoEmbed' },
         { type: 'gallery' },
-        { type: 'textContent' }
+        { type: 'textContent' },
+        { type: 'textWithImage' }
       ]
     },
     {
