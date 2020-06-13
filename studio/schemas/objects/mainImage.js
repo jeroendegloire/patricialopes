@@ -19,7 +19,8 @@ export default {
   ],
   preview: {
     select: {
-      imageUrl: 'image.asset->url'
+      imageUrl: 'image.asset->url',
+      title: 'alt'
     }
   }
 }
