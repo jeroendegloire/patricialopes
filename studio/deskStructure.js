@@ -1,7 +1,6 @@
 import S from '@sanity/desk-tool/structure-builder'
 import PreviewIFrame from './src/components/previews/previewIFrame'
 import { GoSettings } from 'react-icons/lib/go'
-
 import EyeIcon from 'part:@sanity/base/eye-icon'
 import EditIcon from 'part:@sanity/base/edit-icon'
 
