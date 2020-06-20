@@ -24,7 +24,8 @@
     "google-analytics",
     "@sanity/production-preview",
     "seo-tools",
-    "media"
+    "media",
+    "dashboard-widget-gatsby"
   ],
   "parts": [
     {
