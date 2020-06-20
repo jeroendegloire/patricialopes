@@ -25,6 +25,10 @@ module.exports = {
       options: {
         projectId: "l2xxtj60",
         dataset: "production",
+        token:
+          "sk37nZMtolSF8KCcTuIu4KgEk02QaGICnGezPKZrpZ2lNEwKTnlHXitC4C8zpnRXNajRwfezLYcXggcngwGaOeUBOgO7wchwI9TcLj77QxI0E9SJyFr5VV83H4CU8ylFyiOiNWKXQF3i6wjyqWEvdTQb9Jci4e0FqrYKE7lWfWkl7XuK5IE8",
+        watchMode: true,
+        overlayDrafts: true,
       },
     },
     {
