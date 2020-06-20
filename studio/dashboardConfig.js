@@ -2,6 +2,16 @@ export default {
   widgets: [
     { name: 'structure-menu' },
     {
+      name: 'gatsby',
+      options: {
+        sites: [
+          {
+            siteUrl: '<previewInstanceUrl>'
+          }
+        ]
+      }
+    },
+    {
       name: 'project-info',
       options: {
         __experimental_before: [

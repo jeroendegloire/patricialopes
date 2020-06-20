@@ -1,15 +1,16 @@
 // See https://tailwindcss.com/docs/configuration for details
 module.exports = {
-    theme: {
-        extend: {
-            spacing: {
-                '105': '28rem',
-            },
-        },
-    },
-    variants: {
-        scale: ['hover'],
+  theme: {
+    extend: {
+      spacing: {
+        "105": "28rem",
       },
-    // https://github.com/tailwindcss/custom-forms
-    plugins: [require('@tailwindcss/custom-forms')],
-}
+    },
+  },
+  variants: {
+    scale: ["hover"],
+  },
+  // https://github.com/tailwindcss/custom-forms
+  plugins: [require("@tailwindcss/custom-forms")],
+  purge: false,
+};
