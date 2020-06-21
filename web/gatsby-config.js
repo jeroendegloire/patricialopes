@@ -15,7 +15,7 @@ module.exports = {
     keywords: `gatsby, gatsbyjs, etc`,
     synonyms: ["seo", "test", "man"],
     image: "/logo.png",
-    author: `@developerjahid`,
+    author: `Jeroen Degloire`,
     url: `https://www.patricialopes.be`,
     siteUrl: `https://www.example.com`,
   },

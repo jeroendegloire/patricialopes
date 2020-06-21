@@ -6,7 +6,7 @@ export default {
       options: {
         sites: [
           {
-            siteUrl: 'https://google.com'
+            siteUrl: 'https://patricialopes-1711684113.gtsb.io/'
           }
         ]
       }
