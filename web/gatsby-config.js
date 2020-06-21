@@ -20,6 +20,7 @@ module.exports = {
     siteUrl: `https://www.example.com`,
   },
   plugins: [
+    `gatsby-transformer-inline-svg`,
     {
       resolve: "gatsby-source-sanity",
       options: {
