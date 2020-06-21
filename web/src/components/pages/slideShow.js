@@ -6,7 +6,7 @@ import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
 const Slideshow = ({ images }) => {
   const settings = {
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
