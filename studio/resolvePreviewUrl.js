@@ -4,7 +4,7 @@ export default function resolvePreviewUrl(document) {
   const baseUrl =
     env === 'development' ? 'http://localhost:8000' : 'https://patricialopes-1711684113.gtsb.io/'
   switch (document._type) {
-    case 'route':
+    case 'page':
       if (!document.slug || !document.slug.current) {
         return baseUrl
       }
@@ -14,6 +14,11 @@ export default function resolvePreviewUrl(document) {
     case 'page':
       if (document._id === 'frontpage' || document._id === 'drafts.frontpage') {
         return baseUrl
+      }
+      return null
+    case 'cinematography':
+      if (document._id === 'frontpage' || document._id === 'drafts.frontpage') {
+        return `${baseUrl}/${document.slug.current}`
       }
       return null
     default:
