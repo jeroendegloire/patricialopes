@@ -6,7 +6,7 @@ export default {
       options: {
         sites: [
           {
-            siteUrl: '<previewInstanceUrl>'
+            siteUrl: 'https://google.com'
           }
         ]
       }

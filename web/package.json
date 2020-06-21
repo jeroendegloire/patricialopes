@@ -1,8 +1,8 @@
 {
-  "name": "developerjahid-starter",
+  "name": "patricialopes",
   "description": "Gatsby starter styled with Tailwind",
   "version": "4.0.0",
-  "author": "Developer Jahid <contact@developerjahid.com>",
+  "author": "Jeroen Degloire",
   "dependencies": {
     "@raae/gatsby-remark-oembed": "^0.1.1",
     "@sanity/block-content-to-react": "^2.0.7",
