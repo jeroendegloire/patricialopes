@@ -11,9 +11,9 @@ const fullConfig = resolveConfig(tailwindConfig);
 module.exports = {
   siteMetadata: {
     title: `Patricia Lopes`,
-    description: `Gatsby starter styled with Tailwind by developjahid //seo description here...`,
-    keywords: `gatsby, gatsbyjs, etc`,
-    synonyms: ["seo", "test", "man"],
+    description: `test`,
+    keywords: "`cinematography, photography`",
+    synonyms: [""],
     image: "/logo.png",
     author: `Jeroen Degloire`,
     url: `https://www.patricialopes.be`,

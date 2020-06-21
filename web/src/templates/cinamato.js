@@ -75,7 +75,7 @@ const ProjectTemplate = ({ data }) => {
   return (
     <Layout>
       <HaveSeo />
-      <section id="cinematography-templete" className="bg-white py-6">
+      <section id="cinematography-templete" className="bg-white py-6 flex-1">
         <div className="max-w-6xl mx-auto flex items-center flex-wrap relative">
           <Link
             to="/cinematography"
@@ -87,7 +87,7 @@ const ProjectTemplate = ({ data }) => {
           {images.map((image) => (
             <div className="mb-4 cinemato-image">
               <Img
-                fluid={getFluidGatsbyImage(
+                fixed={getFixedGatsbyImage(
                   image.asset.id,
                   { width: 1200, height: 600 },
                   sanityConfig

@@ -20,34 +20,36 @@ const Slideshow = ({ images }) => {
   const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
 
   return (
-    <div className="">
-      <Slider {...settings} className="slider-desktop">
-        {images.map((image, i) => (
-          <Img
-            key={i}
-            fixed={getFixedGatsbyImage(
-              image.asset.id,
-              { width: 1900, height: 800 },
-              sanityConfig
-            )}
-            alt={image.alt}
-          />
-        ))}
-      </Slider>
+    <div className="flex flex-1 items-center w-full">
+      <div className="w-full ">
+        <Slider {...settings} className="slider-desktop">
+          {images.map((image, i) => (
+            <Img
+              key={i}
+              fixed={getFixedGatsbyImage(
+                image.asset.id,
+                { width: 1920, height: 810 },
+                sanityConfig
+              )}
+              alt={image.alt}
+            />
+          ))}
+        </Slider>
 
-      <Slider {...settings} className="slider-mobile">
-        {images.map((image, i) => (
-          <Img
-            key={i}
-            fluid={getFluidGatsbyImage(
-              image.asset.id,
-              { maxWidth: 1900, maxHeight: 800 },
-              sanityConfig
-            )}
-            alt={image.alt}
-          />
-        ))}
-      </Slider>
+        <Slider {...settings} className="slider-mobile">
+          {images.map((image, i) => (
+            <Img
+              key={i}
+              fluid={getFluidGatsbyImage(
+                image.asset.id,
+                { maxWidth: 1920, maxHeight: 810 },
+                sanityConfig
+              )}
+              alt={image.alt}
+            />
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 };

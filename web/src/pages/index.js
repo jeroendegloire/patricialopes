@@ -12,11 +12,14 @@ import Video from "../components/pages/video";
 
 export const query = graphql`
   query indexPageTemplateQuery {
-    route: sanityPage(slug: { current: { eq: "/home" } }) {
+    route: sanityPage(slug: { current: { eq: "home" } }) {
       id
       title
       _key
       _rawContent(resolveReferences: { maxDepth: 10 })
+      slug {
+        current
+      }
     }
   }
 `;
@@ -51,10 +54,12 @@ const Index = ({ data }) => {
     });
 
   return (
-    <Layout>
-      <HaveSeo />
-      <div className="">{content}</div>
-    </Layout>
+    <div className>
+      <Layout>
+        <HaveSeo />
+        {content}
+      </Layout>
+    </div>
   );
 };
 

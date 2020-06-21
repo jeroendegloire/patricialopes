@@ -19,21 +19,22 @@ function Header() {
       render={(data) => {
         const { items: items } = data.sanityNavigationMenu;
         return (
-          <header className="flex flex-wrap justify-between p-4 md:p-8 mx-auto w-full">
+          <header className="flex flex-wrap justify-between p-4 mx-auto w-full">
             <Logo />
 
             <nav
               className={`${
                 isExpanded ? `block` : `hidden`
-              } md:block self-end font-medium uppercase text-sm -mb-2 py-8 md:py-0`}
+              } xl:block self-end font-medium uppercase text-sm -mb-2 py-8 xl:py-0 w-full text-center xl:w-auto`}
             >
               <ul>
-                {items.map((item) => (
-                  <li className="block md:inline-block">
+                {items.map((item, i) => (
+                  <li key={i} className="block xl:inline-block">
                     <Link
                       className="inline-block pb-1 mt-4 md:mt-0 md:ml-8 text-center no-underline relative tracking-wider"
                       key={item.name}
                       to={item.link}
+                      activeClassName="is-active"
                     >
                       {item.name}
                     </Link>
@@ -43,7 +44,7 @@ function Header() {
             </nav>
 
             <button
-              className="block md:hidden absolute top-3 right-2"
+              className="block xl:hidden absolute top-3 right-2"
               onClick={() => toggleExpansion(!isExpanded)}
             >
               <svg

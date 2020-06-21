@@ -9,16 +9,16 @@ import FacebookShare from './FacebookShare'
 
 class SeoPreviews extends React.PureComponent {
   static propTypes = {
-    document: PropTypes.object,
+    document: PropTypes.object
   }
 
   static defaultProps = {
-    document: null,
+    document: null
   }
 
   render() {
-    const {options} = this.props
-    const {displayed} = this.props.document
+    const { options } = this.props
+    const { displayed } = this.props.document
 
     return (
       <>

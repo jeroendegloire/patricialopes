@@ -51,6 +51,12 @@ export default {
       name: 'imdb',
       type: 'url',
       fieldset: 'company'
+    },
+    {
+      title: 'Vimeo url',
+      name: 'vimeo',
+      type: 'url',
+      fieldset: 'company'
     }
   ]
 }
