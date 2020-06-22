@@ -40,8 +40,12 @@ const Cinematography = ({ data }) => {
   return (
     <Layout>
       <SEO
-        keywords={[`cine`, `tailwind`, `react`, `tailwindcss`]}
-        title="Cinematography"
+        title=""
+        // keywords={seo.focus_keyword}
+        // synonyms={seo.focus_synonyms}
+        // //          image={page.image.asset.url}
+        // title={seo.seo_title}
+        // description={seo.meta_description}
       />
       <section id="cinematography" className="flex-1 self-start">
         <div className="mx-auto">

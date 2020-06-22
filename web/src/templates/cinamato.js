@@ -54,32 +54,21 @@ const ProjectTemplate = ({ data }) => {
     image: image,
   } = data.sanityCinematography;
 
-  const HaveSeo = () => {
-    if (seo) {
-      return (
-        <SEO
-          keywords={seo.focus_keyword}
-          synonyms={seo.focus_synonyms}
-          image={image.asset.url}
-          title={seo.seo_title}
-          description={seo.meta_description}
-        />
-      );
-    } else {
-      return <SEO title={data.sanityCinematography.title} />;
-    }
-  };
-
   const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
-
   return (
     <Layout>
-      <HaveSeo />
+      <SEO
+        keywords={seo.focus_keyword}
+        synonyms={seo.focus_synonyms}
+        //          image={page.image.asset.url}
+        title={seo.seo_title}
+        description={seo.meta_description}
+      />
       <section id="cinematography-templete" className="bg-white py-6 flex-1">
         <div className="max-w-6xl mx-auto flex items-center flex-wrap relative">
           <Link
             to="/cinematography"
-            className="xl:absolute xl:top-0 xl:-left-6 mb-4"
+            className="xl:absolute xl:top-0 xl:-left-6 mb-4 ml-3"
           >
             <FaAngleLeft size={30} className="inline-block" /> Back
           </Link>
@@ -87,9 +76,9 @@ const ProjectTemplate = ({ data }) => {
           {images.map((image) => (
             <div className="mb-4 cinemato-image">
               <Img
-                fixed={getFixedGatsbyImage(
+                fluid={getFluidGatsbyImage(
                   image.asset.id,
-                  { width: 1200, height: 600 },
+                  { maxWidth: 2000 },
                   sanityConfig
                 )}
                 alt={image.alt}
@@ -97,7 +86,7 @@ const ProjectTemplate = ({ data }) => {
               />
             </div>
           ))}
-          <div className="font-thin px-4">
+          <div className="font-thin px-6">
             <span className="font-medium">
               {data.sanityCinematography.title}
             </span>

@@ -9,6 +9,7 @@ import Text from "../components/pages/text";
 import TextImage from "../components/pages/textImage";
 import Gird from "../components/pages/gird";
 import Video from "../components/pages/video";
+import SEO from "../components/seo";
 
 export const query = graphql`
   query indexPageTemplateQuery {
@@ -20,12 +21,19 @@ export const query = graphql`
       slug {
         current
       }
+      seo {
+        focus_keyword
+        seo_title
+        meta_description
+        focus_synonyms
+      }
     }
   }
 `;
 
 const Index = ({ data }) => {
   const page = data.sanityPage || data.route;
+  const seo = page.seo;
   const content = (page._rawContent || [])
     .filter((c) => !c.disabled)
     .map((c, i) => {
@@ -56,7 +64,13 @@ const Index = ({ data }) => {
   return (
     <div className>
       <Layout>
-        <HaveSeo />
+        <SEO
+          keywords={seo.focus_keyword}
+          synonyms={seo.focus_synonyms}
+          //          image={page.image.asset.url}
+          title={seo.seo_title}
+          description={seo.meta_description}
+        />
         {content}
       </Layout>
     </div>

@@ -25,6 +25,7 @@ export const query = graphql`
         focus_keyword
         seo_title
         meta_description
+        focus_synonyms
       }
     }
   }

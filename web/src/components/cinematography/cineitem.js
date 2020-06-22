@@ -17,9 +17,9 @@ const Cineitem = (props) => {
         <Link to={props.url} className="absolute inset-0 z-10" />
         <Img
           className="hover:smaller"
-          fixed={getFixedGatsbyImage(
+          fluid={getFluidGatsbyImage(
             props.featuredImage,
-            { width: 2000, height: 1125 },
+            { maxWidth: 600, maxHeight: 300 },
             sanityConfig
           )}
           alt={props.altImage}
