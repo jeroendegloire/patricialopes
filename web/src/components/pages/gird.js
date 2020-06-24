@@ -34,13 +34,6 @@ import Isotope from "isotope-layout/js/isotope";
 //import Masonry from "react-masonry-css";
 
 const Gird = ({ items }) => {
-  const breakpointColumnsObj = {
-    default: 4,
-    1100: 3,
-    700: 2,
-    500: 1,
-  };
-
   const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
 
   const [showLightbox, setShowLightbox] = useState(false);
@@ -68,26 +61,31 @@ const Gird = ({ items }) => {
     });
   }, []);
 
+  console.log(items);
+
   return (
     <div className="flex items-center flex-wrap flex-1 -mb-4 masonry-wrapper">
       <div className="flex flex-1 grid">
         {items.map((item, i) => (
-          <div onClick={handleOpen(i)} className={"item-grid " + item.ratio}>
+          <div
+            onClick={handleOpen(i)}
+            className={"item-grid " + item.images.ratio}
+          >
             <Img
               fluid={getFluidGatsbyImage(
-                item.image.asset.id,
+                item.images.image.asset.id,
                 { maxWidth: 800 },
                 sanityConfig
               )}
               key={i}
-              alt={item.image.alt}
+              alt={item.images.image.alt}
             />
           </div>
         ))}
       </div>
       {showLightbox && selectedImage !== null && (
         <LightBox
-          images={items}
+          images={items.images}
           handleClose={handleClose}
           handleNextRequest={handleNextRequest}
           handlePrevRequest={handlePrevRequest}

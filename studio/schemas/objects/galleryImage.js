@@ -1,36 +1,42 @@
 export default {
   name: 'galleryImage',
   type: 'object',
-  title: 'Images',
+  title: 'Items',
   fields: [
     {
-      name: 'image',
-      type: 'image',
-      title: 'Image',
-      options: {
-        hotspot: true
-      },
+      name: 'images',
+      type: 'object',
       fields: [
         {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative text',
-          description:
-            'Important for SEO and accessibility. Use the decision tree to get correct alt text for your image: <a href="https://www.w3.org/WAI/tutorials/images/decision-tree/>link</a>',
+          name: 'image',
+          type: 'image',
+          title: 'Image',
           options: {
-            isHighlighted: true
+            hotspot: true
+          },
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative text',
+              description:
+                'Important for SEO and accessibility. Use the decision tree to get correct alt text for your image: <a href="https://www.w3.org/WAI/tutorials/images/decision-tree/>link</a>',
+              options: {
+                isHighlighted: true
+              }
+            }
+          ]
+        },
+        {
+          name: 'ratio',
+          type: 'string',
+          title: 'Image ratio',
+          options: {
+            list: ['square', 'landscape', 'portrait'],
+            layout: 'radio'
           }
         }
       ]
-    },
-    {
-      name: 'ratio',
-      type: 'string',
-      title: 'Image ratio',
-      options: {
-        list: ['square', 'landscape', 'portrait'],
-        layout: 'radio'
-      }
     }
   ],
   preview: {
