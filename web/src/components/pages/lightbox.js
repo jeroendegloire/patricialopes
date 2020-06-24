@@ -19,8 +19,6 @@ const Lightbox = ({
 }) => {
   const array = [];
 
-  console.log(images[0]);
-
   images.forEach((image) =>
     array.push(
       <NonStretchedImage

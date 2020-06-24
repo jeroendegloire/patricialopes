@@ -67,25 +67,22 @@ const Gird = ({ items }) => {
     <div className="flex items-center flex-wrap flex-1 -mb-4 masonry-wrapper">
       <div className="flex flex-1 grid">
         {items.map((item, i) => (
-          <div
-            onClick={handleOpen(i)}
-            className={"item-grid " + item.images.ratio}
-          >
+          <div onClick={handleOpen(i)} className={"item-grid " + item.ratio}>
             <Img
               fluid={getFluidGatsbyImage(
-                item.images.image.asset.id,
+                item.image.asset.id,
                 { maxWidth: 800 },
                 sanityConfig
               )}
               key={i}
-              alt={item.images.image.alt}
+              alt={item.image.alt}
             />
           </div>
         ))}
       </div>
       {showLightbox && selectedImage !== null && (
         <LightBox
-          images={items.images}
+          images={items}
           handleClose={handleClose}
           handleNextRequest={handleNextRequest}
           handlePrevRequest={handlePrevRequest}
