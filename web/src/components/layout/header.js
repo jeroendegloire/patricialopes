@@ -19,13 +19,13 @@ function Header() {
       render={(data) => {
         const { items: items } = data.sanityNavigationMenu;
         return (
-          <header className="flex flex-wrap justify-between p-4 mx-auto w-full">
+          <header className="flex flex-wrap justify-between p-4 md:p-8 mx-auto w-full">
             <Logo />
 
             <nav
               className={`${
                 isExpanded ? `block` : `hidden`
-              } xl:block self-end font-medium uppercase text-sm -mb-2 py-8 xl:py-0 w-full text-center xl:w-auto`}
+              } xl:block self-end font-medium uppercase text-sm -mb-1 py-8 xl:py-0 w-full text-center xl:w-auto`}
             >
               <ul>
                 {items.map((item, i) => (

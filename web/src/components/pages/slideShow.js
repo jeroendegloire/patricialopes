@@ -6,14 +6,15 @@ import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
 const Slideshow = ({ images }) => {
   const settings = {
     infinite: true,
-    speed: 1000,
+    speed: 800,
+    autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
     autoplay: true,
     pauseOnFocus: false,
     pauseOnHover: false,
-    dots: true,
+    dots: false,
     accessibility: true,
   };
 
@@ -22,7 +23,7 @@ const Slideshow = ({ images }) => {
   return (
     <div className="flex flex-1 items-center w-full">
       <div className="w-full ">
-        <Slider {...settings} className="slider-desktop">
+        {/* <Slider {...settings} className="slider-desktop">
           {images.map((image, i) => (
             <Img
               key={i}
@@ -31,10 +32,11 @@ const Slideshow = ({ images }) => {
                 { width: 1920, height: 810 },
                 sanityConfig
               )}
+              style={(width = image.asset.width, )}
               alt={image.alt}
             />
           ))}
-        </Slider>
+        </Slider> */}
 
         <Slider {...settings} className="slider-mobile">
           {images.map((image, i) => (
@@ -42,7 +44,7 @@ const Slideshow = ({ images }) => {
               key={i}
               fluid={getFluidGatsbyImage(
                 image.asset.id,
-                { maxWidth: 1920, maxHeight: 810 },
+                { maxWidth: 1600, maxHeight: 1000 },
                 sanityConfig
               )}
               alt={image.alt}

@@ -1,24 +1,25 @@
-// import React from "react";
+import React, { useState, useEffect } from "react";
 import Img from "gatsby-image";
 import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
 import LightBox from "./lightbox";
 import PropTypes from "prop-types";
+import Isotope from "isotope-layout/js/isotope";
 
-// const Gird = ({ images }) => {
+// const Gird = ({ items }) => {
 //   const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
 
 //   return (
 //     <div className="mx-auto flex items-center flex-wrap rounded">
 //       <div class="">
-//         {images.map((image) => (
+//         {items.map((item) => (
 //           <div class="">
 //             <Img
 //               fluid={getFluidGatsbyImage(
-//                 image.asset.id,
+//                 item.asset.id,
 //                 { maxWidth: 1000, maxHeight: 1000 },
 //                 sanityConfig
 //               )}
-//               alt={image.alt}
+//               alt={item.alt}
 //             />
 //           </div>
 //         ))}
@@ -29,10 +30,10 @@ import PropTypes from "prop-types";
 
 // export default Gird;
 
-import React, { useState } from "react";
-import Masonry from "react-masonry-css";
+//import React, { useState } from "react";
+//import Masonry from "react-masonry-css";
 
-const Gird = ({ images }) => {
+const Gird = ({ items }) => {
   const breakpointColumnsObj = {
     default: 4,
     1100: 3,
@@ -60,34 +61,33 @@ const Gird = ({ images }) => {
     setSelectedImage((i + 1) % length);
   };
 
-  console.log(
-    "test" +
-      getFluidGatsbyImage(images[0].asset.id, { maxWidth: 1000 }, sanityConfig)
-  );
+  useEffect(() => {
+    var elem = document.querySelector(".grid");
+    var iso = new Isotope(elem, {
+      layoutMode: "masonry",
+    });
+  }, []);
 
   return (
     <div className="flex items-center flex-wrap flex-1 -mb-4 masonry-wrapper">
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
-        {images.map((image, i) => (
-          <div key={i} onClick={handleOpen(i)}>
+      <div className="flex flex-1 grid">
+        {items.map((item, i) => (
+          <div onClick={handleOpen(i)} className={"item-grid " + item.ratio}>
             <Img
               fluid={getFluidGatsbyImage(
-                image.asset.id,
-                { maxWidth: 1000 },
+                item.image.asset.id,
+                { maxWidth: 800 },
                 sanityConfig
               )}
-              alt={image.alt}
+              key={i}
+              alt={item.image.alt}
             />
           </div>
         ))}
-      </Masonry>
+      </div>
       {showLightbox && selectedImage !== null && (
         <LightBox
-          images={images}
+          images={items}
           handleClose={handleClose}
           handleNextRequest={handleNextRequest}
           handlePrevRequest={handlePrevRequest}
@@ -100,7 +100,7 @@ const Gird = ({ images }) => {
 
 Gird.propTypes = {
   classes: PropTypes.object,
-  images: PropTypes.array,
+  items: PropTypes.array,
 };
 
 export default Gird;

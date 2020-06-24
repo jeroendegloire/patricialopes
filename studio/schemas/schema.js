@@ -19,6 +19,7 @@ import cta from './objects/cta'
 import slimPortableText from './objects/slimPortableText'
 import bodyPortableText from './objects/bodyPortableText'
 import mainImage from './objects/mainImage'
+import galleryImage from './objects/galleryImage'
 import link from './objects/link'
 import openGraph from './objects/openGraph'
 import gallery from './objects/gallery'
@@ -42,6 +43,7 @@ export default createSchema({
       navMenu,
       page,
       mainImage,
+      galleryImage,
       videoEmbed,
       slimPortableText,
       bodyPortableText,

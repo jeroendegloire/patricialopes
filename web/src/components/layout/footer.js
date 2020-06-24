@@ -20,6 +20,7 @@ function Footer() {
             facebook
             linkedin
             imdb
+            vimeo
           }
         }
       `}
@@ -30,6 +31,7 @@ function Footer() {
           linkedin,
           imdb,
           facebook,
+          vimeo,
         } = data.sanitySiteSettings;
         return (
           <nav className="inline-block self-end">
@@ -45,7 +47,7 @@ function Footer() {
                 </Link>
               </li>
               <li className="px-2 hover:grow">
-                <Link to={facebook}>
+                <Link to={vimeo}>
                   <FaVimeoV size={20} />
                 </Link>
               </li>

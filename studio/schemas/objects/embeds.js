@@ -20,7 +20,7 @@ export const videoEmbed = {
     }
   ],
   preview: {
-    select: { url: 'url' },
-    component: EmbedPlayer
+    title: 'videoEmbed->url'
+    //component: EmbedPlayer
   }
 }

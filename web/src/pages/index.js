@@ -34,6 +34,8 @@ export const query = graphql`
 const Index = ({ data }) => {
   const page = data.sanityPage || data.route;
   const seo = page.seo;
+  const slug = page.slug.current;
+  const fixed = slug == "home" ? "lg:fixed" : "";
   const content = (page._rawContent || [])
     .filter((c) => !c.disabled)
     .map((c, i) => {
@@ -62,7 +64,7 @@ const Index = ({ data }) => {
     });
 
   return (
-    <div className>
+    <div className={"w-full " + fixed}>
       <Layout>
         <SEO
           keywords={seo.focus_keyword}

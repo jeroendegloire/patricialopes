@@ -69,7 +69,7 @@ const Cinematography = ({ data }) => {
             </ul>
           </div>
         </div>
-        <div className="item mx-auto flex items-center flex-wrap -mt-1">
+        <div className="item mx-auto flex items-center flex-wrap -mt-1 -mx-1">
           {items.map(({ node: item }) => (
             <Cineitem
               title={item.title}

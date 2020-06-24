@@ -5,10 +5,9 @@ export default {
   fields: [
     {
       title: 'Images',
-      name: 'images',
+      name: 'items',
       type: 'array',
-      of: [{ type: 'mainImage' }],
-      validation: Rule => Rule.required()
+      of: [{ type: 'galleryImage' }]
     }
   ]
 }
