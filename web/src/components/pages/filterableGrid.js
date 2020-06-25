@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Cineitem from "../cinematography/cineitem";
+import Isotope from "isotope-layout/js/isotope";
 
 const filterableGrid = ({ items }) => {
+  console.log(items);
+
+  useEffect(() => {
+    var elem = document.querySelector(".item");
+    var iso = new Isotope(elem, {
+      itemSelector: ".item__grid",
+      layoutMode: "fitRows",
+    });
+  }, []);
   return (
-    <div className="item mx-auto flex items-center flex-wrap -mt-1 -mx-1">
-      {items.map(({ node: item }) => (
+    <div className="mx-auto w-full max-w-6xl pt-10 px-10 xl:px-0 item">
+      {items.map((item) => (
         <Cineitem
           title={item.title}
           featuredImage={item.featuredImage.asset.id}
