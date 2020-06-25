@@ -54,7 +54,7 @@ export default {
       of: [
         { type: 'slideshow' },
         { type: 'videoEmbed' },
-        { type: 'filterableGrid' },
+        { type: 'photoGrid' },
         { type: 'gallery' },
         { type: 'textContent' },
         { type: 'textWithImage' },

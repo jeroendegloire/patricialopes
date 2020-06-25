@@ -23,7 +23,7 @@ import galleryImage from './objects/galleryImage'
 import link from './objects/link'
 import openGraph from './objects/openGraph'
 import gallery from './objects/gallery'
-import filterableGrid from './objects/filterableGrid'
+import photoGrid from './objects/photoGrid'
 import accordion from './objects/accordion'
 import slideshow from './objects/slideshow'
 import menuItem from './objects/menuItem'
@@ -54,7 +54,7 @@ export default createSchema({
       cinematography,
       menuItem,
       contact,
-      filterableGrid,
+      photoGrid,
       accordion
     ])
     .concat(allPlugs)

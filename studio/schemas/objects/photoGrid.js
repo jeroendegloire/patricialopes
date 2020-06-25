@@ -1,13 +1,13 @@
 export default {
   type: 'object',
-  name: 'gallery',
-  title: 'Gallery',
+  name: 'photoGrid',
+  title: 'Photo grid',
   fields: [
     {
       title: 'Images',
       name: 'items',
       type: 'array',
-      of: [{ type: 'galleryImage' }]
+      of: [{ type: 'mainImage' }]
     }
   ]
 }
