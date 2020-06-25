@@ -1,4 +1,5 @@
 import React from "react";
+import Cineitem from "../cinematography/cineitem";
 
 const filterableGrid = ({ items }) => {
   return (
