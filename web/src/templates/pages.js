@@ -3,12 +3,14 @@ import { graphql } from "gatsby";
 import Slideshow from "../components/pages/slideShow";
 import HaveSeo from "../components/pages/seo";
 import Layout from "../components/layout/layout";
+import Accordion from "../components/pages/accordion";
 import Contact from "../components/pages/contact";
 import Text from "../components/pages/text";
 import TextImage from "../components/pages/textImage";
 import Gird from "../components/pages/gird";
 import Video from "../components/pages/video";
 import SEO from "../components/seo";
+import FilterableGrid from "../components/pages/filterableGrid";
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
@@ -38,6 +40,7 @@ const PagesTemplate = ({ data }) => {
 
   const theme = slug == "showreel" ? "dark-theme" : "light-theme";
   const fixed = slug == "contact" ? "fixed" : "";
+  const home = slug == "home2" ? "lg:fixed" : "";
 
   const content = (page._rawContent || [])
     .filter((c) => !c.disabled)
@@ -62,6 +65,12 @@ const PagesTemplate = ({ data }) => {
         case "contact":
           el = <Contact key={c._key} {...c} />;
           break;
+        case "accordion":
+          el = <Accordion key={c._key} {...c} />;
+          break;
+        case "filterableGrid":
+          el = <FilterableGrid key={c._key} {...c} />;
+          break;
 
         default:
           el = null;
@@ -70,7 +79,7 @@ const PagesTemplate = ({ data }) => {
     });
 
   return (
-    <div className={"w-full " + theme + fixed}>
+    <div className={"w-full " + theme + " " + fixed + " " + home}>
       <Layout>
         <SEO
           keywords={seo.focus_keyword}
@@ -79,7 +88,7 @@ const PagesTemplate = ({ data }) => {
           title={seo.seo_title}
           description={seo.meta_description}
         />
-        <div className="flex-1 flex">{content}</div>
+        <div className="flex-1 flex flex-col">{content}</div>
       </Layout>
     </div>
   );

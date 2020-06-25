@@ -56,6 +56,12 @@ const Index = ({ data }) => {
         case "videoEmbed":
           el = <Video key={c._key} {...c} />;
           break;
+        case "contact":
+          el = <Contact key={c._key} {...c} />;
+          break;
+        case "accordion":
+          el = <Accordion key={c._key} {...c} />;
+          break;
 
         default:
           el = null;

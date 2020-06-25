@@ -23,20 +23,19 @@ const Slideshow = ({ images }) => {
   return (
     <div className="flex flex-1 items-center w-full">
       <div className="w-full ">
-        {/* <Slider {...settings} className="slider-desktop">
+        <Slider {...settings} className="slider-desktop">
           {images.map((image, i) => (
             <Img
               key={i}
               fixed={getFixedGatsbyImage(
                 image.asset.id,
-                { width: 1920, height: 810 },
+                { width: 1920, height: 1000 },
                 sanityConfig
               )}
-              style={(width = image.asset.width, )}
               alt={image.alt}
             />
           ))}
-        </Slider> */}
+        </Slider>
 
         <Slider {...settings} className="slider-mobile">
           {images.map((image, i) => (

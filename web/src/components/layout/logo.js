@@ -23,7 +23,7 @@ function Logo() {
       `}
       render={(data) => {
         return (
-          <Link className="sm:pt-3 sm:pl-3 md:pt-0 md:pl-0 logo" to="/">
+          <Link className="logo" to="/">
             <SvgComponent />
           </Link>
         );

@@ -1,11 +1,13 @@
-import React from 'react'
-import Figure from './Figure'
+import React from "react";
+import Figure from "./Figure";
+import Accordion from "./pages/accordion";
+import Slideshow from "./pages/slideShow";
 
 const serializers = {
-    types: {
-        authorReference: ({ node }) => <span>{node.author.name}</span>,
-        mainImage: Figure,
-    },
-}
+  types: {
+    authorReference: ({ node }) => <span>{node.author.name}</span>,
+    mainImage: Figure,
+  },
+};
 
-export default serializers
+export default serializers;

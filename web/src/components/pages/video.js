@@ -4,7 +4,7 @@ import { FaPlay } from "react-icons/fa";
 
 const Video = ({ url, posterImage }) => {
   return (
-    <div className="mx-auto flex-1 flex items-center flex-wrap">
+    <div className="mx-auto flex-1 flex items-center flex-wrap w-full">
       <ReactPlayer
         url={url}
         width="100%"

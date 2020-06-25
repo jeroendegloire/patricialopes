@@ -34,7 +34,7 @@ function Footer() {
           vimeo,
         } = data.sanitySiteSettings;
         return (
-          <nav className="inline-block self-end">
+          <nav className="self-end mt-10">
             <ul className="flex justify-center">
               <li className="px-2 hover:grow">
                 <Link to={instagram}>

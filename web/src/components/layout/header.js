@@ -19,32 +19,10 @@ function Header() {
       render={(data) => {
         const { items: items } = data.sanityNavigationMenu;
         return (
-          <header className="flex flex-wrap justify-between p-4 md:p-8 mx-auto w-full">
+          <header className="flex flex-wrap justify-between p-8 mx-auto w-full">
             <Logo />
-
-            <nav
-              className={`${
-                isExpanded ? `block` : `hidden`
-              } xl:block self-end font-medium uppercase text-sm -mb-1 py-8 xl:py-0 w-full text-center xl:w-auto`}
-            >
-              <ul>
-                {items.map((item, i) => (
-                  <li key={i} className="block xl:inline-block">
-                    <Link
-                      className="inline-block pb-1 mt-4 md:mt-0 md:ml-8 text-center no-underline relative tracking-wider"
-                      key={item.name}
-                      to={item.link}
-                      activeClassName="is-active"
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
             <button
-              className="block xl:hidden absolute top-3 right-2"
+              className="block xl:hidden"
               onClick={() => toggleExpansion(!isExpanded)}
             >
               <svg
@@ -56,6 +34,26 @@ function Header() {
                 <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
               </svg>
             </button>
+            <nav
+              className={`${
+                isExpanded ? `block` : `hidden`
+              } xl:block self-end font-medium uppercase text-sm -mb- py-8 xl:py-0 w-full text-center xl:w-auto`}
+            >
+              <ul>
+                {items.map((item, i) => (
+                  <li key={i} className="block xl:inline-block">
+                    <Link
+                      className="inline-block pb-1 mt-4 xl:mt-0 xl:ml-8 text-center no-underline relative tracking-wider"
+                      key={item.name}
+                      to={item.link}
+                      activeClassName="is-active"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </header>
         );
       }}

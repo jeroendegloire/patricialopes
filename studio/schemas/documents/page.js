@@ -54,10 +54,12 @@ export default {
       of: [
         { type: 'slideshow' },
         { type: 'videoEmbed' },
+        { type: 'filterableGrid' },
         { type: 'gallery' },
         { type: 'textContent' },
         { type: 'textWithImage' },
-        { type: 'contact' }
+        { type: 'contact' },
+        { type: 'accordion' }
       ]
     },
     {

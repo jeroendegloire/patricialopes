@@ -1,7 +1,7 @@
 export default {
   name: 'slimPortableText',
   type: 'array',
-  title: 'Excerpt',
+  title: 'Text',
   of: [
     {
       type: 'block',
