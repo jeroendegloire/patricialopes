@@ -1,3 +1,5 @@
+import React from "react";
+
 const filterableGrid = ({ items }) => {
   return (
     <div className="item mx-auto flex items-center flex-wrap -mt-1 -mx-1">

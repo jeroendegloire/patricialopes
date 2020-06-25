@@ -16,7 +16,7 @@ const TextImage = ({ image, text }) => {
         <Img
           fluid={getFluidGatsbyImage(
             image.asset.id,
-            { maxWidth: 2000, maxHeight: 600 },
+            { maxWidth: 1920, maxHeight: 600 },
             sanityConfig
           )}
           alt={image.alt}
