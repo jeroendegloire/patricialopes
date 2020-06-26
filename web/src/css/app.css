@@ -443,11 +443,6 @@ main {
 	}
 }
 
-.ReactModalPortal .gatsby-image-wrapper {
-	width: 100%;
-	margin: 5rem;
-}
-
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
 	cursor: pointer;
@@ -516,4 +511,18 @@ main {
 	.video > div {
 		align-self: flex-start;
 	}
+}
+
+.ReactModalPortal .gatsby-image-wrapper {
+	flex: 1;
+}
+
+.ReactModalPortal .gatsby-image-wrapper img {
+	position: absolute !important;
+	top: 50% !important;
+	height: 90vh !important;
+	right: 0;
+	margin: 0 auto;
+	width: auto !important;
+	transform: translateY(-50%) !important;
 }
