@@ -487,12 +487,23 @@ main {
 	overflow: hidden;
 	transition: max-height 0.6s ease;
 }
+.video > div {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+}
 
 .video > div > div {
-	padding-top: 41.6%;
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: relative;
+}
+
+.video:before {
+	content: '';
+	padding-top: 41.6%;
 }
 
 .video button {
