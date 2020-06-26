@@ -32,7 +32,7 @@ const photoGrid = ({ items }) => {
 
   console.log(items);
   return (
-    <div className="mx-auto w-full max-w-6xl pt-10 px-10 xl:px-0 item mb-20">
+    <div className="mx-auto w-full max-w-6xl pt-10 mx-10 xl:px-0 item mb-20 flex flex-col">
       {items.map((item, i) => (
         <div onClick={handleOpen(i)}>
           <Item key={i} mainImage={item.asset} altImage={item.alt} />
