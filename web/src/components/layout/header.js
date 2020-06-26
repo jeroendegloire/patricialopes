@@ -19,7 +19,7 @@ function Header() {
       render={(data) => {
         const { items: items } = data.sanityNavigationMenu;
         return (
-          <header className="flex flex-wrap justify-between p-8 mx-auto w-full">
+          <header className="flex flex-wrap justify-between p-8 mx-auto w-full mb-2">
             <Logo />
             <button
               className="block xl:hidden"

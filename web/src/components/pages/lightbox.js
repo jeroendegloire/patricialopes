@@ -19,17 +19,15 @@ const Lightbox = ({
 }) => {
   const array = [];
 
-  images.forEach((image) =>
+  images.forEach((image) => {
+    const imageUrl = image.asset ? image.asset.id : image.image.asset.id;
+
     array.push(
       <NonStretchedImage
-        fluid={getFluidGatsbyImage(
-          image.image.asset.id,
-          { maxWidth: 2000 },
-          sanityConfig
-        )}
+        fluid={getFluidGatsbyImage(imageUrl, { maxWidth: 2000 }, sanityConfig)}
       />
-    )
-  );
+    );
+  });
 
   return (
     <LightboxReact

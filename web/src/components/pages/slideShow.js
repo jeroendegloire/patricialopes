@@ -22,28 +22,14 @@ const Slideshow = ({ images }) => {
 
   return (
     <div className="flex flex-1 items-center w-full">
-      <div className="w-full ">
-        <Slider {...settings} className="slider-desktop">
-          {images.map((image, i) => (
-            <Img
-              key={i}
-              fixed={getFixedGatsbyImage(
-                image.asset.id,
-                { width: 1920, height: 1000 },
-                sanityConfig
-              )}
-              alt={image.alt}
-            />
-          ))}
-        </Slider>
-
+      <div className="w-full self-start">
         <Slider {...settings} className="slider-mobile">
           {images.map((image, i) => (
             <Img
               key={i}
               fluid={getFluidGatsbyImage(
                 image.asset.id,
-                { maxWidth: 1600, maxHeight: 1000 },
+                { maxWidth: 1920, maxHeight: 800 },
                 sanityConfig
               )}
               alt={image.alt}

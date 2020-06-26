@@ -42,25 +42,25 @@ const Index = ({ data }) => {
       let el = null;
       switch (c._type) {
         case "slideshow":
-          el = <Slideshow key={c._key} {...c} />;
+          el = <Slideshow key={c._key} {...c} key={i} />;
           break;
         case "textContent":
-          el = <Text key={c._key} {...c} />;
+          el = <Text key={c._key} {...c} key={i} />;
           break;
         case "textWithImage":
-          el = <TextImage key={c._key} {...c} />;
+          el = <TextImage key={c._key} {...c} key={i} />;
           break;
         case "gallery":
-          el = <Gird key={c._key} {...c} />;
+          el = <Gird key={c._key} {...c} key={i} />;
           break;
         case "videoEmbed":
-          el = <Video key={c._key} {...c} />;
+          el = <Video key={c._key} {...c} key={i} />;
           break;
         case "contact":
-          el = <Contact key={c._key} {...c} />;
+          el = <Contact key={c._key} {...c} key={i} />;
           break;
         case "accordion":
-          el = <Accordion key={c._key} {...c} />;
+          el = <Accordion key={c._key} {...c} key={i} />;
           break;
 
         default:

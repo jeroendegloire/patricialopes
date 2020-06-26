@@ -10,7 +10,7 @@ import TextImage from "../components/pages/textImage";
 import Gird from "../components/pages/gird";
 import Video from "../components/pages/video";
 import SEO from "../components/seo";
-import FilterableGrid from "../components/pages/filterableGrid";
+import FilterableGrid from "../components/pages/photoGrid";
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
@@ -68,7 +68,7 @@ const PagesTemplate = ({ data }) => {
         case "accordion":
           el = <Accordion key={c._key} {...c} />;
           break;
-        case "filterableGrid":
+        case "photoGrid":
           el = <FilterableGrid key={c._key} {...c} />;
           break;
 

@@ -4,11 +4,11 @@ import { FaPlay } from "react-icons/fa";
 
 const Video = ({ url, posterImage }) => {
   return (
-    <div className="mx-auto flex-1 flex items-center flex-wrap w-full">
+    <div className="video w-full flex-1 flex items-center">
       <ReactPlayer
         url={url}
         width="100%"
-        height="100%"
+        height="auto"
         playing
         playIcon={
           <button>
@@ -17,11 +17,6 @@ const Video = ({ url, posterImage }) => {
           </button>
         }
         light={posterImage.asset.url + "?h=810"}
-        config={{
-          vimeo: {
-            playerVars: { width: 1920 },
-          },
-        }}
       />
     </div>
   );
