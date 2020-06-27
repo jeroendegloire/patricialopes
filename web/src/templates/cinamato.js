@@ -5,6 +5,7 @@ import Layout from "../components/layout/layout";
 import { FaAngleLeft } from "react-icons/fa";
 import Img from "gatsby-image";
 import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
+import PortableText from "../components/portableText";
 
 export const query = graphql`
   query cinematoTemplateQuery($id: String!) {
@@ -68,12 +69,12 @@ const ProjectTemplate = ({ data }) => {
         <div className="max-w-6xl mx-auto flex items-center flex-wrap relative">
           <Link
             to="/cinematography"
-            className="xl:absolute xl:top-0 xl:-left-6 mb-4 ml-3"
+            className="m-0 absolute bottom-0 inline-block left-auto right-2 xl:top-0 xl:-left-6 xl:right-auto"
           >
             <FaAngleLeft size={30} className="inline-block" /> Back
           </Link>
 
-          {images.map((image) => (
+          {images.map((image, i) => (
             <div className="mb-4 cinemato-image">
               <Img
                 fluid={getFluidGatsbyImage(
@@ -82,41 +83,66 @@ const ProjectTemplate = ({ data }) => {
                   sanityConfig
                 )}
                 alt={image.alt}
-                key={image.asset.id}
+                key={i}
               />
             </div>
           ))}
           <div className="font-thin px-6">
-            <span className="font-medium">
-              {data.sanityCinematography.title}
-            </span>
-            <br />
-            <span>Director(s): </span>
-            {directors.map((director) => (
-              <span>{director}</span>
-            ))}
+            {data.sanityCinematography.title ? (
+              <div>
+                <span className="font-medium uppercase">
+                  {data.sanityCinematography.title}
+                </span>
+                <br />
+              </div>
+            ) : null}
 
-            <br />
-            <span>DOP's: </span>
-            {dops.map((dop) => (
-              <span> {dop}</span>
-            ))}
-            <br />
-            <span>Production: </span>
-            {productions.map((production) => (
-              <span>{production}</span>
-            ))}
-            <br />
-            <span>Client: </span>
-            <span>{data.sanityCinematography.client}</span>
-            <span>imdb</span>
-            <br />
-            <Link
-              to={data.sanityCinematography.imdb}
-              className="underline hover:no-underline"
-            >
-              more info
-            </Link>
+            {directors[0] ? (
+              <div>
+                <span>DIRECTED BY </span>
+                {directors.map((director) => (
+                  <span>{director}</span>
+                ))}
+                <br />
+              </div>
+            ) : null}
+
+            {productions[0] ? (
+              <div>
+                <span>PRODUCTION: </span>
+                {productions.map((production) => (
+                  <span>{production}</span>
+                ))}
+                <br />
+              </div>
+            ) : null}
+
+            {dops[0] ? (
+              <div>
+                <span>DIRECTOR OF PHOTOGRAPHY: </span>
+                {dops.map((dop) => (
+                  <span> {dop}</span>
+                ))}
+                <br />
+              </div>
+            ) : null}
+            {data.sanityCinematography.imdb ? (
+              <div>
+                <Link
+                  to={data.sanityCinematography.imdb}
+                  className="underline hover:no-underline"
+                >
+                  MORE INFO
+                </Link>
+                <br />
+              </div>
+            ) : null}
+
+            <div className="">
+              {data.sanityCinematography.text.map((singleText) => (
+                <PortableText blocks={singleText} />
+              ))}
+            </div>
           </div>
         </div>
       </section>

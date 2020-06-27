@@ -4,16 +4,6 @@ import React from "react";
 
 import Header from "./header";
 
-export const query = graphql`
-  query PageTemplateQueryClass($id: String!) {
-    route: sanityPage(id: { eq: $id }) {
-      slug {
-        current
-      }
-    }
-  }
-`;
-
 function Layout({ children }) {
   return (
     <div className={"flex flex-col min-h-screen"}>

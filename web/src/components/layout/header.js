@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link, StaticQuery } from "gatsby";
 import Logo from "./logo";
+import { FaTimes } from "react-icons/fa";
 
 function Header() {
   const [isExpanded, toggleExpansion] = useState(false);
+
   return (
     <StaticQuery
       query={graphql`
@@ -22,22 +24,28 @@ function Header() {
           <header className="flex flex-wrap justify-between p-8 mx-auto w-full mb-2">
             <Logo />
             <button
-              className="block xl:hidden"
+              className={`${isExpanded ? `open` : `closed`} block xl:hidden`}
               onClick={() => toggleExpansion(!isExpanded)}
             >
               <svg
                 className="w-4 h-4 fill-current"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
+                className={`${isExpanded ? `hidden` : `block`}`}
               >
                 <title>Menu</title>
                 <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
               </svg>
+              <FaTimes
+                size="20"
+                className={`${isExpanded ? `block` : `hidden`}`}
+              />
             </button>
             <nav
+              id="nav"
               className={`${
                 isExpanded ? `block` : `hidden`
-              } xl:block self-end font-medium uppercase text-sm -mb- py-8 xl:py-0 w-full text-center xl:w-auto`}
+              } xl:block self-end font-medium uppercase text-sm -mb- py-8 xl:py-0 w-full text-center xl:w-auto main-menu`}
             >
               <ul>
                 {items.map((item, i) => (
@@ -47,6 +55,7 @@ function Header() {
                       key={item.name}
                       to={item.link}
                       activeClassName="is-active"
+                      onClick={() => toggleExpansion(false)}
                     >
                       {item.name}
                     </Link>

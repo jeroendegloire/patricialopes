@@ -44,7 +44,6 @@ const SEO = ({ title, description, keywords, image, synonyms }) => (
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={seo.description} />
           <meta name="twitter:image" content={seo.image} />
-          <link rel="preconnect" href="https://vimeo.com/161841346"></link>
         </Helmet>
       );
     }}

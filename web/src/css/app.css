@@ -6,10 +6,6 @@
 	transform: scale(1.1);
 }
 
-.xl\:-left-6 {
-	left: -6rem;
-}
-
 body {
 	font-family: "Poppins", Helvetiva, sans-serif;
 	color: #222;
@@ -27,7 +23,7 @@ header nav {
 	margin-bottom: -0.4rem;
 }
 
-@media all and (min-width: 1024px) {
+@media all and (min-width: 768px) {
 	header {
 		padding: 35px 40px;
 	}
@@ -130,7 +126,13 @@ header a:hover:before {
 	max-width: 100%;
 }
 
-@media all and (max-width: 1024px) {
+@media all and (min-width: 1280px) {
+	.xl\:-left-6 {
+		left: -6rem;
+	}
+}
+
+@media all and (max-width: 768px) {
 	/* .slider-desktop {
 		display: none;
 	} */
@@ -165,7 +167,8 @@ header a:hover:before {
 	color: white;
 }
 
-.dark-theme .logo {
+.dark-theme .logo,
+.dark-theme header button svg {
 	fill: #fff;
 }
 
@@ -182,12 +185,19 @@ header a:hover:before {
 }
 
 .logo {
-	width: 420px;
+	width: 400px;
 	max-width: 80%;
 }
 
 .slick-slide {
 	margin-bottom: -0.4rem !important;
+}
+
+.slick-slide img {
+	max-height: calc(100vh - 150px);
+	width: auto !important;
+	margin: 0 auto;
+	right: 0;
 }
 
 .my-masonry-grid {
@@ -261,12 +271,6 @@ header a:hover:before {
 	}
 	100% {
 		opacity: 1;
-	}
-}
-
-@media all and (min-width: 1024px) {
-	.mh-80 {
-		max-height: 655px;
 	}
 }
 
@@ -356,10 +360,6 @@ main {
 
 .contact > div > b {
 	text-transform: uppercase;
-}
-
-.contact h1 {
-	font-family: Helvetica, Arial, sans-serif;
 }
 
 .contact h1:after {
@@ -507,7 +507,7 @@ main {
 	transform: translateY(-50%);
 }
 
-@media all and (min-width: 1024px) {
+@media all and (min-width: 768px) {
 	.video > div {
 		align-self: flex-start;
 	}
@@ -525,4 +525,8 @@ main {
 	margin: 0 auto;
 	width: auto !important;
 	transform: translateY(-50%) !important;
+}
+
+header button svg {
+	height: 1rem;
 }

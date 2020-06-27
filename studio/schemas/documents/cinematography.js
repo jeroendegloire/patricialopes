@@ -53,9 +53,9 @@ export default {
       options: {
         list: [
           { title: 'Music video', value: 'music_video' },
-          { title: 'Fiction', value: 'fiction' },
+          { title: 'Narritive', value: 'fiction' },
           { title: 'Documentary', value: 'documentary' },
-          { title: 'Commercials', value: 'commercials' }
+          { title: 'Commercial', value: 'commercials' }
         ]
       },
       layout: 'radio',
@@ -74,9 +74,38 @@ export default {
       of: [{ type: 'mainImage' }]
     },
     {
+      name: 'directors',
+      type: 'array',
+      title: 'Director',
+      of: [{ type: 'string' }],
+      fieldset: 'details'
+    },
+    {
+      name: 'production',
+      type: 'array',
+      title: 'Producer',
+      of: [{ type: 'string' }],
+      fieldset: 'details'
+    },
+    {
+      name: 'dops',
+      type: 'array',
+      title: 'Director of photography',
+      of: [{ type: 'string' }],
+      fieldset: 'details'
+    },
+    {
+      name: 'imdb',
+      type: 'url',
+      title: 'More info url',
+      description: 'Can be used to link to imdb or other channels.',
+      fieldset: 'details'
+    },
+    {
       type: 'bodyPortableText',
       name: 'text',
-      validation: Rule => Rule.required()
+      validation: Rule => Rule.required(),
+      fieldset: 'details'
     },
     {
       title: 'Sharing image',

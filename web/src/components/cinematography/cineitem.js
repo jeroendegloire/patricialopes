@@ -19,7 +19,7 @@ const Cineitem = (props) => {
           className="hover:smaller"
           fluid={getFluidGatsbyImage(
             props.featuredImage,
-            { maxWidth: 600, maxHeight: 300 },
+            { maxWidth: 1200, maxHeight: 600 },
             sanityConfig
           )}
           alt={props.altImage}

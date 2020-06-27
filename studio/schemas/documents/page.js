@@ -127,8 +127,7 @@ export default {
     },
     prepare({ title, subtitle }) {
       return {
-        title,
-        subtitle: ['/', title].join('')
+        title
       }
     }
   }

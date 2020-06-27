@@ -2,6 +2,8 @@ import React from "react";
 import Img from "gatsby-image";
 import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
 import { Link } from "gatsby";
+import Footer from "../layout/footer";
+
 import {
   FaInstagram,
   FaFacebookSquare,
@@ -39,40 +41,9 @@ const Contact = ({
         </div>
 
         <div className="bg-white inline-block p-10 md:p-20 border contact text-center z-10 border-black md:px-32 relative">
-          <nav className="inline-block self-end mb-10">
-            <ul className="flex justify-center">
-              <li className="px-2 hover:grow">
-                <Link to={instagram}>
-                  <FaInstagram size={20} />
-                </Link>
-              </li>
-              <li className="px-2 hover:grow">
-                <Link to={imdb}>
-                  <FaImdb size={20} />
-                </Link>
-              </li>
-              <li className="px-2 hover:grow">
-                <Link to={vimeo}>
-                  <FaVimeoV size={20} />
-                </Link>
-              </li>
-              <li className="px-2 hover:grow">
-                <Link to={twitter}>
-                  <FaTwitter size={20} />
-                </Link>
-              </li>
-              <li className="px-2 hover:grow">
-                <Link to={linkedin}>
-                  <FaLinkedin size={20} />
-                </Link>
-              </li>
-              <li className="px-2 hover:grow">
-                <Link to={facebook}>
-                  <FaFacebookSquare size={20} />
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <div className="mb-10 -mt-10">
+            <Footer />
+          </div>
           <h1 className="uppercase mb-8 relative">{title}</h1>
           <div className="my-2">
             <b>Email: </b>

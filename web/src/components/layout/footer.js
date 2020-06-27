@@ -26,45 +26,45 @@ function Footer() {
       `}
       render={(data) => {
         const {
-          twitter,
           instagram,
           linkedin,
           imdb,
           facebook,
           vimeo,
+          twitter,
         } = data.sanitySiteSettings;
         return (
           <nav className="self-end mt-10">
             <ul className="flex justify-center">
               <li className="px-2 hover:grow">
-                <Link to={instagram}>
+                <a href={instagram} target="_blank">
                   <FaInstagram size={20} />
-                </Link>
+                </a>
               </li>
               <li className="px-2 hover:grow">
-                <Link to={imdb}>
+                <a href={imdb} target="_blank">
                   <FaImdb size={20} />
-                </Link>
+                </a>
               </li>
               <li className="px-2 hover:grow">
-                <Link to={vimeo}>
+                <a href={vimeo} target="_blank">
                   <FaVimeoV size={20} />
-                </Link>
+                </a>
               </li>
-              <li className="px-2 hover:grow">
+              {/* <li className="px-2 hover:grow">
                 <Link to={twitter}>
                   <FaTwitter size={20} />
                 </Link>
-              </li>
+              </li> */}
               <li className="px-2 hover:grow">
-                <Link to={linkedin}>
+                <a href={linkedin} target="_blank">
                   <FaLinkedin size={20} />
-                </Link>
+                </a>
               </li>
               <li className="px-2 hover:grow">
-                <Link to={facebook}>
+                <a href={facebook} target="_blank">
                   <FaFacebookSquare size={20} />
-                </Link>
+                </a>
               </li>
             </ul>
           </nav>

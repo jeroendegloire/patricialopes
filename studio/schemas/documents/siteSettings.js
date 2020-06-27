@@ -10,18 +10,18 @@ export default {
       type: 'string',
       title: 'Site name'
     },
-    {
-      title: 'Open graph',
-      name: 'openGraph',
-      description: 'These will be the default meta tags on all pages that have not set their own',
-      type: 'openGraph'
-    },
-    {
-      title: 'Logo',
-      name: 'logo',
-      type: 'mainImage',
-      fieldset: 'company'
-    },
+    // {
+    //   title: 'Open graph',
+    //   name: 'openGraph',
+    //   description: 'These will be the default meta tags on all pages that have not set their own',
+    //   type: 'openGraph'
+    // },
+    // {
+    //   title: 'Logo',
+    //   name: 'logo',
+    //   type: 'mainImage',
+    //   fieldset: 'company'
+    // },
     {
       title: 'Facebook url',
       name: 'facebook',
