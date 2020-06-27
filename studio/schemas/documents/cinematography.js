@@ -74,38 +74,9 @@ export default {
       of: [{ type: 'mainImage' }]
     },
     {
-      name: 'directors',
-      type: 'array',
-      title: 'Director(s)',
-      of: [{ type: 'string' }],
-      fieldset: 'details'
-    },
-    {
-      name: 'dops',
-      type: 'array',
-      title: "Dop's",
-      of: [{ type: 'string' }],
-      fieldset: 'details'
-    },
-    {
-      name: 'production',
-      type: 'array',
-      title: 'Production',
-      of: [{ type: 'string' }],
-      fieldset: 'details'
-    },
-    {
-      name: 'client',
-      type: 'string',
-      title: 'Client',
-      fieldset: 'details'
-    },
-    {
-      name: 'imdb',
-      type: 'url',
-      title: 'More info url',
-      description: 'Can be used to link to imdb or other channels.',
-      fieldset: 'details'
+      type: 'bodyPortableText',
+      name: 'text',
+      validation: Rule => Rule.required()
     },
     {
       title: 'Sharing image',
