@@ -25,11 +25,16 @@ export const query = graphql`
         alt
       }
       category
-      client
       directors
       dops
       production
       imdb
+      text {
+        _key
+        _type
+        style
+        list
+      }
       seo {
         seo_title
         meta_description
@@ -138,11 +143,14 @@ const ProjectTemplate = ({ data }) => {
               </div>
             ) : null}
 
-            <div className="">
-              {data.sanityCinematography.text.map((singleText) => (
-                <PortableText blocks={singleText} />
-              ))}
-            </div>
+            {console.log(data.sanityCinematography.text)}
+            {data.sanityCinematography.text ? (
+              <div className="">
+                {data.sanityCinematography.text.map((singleText) => (
+                  <PortableText blocks={singleText} />
+                ))}
+              </div>
+            ) : null}
           </div>
         </div>
       </section>

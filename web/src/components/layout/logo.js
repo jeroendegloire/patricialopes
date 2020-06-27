@@ -12,12 +12,7 @@ function Logo() {
       query={graphql`
         query LogoQuery {
           sanitySiteSettings {
-            logo {
-              alt
-              asset {
-                id
-              }
-            }
+            id
           }
         }
       `}
