@@ -520,7 +520,7 @@ main {
 .ReactModalPortal .gatsby-image-wrapper img {
 	position: absolute !important;
 	top: 50% !important;
-	height: 90vh !important;
+	max-height: 90vh !important;
 	right: 0;
 	margin: 0 auto;
 	width: auto !important;
