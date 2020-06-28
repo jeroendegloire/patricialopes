@@ -70,6 +70,10 @@ const Gird = ({ items }) => {
                   .format("jpg")
                   .url()}
                 alt={item.image.alt}
+                style={{
+                  objectPosition:
+                    item.positionVertical + " " + item.positionHorizontal,
+                }}
               />
             </div>
           </div>
