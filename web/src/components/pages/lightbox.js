@@ -10,6 +10,22 @@ import NonStretchedImage from "./nonStretchedImage";
 
 const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
 
+import imageUrlBuilder from "@sanity/image-url";
+
+const sanityClient = require("@sanity/client");
+const client = sanityClient({
+  projectId: "l2xxtj60",
+  dataset: "production",
+  //token: "myToken",
+  useCdn: false,
+});
+
+const builder = imageUrlBuilder(client);
+
+function urlFor(source) {
+  return builder.image(source);
+}
+
 const Lightbox = ({
   images,
   selectedImage,
@@ -20,11 +36,12 @@ const Lightbox = ({
   const array = [];
 
   images.forEach((image) => {
-    const imageUrl = image.asset ? image.asset.id : image.image.asset.id;
-
+    const imageUrl = image.asset ? image.asset : image.image.asset;
+    const imageAlt = image.alt ? image.alt : image.image.alt;
     array.push(
-      <NonStretchedImage
-        fluid={getFluidGatsbyImage(imageUrl, { maxWidth: 2000 }, sanityConfig)}
+      <img
+        src={urlFor(imageUrl).width(2000).quality(100).format("jpg").url()}
+        alt={imageAlt}
       />
     );
   });

@@ -5,33 +5,21 @@ import LightBox from "./lightbox";
 import PropTypes from "prop-types";
 import Isotope from "isotope-layout/js/isotope";
 
-// const Gird = ({ items }) => {
-//   const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
+import imageUrlBuilder from "@sanity/image-url";
 
-//   return (
-//     <div className="mx-auto flex items-center flex-wrap rounded">
-//       <div class="">
-//         {items.map((item) => (
-//           <div class="">
-//             <Img
-//               fluid={getFluidGatsbyImage(
-//                 item.asset.id,
-//                 { maxWidth: 1000, maxHeight: 1000 },
-//                 sanityConfig
-//               )}
-//               alt={item.alt}
-//             />
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
+const sanityClient = require("@sanity/client");
+const client = sanityClient({
+  projectId: "l2xxtj60",
+  dataset: "production",
+  //token: "myToken",
+  useCdn: false,
+});
 
-// export default Gird;
+const builder = imageUrlBuilder(client);
 
-//import React, { useState } from "react";
-//import Masonry from "react-masonry-css";
+function urlFor(source) {
+  return builder.image(source);
+}
 
 const Gird = ({ items }) => {
   const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
@@ -68,15 +56,32 @@ const Gird = ({ items }) => {
       <div className="flex flex-1 grid">
         {items.map((item, i) => (
           <div onClick={handleOpen(i)} className={"item-grid " + item.ratio}>
-            <Img
+            <div
+              className={"gatsby-image-wrapper"}
+              style={{
+                backgroundImage: `url(${item.image.asset.metadata.lqip})`,
+                backgroundSize: "cover",
+              }}
+            >
+              <div aria-hidden="true"></div>
+              {/* <Img
               fluid={getFluidGatsbyImage(
                 item.image.asset.id,
-                { maxWidth: 800 },
+                { maxWidth: 800, toFormat: "JPG" },
                 sanityConfig
               )}
               key={i}
               alt={item.image.alt}
-            />
+            /> */}
+              <img
+                src={urlFor(item.image.asset)
+                  .width(2000)
+                  .quality(90)
+                  .format("jpg")
+                  .url()}
+                alt={item.image.alt}
+              />
+            </div>
           </div>
         ))}
       </div>

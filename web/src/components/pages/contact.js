@@ -28,7 +28,7 @@ const Contact = ({
 }) => {
   const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
   return (
-    <div className="contact flex flex-1 lg:flex-initial items-center justify-center relative p-5 lg:p-0 w-full contact-wrapper">
+    <div className="contact flex flex-1 lg:flex-initial items-center justify-center relative p-5 md:p-0 w-full contact-wrapper">
       <div>
         <div className="absolute inset-0">
           <Img

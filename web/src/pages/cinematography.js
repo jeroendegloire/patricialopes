@@ -58,7 +58,7 @@ const Cinematography = ({ data }) => {
                 Music Video
               </li>
               <li className="mx-3 cursor-pointer" data-filter=".fiction">
-                Fiction
+                Narrative
               </li>
               <li className="mx-3 cursor-pointer" data-filter=".documentary">
                 Documentary

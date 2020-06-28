@@ -25,6 +25,7 @@ export const query = graphql`
         alt
       }
       category
+      subcategory
       directors
       dops
       production
@@ -70,7 +71,10 @@ const ProjectTemplate = ({ data }) => {
         title={seo.seo_title}
         description={seo.meta_description}
       />
-      <section id="cinematography-templete" className="bg-white py-6 flex-1">
+      <section
+        id="cinematography-templete"
+        className="bg-white py-6 md:p-10 flex-1"
+      >
         <div className="max-w-6xl mx-auto flex items-center flex-wrap relative">
           <Link
             to="/cinematography"
@@ -92,14 +96,18 @@ const ProjectTemplate = ({ data }) => {
               />
             </div>
           ))}
-          <div className="font-thin px-6">
+          <div className="font-thin px-6 lg:px-0">
             {data.sanityCinematography.title ? (
-              <div>
-                <span className="font-medium uppercase">
-                  {data.sanityCinematography.title}
-                </span>
-                <br />
-              </div>
+              <h1 className="font-medium uppercase text-base mb-4">
+                {data.sanityCinematography.title}
+              </h1>
+            ) : null}
+            {data.sanityCinematography.subcategory == "short_film" ? (
+              <div className="uppercase mb-4">Short film</div>
+            ) : null}
+
+            {data.sanityCinematography.subcategory == "feature_film" ? (
+              <div className="uppercase mb-4">Feature film</div>
             ) : null}
 
             {directors[0] ? (
@@ -145,10 +153,8 @@ const ProjectTemplate = ({ data }) => {
 
             {console.log(data.sanityCinematography.text)}
             {data.sanityCinematography.text ? (
-              <div className="">
-                {data.sanityCinematography.text.map((singleText) => (
-                  <PortableText blocks={singleText} />
-                ))}
+              <div className="mt-4">
+                <PortableText blocks={data.sanityCinematography.text[0]} />
               </div>
             ) : null}
           </div>
