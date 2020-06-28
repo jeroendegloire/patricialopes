@@ -6,6 +6,21 @@ import { FaAngleLeft } from "react-icons/fa";
 import Img from "gatsby-image";
 import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
 import PortableText from "../components/portableText";
+import imageUrlBuilder from "@sanity/image-url";
+
+const sanityClient = require("@sanity/client");
+const client = sanityClient({
+  projectId: "l2xxtj60",
+  dataset: "production",
+  //token: "myToken",
+  useCdn: true,
+});
+
+const builder = imageUrlBuilder(client);
+
+function urlFor(source) {
+  return builder.image(source);
+}
 
 export const query = graphql`
   query cinematoTemplateQuery($id: String!) {
@@ -21,6 +36,19 @@ export const query = graphql`
       fragments {
         asset {
           id
+          metadata {
+            lqip
+            dimensions {
+              aspectRatio
+            }
+          }
+          fluid {
+            base64
+            aspectRatio
+            src
+            srcSet
+            sizes
+          }
         }
         alt
       }
@@ -78,21 +106,29 @@ const ProjectTemplate = ({ data }) => {
         <div className="max-w-6xl mx-auto flex items-center flex-wrap relative">
           <Link
             to="/cinematography"
-            className="m-0 absolute bottom-0 inline-block left-auto right-2 xl:top-0 xl:-left-6 xl:right-auto"
+            className="m-0 absolute bottom-0 inline-block left-auto xl:right-2 xl:top-0 xl:-left-6 xl:right-auto"
           >
             <FaAngleLeft size={30} className="inline-block" /> Back
           </Link>
 
           {images.map((image, i) => (
-            <div className="mb-4 cinemato-image">
-              <Img
-                fluid={getFluidGatsbyImage(
-                  image.asset.id,
-                  { maxWidth: 2000 },
-                  sanityConfig
-                )}
+            <div className="mb-4 cinemato-image relative">
+              <div
+                aria-hidden="true"
+                style={{
+                  backgroundImage: `url(${image.asset.metadata.lqip})`,
+                  backgroundSize: "cover",
+                  paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
+                }}
+              ></div>
+              <img
+                src={urlFor(image.asset.id)
+                  .width(2400)
+                  .quality(90)
+                  .format("jpg")
+                  .url()}
                 alt={image.alt}
-                key={i}
+                className="absolute inset-0"
               />
             </div>
           ))}

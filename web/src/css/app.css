@@ -194,7 +194,7 @@ header a:hover:before {
 }
 
 .slick-slide img {
-  max-height: calc(100vh - 210px);
+  max-height: calc(100vh - 130px);
   width: auto !important;
   margin: 0 auto;
   right: 0;
@@ -419,6 +419,7 @@ main {
   z-index: 1;
 }
 
+.item__grid .gatsby-image-wrapper,
 .item--grid > figure > div,
 .square > div,
 .landscape > div,
@@ -427,6 +428,7 @@ main {
   overflow: hidden;
 }
 
+.item__grid img,
 .item--grid img,
 .square img,
 .landscape img,
@@ -460,6 +462,7 @@ main {
   width: 100%;
 }
 
+.item__grid .gatsby-image-wrapper > div,
 .item--grid > figure > div {
   content: "";
   padding-top: 50%;
@@ -575,5 +578,5 @@ figure img {
 
 .contact img,
 .react-player__preview {
-  max-height: calc(100vh - 210px);
+  max-height: calc(100vh - 130px);
 }

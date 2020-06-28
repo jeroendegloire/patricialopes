@@ -14,6 +14,7 @@ const Cinematography = ({ data }) => {
     var iso = new Isotope(elem, {
       itemSelector: ".item__grid",
       layoutMode: "fitRows",
+      percentPosition: true,
     });
     var filtersElem = document.querySelector(".filters-button-group");
     filtersElem.addEventListener("click", function (event) {
@@ -73,7 +74,7 @@ const Cinematography = ({ data }) => {
           {items.map(({ node: item }) => (
             <Cineitem
               title={item.title}
-              featuredImage={item.featuredImage.asset.id}
+              featuredImage={item.featuredImage}
               altImage={item.featuredImage.alt}
               category={item.category}
               url={item.slug.current}
@@ -97,9 +98,21 @@ export const query = graphql`
           }
           featuredImage {
             alt
-
             asset {
               id
+              metadata {
+                lqip
+                dimensions {
+                  aspectRatio
+                }
+              }
+              fluid {
+                base64
+                aspectRatio
+                src
+                srcSet
+                sizes
+              }
             }
           }
           category

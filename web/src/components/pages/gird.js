@@ -12,7 +12,7 @@ const client = sanityClient({
   projectId: "l2xxtj60",
   dataset: "production",
   //token: "myToken",
-  useCdn: false,
+  useCdn: true,
 });
 
 const builder = imageUrlBuilder(client);
@@ -46,10 +46,9 @@ const Gird = ({ items }) => {
     var elem = document.querySelector(".grid");
     var iso = new Isotope(elem, {
       layoutMode: "masonry",
+      percentPosition: true,
     });
   }, []);
-
-  console.log(items);
 
   return (
     <div className="flex items-center flex-wrap flex-1 -mb-4 masonry-wrapper">
@@ -64,15 +63,6 @@ const Gird = ({ items }) => {
               }}
             >
               <div aria-hidden="true"></div>
-              {/* <Img
-              fluid={getFluidGatsbyImage(
-                item.image.asset.id,
-                { maxWidth: 800, toFormat: "JPG" },
-                sanityConfig
-              )}
-              key={i}
-              alt={item.image.alt}
-            /> */}
               <img
                 src={urlFor(item.image.asset)
                   .width(2000)

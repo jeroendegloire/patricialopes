@@ -17,7 +17,7 @@ const client = sanityClient({
   projectId: "l2xxtj60",
   dataset: "production",
   //token: "myToken",
-  useCdn: false,
+  useCdn: true,
 });
 
 const builder = imageUrlBuilder(client);

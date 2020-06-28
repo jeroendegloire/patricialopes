@@ -53,13 +53,23 @@ export default {
       options: {
         list: [
           { title: 'Music video', value: 'music_video' },
-          { title: 'Narritive', value: 'fiction' },
+          { title: 'Narrative', value: 'fiction' },
           { title: 'Documentary', value: 'documentary' },
           { title: 'Commercial', value: 'commercials' }
         ]
       },
-      layout: 'radio',
       validation: Rule => Rule.required()
+    },
+    {
+      name: 'subcategory',
+      type: 'string',
+      title: 'Subcategory',
+      options: {
+        list: [
+          { title: 'Feature film', value: 'feature_film' },
+          { title: 'Short film', value: 'short_film' }
+        ]
+      }
     },
     {
       name: 'featuredImage',

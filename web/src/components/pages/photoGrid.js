@@ -30,26 +30,29 @@ const photoGrid = ({ items }) => {
     });
   }, []);
 
-  console.log(items);
   return (
     <div className="mx-auto w-full max-w-6xl pt-10 mx-10 xl:px-0 item mb-20 flex flex-col">
-      {items.map((item, i) => (
-        <div
-          onClick={handleOpen(i)}
-          className="w-full md:w-1/2 lg:w-1/3 flex flex-col relative item--grid"
-        >
-          <Item key={i} mainImage={item.asset} altImage={item.alt} />
-        </div>
-      ))}
-      {showLightbox && selectedImage !== null && (
-        <LightBox
-          images={items}
-          handleClose={handleClose}
-          handleNextRequest={handleNextRequest}
-          handlePrevRequest={handlePrevRequest}
-          selectedImage={selectedImage}
-        />
-      )}
+      <div>
+        {items.map((item, i) => (
+          <div
+            onClick={handleOpen(i)}
+            className="w-full md:w-1/2 lg:w-1/3 flex flex-col relative item--grid"
+          >
+            <Item key={i} mainImage={item.asset} altImage={item.alt} />
+          </div>
+        ))}
+      </div>
+      <div>
+        {showLightbox && selectedImage !== null && (
+          <LightBox
+            images={items}
+            handleClose={handleClose}
+            handleNextRequest={handleNextRequest}
+            handlePrevRequest={handlePrevRequest}
+            selectedImage={selectedImage}
+          />
+        )}
+      </div>
     </div>
   );
 };

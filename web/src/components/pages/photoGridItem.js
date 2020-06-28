@@ -10,7 +10,7 @@ const client = sanityClient({
   projectId: "l2xxtj60",
   dataset: "production",
   //token: "myToken",
-  useCdn: false,
+  useCdn: true,
 });
 
 const builder = imageUrlBuilder(client);
@@ -25,22 +25,21 @@ const photoGridItem = (props) => {
   const placeholder = props.mainImage.metadata.lqip;
   const aspectRatio = props.mainImage.metadata.dimensions.aspectRatio;
 
-  const Figure = styled.figure`
-  background-image: url('${placeholder}');
-  background-size: cover;
-  `;
-
   return (
-    <Figure classname="gatsby-image-wrapper">
+    <figure
+      classname="gatsby-image-wrapper"
+      style={({ backgroundSize: "cover" }, { backgroundImage: placeholder })}
+    >
       <div aria-hidden="true"></div>
       <img
         src={urlFor(props.mainImage)
           .size(1200, 600)
           .fit("crop")
-          .crop("focalpoint")
+          .format("jpg")
+          .crop("entropy")
           .url()}
       />
-    </Figure>
+    </figure>
   );
 };
 
