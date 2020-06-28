@@ -19,6 +19,24 @@ export default {
         list: ['square', 'landscape', 'portrait'],
         layout: 'radio'
       }
+    },
+    {
+      name: 'positionVertical',
+      type: 'string',
+      title: 'Position Vertical',
+      options: {
+        list: ['top', 'center', 'bottom'],
+        layout: 'radio'
+      }
+    },
+    {
+      name: 'positionHorizontal',
+      type: 'string',
+      title: 'Position Horizontal',
+      options: {
+        list: ['left', 'center', 'right'],
+        layout: 'radio'
+      }
     }
   ],
   preview: {
