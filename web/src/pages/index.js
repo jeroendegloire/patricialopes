@@ -18,6 +18,13 @@ export const query = graphql`
       title
       _key
       _rawContent(resolveReferences: { maxDepth: 10 })
+      image {
+        alt
+        asset {
+          id
+          url
+        }
+      }
       slug {
         current
       }
@@ -75,8 +82,7 @@ const Index = ({ data }) => {
         <SEO
           keywords={seo.focus_keyword}
           synonyms={seo.focus_synonyms}
-          //          image={page.image.asset.url}
-          title={seo.seo_title}
+          image={page.image.asset.url}
           description={seo.meta_description}
         />
         {content}

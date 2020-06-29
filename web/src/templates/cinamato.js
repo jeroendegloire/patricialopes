@@ -96,8 +96,7 @@ const ProjectTemplate = ({ data }) => {
       <SEO
         keywords={seo.focus_keyword}
         synonyms={seo.focus_synonyms}
-        //          image={page.image.asset.url}
-        title={seo.seo_title}
+        image={image.asset.url}
         description={seo.meta_description}
       />
       <section
@@ -113,7 +112,7 @@ const ProjectTemplate = ({ data }) => {
           </Link>
 
           {images.map((image, i) => (
-            <div className="mb-4 cinemato-image relative">
+            <div className="mb-4 cinemato-image relative" key={i}>
               <div
                 aria-hidden="true"
                 style={{
@@ -188,7 +187,6 @@ const ProjectTemplate = ({ data }) => {
               </div>
             ) : null}
 
-            {console.log(data.sanityCinematography.text)}
             {data.sanityCinematography.text ? (
               <div className="mt-4">
                 <PortableText blocks={data.sanityCinematography.text[0]} />

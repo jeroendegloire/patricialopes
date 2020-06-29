@@ -25,8 +25,6 @@ const photoGridItem = (props) => {
   const x = props.mainImage.hotspot ? props.mainImage.hotspot.x : null;
   const y = props.mainImage.hotspot ? props.mainImage.hotspot.y : null;
 
-  console.log(x);
-
   return (
     <figure
       className="gatsby-image-wrapper"

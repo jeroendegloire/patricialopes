@@ -17,7 +17,7 @@ module.exports = {
     image: "/logo.png",
     author: `Jeroen Degloire`,
     url: `https://www.patricialopes.be`,
-    siteUrl: `https://www.example.com`,
+    siteUrl: `https://www.patricialopes.be`,
   },
   plugins: [
     `gatsby-transformer-inline-svg`,
@@ -62,7 +62,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://patricialopes.netlify.app`,
+        siteUrl: `https://www.patricialopes.be`,
       },
     },
     `gatsby-plugin-sitemap`,
