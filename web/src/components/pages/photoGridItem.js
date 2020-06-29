@@ -20,10 +20,12 @@ function urlFor(source) {
 }
 
 const photoGridItem = (props) => {
-  const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
-
   const placeholder = props.mainImage.asset.metadata.lqip;
-  const aspectRatio = props.mainImage.asset.metadata.dimensions.aspectRatio;
+
+  const x = props.mainImage.hotspot ? props.mainImage.hotspot.x : null;
+  const y = props.mainImage.hotspot ? props.mainImage.hotspot.y : null;
+
+  console.log(x);
 
   return (
     <figure
@@ -38,8 +40,9 @@ const photoGridItem = (props) => {
         src={urlFor(props.mainImage)
           .size(1200, 600)
           .fit("crop")
+          .crop("focalpoint")
+          .focalPoint(x, y)
           .format("jpg")
-          .crop("entropy")
           .url()}
       />
     </figure>
