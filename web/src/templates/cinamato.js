@@ -57,7 +57,8 @@ export const query = graphql`
       directors
       dops
       production
-      imdb
+      linkUrl
+      linkText
       text {
         _key
         _type
@@ -112,7 +113,7 @@ const ProjectTemplate = ({ data }) => {
           </Link>
 
           {images.map((image, i) => (
-            <div className="mb-4 cinemato-image">
+            <div className="mb-4 cinemato-image relative">
               <div
                 aria-hidden="true"
                 style={{
@@ -128,6 +129,7 @@ const ProjectTemplate = ({ data }) => {
                   .format("jpg")
                   .url()}
                 alt={image.alt}
+                className="absolute inset-0"
               />
             </div>
           ))}
@@ -174,13 +176,13 @@ const ProjectTemplate = ({ data }) => {
                 <br />
               </div>
             ) : null}
-            {data.sanityCinematography.imdb ? (
+            {data.sanityCinematography.linkUrl ? (
               <div>
                 <Link
-                  to={data.sanityCinematography.imdb}
+                  to={data.sanityCinematography.linkUrl}
                   className="underline hover:no-underline"
                 >
-                  MORE INFO
+                  {data.sanityCinematography.linkText}
                 </Link>
                 <br />
               </div>
