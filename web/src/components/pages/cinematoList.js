@@ -33,6 +33,8 @@ const CinematoList = ({ list }) => {
     }
   }, []);
 
+  console.log(list);
+
   return (
     <section id="cinematography" className="flex-1 flex flex-col">
       <div className="mx-auto">

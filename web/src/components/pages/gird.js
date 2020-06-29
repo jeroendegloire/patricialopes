@@ -54,7 +54,11 @@ const Gird = ({ items }) => {
     <div className="flex items-center flex-wrap flex-1 -mb-4 masonry-wrapper">
       <div className="flex flex-1 grid">
         {items.map((item, i) => (
-          <div onClick={handleOpen(i)} className={"item-grid " + item.ratio}>
+          <div
+            onClick={handleOpen(i)}
+            className={"item-grid " + item.ratio}
+            key={i}
+          >
             <div
               className={"gatsby-image-wrapper"}
               style={{

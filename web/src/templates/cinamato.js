@@ -32,6 +32,10 @@ export const query = graphql`
           url
         }
         alt
+        hotspot {
+          x
+          y
+        }
       }
       fragments {
         asset {
@@ -75,6 +79,10 @@ export const query = graphql`
         asset {
           url
         }
+        hotspot {
+          x
+          y
+        }
       }
     }
   }
@@ -91,11 +99,12 @@ const ProjectTemplate = ({ data }) => {
   } = data.sanityCinematography;
 
   const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
+  const synonyms = seo.focus_synonyms ? seo.focus_synonyms : "";
   return (
     <Layout>
       <SEO
         keywords={seo.focus_keyword}
-        synonyms={seo.focus_synonyms}
+        synonyms={synonyms}
         image={image.asset.url}
         description={seo.meta_description}
       />

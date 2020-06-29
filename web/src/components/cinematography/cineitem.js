@@ -20,6 +20,11 @@ function urlFor(source) {
 const Cineitem = (props) => {
   const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
 
+  const x = props.featuredImage.hotspot ? props.featuredImage.hotspot.x : null;
+  const y = props.featuredImage.hotspot ? props.featuredImage.hotspot.y : null;
+
+  console.log(props);
+
   return (
     <div
       className={
@@ -40,9 +45,11 @@ const Cineitem = (props) => {
           <img
             src={urlFor(props.featuredImage.asset.id)
               .size(1200, 600)
+              .quality(100)
+              .focalPoint(x, y)
               .fit("crop")
               .format("jpg")
-              .crop("entropy")
+              .crop("focalpoint")
               .url()}
             alt={props.featuredImage.alt}
           />
