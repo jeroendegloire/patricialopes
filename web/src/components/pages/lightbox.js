@@ -39,10 +39,25 @@ const Lightbox = ({
     const imageUrl = image.asset ? image.asset : image.image.asset;
     const imageAlt = image.alt ? image.alt : image.image.alt;
     array.push(
-      <img
-        src={urlFor(imageUrl).width(2000).quality(100).format("jpg").url()}
-        alt={imageAlt}
-      />
+      <div className="mb-4 cinemato-image relative">
+        <div
+          aria-hidden="true"
+          style={{
+            backgroundImage: `url(${image.asset.metadata.lqip})`,
+            backgroundSize: "cover",
+            paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
+          }}
+        ></div>
+        <img
+          src={urlFor(image.asset.id)
+            .width(2400)
+            .quality(90)
+            .format("jpg")
+            .url()}
+          alt={image.alt}
+          className="absolute inset-0"
+        />
+      </div>
     );
   });
 

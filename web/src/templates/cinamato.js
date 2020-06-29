@@ -106,7 +106,7 @@ const ProjectTemplate = ({ data }) => {
         <div className="max-w-6xl mx-auto flex items-center flex-wrap relative">
           <Link
             to="/cinematography"
-            className="m-0 absolute bottom-0 inline-block left-auto xl:right-2 xl:top-0 xl:-left-6 xl:right-auto"
+            className="m-0 absolute bottom-0 inline-block left-auto right-2 xl:top-0 xl:-left-6 xl:right-auto"
           >
             <FaAngleLeft size={30} className="inline-block" /> Back
           </Link>
@@ -134,16 +134,16 @@ const ProjectTemplate = ({ data }) => {
           ))}
           <div className="font-thin px-6 lg:px-0">
             {data.sanityCinematography.title ? (
-              <h1 className="font-medium uppercase text-base mb-4">
+              <h1 className="uppercase text-base mb-4">
                 {data.sanityCinematography.title}
               </h1>
             ) : null}
             {data.sanityCinematography.subcategory == "short_film" ? (
-              <div className="uppercase mb-4">Short film</div>
+              <div className="uppercase mb-4 text-underline">Short film</div>
             ) : null}
 
             {data.sanityCinematography.subcategory == "feature_film" ? (
-              <div className="uppercase mb-4">Feature film</div>
+              <div className="uppercase mb-4 text-underline">Feature film</div>
             ) : null}
 
             {directors[0] ? (
@@ -175,13 +175,13 @@ const ProjectTemplate = ({ data }) => {
                 <br />
               </div>
             ) : null}
-            {data.sanityCinematography.imdb ? (
+            {data.sanityCinematography.linkUrl ? (
               <div>
                 <Link
-                  to={data.sanityCinematography.imdb}
+                  to={data.sanityCinematography.linkUrl}
                   className="underline hover:no-underline"
                 >
-                  MORE INFO
+                  {data.sanityCinematography.linkText}
                 </Link>
                 <br />
               </div>

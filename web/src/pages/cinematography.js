@@ -55,17 +55,17 @@ const Cinematography = ({ data }) => {
               <li className="mx-3 cursor-pointer is-checked" data-filter="*">
                 All
               </li>
-              <li className="mx-3 cursor-pointer" data-filter=".music_video">
-                Music Video
-              </li>
               <li className="mx-3 cursor-pointer" data-filter=".fiction">
                 Narrative
               </li>
+              <li className="mx-3 cursor-pointer" data-filter=".commercials">
+                Commercial
+              </li>
+              <li className="mx-3 cursor-pointer" data-filter=".music_video">
+                Music Video
+              </li>
               <li className="mx-3 cursor-pointer" data-filter=".documentary">
                 Documentary
-              </li>
-              <li className="mx-3 cursor-pointer" data-filter=".commercials">
-                Commercials
               </li>
             </ul>
           </div>
