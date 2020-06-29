@@ -36,26 +36,28 @@ const Lightbox = ({
   const array = [];
 
   images.forEach((image) => {
-    const imageUrl = image.asset ? image.asset : image.image.asset;
+    const imageUrl = image.asset ? image.asset.id : image.image.asset.id;
     const imageAlt = image.alt ? image.alt : image.image.alt;
+    const backgroundImage = image.asset
+      ? image.asset.metadata.lqip
+      : image.image.asset.metadata.lqip;
+    const imageRatio = image.asset
+      ? image.asset.metadata.dimensions.aspectRatio
+      : image.image.asset.metadata.dimensions.aspectRatio;
     array.push(
-      <div className="mb-4 cinemato-image relative">
+      <div className="">
         <div
           aria-hidden="true"
           style={{
-            backgroundImage: `url(${image.asset.metadata.lqip})`,
+            backgroundImage: `url(${backgroundImage})`,
             backgroundSize: "cover",
-            paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
+            paddingTop: `calc(100% / ${imageRatio})`,
           }}
         ></div>
         <img
-          src={urlFor(image.asset.id)
-            .width(2400)
-            .quality(90)
-            .format("jpg")
-            .url()}
-          alt={image.alt}
-          className="absolute inset-0"
+          src={urlFor(imageUrl).width(2400).quality(90).format("jpg").url()}
+          alt={imageAlt}
+          className="absolute inset-0 mx-auto"
         />
       </div>
     );

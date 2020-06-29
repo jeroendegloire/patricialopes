@@ -59,7 +59,8 @@ export default {
         { type: 'textContent' },
         { type: 'textWithImage' },
         { type: 'contact' },
-        { type: 'accordion' }
+        { type: 'accordion' },
+        { type: 'cinematoList' }
       ]
     },
     {

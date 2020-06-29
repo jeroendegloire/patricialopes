@@ -106,20 +106,21 @@ const ProjectTemplate = ({ data }) => {
         <div className="max-w-6xl mx-auto flex items-center flex-wrap relative">
           <Link
             to="/cinematography"
-            className="m-0 absolute bottom-0 inline-block left-auto right-2 xl:top-0 xl:-left-6 xl:right-auto"
+            className="m-0 absolute bottom-0 inline-block left-auto xl:right-2 xl:top-0 xl:-left-6 xl:right-auto"
           >
             <FaAngleLeft size={30} className="inline-block" /> Back
           </Link>
 
           {images.map((image, i) => (
-            <div className="mb-4 cinemato-image relative">
+            <div className="mb-4 cinemato-image">
               <div
                 aria-hidden="true"
-                style={{
-                  backgroundImage: `url(${image.asset.metadata.lqip})`,
-                  backgroundSize: "cover",
-                  paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
-                }}
+                style={
+                  ({ backgroundSize: "cover" },
+                  {
+                    paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
+                  })
+                }
               ></div>
               <img
                 src={urlFor(image.asset.id)
@@ -128,22 +129,21 @@ const ProjectTemplate = ({ data }) => {
                   .format("jpg")
                   .url()}
                 alt={image.alt}
-                className="absolute inset-0"
               />
             </div>
           ))}
           <div className="font-thin px-6 lg:px-0">
             {data.sanityCinematography.title ? (
-              <h1 className="uppercase text-base mb-4">
+              <h1 className="font-medium uppercase text-base mb-4">
                 {data.sanityCinematography.title}
               </h1>
             ) : null}
             {data.sanityCinematography.subcategory == "short_film" ? (
-              <div className="uppercase mb-4 text-underline">Short film</div>
+              <div className="uppercase mb-4">Short film</div>
             ) : null}
 
             {data.sanityCinematography.subcategory == "feature_film" ? (
-              <div className="uppercase mb-4 text-underline">Feature film</div>
+              <div className="uppercase mb-4">Feature film</div>
             ) : null}
 
             {directors[0] ? (
@@ -175,13 +175,13 @@ const ProjectTemplate = ({ data }) => {
                 <br />
               </div>
             ) : null}
-            {data.sanityCinematography.linkUrl ? (
+            {data.sanityCinematography.imdb ? (
               <div>
                 <Link
-                  to={data.sanityCinematography.linkUrl}
+                  to={data.sanityCinematography.imdb}
                   className="underline hover:no-underline"
                 >
-                  {data.sanityCinematography.linkText}
+                  MORE INFO
                 </Link>
                 <br />
               </div>

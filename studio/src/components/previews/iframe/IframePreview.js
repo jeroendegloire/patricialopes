@@ -33,6 +33,8 @@ class IframePreview extends React.PureComponent {
       )
     }
 
+    console.log('_type')
+
     const url = assembleProjectUrl({ displayed, options })
 
     if (!url) {

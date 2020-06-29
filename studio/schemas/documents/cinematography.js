@@ -105,10 +105,17 @@ export default {
       fieldset: 'details'
     },
     {
-      name: 'imdb',
+      name: 'linkUrl',
       type: 'url',
-      title: 'More info url',
+      title: 'Link url',
       description: 'Can be used to link to imdb or other channels.',
+      fieldset: 'details'
+    },
+    {
+      name: 'linkText',
+      type: 'string',
+      title: 'Link text',
+      description: 'Clickable text of link url.',
       fieldset: 'details'
     },
     {

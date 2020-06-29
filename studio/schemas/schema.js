@@ -28,6 +28,8 @@ import accordion from './objects/accordion'
 import slideshow from './objects/slideshow'
 import menuItem from './objects/menuItem'
 import contact from './objects/contact'
+import cinematoList from './plugs/cinematoList'
+import cinematoReferenceItem from './plugs/cinematoReferenceItem'
 
 const allPlugs = Object.values(plugs).map(plug => {
   return { ...plug, fields: plugDefaultFields.concat(plug.fields) }
@@ -55,7 +57,9 @@ export default createSchema({
       menuItem,
       contact,
       photoGrid,
-      accordion
+      accordion,
+      cinematoList,
+      cinematoReferenceItem
     ])
     .concat(allPlugs)
 })
