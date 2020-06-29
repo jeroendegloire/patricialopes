@@ -20,8 +20,6 @@ function urlFor(source) {
 const Cineitem = (props) => {
   const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
 
-  console.log(props);
-
   return (
     <div
       className={

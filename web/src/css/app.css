@@ -6,6 +6,10 @@
   transform: scale(1.1);
 }
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   font-family: "Poppins", Helvetiva, sans-serif;
   color: #222;
@@ -459,7 +463,8 @@ main {
   width: 100%;
 }
 
-.item__grid .gatsby-image-wrapper > div .item--grid > figure > div {
+.item__grid .gatsby-image-wrapper > div,
+.item--grid > figure > div {
   padding-top: 50%;
   width: 100%;
 }
