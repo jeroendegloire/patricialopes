@@ -115,12 +115,11 @@ const ProjectTemplate = ({ data }) => {
             <div className="mb-4 cinemato-image">
               <div
                 aria-hidden="true"
-                style={
-                  ({ backgroundSize: "cover" },
-                  {
-                    paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
-                  })
-                }
+                style={{
+                  backgroundImage: `url(${image.asset.metadata.lqip})`,
+                  backgroundSize: "cover",
+                  paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
+                }}
               ></div>
               <img
                 src={urlFor(image.asset.id)
@@ -134,16 +133,16 @@ const ProjectTemplate = ({ data }) => {
           ))}
           <div className="font-thin px-6 lg:px-0">
             {data.sanityCinematography.title ? (
-              <h1 className="font-medium uppercase text-base mb-4">
+              <h1 className="font-normal text-xl uppercase text-base mb-4">
                 {data.sanityCinematography.title}
               </h1>
             ) : null}
             {data.sanityCinematography.subcategory == "short_film" ? (
-              <div className="uppercase mb-4">Short film</div>
+              <div className="uppercase mb-4 underline">Short film</div>
             ) : null}
 
             {data.sanityCinematography.subcategory == "feature_film" ? (
-              <div className="uppercase mb-4">Feature film</div>
+              <div className="uppercase mb-4 underline">Feature film</div>
             ) : null}
 
             {directors[0] ? (
