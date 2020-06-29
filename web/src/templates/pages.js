@@ -11,6 +11,7 @@ import Gird from "../components/pages/gird";
 import Video from "../components/pages/video";
 import SEO from "../components/seo";
 import FilterableGrid from "../components/pages/photoGrid";
+import CinematoList from "../components/pages/cinematoList";
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
@@ -70,6 +71,9 @@ const PagesTemplate = ({ data }) => {
           break;
         case "photoGrid":
           el = <FilterableGrid key={c._key} {...c} />;
+          break;
+        case "cinematoList":
+          el = <CinematoList key={c._key} {...c} />;
           break;
 
         default:

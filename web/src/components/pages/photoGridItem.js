@@ -22,13 +22,16 @@ function urlFor(source) {
 const photoGridItem = (props) => {
   const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
 
-  const placeholder = props.mainImage.metadata.lqip;
-  const aspectRatio = props.mainImage.metadata.dimensions.aspectRatio;
+  const placeholder = props.mainImage.asset.metadata.lqip;
+  const aspectRatio = props.mainImage.asset.metadata.dimensions.aspectRatio;
 
   return (
     <figure
-      classname="gatsby-image-wrapper"
-      style={({ backgroundSize: "cover" }, { backgroundImage: placeholder })}
+      className="gatsby-image-wrapper"
+      style={{
+        backgroundSize: "cover",
+        backgroundImage: `url(${placeholder})`,
+      }}
     >
       <div aria-hidden="true"></div>
       <img

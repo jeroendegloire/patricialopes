@@ -38,7 +38,7 @@ const photoGrid = ({ items }) => {
             onClick={handleOpen(i)}
             className="w-full md:w-1/2 lg:w-1/3 flex flex-col relative item--grid"
           >
-            <Item key={i} mainImage={item.asset} altImage={item.alt} />
+            <Item key={i} mainImage={item} altImage={item.alt} />
           </div>
         ))}
       </div>

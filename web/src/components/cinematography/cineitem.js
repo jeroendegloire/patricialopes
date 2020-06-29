@@ -30,7 +30,7 @@ const Cineitem = (props) => {
       }
     >
       <div className="relative">
-        <Link to={props.url} className="absolute inset-0 z-10" />
+        <Link to={`/${props.url}`} className="absolute inset-0 z-10" />
         <div
           className={"gatsby-image-wrapper"}
           style={{
@@ -50,7 +50,9 @@ const Cineitem = (props) => {
           />
         </div>
         <div className="hover absolute flex items-center justify-center inset-0">
-          <h2 className="uppercase font-semibold">{props.title}</h2>
+          <h2 className="uppercase font-semibold px-10 text-center">
+            {props.title}
+          </h2>
         </div>
       </div>
     </div>

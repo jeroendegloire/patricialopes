@@ -107,7 +107,7 @@ const ProjectTemplate = ({ data }) => {
         <div className="max-w-6xl mx-auto flex items-center flex-wrap relative">
           <Link
             to="/cinematography"
-            className="m-0 absolute bottom-0 inline-block left-auto xl:right-2 xl:top-0 xl:-left-6 xl:right-auto"
+            className="m-0 absolute bottom-0 inline-block left-auto right-2 xl:top-0 xl:-left-6 xl:right-auto"
           >
             <FaAngleLeft size={30} className="inline-block" /> Back
           </Link>
