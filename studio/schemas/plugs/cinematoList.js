@@ -6,7 +6,15 @@ export default {
     {
       type: 'array',
       name: 'list',
-      of: [{ type: 'cinematoReferenceItem' }]
+      of: [{ type: 'cinematoReferenceItem' }],
+      options: { layout: 'grid' }
     }
-  ]
+  ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Cinematography Items'
+      }
+    }
+  }
 }

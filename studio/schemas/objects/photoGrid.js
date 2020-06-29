@@ -7,7 +7,15 @@ export default {
       title: 'Images',
       name: 'items',
       type: 'array',
-      of: [{ type: 'mainImage' }]
+      of: [{ type: 'mainImage' }],
+      options: { layout: 'grid' }
     }
-  ]
+  ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Photo items'
+      }
+    }
+  }
 }

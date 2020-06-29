@@ -13,7 +13,8 @@ export default {
     }
   ],
   preview: {
-    title: 'title'
-    //component: EmbedPlayer
+    select: {
+      title: 'title'
+    }
   }
 }
