@@ -27,8 +27,6 @@ const Cineitem = (props) => {
     ? props?.featuredImage?.hotspot?.y
     : "0";
 
-  console.log(props);
-
   return (
     <div
       className={

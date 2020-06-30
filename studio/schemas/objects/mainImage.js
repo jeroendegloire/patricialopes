@@ -2,7 +2,6 @@ export default {
   name: 'mainImage',
   type: 'image',
   title: 'Image',
-  validation: Rule => Rule.required(),
   options: {
     hotspot: true
   },

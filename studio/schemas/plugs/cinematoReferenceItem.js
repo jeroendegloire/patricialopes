@@ -7,6 +7,10 @@ export default {
       name: 'cinematoReference',
       to: [{ type: 'cinematography' }],
       validation: Rule => Rule.required()
+    },
+    {
+      type: 'mainImage',
+      name: 'featuredImage'
     }
   ],
   preview: {
