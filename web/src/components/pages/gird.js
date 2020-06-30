@@ -70,7 +70,7 @@ const Gird = ({ items }) => {
               <img
                 src={urlFor(item.image.asset)
                   .width(2000)
-                  .quality(90)
+                  .quality(100)
                   .format("jpg")
                   .url()}
                 alt={item.image.alt}
