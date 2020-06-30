@@ -91,11 +91,11 @@ const PagesTemplate = ({ data }) => {
     <div className={"w-full " + theme + " " + fixed + " " + home}>
       <Layout>
         <SEO
-          keywords={seo.focus_keyword}
-          synonyms={seo.focus_synonyms}
-          image={page.image.asset.url}
-          description={seo.meta_description}
-          title={seo.seo_title}
+          keywords={seo?.focus_keyword}
+          synonyms={seo?.focus_synonyms}
+          image={page?.image?.asset?.url}
+          description={seo?.meta_description}
+          title={seo?.seo_title}
         />
         <div className="flex-1 flex flex-col">{content}</div>
       </Layout>

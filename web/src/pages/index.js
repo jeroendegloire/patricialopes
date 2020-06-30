@@ -75,8 +75,8 @@ const Index = ({ data }) => {
       return el;
     });
 
-  const focus_keywords = seo.focus_keyword ? seo.focus_keyword : "";
-  const focus_synonyms = seo.focus_synonyms ? seo.focus_synonyms : "";
+  const focus_keywords = seo?.focus_keyword ? seo.focus_keyword : " ";
+  const focus_synonyms = seo?.focus_synonyms ? seo.focus_synonyms : " ";
 
   return (
     <div className={"w-full " + fixed}>
@@ -84,9 +84,9 @@ const Index = ({ data }) => {
         <SEO
           keywords={focus_keywords}
           synonyms={focus_synonyms}
-          image={page.image.asset.url}
-          description={seo.meta_description}
-          title={seo.seo_title}
+          image={page?.image?.asset?.url}
+          description={seo?.meta_description}
+          title={seo?.seo_title}
         />
         {content}
       </Layout>

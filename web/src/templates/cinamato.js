@@ -117,17 +117,14 @@ const ProjectTemplate = ({ data }) => {
     setSelectedImage((i + 1) % length);
   };
 
-  const focus_keywords = seo.focus_keyword ? seo.focus_keyword : " ";
-  const focus_synonyms = seo.focus_synonyms ? seo.focus_synonyms : " ";
-
   return (
     <Layout>
       <SEO
-        keywords={focus_keywords}
-        synonyms={focus_synonyms}
-        image={image.asset.url}
-        description={seo.meta_description}
-        title={seo.seo_title}
+        keywords={seo?.focus_keyword}
+        synonyms={seo?.focus_synonyms}
+        image={image?.asset?.url}
+        description={seo?.meta_description}
+        title={seo?.seo_title}
       />
       <section
         id="cinematography-templete"
