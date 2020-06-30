@@ -8,7 +8,7 @@ const client = sanityClient({
   projectId: "l2xxtj60",
   dataset: "production",
   //token: "myToken",
-  useCdn: false,
+  useCdn: true,
 });
 
 const builder = imageUrlBuilder(client);
@@ -20,10 +20,10 @@ function urlFor(source) {
 const Cineitem = (props) => {
   const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
 
-  const x = props.featuredImage.hotspot ? props.featuredImage.hotspot.x : null;
-  const y = props.featuredImage.hotspot ? props.featuredImage.hotspot.y : null;
+  const x = props.featuredImage.hotspot ? props.featuredImage.hotspot.x : "0";
+  const y = props.featuredImage.hotspot ? props.featuredImage.hotspot.y : "0";
 
-  console.log(props);
+  console.log(props.featuredImage);
 
   return (
     <div
@@ -44,12 +44,12 @@ const Cineitem = (props) => {
           <div aria-hidden="true"></div>
           <img
             src={urlFor(props.featuredImage.asset.id)
-              .size(1600, 900)
-              .quality(100)
-              .focalPoint(x, y)
+              .size(1422, 800)
               .fit("crop")
-              .format("jpg")
               .crop("focalpoint")
+              .focalPoint(x, y)
+              .format("jpg")
+              .quality(100)
               .url()}
             alt={props.featuredImage.alt}
           />
