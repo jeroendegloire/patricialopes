@@ -44,7 +44,7 @@ const Cineitem = (props) => {
           <div aria-hidden="true"></div>
           <img
             src={urlFor(props.featuredImage.asset.id)
-              .size(1600, 800)
+              .size(1600, 900)
               .quality(100)
               .focalPoint(x, y)
               .fit("crop")
