@@ -480,10 +480,6 @@ main {
 	width: 100%;
 }
 
-.item__grid .gatsby-image-wrapper > div {
-	padding-top: 56.25%;
-}
-
 @media all and (min-width: 768px) {
 	.item-grid {
 		width: 25%;
