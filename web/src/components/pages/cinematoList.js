@@ -33,8 +33,6 @@ const CinematoList = ({ list }) => {
     }
   }, []);
 
-  console.log(list);
-
   return (
     <section id="cinematography" className="flex-1 flex flex-col">
       <div className="mx-auto">
@@ -59,14 +57,14 @@ const CinematoList = ({ list }) => {
         </div>
       </div>
       <div className="item mx-auto flex items-center flex-wrap -mt-1 -mx-1">
-        {list.map(({ cinematoReference }) => (
+        {list.map((test, i) => (
           <Cineitem
-            title={cinematoReference.title}
-            featuredImage={cinematoReference.featuredImage}
-            altImage={cinematoReference.featuredImage.alt}
-            category={cinematoReference.category}
-            url={cinematoReference.slug.current}
-            key={cinematoReference.id}
+            title={test.cinematoReference.title}
+            featuredImage={test?.featuredImage}
+            altImage={test?.featuredImage?.alt}
+            category={test.cinematoReference.category}
+            url={test.cinematoReference.slug.current}
+            key={i}
           />
         ))}
       </div>

@@ -4,11 +4,6 @@ import React from "react";
 //https://reactjsexample.com/lightbox-for-components-or-images-built-for-react/
 import LightboxReact from "lightbox-react";
 import "lightbox-react/style.css";
-import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
-
-import NonStretchedImage from "./nonStretchedImage";
-
-const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
 
 import imageUrlBuilder from "@sanity/image-url";
 
@@ -16,8 +11,8 @@ const sanityClient = require("@sanity/client");
 const client = sanityClient({
   projectId: "l2xxtj60",
   dataset: "production",
-  //token: "myToken",
-  useCdn: true,
+  useCdn: false,
+  withCredentials: true,
 });
 
 const builder = imageUrlBuilder(client);

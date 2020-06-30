@@ -7,8 +7,8 @@ const sanityClient = require("@sanity/client");
 const client = sanityClient({
   projectId: "l2xxtj60",
   dataset: "production",
-  //token: "myToken",
-  useCdn: true,
+  useCdn: false,
+  withCredentials: true,
 });
 
 const builder = imageUrlBuilder(client);
@@ -20,10 +20,14 @@ function urlFor(source) {
 const Cineitem = (props) => {
   const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
 
-  const x = props.featuredImage.hotspot ? props.featuredImage.hotspot.x : "0";
-  const y = props.featuredImage.hotspot ? props.featuredImage.hotspot.y : "0";
+  const x = props?.featuredImage?.hotspot
+    ? props?.featuredImage?.hotspot?.x
+    : "0";
+  const y = props?.featuredImage?.hotspot
+    ? props?.featuredImage?.hotspot?.y
+    : "0";
 
-  console.log(props.featuredImage);
+  console.log(props);
 
   return (
     <div
@@ -37,13 +41,13 @@ const Cineitem = (props) => {
         <div
           className={"gatsby-image-wrapper"}
           style={{
-            backgroundImage: `url(${props.featuredImage.asset.metadata.lqip})`,
+            backgroundImage: `url(${props?.featuredImage?.asset?.metadata?.lqip})`,
             backgroundSize: "cover",
           }}
         >
           <div aria-hidden="true"></div>
           <img
-            src={urlFor(props.featuredImage.asset.id)
+            src={urlFor(props?.featuredImage?.asset?.id)
               .size(1422, 800)
               .fit("crop")
               .crop("focalpoint")
@@ -51,7 +55,7 @@ const Cineitem = (props) => {
               .format("jpg")
               .quality(100)
               .url()}
-            alt={props.featuredImage.alt}
+            alt={props?.featuredImage?.alt}
           />
         </div>
         <div className="hover absolute flex items-center justify-center inset-0">

@@ -9,8 +9,8 @@ const sanityClient = require("@sanity/client");
 const client = sanityClient({
   projectId: "l2xxtj60",
   dataset: "production",
-  //token: "myToken",
-  useCdn: true,
+  useCdn: false,
+  withCredentials: true,
 });
 
 const builder = imageUrlBuilder(client);
@@ -26,14 +26,14 @@ const photoGridItem = (props) => {
   const y = props.mainImage.hotspot ? props.mainImage.hotspot.y : "0.5";
 
   return (
-    <figure
-      className="gatsby-image-wrapper"
-      style={{
-        backgroundSize: "cover",
-        backgroundImage: `url(${placeholder})`,
-      }}
-    >
-      <div aria-hidden="true"></div>
+    <figure className="gatsby-image-wrapper">
+      <div
+        aria-hidden="true"
+        style={{
+          backgroundSize: "cover",
+          backgroundImage: `url(${placeholder})`,
+        }}
+      ></div>
       <img
         src={urlFor(props.mainImage)
           .size(1200, 600)

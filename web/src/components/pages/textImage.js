@@ -24,8 +24,6 @@ const TextImage = ({ image, text }) => {
   const x = image.hotspot ? image.hotspot.x : "0.5";
   const y = image.hotspot ? image.hotspot.y : "0.5";
 
-  console.log(image.asset);
-
   return (
     <div className="flex flex-wrap flex-col w-full">
       <div className="w-full">

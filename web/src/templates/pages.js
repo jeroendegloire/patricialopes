@@ -46,7 +46,6 @@ const PagesTemplate = ({ data }) => {
 
   const theme = slug == "showreel" ? "dark-theme" : "light-theme";
   const fixed = slug == "contact" ? "fixed" : "";
-  const home = slug == "home2" ? "lg:fixed" : "";
 
   const content = (page._rawContent || [])
     .filter((c) => !c.disabled)
@@ -88,7 +87,7 @@ const PagesTemplate = ({ data }) => {
     });
 
   return (
-    <div className={"w-full " + theme + " " + fixed + " " + home}>
+    <div className={"w-full " + theme + " " + fixed}>
       <Layout>
         <SEO
           keywords={seo?.focus_keyword}

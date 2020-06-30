@@ -8,8 +8,8 @@ const sanityClient = require("@sanity/client");
 const client = sanityClient({
   projectId: "l2xxtj60",
   dataset: "production",
-  //token: "myToken",
-  useCdn: true,
+  useCdn: false,
+  withCredentials: true,
 });
 
 const builder = imageUrlBuilder(client);
