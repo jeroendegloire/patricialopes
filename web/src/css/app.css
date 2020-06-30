@@ -349,6 +349,11 @@ main {
   justify-content: center;
 }
 
+.ril__image img {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .ril__toolbar {
   background: transparent !important;
 }
@@ -558,16 +563,10 @@ main {
 .ReactModalPortal .gatsby-image-wrapper {
   flex: 1;
 }
-/* 
-.ReactModalPortal .gatsby-image-wrapper img {
-  position: absolute !important;
-  top: 50% !important;
-  max-height: 90vh !important;
-  right: 0;
-  margin: 0 auto;
-  width: auto !important;
-  transform: translateY(-50%) !important;
-} */
+
+.gatsby-image-wrapper {
+  position: relative;
+}
 
 .ReactModalPortal img {
   max-width: 100%;

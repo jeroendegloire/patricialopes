@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Slideshow from "../components/pages/slideShow";
-import HaveSeo from "../components/pages/seo";
 import Layout from "../components/layout/layout";
 import Accordion from "../components/pages/accordion";
 import Contact from "../components/pages/contact";
@@ -96,6 +95,7 @@ const PagesTemplate = ({ data }) => {
           synonyms={seo.focus_synonyms}
           image={page.image.asset.url}
           description={seo.meta_description}
+          title={seo.seo_title}
         />
         <div className="flex-1 flex flex-col">{content}</div>
       </Layout>

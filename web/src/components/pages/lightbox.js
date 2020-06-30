@@ -45,7 +45,8 @@ const Lightbox = ({
       ? image.asset.metadata.dimensions.aspectRatio
       : image.image.asset.metadata.dimensions.aspectRatio;
     array.push(
-      <div className="">
+      <div>
+        {/* //className="w-full z-10" */}
         <div
           aria-hidden="true"
           style={{
@@ -55,7 +56,7 @@ const Lightbox = ({
           }}
         ></div>
         <img
-          src={urlFor(imageUrl).width(2400).quality(90).format("jpg").url()}
+          src={urlFor(imageUrl).width(2400).quality(100).format("jpg").url()}
           alt={imageAlt}
           className="absolute inset-0 mx-auto"
         />

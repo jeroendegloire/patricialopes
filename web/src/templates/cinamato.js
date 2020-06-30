@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, graphql } from "gatsby";
 import SEO from "../components/seo";
 import Layout from "../components/layout/layout";
@@ -7,6 +7,7 @@ import Img from "gatsby-image";
 import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
 import PortableText from "../components/portableText";
 import imageUrlBuilder from "@sanity/image-url";
+import LightBox from "../components/pages/lightbox";
 
 const sanityClient = require("@sanity/client");
 const client = sanityClient({
@@ -98,15 +99,35 @@ const ProjectTemplate = ({ data }) => {
     image: image,
   } = data.sanityCinematography;
 
-  const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
-  const synonyms = seo.focus_synonyms ? seo.focus_synonyms : "";
+  const [showLightbox, setShowLightbox] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleOpen = (i) => (e) => {
+    setShowLightbox(true);
+    setSelectedImage(i);
+  };
+  const handleClose = () => {
+    setShowLightbox(false);
+    setSelectedImage(null);
+  };
+  const handlePrevRequest = (i, length) => (e) => {
+    setSelectedImage((i - 1 + length) % length);
+  };
+  const handleNextRequest = (i, length) => (e) => {
+    setSelectedImage((i + 1) % length);
+  };
+
+  const focus_keywords = seo.focus_keyword ? seo.focus_keyword : " ";
+  const focus_synonyms = seo.focus_synonyms ? seo.focus_synonyms : " ";
+
   return (
     <Layout>
       <SEO
-        keywords={seo.focus_keyword}
-        synonyms={synonyms}
+        keywords={focus_keywords}
+        synonyms={focus_synonyms}
         image={image.asset.url}
         description={seo.meta_description}
+        title={seo.seo_title}
       />
       <section
         id="cinematography-templete"
@@ -121,7 +142,11 @@ const ProjectTemplate = ({ data }) => {
           </Link>
 
           {images.map((image, i) => (
-            <div className="mb-4 cinemato-image relative" key={i}>
+            <div
+              className="mb-4 cinemato-image relative cursor-pointer"
+              onClick={handleOpen(i)}
+              key={i}
+            >
               <div
                 aria-hidden="true"
                 style={{
@@ -133,7 +158,7 @@ const ProjectTemplate = ({ data }) => {
               <img
                 src={urlFor(image.asset.id)
                   .width(2400)
-                  .quality(90)
+                  .quality(100)
                   .format("jpg")
                   .url()}
                 alt={image.alt}
@@ -201,6 +226,16 @@ const ProjectTemplate = ({ data }) => {
                 <PortableText blocks={data.sanityCinematography.text[0]} />
               </div>
             ) : null}
+
+            {showLightbox && selectedImage !== null && (
+              <LightBox
+                images={images}
+                handleClose={handleClose}
+                handleNextRequest={handleNextRequest}
+                handlePrevRequest={handlePrevRequest}
+                selectedImage={selectedImage}
+              />
+            )}
           </div>
         </div>
       </section>

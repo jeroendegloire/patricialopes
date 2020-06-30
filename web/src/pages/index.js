@@ -3,7 +3,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../css/app.css";
 import { graphql } from "gatsby";
 import Slideshow from "../components/pages/slideShow";
-import HaveSeo from "../components/pages/seo";
 import Layout from "../components/layout/layout";
 import Text from "../components/pages/text";
 import TextImage from "../components/pages/textImage";
@@ -76,14 +75,18 @@ const Index = ({ data }) => {
       return el;
     });
 
+  const focus_keywords = seo.focus_keyword ? seo.focus_keyword : "";
+  const focus_synonyms = seo.focus_synonyms ? seo.focus_synonyms : "";
+
   return (
     <div className={"w-full " + fixed}>
       <Layout>
         <SEO
-          keywords={seo.focus_keyword}
-          synonyms={seo.focus_synonyms}
+          keywords={focus_keywords}
+          synonyms={focus_synonyms}
           image={page.image.asset.url}
           description={seo.meta_description}
+          title={seo.seo_title}
         />
         {content}
       </Layout>

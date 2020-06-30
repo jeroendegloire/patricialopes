@@ -22,8 +22,8 @@ function urlFor(source) {
 const photoGridItem = (props) => {
   const placeholder = props.mainImage.asset.metadata.lqip;
 
-  const x = props.mainImage.hotspot ? props.mainImage.hotspot.x : null;
-  const y = props.mainImage.hotspot ? props.mainImage.hotspot.y : null;
+  const x = props.mainImage.hotspot ? props.mainImage.hotspot.x : "0.5";
+  const y = props.mainImage.hotspot ? props.mainImage.hotspot.y : "0.5";
 
   return (
     <figure
@@ -41,6 +41,7 @@ const photoGridItem = (props) => {
           .crop("focalpoint")
           .focalPoint(x, y)
           .format("jpg")
+          .quality(100)
           .url()}
       />
     </figure>
