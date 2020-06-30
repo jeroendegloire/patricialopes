@@ -585,3 +585,8 @@ figure img {
 .react-player__preview {
 	max-height: calc(100vh - 130px);
 }
+
+.player {
+	top: 50%;
+	transform: translateY(-70%);
+}
