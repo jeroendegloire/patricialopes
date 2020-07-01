@@ -13,7 +13,7 @@ const sanityClient = require("@sanity/client");
 const client = sanityClient({
   projectId: "l2xxtj60",
   dataset: "production",
-  useCdn: false,
+  useCdn: true,
   withCredentials: true,
 });
 
