@@ -204,10 +204,10 @@ header a:hover:before {
 }
 
 .slick-slide img {
-	/* max-height: calc(100vh - 130px);
-  width: auto !important;
-  margin: 0 auto;
-  right: 0; */
+	max-height: calc(100vh - 130px);
+	width: auto !important;
+	margin: 0 auto;
+	right: 0;
 }
 
 .my-masonry-grid {
