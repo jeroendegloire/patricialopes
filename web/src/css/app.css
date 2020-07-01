@@ -200,11 +200,10 @@ header a:hover:before {
 }
 
 .slick-slide {
-	margin-bottom: -0.4rem !important;
+	text-align: center;
 }
 
 .slick-slide img {
-	max-height: calc(100vh - 130px);
 	width: auto !important;
 	margin: 0 auto;
 	right: 0;
@@ -554,9 +553,15 @@ main {
 	transform: translateY(-50%);
 }
 
+.video > div {
+	align-self: flex-start;
+}
+
 @media all and (min-width: 768px) {
-	.video > div {
-		align-self: flex-start;
+	.slick-slider img,
+	.react-player__preview,
+	.contact img {
+		max-height: calc(100vh - 145px);
 	}
 }
 
@@ -580,13 +585,8 @@ header button svg {
 figure img {
 	max-width: 100%;
 }
-
-.contact img,
-.react-player__preview {
-	max-height: calc(100vh - 130px);
-}
-
+/* 
 .player {
 	top: 50%;
 	transform: translateY(-70%);
-}
+} */
