@@ -62,11 +62,13 @@ const Gird = ({ items }) => {
     };
   }, []);
 
-  document.addEventListener("contextmenu", (e) => {
-    if (e.target.tagName === "IMG") {
-      e.preventDefault();
-      e.stopPropagation();
-    }
+  useEffect(() => {
+    document.addEventListener("contextmenu", (e) => {
+      if (e.target.tagName === "IMG") {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    });
   });
 
   return (
