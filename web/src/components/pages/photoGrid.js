@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Isotope from "isotope-layout/js/isotope";
 import Item from "./photoGridItem";
 import LightBox from "./lightbox";
+import LazyLoad from "vanilla-lazyload";
 
 const photoGrid = ({ items }) => {
   const [showLightbox, setShowLightbox] = useState(false);
@@ -21,6 +22,18 @@ const photoGrid = ({ items }) => {
   const handleNextRequest = (i, length) => (e) => {
     setSelectedImage((i + 1) % length);
   };
+
+  useEffect(() => {
+    let lazy = new LazyLoad({
+      elements_selector: ".lazy",
+      threshold: -100,
+      class_loaded: "is-loaded",
+    });
+
+    return () => {
+      lazy.destroy();
+    };
+  }, []);
 
   useEffect(() => {
     var elem = document.querySelector(".item");

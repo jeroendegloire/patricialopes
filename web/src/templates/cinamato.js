@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, graphql } from "gatsby";
 import SEO from "../components/seo";
 import Layout from "../components/layout/layout";
@@ -8,6 +8,7 @@ import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
 import PortableText from "../components/portableText";
 import imageUrlBuilder from "@sanity/image-url";
 import LightBox from "../components/pages/lightbox";
+import LazyLoad from "vanilla-lazyload";
 
 const sanityClient = require("@sanity/client");
 const client = sanityClient({
@@ -117,6 +118,24 @@ const ProjectTemplate = ({ data }) => {
     setSelectedImage((i + 1) % length);
   };
 
+  useEffect(() => {
+    let lazy = new LazyLoad({
+      elements_selector: ".lazy",
+      class_loaded: "is-loaded",
+    });
+
+    return () => {
+      lazy.destroy();
+    };
+  }, []);
+
+  document.addEventListener("contextmenu", (e) => {
+    if (e.target.tagName === "IMG") {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  });
+
   return (
     <Layout>
       <SEO
@@ -144,24 +163,52 @@ const ProjectTemplate = ({ data }) => {
               onClick={handleOpen(i)}
               key={i}
             >
-              <div
-                aria-hidden="true"
-                style={{
-                  backgroundImage: `url(${image.asset.metadata.lqip})`,
-                  backgroundSize: "cover",
-                  paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
-                }}
-              ></div>
-              <img
-                src={urlFor(image.asset.id)
-                  .width(2400)
-                  .quality(100)
-                  .format("webp")
-                  .url()}
-                alt={image.alt}
-                className="absolute inset-0 lazy"
-                loading="lazy"
-              />
+              <picture className={"w-full"}>
+                <div
+                  aria-hidden="true"
+                  style={{
+                    backgroundImage: `url(${image.asset.metadata.lqip})`,
+                    backgroundSize: "cover",
+                    paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
+                  }}
+                ></div>
+                <source
+                  type="image/webp"
+                  data-srcset={[
+                    urlFor(image?.asset?.id)
+                      .width(1000)
+                      .quality(100)
+                      .format("webp")
+                      .url() + " 768w,",
+                    urlFor(image?.asset?.id)
+                      .width(2000)
+                      .quality(100)
+                      .format("webp")
+                      .url() + " 1536w,",
+                  ]}
+                  data-sizes="(min-width: 1536px) 100vw, 
+                  (min-width: 1366px) 100vw,
+                  100vw"
+                  loading="lazy"
+                />
+                <img
+                  data-srcset={[
+                    urlFor(image?.asset?.id)
+                      .width(1000)
+                      .quality(100)
+                      .format("jpg")
+                      .url() + " 768w,",
+                    urlFor(image?.asset?.id)
+                      .width(2000)
+                      .quality(100)
+                      .format("jpg")
+                      .url() + " 1536w,",
+                  ]}
+                  alt={image.alt}
+                  className="lazy absolute inset-0"
+                  loading="lazy"
+                />
+              </picture>
             </div>
           ))}
           <div className="font-thin px-6 lg:px-0">

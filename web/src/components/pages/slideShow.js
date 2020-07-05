@@ -35,7 +35,6 @@ const Slideshow = ({ images }) => {
   useEffect(() => {
     let lazy = new LazyLoad({
       elements_selector: ".lazy",
-      threshold: -100,
       class_loaded: "is-loaded",
     });
 

@@ -1,9 +1,6 @@
 import React from "react";
-import Img from "gatsby-image";
-import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
 import myConfiguredSanityClient from "../../../sanityClient";
 import imageUrlBuilder from "@sanity/image-url";
-import styled from "styled-components";
 
 const sanityClient = require("@sanity/client");
 const client = sanityClient({
@@ -26,27 +23,64 @@ const photoGridItem = (props) => {
   const y = props.mainImage.hotspot ? props.mainImage.hotspot.y : "0.5";
 
   return (
-    <figure className="gatsby-image-wrapper">
+    <picture className={"w-full"}>
       <div
         aria-hidden="true"
         style={{
           backgroundSize: "cover",
           backgroundImage: `url(${placeholder})`,
+          paddingTop: "50%",
         }}
       ></div>
-      <img
-        src={urlFor(props.mainImage)
-          .size(1200, 600)
-          .fit("crop")
-          .crop("focalpoint")
-          .focalPoint(x, y)
-          .format("webp")
-          .quality(100)
-          .url()}
-        alt={props.mainImage.alt}
+      <source
+        type="image/webp"
+        data-srcset={[
+          urlFor(props?.mainImage?.asset?.id)
+            .size(800, 400)
+            .fit("crop")
+            .crop("focalpoint")
+            .focalPoint(x, y)
+            .quality(100)
+            .format("webp")
+            .url() + " 768w,",
+          urlFor(props?.mainImage?.asset?.id)
+            .size(1200, 600)
+            .quality(100)
+            .crop("focalpoint")
+            .focalPoint(x, y)
+            .fit("crop")
+            .format("webp")
+            .url() + " 1536w,",
+        ]}
+        data-sizes="(min-width: 1536px) 100vw, 
+          (min-width: 1366px) 100vw,
+          100vw"
         loading="lazy"
       />
-    </figure>
+      <img
+        data-srcset={[
+          urlFor(props?.mainImage?.asset?.id)
+            .size(800, 400)
+            .quality(100)
+            .focalPoint(x, y)
+            .crop("focalpoint")
+            .fit("crop")
+            .format("jpg")
+            .url() + " 768w,",
+          urlFor(props?.mainImage?.asset?.id)
+            .size(1200, 600)
+            .quality(100)
+            .focalPoint(x, y)
+            .crop("focalpoint")
+            .fit("crop")
+            .format("jpg")
+            .url() + " 1536w,",
+        ]}
+        alt={props?.mainImage?.alt}
+        className="lazy absolute inset-0"
+        loading="lazy"
+      />
+    </picture>
   );
 };
 

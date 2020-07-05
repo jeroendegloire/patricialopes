@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
 import { useEffect } from "react";
-import LazyLoad from "vanilla-lazyload";
 
 const sanityClient = require("@sanity/client");
 const client = sanityClient({
@@ -38,7 +37,7 @@ const Cineitem = (props) => {
     >
       <div className="relative">
         <Link to={`/${props.url}`} className="absolute inset-0 z-10" />
-        <div
+        <figure
           className={"gatsby-image-wrapper"}
           style={{
             backgroundImage: `url(${props?.featuredImage?.asset?.metadata?.lqip})`,
@@ -54,7 +53,7 @@ const Cineitem = (props) => {
             ></div>
             <source
               type="image/webp"
-              srcSet={[
+              data-srcset={[
                 urlFor(props?.featuredImage?.asset?.id)
                   .size(800, 400)
                   .fit("crop")
@@ -79,7 +78,7 @@ const Cineitem = (props) => {
             />
             <img
               src={props?.featuredImage?.asset?.metadata?.lqip}
-              srcSet={[
+              data-srcset={[
                 urlFor(props?.featuredImage?.asset?.id)
                   .size(800, 400)
                   .quality(100)
@@ -102,7 +101,7 @@ const Cineitem = (props) => {
               loading="lazy"
             />
           </picture>
-        </div>
+        </figure>
         <div className="hover absolute flex items-center justify-center inset-0">
           <h2 className="uppercase font-semibold px-10 text-center">
             {props.title}

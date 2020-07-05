@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Cineitem from "../cinematography/cineitem";
 import "../../css/app.css";
 import Isotope from "isotope-layout/js/isotope";
+import LazyLoad from "vanilla-lazyload";
 
 const CinematoList = ({ list }) => {
   useEffect(() => {
@@ -31,6 +32,18 @@ const CinematoList = ({ list }) => {
         event.target.classList.add("is-checked");
       });
     }
+  }, []);
+
+  useEffect(() => {
+    let lazy = new LazyLoad({
+      elements_selector: ".lazy",
+      threshold: -100,
+      class_loaded: "is-loaded",
+    });
+
+    return () => {
+      lazy.destroy();
+    };
   }, []);
 
   return (
