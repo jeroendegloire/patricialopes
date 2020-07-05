@@ -10,6 +10,7 @@ const Video = ({ url, posterImage }) => {
         width="100%"
         height="auto"
         playing
+        controls
         playIcon={
           <button>
             <span className="sr-only">Play</span>

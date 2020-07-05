@@ -4,6 +4,7 @@ import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
 import LightBox from "./lightbox";
 import PropTypes from "prop-types";
 import Isotope from "isotope-layout/js/isotope";
+import LazyLoad from "vanilla-lazyload";
 
 import imageUrlBuilder from "@sanity/image-url";
 
@@ -71,13 +72,14 @@ const Gird = ({ items }) => {
                 src={urlFor(item.image.asset)
                   .width(2000)
                   .quality(100)
-                  .format("jpg")
+                  .format("webp")
                   .url()}
                 alt={item.image.alt}
                 style={{
                   objectPosition:
                     item.positionVertical + " " + item.positionHorizontal,
                 }}
+                className="lazy"
               />
             </div>
           </div>

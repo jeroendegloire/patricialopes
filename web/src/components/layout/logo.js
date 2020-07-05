@@ -1,8 +1,5 @@
 import React from "react";
-import { Link, StaticQuery } from "gatsby";
-import Img from "gatsby-image";
-import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
-import logo from "../../images/logo-patricia--black.svg";
+import { Link, StaticQuery, graphql } from "gatsby";
 import SvgComponent from "../logo";
 
 function Logo() {
@@ -18,7 +15,7 @@ function Logo() {
       `}
       render={(data) => {
         return (
-          <Link className="logo" to="/">
+          <Link className="logo" to="/" title="Home">
             <SvgComponent />
           </Link>
         );

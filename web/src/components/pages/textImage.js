@@ -42,10 +42,11 @@ const TextImage = ({ image, text }) => {
               .fit("crop")
               .crop("focalpoint")
               .focalPoint(x, y)
-              .format("jpg")
+              .format("webp")
               .quality(100)
               .url()}
             className={"absolute inset-0"}
+            loading="lazy"
           />
         </figure>
       </div>

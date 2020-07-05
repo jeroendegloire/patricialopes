@@ -156,10 +156,11 @@ const ProjectTemplate = ({ data }) => {
                 src={urlFor(image.asset.id)
                   .width(2400)
                   .quality(100)
-                  .format("jpg")
+                  .format("webp")
                   .url()}
                 alt={image.alt}
-                className="absolute inset-0"
+                className="absolute inset-0 lazy"
+                loading="lazy"
               />
             </div>
           ))}

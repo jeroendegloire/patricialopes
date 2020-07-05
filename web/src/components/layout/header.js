@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, StaticQuery } from "gatsby";
+import { Link, StaticQuery, graphql } from "gatsby";
 import Logo from "./logo";
 import { FaTimes } from "react-icons/fa";
 
@@ -45,13 +45,13 @@ function Header() {
               id="nav"
               className={`${
                 isExpanded ? `block` : `hidden`
-              } xl:block self-end font-medium uppercase text-sm -mb- py-8 xl:py-0 w-full text-center xl:w-auto main-menu`}
+              } lg:block self-end font-medium uppercase text-sm -mb- py-8 lg:py-0 w-full text-center lg:w-auto main-menu`}
             >
               <ul>
                 {items.map((item, i) => (
-                  <li key={i} className="block xl:inline-block">
+                  <li key={i} className="block lg:inline-block">
                     <Link
-                      className="inline-block pb-1 mt-4 xl:mt-0 xl:ml-8 text-center no-underline relative tracking-wider"
+                      className="inline-block pb-1 mt-4 lg:mt-0 lg:ml-8 text-center no-underline relative tracking-wider"
                       key={item.name}
                       to={item.link}
                       activeClassName="is-active"

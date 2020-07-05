@@ -40,9 +40,11 @@ const photoGridItem = (props) => {
           .fit("crop")
           .crop("focalpoint")
           .focalPoint(x, y)
-          .format("jpg")
+          .format("webp")
           .quality(100)
           .url()}
+        alt={props.mainImage.alt}
+        loading="lazy"
       />
     </figure>
   );

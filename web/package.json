@@ -38,8 +38,10 @@
     "react-player": "^2.3.1",
     "react-responsive-carousel": "^3.2.7",
     "react-slick": "^0.26.1",
+    "resize-base64": "^1.0.12",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "vanilla-lazyload": "^17.0.1"
   },
   "keywords": [
     "gatsby",
