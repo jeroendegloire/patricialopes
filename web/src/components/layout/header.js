@@ -24,7 +24,7 @@ function Header() {
           <header className="flex flex-wrap justify-between p-8 mx-auto w-full mb-2">
             <Logo />
             <button
-              className={`${isExpanded ? `open` : `closed`} block xl:hidden`}
+              className={`${isExpanded ? `open` : `closed`} block lg:hidden`}
               onClick={() => toggleExpansion(!isExpanded)}
             >
               <svg

@@ -10,7 +10,7 @@ const client = sanityClient({
   projectId: "l2xxtj60",
   dataset: "production",
   useCdn: true,
-  withCredentials: true,
+  withCredentials: false,
 });
 
 const builder = imageUrlBuilder(client);
@@ -28,18 +28,6 @@ const Cineitem = (props) => {
   const y = props?.featuredImage?.hotspot
     ? props?.featuredImage?.hotspot?.y
     : "0";
-
-  useEffect(() => {
-    let lazy = new LazyLoad({
-      elements_selector: ".lazy",
-      threshold: -100,
-      class_loaded: "is-loaded",
-    });
-
-    return () => {
-      lazy.destroy();
-    };
-  }, []);
 
   return (
     <div
@@ -66,45 +54,52 @@ const Cineitem = (props) => {
             ></div>
             <source
               type="image/webp"
-              data-src={props?.featuredImage?.asset?.metadata?.lqip}
-              data-srcset={[
+              srcSet={[
                 urlFor(props?.featuredImage?.asset?.id)
                   .size(800, 400)
-                  .quality(100)
+                  .fit("crop")
+                  .crop("focalpoint")
                   .focalPoint(x, y)
+                  .quality(100)
                   .format("webp")
                   .url() + " 768w,",
                 urlFor(props?.featuredImage?.asset?.id)
-                  .size(1600, 800)
+                  .size(1200, 600)
                   .quality(100)
+                  .crop("focalpoint")
                   .focalPoint(x, y)
+                  .fit("crop")
                   .format("webp")
                   .url() + " 1536w,",
               ]}
               data-sizes="(min-width: 1536px) 100vw, 
                   (min-width: 1366px) 100vw,
                   100vw"
+              loading="lazy"
             />
             <img
-              data-src={props?.featuredImage?.asset?.metadata?.lqip}
-              data-srcset={[
+              src={props?.featuredImage?.asset?.metadata?.lqip}
+              srcSet={[
                 urlFor(props?.featuredImage?.asset?.id)
-                  .width(800)
-                  .height(400)
-                  .quality(90)
+                  .size(800, 400)
+                  .quality(100)
                   .focalPoint(x, y)
+                  .crop("focalpoint")
+                  .fit("crop")
                   .format("jpg")
                   .url() + " 768w,",
                 urlFor(props?.featuredImage?.asset?.id)
-                  .width(1600)
-                  .height(800)
+                  .size(1200, 600)
                   .quality(100)
                   .focalPoint(x, y)
+                  .crop("focalpoint")
+                  .fit("crop")
                   .format("jpg")
                   .url() + " 1536w,",
               ]}
               alt={props?.featuredImage?.alt}
               className="lazy absolute inset-0"
+              loading="lazy"
             />
           </picture>
         </div>

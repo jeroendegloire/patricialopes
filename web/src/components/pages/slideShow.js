@@ -25,7 +25,7 @@ const Slideshow = ({ images }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
-    //autoplay: true,
+    autoplay: true,
     pauseOnFocus: false,
     pauseOnHover: false,
     dots: false,
@@ -54,6 +54,8 @@ const Slideshow = ({ images }) => {
                 aria-hidden="true"
                 style={{
                   paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
+                  backgroundImage: `url(${image.asset.metadata.lqip})`,
+                  backgroundSize: "cover",
                 }}
               ></div>
               <source
@@ -83,6 +85,7 @@ const Slideshow = ({ images }) => {
                   (min-width: 1366px) 100vw,
                   100vw"
                 alt={image.alt}
+                loading="lazy"
               />
               <img
                 data-src={image.asset.metadata.lqip}
@@ -107,6 +110,7 @@ const Slideshow = ({ images }) => {
                     .url() + " 1633w",
                 ]}
                 className="lazy absolute inset-0"
+                loading="lazy"
               />
             </picture>
           ))}

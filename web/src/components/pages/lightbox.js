@@ -51,7 +51,7 @@ const Lightbox = ({
           }}
         ></div>
         <img
-          src={urlFor(imageUrl).width(2400).quality(100).format("webp").url()}
+          src={urlFor(imageUrl).width(2400).quality(100).format("jpg").url()}
           alt={imageAlt}
           className="absolute inset-0 mx-auto"
           loading="lazy"
