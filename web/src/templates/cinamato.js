@@ -28,16 +28,6 @@ export const query = graphql`
     sanityCinematography(id: { eq: $id }) {
       id
       title
-      featuredImage {
-        asset {
-          url
-        }
-        alt
-        hotspot {
-          x
-          y
-        }
-      }
       fragments {
         asset {
           id
@@ -64,12 +54,12 @@ export const query = graphql`
       production
       linkUrl
       linkText
-      text {
-        _key
-        _type
-        style
-        list
-      }
+      # text {
+      #   _key
+      #   _type
+      #   style
+      #   list
+      # }
       seo {
         seo_title
         meta_description
@@ -268,12 +258,12 @@ const ProjectTemplate = ({ data }) => {
                 <br />
               </div>
             ) : null}
-
+            {/* 
             {data.sanityCinematography.text ? (
               <div className="mt-4">
                 <PortableText blocks={data.sanityCinematography.text[0]} />
               </div>
-            ) : null}
+            ) : null} */}
 
             {showLightbox && selectedImage !== null && (
               <LightBox
