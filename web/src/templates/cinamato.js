@@ -3,12 +3,11 @@ import { Link, graphql } from "gatsby";
 import SEO from "../components/seo";
 import Layout from "../components/layout/layout";
 import { FaAngleLeft } from "react-icons/fa";
-import Img from "gatsby-image";
-import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
 import PortableText from "../components/portableText";
 import imageUrlBuilder from "@sanity/image-url";
 import LightBox from "../components/pages/lightbox";
 import LazyLoad from "vanilla-lazyload";
+import fallbackImage from "../images/fallback.png";
 
 const sanityClient = require("@sanity/client");
 const client = sanityClient({
@@ -176,6 +175,7 @@ const ProjectTemplate = ({ data }) => {
                 ></div>
                 <source
                   type="image/webp"
+                  src={fallbackImage}
                   data-srcset={[
                     urlFor(image?.asset?.id)
                       .width(1000)
@@ -194,6 +194,7 @@ const ProjectTemplate = ({ data }) => {
                   loading="lazy"
                 />
                 <img
+                  src={fallbackImage}
                   data-srcset={[
                     urlFor(image?.asset?.id)
                       .width(1000)

@@ -5,6 +5,7 @@ import LightBox from "./lightbox";
 import PropTypes from "prop-types";
 import Isotope from "isotope-layout/js/isotope";
 import LazyLoad from "vanilla-lazyload";
+import fallbackImage from "../../images/fallback.png";
 
 import imageUrlBuilder from "@sanity/image-url";
 
@@ -93,6 +94,7 @@ const Gird = ({ items }) => {
                   ></div>
                   <source
                     type="image/webp"
+                    src={fallbackImage}
                     data-srcset={[
                       urlFor(item?.image?.asset?.id)
                         .size(800, 400)
@@ -123,7 +125,7 @@ const Gird = ({ items }) => {
                     loading="lazy"
                   />
                   <img
-                    src={item?.image?.asset?.metadata?.lqip}
+                    src={fallbackImage}
                     data-srcset={[
                       urlFor(item?.image?.asset?.id)
                         .size(800, 400)

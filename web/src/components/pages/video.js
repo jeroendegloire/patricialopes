@@ -1,10 +1,10 @@
 import React from "react";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 import { FaPlay } from "react-icons/fa";
 
 const Video = ({ url, posterImage }) => {
   return (
-    <div className="flex-1 md:flex-none video w-full flex relative">
+    <div className="flex video w-full relative">
       <ReactPlayer
         url={url}
         width="100%"
@@ -18,6 +18,11 @@ const Video = ({ url, posterImage }) => {
           </button>
         }
         light={posterImage.asset.url + "?h=810"}
+        config={{
+          vimeo: {
+            playerVars: { width: 1920, height: 800 },
+          },
+        }}
       />
     </div>
   );

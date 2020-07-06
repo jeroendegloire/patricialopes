@@ -8514,9 +8514,9 @@ sanity-plugin-google-analytics@^0.2.6:
     react-debounce-render "^5.0.0"
     react-google-charts "^3.0.15"
 
-sanity-plugin-media@^0.2.10:
-  version "0.2.10"
-  resolved "https://registry.npmjs.org/sanity-plugin-media/-/sanity-plugin-media-0.2.10.tgz#34cfa778799fb374046cff46b94c0a0d1354f1cf"
+sanity-plugin-media@^0.2.13:
+  version "0.2.13"
+  resolved "https://registry.npmjs.org/sanity-plugin-media/-/sanity-plugin-media-0.2.13.tgz#3145c48d7a7391bd8df1bab73fef9f4653de57d1"
   dependencies:
     "@sanity/components" "0.144.2"
     "@tanem/react-nprogress" "3.0.8"

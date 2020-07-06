@@ -72,12 +72,6 @@ export default {
       }
     },
     {
-      name: 'featuredImage',
-      type: 'mainImage',
-      title: 'Featured image',
-      validation: Rule => Rule.required()
-    },
-    {
       name: 'fragments',
       type: 'array',
       title: 'Fragments',
@@ -118,12 +112,12 @@ export default {
       description: 'Clickable text of link url.',
       fieldset: 'details'
     },
-    {
-      type: 'bodyPortableText',
-      name: 'text',
-      validation: Rule => Rule.required(),
-      fieldset: 'details'
-    },
+    // {
+    //   type: 'bodyPortableText',
+    //   name: 'text',
+    //   validation: Rule => Rule.required(),
+    //   fieldset: 'details'
+    // },
     {
       title: 'Sharing image',
       description: 'Facebook recommends 1200x630 (will be auto resized)',
@@ -137,9 +131,9 @@ export default {
       type: 'seo-tools', // use seo-tools type
       fieldset: 'seo',
       options: {
-        baseUrl: 'https://.../', // (REQUIRED) This is the baseUrl for your site
+        baseUrl: 'https://patricialopes.be/', // (REQUIRED) This is the baseUrl for your site
         baseUrl(doc) {
-          return 'https://.../' // for dynamic baseUrls
+          return 'https://patricialopes.be/' // for dynamic baseUrls
         },
         slug(doc) {
           // (REQUIRED) a function to return the sug of the current page, which will be appended to the baseUrl

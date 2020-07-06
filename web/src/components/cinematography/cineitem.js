@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import imageUrlBuilder from "@sanity/image-url";
 import styled from "styled-components";
 import { useEffect } from "react";
+import fallbackImage from "../../images/fallback.png";
 
 const sanityClient = require("@sanity/client");
 const client = sanityClient({
@@ -53,6 +54,7 @@ const Cineitem = (props) => {
             ></div>
             <source
               type="image/webp"
+              src={fallbackImage}
               data-srcset={[
                 urlFor(props?.featuredImage?.asset?.id)
                   .size(800, 400)
@@ -77,7 +79,7 @@ const Cineitem = (props) => {
               loading="lazy"
             />
             <img
-              src={props?.featuredImage?.asset?.metadata?.lqip}
+              src={fallbackImage}
               data-srcset={[
                 urlFor(props?.featuredImage?.asset?.id)
                   .size(800, 400)

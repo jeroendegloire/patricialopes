@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Slider from "react-slick";
 import imageUrlBuilder from "@sanity/image-url";
 import LazyLoad from "vanilla-lazyload";
+import fallbackImage from "../../images/fallback.png";
 
 const sanityClient = require("@sanity/client");
 const client = sanityClient({
@@ -59,6 +60,7 @@ const Slideshow = ({ images }) => {
               ></div>
               <source
                 type="image/webp"
+                src={fallbackImage}
                 data-src={image.asset.metadata.lqip}
                 data-srcset={[
                   urlFor(image.asset.id)
@@ -87,6 +89,7 @@ const Slideshow = ({ images }) => {
                 loading="lazy"
               />
               <img
+                src={fallbackImage}
                 data-src={image.asset.metadata.lqip}
                 data-srcset={[
                   urlFor(image.asset.id)

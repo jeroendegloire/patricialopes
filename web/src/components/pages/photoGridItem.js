@@ -1,6 +1,7 @@
 import React from "react";
 import myConfiguredSanityClient from "../../../sanityClient";
 import imageUrlBuilder from "@sanity/image-url";
+import fallbackImage from "../../images/fallback.png";
 
 const sanityClient = require("@sanity/client");
 const client = sanityClient({
@@ -34,6 +35,7 @@ const photoGridItem = (props) => {
       ></div>
       <source
         type="image/webp"
+        src={fallbackImage}
         data-srcset={[
           urlFor(props?.mainImage?.asset?.id)
             .size(800, 400)
@@ -58,6 +60,7 @@ const photoGridItem = (props) => {
         loading="lazy"
       />
       <img
+        src={fallbackImage}
         data-srcset={[
           urlFor(props?.mainImage?.asset?.id)
             .size(800, 400)
