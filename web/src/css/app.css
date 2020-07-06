@@ -551,10 +551,6 @@ main {
 	transform: translateY(-50%);
 }
 
-.video > div {
-	align-self: flex-start;
-}
-
 @media all and (min-width: 768px) {
 	.slick-slider img,
 	.react-player__preview,
