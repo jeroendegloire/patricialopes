@@ -30,14 +30,26 @@ const Slideshow = ({ images }) => {
     pauseOnHover: false,
     dots: false,
     accessibility: true,
-    // responsive: [
-    //   {
-    //     breakpoint: 768,
-    //     settings: {
-    //       lazyLoad: true,
-    //     },
-    //   },
-    // ],
+    lazyLoad: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          infinite: true,
+          speed: 800,
+          autoplaySpeed: 3000,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          fade: true,
+          autoplay: true,
+          pauseOnFocus: false,
+          pauseOnHover: false,
+          dots: false,
+          accessibility: true,
+          lazyLoad: false,
+        },
+      },
+    ],
   };
 
   return (
