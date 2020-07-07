@@ -47,7 +47,7 @@ const Contact = ({
           <h1 className="uppercase mb-8 relative">{title}</h1>
           <div className="my-2">
             <b>Email: </b>
-            <a href="mailto:patriciahclopes@gmail.com" title="Send me">
+            <a href="mailto:hello@patricialopes.be" title="Send me">
               {mail}
             </a>
           </div>
