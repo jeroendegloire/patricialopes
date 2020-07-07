@@ -30,14 +30,14 @@ const Slideshow = ({ images }) => {
     pauseOnHover: false,
     dots: false,
     accessibility: true,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          lazyLoad: true,
-        },
-      },
-    ],
+    // responsive: [
+    //   {
+    //     breakpoint: 768,
+    //     settings: {
+    //       lazyLoad: true,
+    //     },
+    //   },
+    // ],
   };
 
   return (
