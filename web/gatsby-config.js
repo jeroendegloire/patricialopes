@@ -20,6 +20,7 @@ module.exports = {
     siteUrl: `https://www.patricialopes.be`,
   },
   plugins: [
+    `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-transformer-inline-svg`,
     {
       resolve: "gatsby-source-sanity",
@@ -94,6 +95,5 @@ module.exports = {
         anonymize: true,
       },
     },
-    `gatsby-plugin-remove-trailing-slashes`,
   ],
 };
