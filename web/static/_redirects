@@ -1,0 +1,5 @@
+# Redirect default Netlify subdomain to primary domain
+https://patricialopes.netlify.com/* https://www.patricialopes.be/:splat 301!
+/home /
+/photography/ /stills
+/about-me/ /about

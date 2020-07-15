@@ -65,7 +65,12 @@ module.exports = {
         siteUrl: `https://www.patricialopes.be`,
       },
     },
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [`/home`],
+      },
+    },
     `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
@@ -89,5 +94,6 @@ module.exports = {
         anonymize: true,
       },
     },
+    `gatsby-plugin-remove-trailing-slashes`,
   ],
 };
