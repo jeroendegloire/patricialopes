@@ -45,8 +45,7 @@ const TextImage = ({ image, text }) => {
               .format("webp")
               .quality(100)
               .url()}
-            className={"lazy absolute inset-0"}
-            loading="lazy"
+            className={"absolute inset-0"}
           />
         </figure>
       </div>
