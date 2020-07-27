@@ -6,6 +6,7 @@ import Slideshow from "./pages/slideShow";
 const serializers = {
   types: {
     authorReference: ({ node }) => <span>{node.author.name}</span>,
+    mainImage: Figure,
   },
 };
 

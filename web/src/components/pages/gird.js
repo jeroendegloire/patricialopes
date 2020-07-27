@@ -94,7 +94,6 @@ const Gird = ({ items }) => {
                   ></div>
                   <source
                     type="image/webp"
-                    src={fallbackImage}
                     data-srcset={[
                       urlFor(item?.image?.asset?.id)
                         .size(800, 400)

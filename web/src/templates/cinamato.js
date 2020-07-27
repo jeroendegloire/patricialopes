@@ -165,7 +165,6 @@ const ProjectTemplate = ({ data }) => {
                 ></div>
                 <source
                   type="image/webp"
-                  src={fallbackImage}
                   data-srcset={[
                     urlFor(image?.asset?.id)
                       .width(1000)

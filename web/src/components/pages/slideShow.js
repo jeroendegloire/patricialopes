@@ -68,7 +68,6 @@ const Slideshow = ({ images }) => {
               ></div>
               <source
                 type="image/webp"
-                src={fallbackImage}
                 srcSet={[
                   urlFor(image.asset.id)
                     .width(800)

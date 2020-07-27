@@ -35,7 +35,6 @@ const photoGridItem = (props) => {
       ></div>
       <source
         type="image/webp"
-        src={fallbackImage}
         data-srcset={[
           urlFor(props?.mainImage?.asset?.id)
             .size(800, 400)
