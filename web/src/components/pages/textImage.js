@@ -27,8 +27,8 @@ const TextImage = ({ image, text }) => {
   return (
     <div className="flex flex-wrap flex-col w-full">
       <div className="w-full">
-        <figure className="gatsby-image-wrapper">
-          <div
+        <figure className="gatsby-image-wrapper w-full">
+          {/* <div
             aria-hidden="true"
             style={{
               backgroundSize: "cover",
@@ -42,11 +42,46 @@ const TextImage = ({ image, text }) => {
               .fit("crop")
               .crop("focalpoint")
               .focalPoint(x, y)
-              .format("webp")
+              .format("jpg")
               .quality(100)
               .url()}
             className={"absolute inset-0"}
-          />
+            loading="lazy"
+          /> */}
+          <picture className={"w-full"}>
+            <div>
+              <div
+                style={{
+                  backgroundSize: "cover",
+                  backgroundImage: `url(${image.asset.metadata.lqip})`,
+                  paddingTop: `31.25%`,
+                }}
+              ></div>
+            </div>
+            {/* <img
+                aria-hidden="true"
+                src={image.asset.metadata.lqip}
+                className="absolute inset-0"
+              /> */}
+            <img
+              src={urlFor(image.asset.id)
+                .size(1920, 600)
+                .fit("crop")
+                .crop("focalpoint")
+                .focalPoint(x, y)
+                .format("jpg")
+                .quality(100)
+                .url()}
+              className={"absolute inset-0"}
+              loading="lazy"
+              className="absolute inset-0"
+              loading="lazy"
+              //sizes="(min-width: 1536px) 100vw,
+              //       (min-width: 1366px) 100vw,
+              //       100vw"
+              alt={image.alt}
+            />
+          </picture>
         </figure>
       </div>
 

@@ -25,7 +25,7 @@ const Slideshow = ({ images }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
-    autoplay: true,
+    autoplay: false,
     pauseOnFocus: false,
     pauseOnHover: false,
     dots: false,
@@ -41,7 +41,7 @@ const Slideshow = ({ images }) => {
           slidesToShow: 1,
           slidesToScroll: 1,
           fade: true,
-          autoplay: true,
+          autoplay: false,
           pauseOnFocus: false,
           pauseOnHover: false,
           dots: false,
@@ -58,66 +58,50 @@ const Slideshow = ({ images }) => {
         <Slider {...settings} className="slider-mobile">
           {images.map((image, i) => (
             <picture className={"w-full"} key={i}>
-              <div
+              <div>
+                <div
+                  style={{
+                    paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
+                    backgroundImage: `url(${image.asset.metadata.lqip})`,
+                    backgroundSize: `cover`,
+                  }}
+                ></div>
+              </div>
+              {/* <img
                 aria-hidden="true"
-                style={{
-                  paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
-                  backgroundImage: `url(${image.asset.metadata.lqip})`,
-                  backgroundSize: "cover",
-                }}
-              ></div>
-              <source
-                type="image/webp"
-                srcSet={[
-                  urlFor(image.asset.id)
-                    .width(800)
-                    .height(333)
-                    .quality(100)
-                    .format("webp")
-                    .url() + " 768w,",
-                  urlFor(image.asset.id)
-                    .width(1536)
-                    .height(640)
-                    .quality(100)
-                    .format("webp")
-                    .url() + " 1536w,",
-                  urlFor(image.asset.id)
-                    .width(1920)
-                    .height(800)
-                    .quality(100)
-                    .format("webp")
-                    .url() + " 1633w",
-                ]}
-                sizes="(min-width: 1536px) 100vw, 
-                  (min-width: 1366px) 100vw,
-                  100vw"
-                alt={image.alt}
-                loading="lazy"
-              />
+                src={image.asset.metadata.lqip}
+                className="absolute inset-0"
+              /> */}
               <img
-                src={fallbackImage}
                 srcSet={[
                   urlFor(image.asset.id)
                     .width(800)
                     .height(333)
                     .quality(90)
-                    .format("jpg")
+                    //.auto("format")
+                    .format("webp")
                     .url() + " 768w,",
                   urlFor(image.asset.id)
                     .width(1536)
                     .height(640)
                     .quality(90)
-                    .format("jpg")
+                    //.auto("format")
+                    .format("webp")
                     .url() + " 1536w,",
                   urlFor(image.asset.id)
                     .width(1920)
                     .height(800)
                     .quality(90)
-                    .format("jpg")
+                    //.auto("format")
+                    .format("webp")
                     .url() + " 1633w",
                 ]}
                 className="absolute inset-0"
                 loading="lazy"
+                sizes="(min-width: 1536px) 100vw,
+                       (min-width: 1366px) 100vw,
+                       100vw"
+                alt={image.alt}
               />
             </picture>
           ))}
