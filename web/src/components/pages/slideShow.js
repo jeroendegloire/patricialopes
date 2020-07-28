@@ -58,7 +58,7 @@ const Slideshow = ({ images }) => {
         <Slider {...settings} className="slider-mobile">
           {images.map((image, i) => (
             <picture className={"w-full"} key={i}>
-              <div>
+              {/* <div>
                 <div
                   style={{
                     paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
@@ -66,7 +66,7 @@ const Slideshow = ({ images }) => {
                     backgroundSize: `cover`,
                   }}
                 ></div>
-              </div>
+              </div> */}
               {/* <img
                 aria-hidden="true"
                 src={image.asset.metadata.lqip}
@@ -78,26 +78,22 @@ const Slideshow = ({ images }) => {
                     .width(800)
                     .height(333)
                     .quality(90)
-                    //.auto("format")
                     .format("webp")
                     .url() + " 768w,",
                   urlFor(image.asset.id)
                     .width(1536)
                     .height(640)
                     .quality(90)
-                    //.auto("format")
                     .format("webp")
                     .url() + " 1536w,",
                   urlFor(image.asset.id)
                     .width(1920)
                     .height(800)
                     .quality(90)
-                    //.auto("format")
                     .format("webp")
                     .url() + " 1633w",
                 ]}
                 className="absolute inset-0"
-                loading="lazy"
                 sizes="(min-width: 1536px) 100vw,
                        (min-width: 1366px) 100vw,
                        100vw"
