@@ -25,7 +25,7 @@ const Slideshow = ({ images }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
-    autoplay: false,
+    autoplay: true,
     pauseOnFocus: false,
     pauseOnHover: false,
     dots: false,
@@ -58,15 +58,14 @@ const Slideshow = ({ images }) => {
         <Slider {...settings} className="slider-mobile">
           {images.map((image, i) => (
             <picture className={"w-full"} key={i}>
-              {/* <div>
-                <div
-                  style={{
-                    paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
-                    backgroundImage: `url(${image.asset.metadata.lqip})`,
-                    backgroundSize: `cover`,
-                  }}
-                ></div>
-              </div> */}
+              <div
+                aria-hidden="true"
+                style={{
+                  paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
+                  //backgroundImage: `url(${image.asset.metadata.lqip})`,
+                  //backgroundSize: `cover`,
+                }}
+              ></div>
               {/* <img
                 aria-hidden="true"
                 src={image.asset.metadata.lqip}
@@ -78,18 +77,21 @@ const Slideshow = ({ images }) => {
                     .width(800)
                     .height(333)
                     .quality(90)
+                    //.auto("format")
                     .format("webp")
                     .url() + " 768w,",
                   urlFor(image.asset.id)
                     .width(1536)
                     .height(640)
                     .quality(90)
+                    //.auto("format")
                     .format("webp")
                     .url() + " 1536w,",
                   urlFor(image.asset.id)
                     .width(1920)
                     .height(800)
                     .quality(90)
+                    //.auto("format")
                     .format("webp")
                     .url() + " 1633w",
                 ]}
