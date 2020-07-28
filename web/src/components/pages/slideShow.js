@@ -41,7 +41,7 @@ const Slideshow = ({ images }) => {
           slidesToShow: 1,
           slidesToScroll: 1,
           fade: true,
-          autoplay: false,
+          autoplay: true,
           pauseOnFocus: false,
           pauseOnHover: false,
           dots: false,
@@ -63,43 +63,61 @@ const Slideshow = ({ images }) => {
                 style={{
                   paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
                   //backgroundImage: `url(${image.asset.metadata.lqip})`,
-                  //backgroundSize: `cover`,
+                  //backgroundSize: "cover",
                 }}
               ></div>
-              {/* <img
-                aria-hidden="true"
-                src={image.asset.metadata.lqip}
-                className="absolute inset-0"
-              /> */}
-              <img
+              <source
+                type="image/webp"
                 srcSet={[
                   urlFor(image.asset.id)
                     .width(800)
                     .height(333)
-                    .quality(90)
-                    //.auto("format")
+                    .quality(100)
                     .format("webp")
                     .url() + " 768w,",
                   urlFor(image.asset.id)
                     .width(1536)
                     .height(640)
-                    .quality(90)
-                    //.auto("format")
+                    .quality(100)
                     .format("webp")
                     .url() + " 1536w,",
                   urlFor(image.asset.id)
                     .width(1920)
                     .height(800)
-                    .quality(90)
-                    //.auto("format")
+                    .quality(100)
                     .format("webp")
                     .url() + " 1633w",
                 ]}
-                className="absolute inset-0"
-                sizes="(min-width: 1536px) 100vw,
-                       (min-width: 1366px) 100vw,
-                       100vw"
+                sizes="(min-width: 1536px) 100vw, 
+                  (min-width: 1366px) 100vw,
+                  100vw"
                 alt={image.alt}
+                loading="lazy"
+              />
+              <img
+                src={fallbackImage}
+                srcSet={[
+                  urlFor(image.asset.id)
+                    .width(800)
+                    .height(333)
+                    .quality(90)
+                    .format("jpg")
+                    .url() + " 768w,",
+                  urlFor(image.asset.id)
+                    .width(1536)
+                    .height(640)
+                    .quality(90)
+                    .format("jpg")
+                    .url() + " 1536w,",
+                  urlFor(image.asset.id)
+                    .width(1920)
+                    .height(800)
+                    .quality(90)
+                    .format("jpg")
+                    .url() + " 1633w",
+                ]}
+                className="absolute inset-0"
+                loading="lazy"
               />
             </picture>
           ))}
