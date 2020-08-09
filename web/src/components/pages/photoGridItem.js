@@ -1,17 +1,13 @@
 import React from "react";
-import myConfiguredSanityClient from "../../../sanityClient";
+import { clientPreview, publicClient } from "../../../sanityClient.js";
 import imageUrlBuilder from "@sanity/image-url";
 import fallbackImage from "../../images/fallback.png";
 
-const sanityClient = require("@sanity/client");
-const client = sanityClient({
-  projectId: "l2xxtj60",
-  dataset: "production",
-  useCdn: false,
-  withCredentials: true,
-});
+const builder = imageUrlBuilder(publicClient);
 
-const builder = imageUrlBuilder(client);
+if (process.env.ENV == "develop") {
+  const builder = imageUrlBuilder(clientPreview);
+}
 
 function urlFor(source) {
   return builder.image(source);

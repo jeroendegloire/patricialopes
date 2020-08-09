@@ -3,7 +3,6 @@ import { Link, StaticQuery, graphql } from "gatsby";
 import SvgComponent from "../logo";
 
 function Logo() {
-  const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
   return (
     <StaticQuery
       query={graphql`

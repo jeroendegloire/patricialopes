@@ -2,16 +2,13 @@ import React, { useEffect } from "react";
 import Slider from "react-slick";
 import imageUrlBuilder from "@sanity/image-url";
 import fallbackImage from "../../images/fallback.png";
+import { clientPreview, publicClient } from "../../../sanityClient.js";
 
-const sanityClient = require("@sanity/client");
-const client = sanityClient({
-  projectId: "l2xxtj60",
-  dataset: "production",
-  useCdn: false,
-  withCredentials: true,
-});
+const builder = imageUrlBuilder(publicClient);
 
-const builder = imageUrlBuilder(client);
+if (process.env.ENV == "develop") {
+  const builder = imageUrlBuilder(clientPreview);
+}
 
 function urlFor(source) {
   return builder.image(source);

@@ -1,27 +1,20 @@
 import React from "react";
 import { Link } from "gatsby";
 import imageUrlBuilder from "@sanity/image-url";
-import styled from "styled-components";
-import { useEffect } from "react";
 import fallbackImage from "../../images/fallback.png";
+import { clientPreview, publicClient } from "../../../sanityClient.js";
 
-const sanityClient = require("@sanity/client");
-const client = sanityClient({
-  projectId: "l2xxtj60",
-  dataset: "production",
-  useCdn: false,
-  withCredentials: false,
-});
+const builder = imageUrlBuilder(publicClient);
 
-const builder = imageUrlBuilder(client);
+if (process.env.ENV == "develop") {
+  const builder = imageUrlBuilder(clientPreview);
+}
 
 function urlFor(source) {
   return builder.image(source);
 }
 
 const Cineitem = (props) => {
-  const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
-
   const x = props?.featuredImage?.hotspot
     ? props?.featuredImage?.hotspot?.x
     : "0";
@@ -54,7 +47,6 @@ const Cineitem = (props) => {
             ></div>
             <source
               type="image/webp"
-              src={fallbackImage}
               data-srcset={[
                 urlFor(props?.featuredImage?.asset?.id)
                   .size(800, 400)

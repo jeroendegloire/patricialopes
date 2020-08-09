@@ -3,24 +3,20 @@ import PortableText from "../portableText";
 import { Link } from "gatsby";
 import Footer from "../layout/footer";
 import imageUrlBuilder from "@sanity/image-url";
+import { clientPreview, publicClient } from "../../../sanityClient.js";
 
-const sanityClient = require("@sanity/client");
-const client = sanityClient({
-  projectId: "l2xxtj60",
-  dataset: "production",
-  //token: "myToken",
-  useCdn: false,
-});
+if (process.env.ENV == "develop") {
+  const builder = imageUrlBuilder(clientPreview);
+} else {
+}
 
-const builder = imageUrlBuilder(client);
+const builder = imageUrlBuilder(clientPreview);
 
 function urlFor(source) {
   return builder.image(source);
 }
 
 const TextImage = ({ image, text }) => {
-  const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
-
   const x = image.hotspot ? image.hotspot.x : "0.5";
   const y = image.hotspot ? image.hotspot.y : "0.5";
 

@@ -1,31 +1,19 @@
 import React, { useState, useEffect } from "react";
-import Img from "gatsby-image";
-import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
+import { clientPreview, publicClient } from "../../../sanityClient.js";
 import LightBox from "./lightbox";
 import PropTypes from "prop-types";
 import Isotope from "isotope-layout/js/isotope";
 import LazyLoad from "vanilla-lazyload";
 import fallbackImage from "../../images/fallback.png";
-
 import imageUrlBuilder from "@sanity/image-url";
 
-const sanityClient = require("@sanity/client");
-const client = sanityClient({
-  projectId: "l2xxtj60",
-  dataset: "production",
-  useCdn: false,
-  withCredentials: true,
-});
-
-const builder = imageUrlBuilder(client);
+const builder = imageUrlBuilder(clientPreview);
 
 function urlFor(source) {
   return builder.image(source);
 }
 
 const Gird = ({ items }) => {
-  const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
-
   const [showLightbox, setShowLightbox] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -157,7 +145,7 @@ const Gird = ({ items }) => {
               </figure>
             )}
             {item.ratio == "square" && (
-              <figure className={"gatsby-image-wrapper"} style={{}}>
+              <figure className={"gatsby-image-wrapper"}>
                 <picture className={"w-full"}>
                   <div
                     aria-hidden="true"

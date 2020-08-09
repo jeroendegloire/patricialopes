@@ -1,7 +1,16 @@
 const sanityClient = require("@sanity/client");
-const client = sanityClient({
+
+export const publicClient = sanityClient({
   projectId: "l2xxtj60",
   dataset: "production",
-  //token: "sanity-auth-token", // or leave blank to be anonymous user
-  useCdn: false, // `false` if you want to ensure fresh data
+  useCdn: true,
+});
+
+export const clientPreview = sanityClient({
+  projectId: "l2xxtj60",
+  dataset: "production",
+  token:
+    "skzHVLXK1QmALsZQZQH2XoYRJDPIEBeNsw1CrHHTiBvpOeXN1Gw0PzOUFSztqbD4p8XgP42wxLXEBl77eQI1sawmWzOlpKdtxGI1LvH4u81FmYywkWrzf3U79OK37h5V4LW4Cm1Lizbu0mz25X7KTwf35CnVfoUIeObS19mE5JmyeHY2KBaQ",
+  useCdn: false,
+  withCredentials: true,
 });
