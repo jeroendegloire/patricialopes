@@ -83,7 +83,6 @@ export default () =>
                 .schemaType('cinematography')
                 .views([
                   S.view.form().icon(EditIcon),
-                  PreviewIFrame(),
                   S.view
                     .component(IframePreview)
                     .options({ previewURL })
