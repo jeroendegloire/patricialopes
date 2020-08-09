@@ -7,7 +7,10 @@ import LazyLoad from "vanilla-lazyload";
 import fallbackImage from "../../images/fallback.png";
 import imageUrlBuilder from "@sanity/image-url";
 
-const builder = imageUrlBuilder(clientPreview);
+const builder =
+  process.env.ENV == "develop"
+    ? imageUrlBuilder(clientPreview)
+    : imageUrlBuilder(publicClient);
 
 function urlFor(source) {
   return builder.image(source);

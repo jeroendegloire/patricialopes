@@ -8,11 +8,10 @@ import { clientPreview, publicClient } from "../../../sanityClient.js";
 
 import imageUrlBuilder from "@sanity/image-url";
 
-const builder = imageUrlBuilder(publicClient);
-
-if (process.env.ENV == "develop") {
-  const builder = imageUrlBuilder(clientPreview);
-}
+const builder =
+  process.env.ENV == "develop"
+    ? imageUrlBuilder(clientPreview)
+    : imageUrlBuilder(publicClient);
 
 function urlFor(source) {
   return builder.image(source);

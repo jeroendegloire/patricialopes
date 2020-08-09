@@ -5,12 +5,10 @@ import Footer from "../layout/footer";
 import imageUrlBuilder from "@sanity/image-url";
 import { clientPreview, publicClient } from "../../../sanityClient.js";
 
-if (process.env.ENV == "develop") {
-  const builder = imageUrlBuilder(clientPreview);
-} else {
-}
-
-const builder = imageUrlBuilder(clientPreview);
+const builder =
+  process.env.ENV == "develop"
+    ? imageUrlBuilder(clientPreview)
+    : imageUrlBuilder(publicClient);
 
 function urlFor(source) {
   return builder.image(source);
