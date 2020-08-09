@@ -199,7 +199,7 @@ const ProjectTemplate = ({ data }) => {
               </picture>
             </div>
           ))}
-          <div className="font-thin px-6 lg:px-0">
+          <div className="font-thin px-6 lg:px-0 mb-8">
             {data.sanityCinematography.title ? (
               <h1 className="font-normal text-xl uppercase text-base mb-4">
                 {data.sanityCinematography.title}
@@ -217,7 +217,7 @@ const ProjectTemplate = ({ data }) => {
               <div>
                 <span>DIRECTED BY </span>
                 {directors.map((director) => (
-                  <span>{director}</span>
+                  <span className="inline-block">{director}</span>
                 ))}
                 <br />
               </div>
@@ -227,7 +227,7 @@ const ProjectTemplate = ({ data }) => {
               <div>
                 <span>PRODUCTION: </span>
                 {productions.map((production) => (
-                  <span>{production}</span>
+                  <span className="inline-block">{production}</span>
                 ))}
                 <br />
               </div>
@@ -237,7 +237,7 @@ const ProjectTemplate = ({ data }) => {
               <div>
                 <span>DIRECTOR OF PHOTOGRAPHY: </span>
                 {dops.map((dop) => (
-                  <span> {dop}</span>
+                  <span className="inline-block"> {dop}</span>
                 ))}
                 <br />
               </div>

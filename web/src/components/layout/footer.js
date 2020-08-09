@@ -35,7 +35,7 @@ function Footer() {
         } = data.sanitySiteSettings;
         return (
           <nav className="self-end mt-10">
-            <ul className="flex justify-center">
+            <ul className="flex justify-center -mx-2">
               <li className="px-2 hover:grow">
                 <a href={instagram} target="_blank">
                   <FaInstagram size={20} />

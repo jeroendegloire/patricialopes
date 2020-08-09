@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
 import Logo from "./logo";
 import { FaTimes } from "react-icons/fa";
+import onClickOutside from "react-onclickoutside";
 
 function Header() {
   const [isExpanded, toggleExpansion] = useState(false);
+  Header.handleClickOutside = () => toggleExpansion(false);
 
   return (
     <StaticQuery
@@ -70,4 +72,8 @@ function Header() {
   );
 }
 
-export default Header;
+const clickOutsideConfig = {
+  handleClickOutside: () => Header.handleClickOutside,
+};
+
+export default onClickOutside(Header, clickOutsideConfig);
