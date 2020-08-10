@@ -3,7 +3,15 @@
   "name": "patricialopes",
   "version": "1.0.2",
   "scripts": {
-    "postinstall": "npm install --global gatsby-cli && cd web && npm install"
+    "build": "cd web && npm install",
+    "dev": "lerna run dev --parallel",
+    "format": "lerna run format",
+    "build-studio": "lerna bootstrap && (cd studio && npm run build)",
+    "build-web": "lerna bootstrap && (cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN npm run graphql-deploy) && (cd web && npm run build)",
+    "graphql-deploy": "lerna run graphql-deploy",
+    "lint": "lerna run lint",
+    "postinstall": "lerna bootstrap",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "@sanity/cli": "^1.149.16",

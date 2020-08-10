@@ -2,7 +2,7 @@ const env = process.env.NODE_ENV || 'development'
 
 export default function resolvePreviewUrl(document) {
   const baseUrl =
-    env === 'development' ? 'http://localhost:8000' : 'https://patricialopes-1711684113.gtsb.io/'
+    env === 'development' ? 'http://localhost:8000' : 'https://patricialopes-preview.herokuapp.com/'
   switch (document._type) {
     case 'page':
       if (!document.slug || !document.slug.current) {

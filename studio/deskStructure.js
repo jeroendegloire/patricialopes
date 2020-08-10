@@ -12,7 +12,7 @@ import SeoPreview from './src/components/previews/seo/SeoPreviews'
 import ColorblindPreview from './src/components/previews/colorblind-filter/ColorblindPreview'
 
 // Web preview configuration
-const remoteURL = 'https://patricialopes-1711684113.gtsb.io'
+const remoteURL = 'https://patricialopes-preview.herokuapp.com'
 const localURL = 'http://localhost:8000'
 const previewURL = window.location.hostname === 'localhost' ? localURL : remoteURL
 
