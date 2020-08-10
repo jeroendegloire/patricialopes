@@ -235,7 +235,7 @@ const ProjectTemplate = ({ data }) => {
 
             {dops[0] ? (
               <div>
-                <span>DIRECTOR OF PHOTOGRAPHY: </span>
+                <span>CINEMATOGRAPHY: </span>
                 {dops.map((dop) => (
                   <span className="inline-block"> {dop}</span>
                 ))}
