@@ -11,6 +11,6 @@ module.exports = {
     scale: ["hover"],
   },
   // https://github.com/tailwindcss/custom-forms
-  plugins: [require("@tailwindcss/custom-forms")],
+  plugins: [],
   purge: false,
 };

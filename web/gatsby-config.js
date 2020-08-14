@@ -5,25 +5,20 @@ require("dotenv").config({
 
 const isProd = process.env.NODE_ENV === "production";
 
-const resolveConfig = require("tailwindcss/resolveConfig");
-const tailwindConfig = require("./tailwind.config.js");
+// const resolveConfig = require("tailwindcss/resolveConfig");
+// const tailwindConfig = require("./tailwind.config.js");
 
-const fullConfig = resolveConfig(tailwindConfig);
+// const fullConfig = resolveConfig(tailwindConfig);
 
 module.exports = {
   siteMetadata: {
-    title: `Patricia Lopes`,
-    description: `test`,
-    keywords: "`cinematography, photography`",
-    synonyms: [""],
+    title: `Patrícia Lopes`,
     image: "/logo.png",
-    author: `Jeroen Degloire`,
     url: `https://www.patricialopes.be`,
     siteUrl: `https://www.patricialopes.be`,
   },
   plugins: [
     `gatsby-plugin-remove-trailing-slashes`,
-    `gatsby-transformer-inline-svg`,
     {
       resolve: "gatsby-source-sanity",
       options: {
@@ -43,10 +38,17 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: false,
+        tailwind: true,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-tailwind`,
-        short_name: `starter`,
+        name: `Patrícia Lopes`,
+        short_name: `paricia_lopes`,
         start_url: `/`,
         background_color: "#000",
         theme_color: "#000",
@@ -54,12 +56,10 @@ module.exports = {
         icon: `src/images/favicon.svg`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
-        postCssPlugins: [require(`tailwindcss`)()],
+        postCssPlugins: [require("tailwindcss")],
       },
     },
     {
@@ -95,6 +95,12 @@ module.exports = {
         head: true,
         // Setting this parameter is optional
         anonymize: true,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-preconnect",
+      options: {
+        domains: ["https://cdn.sanity.io"],
       },
     },
   ],

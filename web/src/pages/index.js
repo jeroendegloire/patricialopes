@@ -1,6 +1,4 @@
 import React from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "../css/app.css";
 import { graphql } from "gatsby";
 import Slideshow from "../components/pages/slideShow";
 import Layout from "../components/layout/layout";

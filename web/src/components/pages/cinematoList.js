@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Cineitem from "../cinematography/cineitem";
-import "../../css/app.css";
 import Isotope from "isotope-layout/js/isotope";
 import LazyLoad from "vanilla-lazyload";
 

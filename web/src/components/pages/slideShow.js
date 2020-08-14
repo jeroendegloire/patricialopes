@@ -16,7 +16,7 @@ function urlFor(source) {
 const Slideshow = ({ images }) => {
   const settings = {
     infinite: true,
-    speed: 800,
+    speed: 1000,
     autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -32,7 +32,7 @@ const Slideshow = ({ images }) => {
         breakpoint: 768,
         settings: {
           infinite: true,
-          speed: 800,
+          speed: 1000,
           autoplaySpeed: 3000,
           slidesToShow: 1,
           slidesToScroll: 1,
