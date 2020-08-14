@@ -41,27 +41,28 @@ const SEO = ({ title, description, keywords, image, synonyms }) => (
         "@context": "http://schema.org",
         "@type": "WebPage",
         url: "https://www.patricialopes.be",
-        headline: "Director of Photography",
+        headline:
+          "Freelance Director of Photography based in Londen and Brussels.",
         inLanguage: "en",
         mainEntityOfPage: "https://www.patricialopes.be",
         description: defaultDescription,
-        name: defaultTitle,
+        name: "Patrícia Lopes",
         author: {
           "@type": "Person",
-          name: "Patricia Lopes",
+          name: "Patrícia Lopes",
         },
         copyrightHolder: {
           "@type": "Person",
-          name: "Patricia Lopes",
+          name: "Patrícia Lopes",
         },
         copyrightYear: "2020",
         creator: {
           "@type": "Person",
-          name: "Patricia Lopes",
+          name: "Patrícia Lopes",
         },
         publisher: {
           "@type": "Person",
-          name: "Patricia Lopes",
+          name: "Patrícia Lopes",
         },
         datePublished: buildTime,
         dateModified: buildTime,
@@ -69,6 +70,43 @@ const SEO = ({ title, description, keywords, image, synonyms }) => (
         //   "@type": "ImageObject",
         //   url: `${siteUrl}${defaultBanner}`,
         // },
+      };
+
+      const schemaOrgPerson = {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        name: "Patrícia Lopes",
+        familyName: "Lopes",
+        givenName: "Patricia",
+        mainEntityOfPage: "https://jasonbarnard.com/",
+        description:
+          "Award winning Patrícia Lopes is a Portuguese-Brazilian cinematographer who is especially drawn by stories that challenge her to think outside of the box. She has lived abroad since her childhood, giving her the ability to adapt and explore her style to each project solely. ",
+        worksFor: "https://www.patricialopes.be",
+        jobTitle: {
+          type: "DefinedTerm",
+          name: "Director of Photography",
+          inDefinedTermSet:
+            "http://data.europa.eu/esco/occupation/6ba25e0f-7fb8-4879-a1f9-d4f8945966be",
+          termCode: "2166.4.3",
+        },
+        alumniOf: "https://www.luca-arts.be/",
+        image:
+          "https://cdn.sanity.io/images/l2xxtj60/production/d4a6a82b8c75f40cc2e1edee477dae1756fb6a93-4096x2730.jpg?w=2000&fm=jpg&q=100",
+        gender: "http://schema.org/Female",
+        sameAs: [
+          "https://www.linkedin.com/in/patricialopes-dop/",
+          "https://www.facebook.com/patricia.lopes.7127",
+          "https://vimeo.com/patricialopes",
+          "https://www.instagram.com/patricialopes.dop/",
+          "https://www.imdb.com/name/nm7859516/",
+        ],
+        url: [
+          "https://www.linkedin.com/in/patricialopes-dop/",
+          "https://www.facebook.com/patricia.lopes.7127",
+          "https://vimeo.com/patricialopes",
+          "https://www.instagram.com/patricialopes.dop/",
+          "https://www.imdb.com/name/nm7859516/",
+        ],
       };
 
       // const schemaOrgCreativeWork = {
@@ -82,20 +120,20 @@ const SEO = ({ title, description, keywords, image, synonyms }) => (
       //   name: defaultTitle,
       //   author: {
       //     "@type": "Person",
-      //     name: "Patricia Lopes",
+      //     name: "Patrícia Lopes",
       //   },
       //   copyrightHolder: {
       //     "@type": "Person",
-      //     name: "Patricia Lopes",
+      //     name: "Patrícia Lopes",
       //   },
       //   copyrightYear: "2020",
       //   creator: {
       //     "@type": "Person",
-      //     name: "Patricia Lopes",
+      //     name: "Patrícia Lopes",
       //   },
       //   publisher: {
       //     "@type": "Person",
-      //     name: "Patricia Lopes",
+      //     name: "Patrícia Lopes",
       //   },
       //   datePublished: buildTime,
       //   dateModified: buildTime,
@@ -189,6 +227,18 @@ const SEO = ({ title, description, keywords, image, synonyms }) => (
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={seo.description} />
           <meta name="twitter:image" content={seo.image} />
+          <script type="application/ld+json">
+            "@context": "https://schema.org/", "@type": "Person", "name":
+            "Patrícia Lopes", "alternateName": "Patricia Lopes", "url":
+            "https://www.patricialopes.be", "image":
+            "https://cdn.sanity.io/images/l2xxtj60/production/d4a6a82b8c75f40cc2e1edee477dae1756fb6a93-4096x2730.jpg?w=1200&h=1200&fm=jpg&q=100",
+            "sameAs": [ "https://www.facebook.com/patricia.lopes.7127",
+            "https://www.instagram.com/patricialopes.dop",
+            "https://vimeo.com/patricialopes",
+            "https://www.linkedin.com/in/patricialopes-dop",
+            "https://www.imdb.com/name/nm7859516" ], "jobTitle": "Director of
+            Photography"
+          </script>
         </Helmet>
       );
     }}
