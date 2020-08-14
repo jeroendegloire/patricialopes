@@ -1,12 +1,12 @@
 const sanityClient = require("@sanity/client");
 
-export const publicClient = sanityClient({
+export const productionClient = sanityClient({
   projectId: "l2xxtj60",
   dataset: "production",
   useCdn: true,
 });
 
-export const clientPreview = sanityClient({
+export const previewClient = sanityClient({
   projectId: "l2xxtj60",
   dataset: "production",
   token:

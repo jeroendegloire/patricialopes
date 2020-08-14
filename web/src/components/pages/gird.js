@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { clientPreview, publicClient } from "../../../sanityClient.js";
+import { previewClient, productionClient } from "../../../sanityClient.js";
 import LightBox from "./lightbox";
 import PropTypes from "prop-types";
 import Isotope from "isotope-layout/js/isotope";
@@ -9,8 +9,8 @@ import imageUrlBuilder from "@sanity/image-url";
 
 const builder =
   process.env.ENV == "develop"
-    ? imageUrlBuilder(clientPreview)
-    : imageUrlBuilder(publicClient);
+    ? imageUrlBuilder(previewClient)
+    : imageUrlBuilder(productionClient);
 
 function urlFor(source) {
   return builder.image(source);

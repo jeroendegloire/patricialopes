@@ -4,14 +4,14 @@ import React from "react";
 //https://reactjsexample.com/lightbox-for-components-or-images-built-for-react/
 import LightboxReact from "lightbox-react";
 import "lightbox-react/style.css";
-import { clientPreview, publicClient } from "../../../sanityClient.js";
+import { previewClient, productionClient } from "../../../sanityClient.js";
 
 import imageUrlBuilder from "@sanity/image-url";
 
 const builder =
   process.env.ENV == "develop"
-    ? imageUrlBuilder(clientPreview)
-    : imageUrlBuilder(publicClient);
+    ? imageUrlBuilder(previewClient)
+    : imageUrlBuilder(productionClient);
 
 function urlFor(source) {
   return builder.image(source);

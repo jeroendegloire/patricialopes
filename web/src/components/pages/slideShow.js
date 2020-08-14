@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import Slider from "react-slick";
 import imageUrlBuilder from "@sanity/image-url";
 import fallbackImage from "../../images/fallback.png";
-import { clientPreview, publicClient } from "../../../sanityClient.js";
+import { previewClient, productionClient } from "../../../sanityClient.js";
 
 const builder =
   process.env.ENV == "develop"
-    ? imageUrlBuilder(clientPreview)
-    : imageUrlBuilder(publicClient);
+    ? imageUrlBuilder(previewClient)
+    : imageUrlBuilder(productionClient);
 
 function urlFor(source) {
   return builder.image(source);
