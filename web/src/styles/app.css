@@ -145,10 +145,6 @@ header a:hover:before {
 }
 
 @media all and (max-width: 768px) {
-  /* .slider-desktop {
-		display: none;
-	} */
-
   .slider-mobile .slick-track {
     width: 100% !important;
   }
@@ -163,12 +159,6 @@ header a:hover:before {
 .slider-mobile .gatsby-image-wrapper {
   margin-bottom: -2px;
 }
-
-/* @media all and (min-width: 1024px) {
-	.slider-mobile {
-		display: none;
-	}
-} */
 
 .slider-desktop .gatsby-image-wrapper {
   height: 90vh !important;
