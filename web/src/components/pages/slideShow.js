@@ -58,8 +58,6 @@ const Slideshow = ({ images }) => {
                 aria-hidden="true"
                 style={{
                   paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
-                  //backgroundImage: `url(${image.asset.metadata.lqip})`,
-                  //backgroundSize: "cover",
                 }}
               ></div>
               <source
@@ -87,8 +85,6 @@ const Slideshow = ({ images }) => {
                 sizes="(min-width: 1536px) 100vw, 
                   (min-width: 1366px) 100vw,
                   100vw"
-                alt={image.alt}
-                loading="lazy"
               />
               <img
                 src={fallbackImage}
@@ -114,6 +110,7 @@ const Slideshow = ({ images }) => {
                 ]}
                 className="absolute inset-0"
                 loading="lazy"
+                alt={image.alt}
               />
             </picture>
           ))}
