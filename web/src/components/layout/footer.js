@@ -37,17 +37,32 @@ function Footer() {
           <nav className="self-end mt-10">
             <ul className="flex justify-center -mx-2">
               <li className="px-2 hover:grow">
-                <a href={instagram} target="_blank">
+                <a
+                  href={instagram}
+                  title="Instagram profile"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <FaInstagram size={20} />
                 </a>
               </li>
               <li className="px-2 hover:grow">
-                <a href={imdb} target="_blank">
+                <a
+                  href={imdb}
+                  title="IMDB profile"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <FaImdb size={20} />
                 </a>
               </li>
               <li className="px-2 hover:grow">
-                <a href={vimeo} target="_blank">
+                <a
+                  href={vimeo}
+                  title="Vimeo profile"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <FaVimeoV size={20} />
                 </a>
               </li>
@@ -57,12 +72,22 @@ function Footer() {
                 </Link>
               </li> */}
               <li className="px-2 hover:grow">
-                <a href={linkedin} target="_blank">
+                <a
+                  href={linkedin}
+                  title="LinkedIn profile"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <FaLinkedin size={20} />
                 </a>
               </li>
               <li className="px-2 hover:grow">
-                <a href={facebook} target="_blank">
+                <a
+                  href={facebook}
+                  title="Facebook profile"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <FaFacebookSquare size={20} />
                 </a>
               </li>

@@ -63,7 +63,7 @@ const TextImage = ({ image, text }) => {
                 .fit("crop")
                 .crop("focalpoint")
                 .focalPoint(x, y)
-                .format("jpg")
+                .auto("format")
                 .quality(100)
                 .url()}
               className={"absolute inset-0"}
