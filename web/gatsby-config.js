@@ -60,6 +60,7 @@ module.exports = {
       options: {
         printRejected: false,
         tailwind: true,
+        ignore: ["node_modules/"],
       },
     },
     {
