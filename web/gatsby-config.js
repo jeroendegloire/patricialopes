@@ -12,7 +12,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
   siteMetadata: {
-    title: `Patrícia Lopes`,
+    title: `Patrícia Lopes - Director of photography`,
     image: "/logo.png",
     url: `https://www.patricialopes.be`,
     siteUrl: `https://www.patricialopes.be`,
@@ -60,7 +60,7 @@ module.exports = {
       options: {
         printRejected: false,
         tailwind: true,
-        ignore: ["node_modules/"],
+        ignore: ["node_modules/react"],
       },
     },
     {

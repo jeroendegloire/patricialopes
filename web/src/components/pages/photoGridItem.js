@@ -37,7 +37,7 @@ const photoGridItem = (props) => {
             .crop("focalpoint")
             .focalPoint(x, y)
             .quality(100)
-            .format("webp")
+            .auto("format")
             .url() + " 768w,",
           urlFor(props?.mainImage?.asset?.id)
             .size(1200, 600)
@@ -45,7 +45,7 @@ const photoGridItem = (props) => {
             .crop("focalpoint")
             .focalPoint(x, y)
             .fit("crop")
-            .format("webp")
+            .auto("format")
             .url() + " 1536w,",
         ]}
         data-sizes="(min-width: 1536px) 100vw, 

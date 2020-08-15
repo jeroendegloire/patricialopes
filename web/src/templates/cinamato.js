@@ -165,12 +165,12 @@ const ProjectTemplate = ({ data }) => {
                     urlFor(image?.asset?.id)
                       .width(1000)
                       .quality(100)
-                      .format("webp")
+                      .auto("format")
                       .url() + " 768w,",
                     urlFor(image?.asset?.id)
                       .width(2000)
                       .quality(100)
-                      .format("webp")
+                      .auto("format")
                       .url() + " 1536w,",
                   ]}
                   data-sizes="(min-width: 1536px) 100vw, 

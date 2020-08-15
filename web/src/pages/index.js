@@ -86,7 +86,10 @@ const Index = ({ data }) => {
           description={seo?.meta_description}
           title={seo?.seo_title}
         />
-        {content}
+        <article className="flex-1 flex flex-col">
+          <h1 className="sr-only">Patricia Lopes - Director of Photography</h1>
+          <div className="flex-1 flex">{content}</div>
+        </article>
       </Layout>
     </div>
   );

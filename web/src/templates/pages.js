@@ -43,6 +43,7 @@ const PagesTemplate = ({ data }) => {
   const page = data.sanityPage || data.route;
   const slug = page.slug.current;
   const seo = page.seo;
+  const title = page.title;
 
   const theme = slug == "showreel" ? "dark-theme" : "light-theme";
   const fixed = slug == "contact" ? "fixed" : "";
@@ -96,7 +97,11 @@ const PagesTemplate = ({ data }) => {
           description={seo?.meta_description}
           title={seo?.seo_title}
         />
-        <div className="flex-1 flex flex-col">{content}</div>
+
+        <article className="flex-1 flex flex-col">
+          <h1 className="sr-only">{title}</h1>
+          <div className="flex-1 flex">{content}</div>
+        </article>
       </Layout>
     </div>
   );

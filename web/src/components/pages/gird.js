@@ -95,7 +95,7 @@ const Gird = ({ items }) => {
                           item?.image?.hotspot?.y
                         )
                         .quality(100)
-                        .format("webp")
+                        .auto("format")
                         .url() + " 768w,",
                       urlFor(item?.image?.asset?.id)
                         .size(1200, 600)
@@ -106,7 +106,7 @@ const Gird = ({ items }) => {
                           item?.image?.hotspot?.y
                         )
                         .fit("crop")
-                        .format("webp")
+                        .auto("format")
                         .url() + " 1536w,",
                     ]}
                     data-sizes="(min-width: 1536px) 100vw, 
@@ -170,7 +170,7 @@ const Gird = ({ items }) => {
                           item?.image?.hotspot?.y
                         )
                         .quality(100)
-                        .format("webp")
+                        .auto("format")
                         .url() + " 768w,",
                       urlFor(item?.image?.asset?.id)
                         .size(1000, 1000)
@@ -181,7 +181,7 @@ const Gird = ({ items }) => {
                           item?.image?.hotspot?.y
                         )
                         .fit("crop")
-                        .format("webp")
+                        .auto("format")
                         .url() + " 1536w,",
                     ]}
                     data-sizes="(min-width: 1536px) 100vw, 
@@ -245,7 +245,7 @@ const Gird = ({ items }) => {
                           item?.image?.hotspot?.y
                         )
                         .quality(100)
-                        .format("webp")
+                        .auto("format")
                         .url() + " 768w,",
                       urlFor(item?.image?.asset?.id)
                         .size(500, 1000)
@@ -256,7 +256,7 @@ const Gird = ({ items }) => {
                           item?.image?.hotspot?.y
                         )
                         .fit("crop")
-                        .format("webp")
+                        .auto("format")
                         .url() + " 1536w,",
                     ]}
                     data-sizes="(min-width: 1536px) 100vw, 
