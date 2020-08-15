@@ -6,12 +6,12 @@ export default function resolvePreviewUrl(document) {
   switch (document._type) {
     case 'page':
       if (!document.slug || !document.slug.current) {
-        return `${baseUrl}?secret=sUp3rS3cR3t`
+        return `${baseUrl}`
       }
-      return `${baseUrl}/${document.slug.current}?secret=sUp3rS3cR3t`
+      return `${baseUrl}/${document.slug.current}`
     case 'cinematography':
       if (!document.slug || !document.slug.current) {
-        return `${baseUrl}/cinematography/${document.slug.current}?secret=sUp3rS3cR3t`
+        return `${baseUrl}/cinematography/${document.slug.current}`
       }
       return null
     default:

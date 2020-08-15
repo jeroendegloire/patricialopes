@@ -2,6 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './IframePreview.css'
+import Cookies from 'universal-cookie'
 
 const assembleProjectUrl = ({ displayed, options }) => {
   const { slug } = displayed
@@ -12,6 +13,10 @@ const assembleProjectUrl = ({ displayed, options }) => {
   }
   return `${previewURL}/${slug.current}`
 }
+
+const cookies = new Cookies()
+
+cookies.set('gatsby-theme-password-protect', 'sUp3rS3cR3t', [`domain:${assembleProjectUrl}`])
 
 class IframePreview extends React.PureComponent {
   static propTypes = {

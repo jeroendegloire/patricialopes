@@ -8,7 +8,7 @@ import fallbackImage from "../../images/fallback.png";
 import imageUrlBuilder from "@sanity/image-url";
 
 const builder =
-  process.env.ENV == "develop"
+  process.env.NODE_ENV == "development"
     ? imageUrlBuilder(previewClient)
     : imageUrlBuilder(productionClient);
 

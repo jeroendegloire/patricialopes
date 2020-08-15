@@ -106,7 +106,7 @@ module.exports = {
     {
       resolve: "@mkitio/gatsby-theme-password-protect",
       options: {
-        password: process.env.PASSWORD, // delete or `undefined` to disable password protection
+        password: `undefined`, // delete or `undefined` to disable password protection
       },
     },
   ],

@@ -38,7 +38,8 @@
 		"sanity-plugin-dashboard-widget-netlify": "^1.0.1",
 		"sanity-plugin-google-analytics": "^0.2.6",
 		"sanity-plugin-media": "^0.2.13",
-		"sanity-plugin-seo-tools": "^1.0.6"
+		"sanity-plugin-seo-tools": "^1.0.6",
+		"universal-cookie": "^4.0.3"
 	},
 	"devDependencies": {
 		"babel-eslint": "^10.0.1",

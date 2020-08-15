@@ -9,7 +9,7 @@ import { previewClient, productionClient } from "../../../sanityClient.js";
 import imageUrlBuilder from "@sanity/image-url";
 
 const builder =
-  process.env.ENV == "develop"
+  process.env.NODE_ENV == "development"
     ? imageUrlBuilder(previewClient)
     : imageUrlBuilder(productionClient);
 

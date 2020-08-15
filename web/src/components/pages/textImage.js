@@ -6,7 +6,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { previewClient, productionClient } from "../../../sanityClient.js";
 
 const builder =
-  process.env.ENV == "develop"
+  process.env.NODE_ENV == "development"
     ? imageUrlBuilder(previewClient)
     : imageUrlBuilder(productionClient);
 

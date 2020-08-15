@@ -6,7 +6,7 @@ export default {
       options: {
         sites: [
           {
-            siteUrl: 'https://preview.patricialopes.be/?secret=sUp3rS3cR3t'
+            siteUrl: 'https://preview.patricialopes.be'
           }
         ]
       }
@@ -27,7 +27,7 @@ export default {
           },
           {
             title: 'Preview',
-            value: 'https://preview.patricialopes.be/?secret=sUp3rS3cR3t',
+            value: 'https://preview.patricialopes.be',
             category: 'apps'
           }
         ]
