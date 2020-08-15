@@ -29,7 +29,11 @@ const Cineitem = (props) => {
       }
     >
       <div className="relative">
-        <Link to={`/${props.url}`} className="absolute inset-0 z-10" />
+        <Link
+          to={`/${props.url}`}
+          title={`Read more about ${props.title}`}
+          className="absolute inset-0 z-10"
+        />
         <figure
           className={"gatsby-image-wrapper"}
           style={{
