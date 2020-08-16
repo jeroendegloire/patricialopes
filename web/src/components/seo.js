@@ -51,17 +51,16 @@ const SEO = ({ title, description, keywords, image, synonyms }) => (
                 "https://www.instagram.com/patricialopes.dop",
                 "https://vimeo.com/patricialopes",
                 "https://www.linkedin.com/in/patricialopes-dop",
-                "https://www.imdb.com/name/nm7859516",
-              ],
-              "jobTitle": "Director of Photography",
-            }
+                "https://www.imdb.com/name/nm7859516"],
+              "jobTitle": "Director of Photography"
+            },
             {
               "@context": "https://schema.org/",
               "@type": "WebSite",
               "name": "Patricia Lopes",
               "url": "https://www.patricialopes.be/",
               "image":
-                "https://cdn.sanity.io/images/l2xxtj60/production/d4a6a82b8c75f40cc2e1edee477dae1756fb6a93-4096x2730.jpg?w=1200&h=1200&fm=jpg&q=100",
+                "https://cdn.sanity.io/images/l2xxtj60/production/d4a6a82b8c75f40cc2e1edee477dae1756fb6a93-4096x2730.jpg?w=1200&h=1200&fm=jpg&q=100"
             }`}
           </script>
         </Helmet>
