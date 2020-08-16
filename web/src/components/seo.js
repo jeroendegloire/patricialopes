@@ -36,7 +36,7 @@ const SEO = ({ title, description, keywords, image, synonyms }) => (
           <meta name="twitter:description" content={seo.description} />
           <meta name="twitter:image" content={seo.image} />
           <script type="application/ld+json">
-            {`{
+            {`[{
               "@context": "https://schema.org/",
               "@type": "Person",
               "name": "Patrícia Lopes",
@@ -67,7 +67,7 @@ const SEO = ({ title, description, keywords, image, synonyms }) => (
                   "https://vimeo.com/patricialopes",
                   "https://www.linkedin.com/in/patricialopes-dop",
                   "https://www.imdb.com/name/nm7859516"]
-            }`}
+            }]`}
           </script>
         </Helmet>
       );
