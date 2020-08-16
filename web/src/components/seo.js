@@ -9,6 +9,7 @@ const SEO = ({ title, description, keywords, image, synonyms }) => (
       site: {
         siteMetadata: { defaultImage, url, defaultTitle },
       },
+      sitePage: { path },
     }) => {
       //synonyms
       const syno = synonyms || [];
@@ -32,9 +33,14 @@ const SEO = ({ title, description, keywords, image, synonyms }) => (
           <meta property="og:title" content={title} />
           <meta property="og:description" content={seo.description} />
           <meta property="og:image" content={seo.image} />
+          <meta property="og:url" content={url + path} />
+          <meta property="og:type" content="website" />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={seo.description} />
           <meta name="twitter:image" content={seo.image} />
+          <meta name="twitter:card" content="summary_large_image" />
+          {/* <meta name="twitter:site" content="@patricialopes" />
+          <meta name="twitter:creator" content="@patricialopes"></meta> */}
           <script type="application/ld+json">
             {`[{
               "@context": "https://schema.org/",
@@ -85,6 +91,9 @@ const query = graphql`
         defaultImage: image
         url
       }
+    }
+    sitePage {
+      path
     }
   }
 `;
