@@ -98,9 +98,9 @@ const PagesTemplate = ({ data }) => {
           title={seo?.seo_title}
         />
 
-        <article className="flex-1 flex flex-col">
+        <article className="flex-1 flex ">
           <h1 className="sr-only">{title}</h1>
-          <div className="flex-1 flex">{content}</div>
+          <div className="flex-1 flex flex-col">{content}</div>
         </article>
       </Layout>
     </div>
