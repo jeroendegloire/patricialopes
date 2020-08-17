@@ -100,7 +100,7 @@ const Index = ({ data }) => {
             since her childhood, giving her the ability to adapt and explore her
             style to each project solely.
           </p>
-          ;<div className="flex-1 flex">{content}</div>
+          <div className="flex-1 flex">{content}</div>
         </article>
       </Layout>
     </div>
