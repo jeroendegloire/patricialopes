@@ -3,6 +3,7 @@ import PortableText from "../portableText";
 import { Link } from "gatsby";
 import Footer from "../layout/footer";
 import builder from "../../../sanityClient.js";
+import fallbackImage from "../../images/fallback.png";
 
 function urlFor(source) {
   return builder.image(source);
@@ -26,6 +27,17 @@ const TextImage = ({ image, text }) => {
             ></div>
             <source
               srcSet={urlFor(image.asset.id)
+                .width(420)
+                .height(210)
+                .quality(100)
+                .auto("format")
+                .url()}
+              width="420"
+              height="210"
+              media="(max-width:768px)"
+            />
+            <source
+              srcSet={urlFor(image.asset.id)
                 .width(800)
                 .height(400)
                 .quality(100)
@@ -35,8 +47,8 @@ const TextImage = ({ image, text }) => {
               height="400"
               media="(max-width:768px)"
             />
-            <img
-              src={urlFor(image.asset.id)
+            <source
+              srcSet={urlFor(image.asset.id)
                 .size(1920, 600)
                 .fit("crop")
                 .crop("focalpoint")
@@ -44,8 +56,12 @@ const TextImage = ({ image, text }) => {
                 .auto("format")
                 .quality(100)
                 .url()}
-              width="1920"
-              height="600"
+              media="(min-width:768px)"
+            />
+            <img
+              src={fallbackImage}
+              width="800"
+              height="400"
               loading="lazy"
               className={"relative"}
               alt={image.alt}
