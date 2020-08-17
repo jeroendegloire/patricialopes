@@ -17,13 +17,14 @@ const SEO = ({
         siteMetadata: { defaultImage, url, defaultTitle },
       },
       sitePage: { path },
+      sanitySiteSettings: { siteTitle },
     }) => {
       //synonyms
       const syno = synonyms || [];
       const synkey = syno.map((syn) => syn);
 
       const seo = {
-        defaultTitle: defaultTitle,
+        defaultTitle: siteTitle,
         description: description || "",
         image: `${image ? image : image || url + defaultImage}`,
         keywords: `${
@@ -34,9 +35,6 @@ const SEO = ({
       const defaultTemplate = titleTemplate
         ? titleTemplate
         : `%s | ${defaultTitle}`;
-
-      console.log(titleTemplate);
-      console.log(title);
 
       return (
         <Helmet title={title} titleTemplate={defaultTemplate}>
@@ -108,6 +106,9 @@ const query = graphql`
     }
     sitePage {
       path
+    }
+    sanitySiteSettings {
+      siteTitle: title
     }
   }
 `;

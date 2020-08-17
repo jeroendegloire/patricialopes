@@ -80,8 +80,6 @@ const Index = ({ data }) => {
   const focus_keywords = seo?.focus_keyword ? seo.focus_keyword : " ";
   const focus_synonyms = seo?.focus_synonyms ? seo.focus_synonyms : " ";
 
-  console.log(page.siteTitle);
-
   return (
     <div className={"w-full " + fixed}>
       <Layout>
@@ -95,7 +93,14 @@ const Index = ({ data }) => {
         />
         <article className="flex-1 flex flex-col">
           <h1 className="sr-only">Patricia Lopes - Director of Photography</h1>
-          <div className="flex-1 flex">{content}</div>
+          <p className="sr-only">
+            Award winning Patricia Lopes is a Portuguese-Brazilian director of
+            photography/cinematographer, who is especially drawn by stories that
+            challenge her to think outside of the box. She has lived abroad
+            since her childhood, giving her the ability to adapt and explore her
+            style to each project solely.
+          </p>
+          ;<div className="flex-1 flex">{content}</div>
         </article>
       </Layout>
     </div>

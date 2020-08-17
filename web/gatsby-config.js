@@ -7,7 +7,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
   siteMetadata: {
-    title: `Patrícia Lopes - Director of photography`,
+    title: `Patricia Lopes - Director of photography`,
     image: "/logo.png",
     url: `https://www.patricialopes.be`,
     siteUrl: `https://www.patricialopes.be`,
