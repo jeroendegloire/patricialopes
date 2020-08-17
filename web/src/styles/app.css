@@ -106,12 +106,12 @@ header a:hover:before {
 	transition: all 0.2s ease !important;
 }
 
-#cinematography .item > div:hover img {
+#cinematography .cinematoGrid > div:hover img {
 	transform: scale(1);
 	transition: all 0.2s ease !important;
 }
 
-#cinematography .item > div:hover .hover {
+#cinematography .cinematoGrid > div:hover .hover {
 	opacity: 1;
 }
 
