@@ -4,7 +4,7 @@ import Slideshow from "../components/pages/slideShow";
 import Layout from "../components/layout/layout";
 import Text from "../components/pages/text";
 import TextImage from "../components/pages/textImage";
-import Grid from "../components/pages/Grid";
+import Grid from "../components/pages/grid";
 import Video from "../components/pages/video";
 import SEO from "../components/seo";
 

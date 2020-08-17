@@ -6,7 +6,7 @@ import Accordion from "../components/pages/accordion";
 import Contact from "../components/pages/contact";
 import Text from "../components/pages/text";
 import TextImage from "../components/pages/textImage";
-import Grid from "../components/pages/Grid";
+import Grid from "../components/pages/grid";
 import Video from "../components/pages/video";
 import SEO from "../components/seo";
 import FilterableGrid from "../components/pages/photoGrid";
