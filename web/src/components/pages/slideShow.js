@@ -61,6 +61,16 @@ const Slideshow = ({ images }) => {
                   .url() +
                 ` 1920w`
               }
+              src={urlFor(image.asset.id)
+                .width(800)
+                .height(333.33)
+                .quality(100)
+                .auto("format")
+                .url()}
+              loading="lazy"
+              width="800"
+              height="333.33"
+              alt={image.alt}
               alt={image.alt}
             />
           ))}
