@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import builder from "../../../sanityClient.js";
+import fallbackImage from "../../images/fallback.png";
 
 function urlFor(source) {
   return builder.image(source);
@@ -43,41 +44,25 @@ const Slideshow = ({ images }) => {
         </div>
         <Slider {...settings} className="slider-desktop">
           {images.map((image, i) => (
-            <picture className={"w-full"} key={i}>
-              <source
-                srcSet={urlFor(image.asset.id)
+            <img
+              srcSet={
+                urlFor(image.asset.id)
                   .width(1536)
                   .height(640)
                   .quality(100)
                   .auto("format")
-                  .url()}
-                width="1536"
-                height="640"
-                media="(min-width:768px)"
-              />
-              <source
-                srcSet={urlFor(image.asset.id)
+                  .url() +
+                ` 1536w,` +
+                urlFor(image.asset.id)
                   .width(1920)
                   .height(800)
                   .quality(100)
                   .auto("format")
-                  .url()}
-                width="1920"
-                height="800"
-                media="(min-width:1536px)"
-              />
-              <img
-                src={urlFor(image.asset.id)
-                  .width(1920)
-                  .height(800)
-                  .quality(100)
-                  .auto("format")
-                  .url()}
-                width="1920"
-                height="800"
-                alt={image.alt}
-              />
-            </picture>
+                  .url() +
+                ` 1920w`
+              }
+              alt={image.alt}
+            />
           ))}
         </Slider>
       </div>

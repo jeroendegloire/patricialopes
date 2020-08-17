@@ -32,11 +32,15 @@ export const query = graphql`
         focus_synonyms
       }
     }
+    sanitySiteSettings {
+      siteTitle: title
+    }
   }
 `;
 
 const Index = ({ data }) => {
   const page = data.sanityPage || data.route;
+  const siteSettings = data.sanitySiteSettings;
   const seo = page.seo;
   const slug = page.slug.current;
   const fixed = slug == "home" ? "lg:fixed" : "";
@@ -76,6 +80,8 @@ const Index = ({ data }) => {
   const focus_keywords = seo?.focus_keyword ? seo.focus_keyword : " ";
   const focus_synonyms = seo?.focus_synonyms ? seo.focus_synonyms : " ";
 
+  console.log(page.siteTitle);
+
   return (
     <div className={"w-full " + fixed}>
       <Layout>
@@ -84,7 +90,8 @@ const Index = ({ data }) => {
           synonyms={focus_synonyms}
           image={page?.image?.asset?.url}
           description={seo?.meta_description}
-          title={seo?.seo_title}
+          title={siteSettings.siteTitle}
+          titleTemplate={`%s`}
         />
         <article className="flex-1 flex flex-col">
           <h1 className="sr-only">Patricia Lopes - Director of Photography</h1>

@@ -2,7 +2,14 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 
-const SEO = ({ title, description, keywords, image, synonyms }) => (
+const SEO = ({
+  title,
+  description,
+  keywords,
+  image,
+  synonyms,
+  titleTemplate,
+}) => (
   <StaticQuery
     query={query}
     render={({
@@ -24,8 +31,15 @@ const SEO = ({ title, description, keywords, image, synonyms }) => (
         }`,
       };
 
+      const defaultTemplate = titleTemplate
+        ? titleTemplate
+        : `%s | ${defaultTitle}`;
+
+      console.log(titleTemplate);
+      console.log(title);
+
       return (
-        <Helmet title={title} titleTemplate={`%s | ${defaultTitle}`}>
+        <Helmet title={title} titleTemplate={defaultTemplate}>
           <html lang="en" />
           <meta name="image" content={seo.image} />
           <meta name="description" content={seo.description} />
