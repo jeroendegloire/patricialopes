@@ -3,7 +3,6 @@ import PortableText from "../portableText";
 import { Link } from "gatsby";
 import Footer from "../layout/footer";
 import builder from "../../../sanityClient.js";
-import fallbackImage from "../../images/fallback.png";
 
 function urlFor(source) {
   return builder.image(source);
@@ -25,43 +24,32 @@ const TextImage = ({ image, text }) => {
                 backgroundImage: `url(${image.asset.metadata.lqip})`,
               }}
             ></div>
-            <source
-              srcSet={urlFor(image.asset.id)
-                .width(420)
-                .height(210)
-                .quality(100)
-                .auto("format")
-                .url()}
-              width="420"
-              height="210"
-              media="(max-width:768px)"
-            />
-            <source
-              srcSet={urlFor(image.asset.id)
-                .width(800)
-                .height(400)
-                .quality(100)
-                .auto("format")
-                .url()}
-              width="800"
-              height="400"
-              media="(max-width:768px)"
-            />
-            <source
-              srcSet={urlFor(image.asset.id)
-                .size(1920, 600)
-                .fit("crop")
-                .crop("focalpoint")
-                .focalPoint(x, y)
-                .auto("format")
-                .quality(100)
-                .url()}
-              media="(min-width:768px)"
-            />
             <img
-              src={fallbackImage}
-              width="800"
-              height="400"
+              srcSet={
+                urlFor(image.asset.id)
+                  .width(420)
+                  .height(210)
+                  .quality(100)
+                  .auto("format")
+                  .url() +
+                ` 420w,` +
+                urlFor(image.asset.id)
+                  .width(800)
+                  .height(400)
+                  .quality(100)
+                  .auto("format")
+                  .url() +
+                ` 800w,` +
+                urlFor(image.asset.id)
+                  .size(1920, 600)
+                  .fit("crop")
+                  .crop("focalpoint")
+                  .focalPoint(x, y)
+                  .auto("format")
+                  .quality(100)
+                  .url() +
+                ` 1920w`
+              }
               loading="lazy"
               className={"relative"}
               alt={image.alt}
