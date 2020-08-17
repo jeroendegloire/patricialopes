@@ -6,7 +6,7 @@ import Accordion from "../components/pages/accordion";
 import Contact from "../components/pages/contact";
 import Text from "../components/pages/text";
 import TextImage from "../components/pages/textImage";
-import Gird from "../components/pages/gird";
+import Grid from "../components/pages/Grid";
 import Video from "../components/pages/video";
 import SEO from "../components/seo";
 import FilterableGrid from "../components/pages/photoGrid";
@@ -63,7 +63,7 @@ const PagesTemplate = ({ data }) => {
           el = <TextImage key={c._key} {...c} />;
           break;
         case "gallery":
-          el = <Gird key={c._key} {...c} />;
+          el = <Grid key={c._key} {...c} />;
           break;
         case "videoEmbed":
           el = <Video key={c._key} {...c} />;

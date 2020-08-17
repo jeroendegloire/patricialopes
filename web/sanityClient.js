@@ -1,16 +1,22 @@
-const sanityClient = require("@sanity/client");
-
-export const productionClient = sanityClient({
-  projectId: "l2xxtj60",
-  dataset: "production",
-  useCdn: true,
-});
+import imageUrlBuilder from "@sanity/image-url";
+import sanityClient from "@sanity/client";
 
 export const previewClient = sanityClient({
-  projectId: "l2xxtj60",
-  dataset: "production",
-  token:
-    "skzHVLXK1QmALsZQZQH2XoYRJDPIEBeNsw1CrHHTiBvpOeXN1Gw0PzOUFSztqbD4p8XgP42wxLXEBl77eQI1sawmWzOlpKdtxGI1LvH4u81FmYywkWrzf3U79OK37h5V4LW4Cm1Lizbu0mz25X7KTwf35CnVfoUIeObS19mE5JmyeHY2KBaQ",
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_PROJECT_DATASET,
   useCdn: false,
   withCredentials: true,
 });
+
+export const productionClient = sanityClient({
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_PROJECT_DATASET,
+  useCdn: true,
+});
+
+const client =
+  process.env.NODE_ENV == "development" ? previewClient : productionClient;
+
+const builder = imageUrlBuilder(client);
+
+export default builder;

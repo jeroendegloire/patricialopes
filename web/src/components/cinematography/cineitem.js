@@ -1,13 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import imageUrlBuilder from "@sanity/image-url";
-import fallbackImage from "../../images/fallback.png";
-import { previewClient, productionClient } from "../../../sanityClient.js";
-
-const builder =
-  process.env.NODE_ENV == "development"
-    ? imageUrlBuilder(previewClient)
-    : imageUrlBuilder(productionClient);
+import builder from "../../../sanityClient.js";
 
 function urlFor(source) {
   return builder.image(source);
@@ -34,71 +27,39 @@ const Cineitem = (props) => {
           title={`Read more about ${props.title}`}
           className="absolute inset-0 z-10"
         />
-        <figure
-          className={"gatsby-image-wrapper"}
-          style={{
-            backgroundImage: `url(${props?.featuredImage?.asset?.metadata?.lqip})`,
-            backgroundSize: "cover",
-          }}
-        >
-          <picture className={"w-full"}>
-            <div
-              aria-hidden="true"
-              style={{
-                paddingTop: `calc(100% / 2 * 1)`,
-              }}
-            ></div>
-            <source
-              type="image/webp"
-              data-srcset={[
-                urlFor(props?.featuredImage?.asset?.id)
-                  .size(800, 400)
-                  .fit("crop")
-                  .crop("focalpoint")
-                  .focalPoint(x, y)
-                  .quality(100)
-                  .auto("format")
-                  .url() + " 768w,",
-                urlFor(props?.featuredImage?.asset?.id)
-                  .size(1200, 600)
-                  .quality(100)
-                  .crop("focalpoint")
-                  .focalPoint(x, y)
-                  .fit("crop")
-                  .auto("format")
-                  .url() + " 1536w,",
-              ]}
-              data-sizes="(min-width: 1536px) 100vw, 
-                  (min-width: 1366px) 100vw,
-                  100vw"
-              loading="lazy"
-            />
-            <img
-              src={fallbackImage}
-              data-srcset={[
-                urlFor(props?.featuredImage?.asset?.id)
-                  .size(800, 400)
-                  .quality(100)
-                  .focalPoint(x, y)
-                  .crop("focalpoint")
-                  .fit("crop")
-                  .format("jpg")
-                  .url() + " 768w,",
-                urlFor(props?.featuredImage?.asset?.id)
-                  .size(1200, 600)
-                  .quality(100)
-                  .focalPoint(x, y)
-                  .crop("focalpoint")
-                  .fit("crop")
-                  .format("jpg")
-                  .url() + " 1536w,",
-              ]}
-              alt={props?.featuredImage?.alt}
-              className="lazy absolute inset-0"
-              loading="lazy"
-            />
-          </picture>
-        </figure>
+        <picture className={"w-full"}>
+          <div
+            aria-hidden="true"
+            style={{
+              backgroundImage: `url(${props?.featuredImage?.asset?.metadata?.lqip})`,
+              backgroundSize: "cover",
+              paddingTop: `calc(100% / 2 * 1)`,
+            }}
+          ></div>
+          <img
+            srcSet={[
+              urlFor(props?.featuredImage?.asset?.id)
+                .size(800, 400)
+                .quality(100)
+                .focalPoint(x, y)
+                .crop("focalpoint")
+                .fit("crop")
+                .auto("format")
+                .url() + " 768w,",
+              urlFor(props?.featuredImage?.asset?.id)
+                .size(1200, 600)
+                .quality(100)
+                .focalPoint(x, y)
+                .crop("focalpoint")
+                .fit("crop")
+                .auto("format")
+                .url() + " 1536w,",
+            ]}
+            alt={props?.featuredImage?.alt}
+            className="absolute inset-0"
+            loading="lazy"
+          />
+        </picture>
         <div className="hover absolute flex items-center justify-center inset-0">
           <h2 className="uppercase font-semibold px-10 text-center">
             {props.title}

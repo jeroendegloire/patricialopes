@@ -4,7 +4,7 @@ import Slideshow from "../components/pages/slideShow";
 import Layout from "../components/layout/layout";
 import Text from "../components/pages/text";
 import TextImage from "../components/pages/textImage";
-import Gird from "../components/pages/gird";
+import Grid from "../components/pages/Grid";
 import Video from "../components/pages/video";
 import SEO from "../components/seo";
 
@@ -55,7 +55,7 @@ const Index = ({ data }) => {
           el = <TextImage key={c._key} {...c} key={i} />;
           break;
         case "gallery":
-          el = <Gird key={c._key} {...c} key={i} />;
+          el = <Grid key={c._key} {...c} key={i} />;
           break;
         case "videoEmbed":
           el = <Video key={c._key} {...c} key={i} />;

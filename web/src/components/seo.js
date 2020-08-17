@@ -45,9 +45,9 @@ const SEO = ({ title, description, keywords, image, synonyms }) => (
             {`[{
               "@context": "https://schema.org/",
               "@type": "Person",
-              "name": "Patrícia Lopes",
-              "alternateName": "Patricia Lopes",
-              "description": "Award winning Patrícia Lopes is a Portuguese-Brazilian cinematographer who is especially drawn by stories that challenge her to think outside of the box. She has lived abroad since her childhood, giving her the ability to adapt and explore her style to each project solely.",
+              "name": "Patricia Lopes",
+              "alternateName": "Patrícia Lopes",
+              "description": "Award winning Patricia Lopes is a Portuguese-Brazilian director of photography/cinematographer, who is especially drawn by stories that challenge her to think outside of the box. She has lived abroad since her childhood, giving her the ability to adapt and explore her style to each project solely.",
               "url": "https://www.patricialopes.be",
               "image":
                 "https://cdn.sanity.io/images/l2xxtj60/production/d4a6a82b8c75f40cc2e1edee477dae1756fb6a93-4096x2730.jpg?w=1200&h=1200&fm=jpg&q=100",
@@ -64,7 +64,7 @@ const SEO = ({ title, description, keywords, image, synonyms }) => (
               "@type": "WebSite",
               "name": "Patricia Lopes",
               "url": "https://www.patricialopes.be/",
-              "description": "Award winning Patrícia Lopes is a Portuguese-Brazilian cinematographer who is especially drawn by stories that challenge her to think outside of the box. She has lived abroad since her childhood, giving her the ability to adapt and explore her style to each project solely.",
+              "description": "Award winning Patricia Lopes is a Portuguese-Brazilian director of photography/cinematographer, who is especially drawn by stories that challenge her to think outside of the box. She has lived abroad since her childhood, giving her the ability to adapt and explore her style to each project solely.",
               "image":
                 "https://cdn.sanity.io/images/l2xxtj60/production/d4a6a82b8c75f40cc2e1edee477dae1756fb6a93-4096x2730.jpg?w=1200&h=1200&fm=jpg&q=100",
               "sameAs": [

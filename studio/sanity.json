@@ -17,7 +17,6 @@
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
-    "@sanity/vision",
     "asset-source-unsplash",
     "@sanity/code-input",
     "@sanity/color-input",

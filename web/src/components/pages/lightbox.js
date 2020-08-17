@@ -4,14 +4,7 @@ import React from "react";
 //https://reactjsexample.com/lightbox-for-components-or-images-built-for-react/
 import LightboxReact from "lightbox-react";
 import "lightbox-react/style.css";
-import { previewClient, productionClient } from "../../../sanityClient.js";
-
-import imageUrlBuilder from "@sanity/image-url";
-
-const builder =
-  process.env.NODE_ENV == "development"
-    ? imageUrlBuilder(previewClient)
-    : imageUrlBuilder(productionClient);
+import builder from "../../../sanityClient.js";
 
 function urlFor(source) {
   return builder.image(source);
@@ -37,7 +30,6 @@ const Lightbox = ({
       : image.image.asset.metadata.dimensions.aspectRatio;
     array.push(
       <div>
-        {/* //className="w-full z-10" */}
         <div
           aria-hidden="true"
           style={{
@@ -47,7 +39,7 @@ const Lightbox = ({
           }}
         ></div>
         <img
-          src={urlFor(imageUrl).width(2000).quality(100).format("jpg").url()}
+          src={urlFor(imageUrl).width(2000).quality(100).auto("format").url()}
           alt={imageAlt}
           className="absolute inset-0 mx-auto"
           loading="lazy"

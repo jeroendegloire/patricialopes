@@ -3,17 +3,9 @@ import { Link, graphql } from "gatsby";
 import SEO from "../components/seo";
 import Layout from "../components/layout/layout";
 import { FaAngleLeft } from "react-icons/fa";
-import PortableText from "../components/portableText";
-import imageUrlBuilder from "@sanity/image-url";
 import LightBox from "../components/pages/lightbox";
-import LazyLoad from "vanilla-lazyload";
 import fallbackImage from "../images/fallback.png";
-import { previewClient, productionClient } from "../../sanityClient.js";
-
-const builder =
-  process.env.NODE_ENV == "development"
-    ? imageUrlBuilder(previewClient)
-    : imageUrlBuilder(productionClient);
+import builder from "../../sanityClient.js";
 
 function urlFor(source) {
   return builder.image(source);
@@ -50,12 +42,6 @@ export const query = graphql`
       production
       linkUrl
       linkText
-      # text {
-      #   _key
-      #   _type
-      #   style
-      #   list
-      # }
       seo {
         seo_title
         meta_description
@@ -104,17 +90,6 @@ const ProjectTemplate = ({ data }) => {
   };
 
   useEffect(() => {
-    let lazy = new LazyLoad({
-      elements_selector: ".lazy",
-      class_loaded: "is-loaded",
-    });
-
-    return () => {
-      lazy.destroy();
-    };
-  }, []);
-
-  useEffect(() => {
     document.addEventListener("contextmenu", (e) => {
       if (e.target.tagName === "IMG") {
         e.preventDefault();
@@ -159,41 +134,22 @@ const ProjectTemplate = ({ data }) => {
                     paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
                   }}
                 ></div>
-                <source
-                  type="image/webp"
-                  data-srcset={[
-                    urlFor(image?.asset?.id)
-                      .width(1000)
-                      .quality(100)
-                      .auto("format")
-                      .url() + " 768w,",
-                    urlFor(image?.asset?.id)
-                      .width(2000)
-                      .quality(100)
-                      .auto("format")
-                      .url() + " 1536w,",
-                  ]}
-                  data-sizes="(min-width: 1536px) 100vw, 
-                  (min-width: 1366px) 100vw,
-                  100vw"
-                  loading="lazy"
-                />
                 <img
                   src={fallbackImage}
-                  data-srcset={[
+                  srcSet={[
                     urlFor(image?.asset?.id)
                       .width(1000)
                       .quality(100)
-                      .format("jpg")
+                      .auto("format")
                       .url() + " 768w,",
                     urlFor(image?.asset?.id)
                       .width(2000)
                       .quality(100)
-                      .format("jpg")
+                      .auto("format")
                       .url() + " 1536w,",
                   ]}
                   alt={image.alt}
-                  className="lazy absolute inset-0"
+                  className="absolute inset-0"
                   loading="lazy"
                 />
               </picture>

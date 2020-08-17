@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Isotope from "isotope-layout/js/isotope";
 import Item from "./photoGridItem";
 import LightBox from "./lightbox";
-import LazyLoad from "vanilla-lazyload";
 
 const photoGrid = ({ items }) => {
   const [showLightbox, setShowLightbox] = useState(false);
@@ -24,19 +23,7 @@ const photoGrid = ({ items }) => {
   };
 
   useEffect(() => {
-    let lazy = new LazyLoad({
-      elements_selector: ".lazy",
-      threshold: -100,
-      class_loaded: "is-loaded",
-    });
-
-    return () => {
-      lazy.destroy();
-    };
-  }, []);
-
-  useEffect(() => {
-    var elem = document.querySelector(".item");
+    var elem = document.querySelector(".photoGrid");
     var iso = new Isotope(elem, {
       itemSelector: ".item--grid",
       layoutMode: "fitRows",
@@ -44,7 +31,7 @@ const photoGrid = ({ items }) => {
   }, []);
 
   return (
-    <div className="mx-auto w-full max-w-6xl pt-10 mx-10 xl:px-0 item mb-20 flex flex-col">
+    <div className="photoGrid mx-auto w-full max-w-6xl pt-10 mx-10 xl:px-0 item mb-20 flex flex-col">
       <div>
         {items.map((item, i) => (
           <div

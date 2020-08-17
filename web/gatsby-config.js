@@ -5,11 +5,6 @@ require("dotenv").config({
 
 const isProd = process.env.NODE_ENV === "production";
 
-// const resolveConfig = require("tailwindcss/resolveConfig");
-// const tailwindConfig = require("./tailwind.config.js");
-
-// const fullConfig = resolveConfig(tailwindConfig);
-
 module.exports = {
   siteMetadata: {
     title: `Patrícia Lopes - Director of photography`,
@@ -40,7 +35,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Patrícia Lopes`,
+        name: `Patricia Lopes`,
         short_name: `paricia_lopes`,
         start_url: `/`,
         background_color: "#000",
@@ -101,7 +96,13 @@ module.exports = {
     {
       resolve: "gatsby-plugin-preconnect",
       options: {
-        domains: ["https://cdn.sanity.io"],
+        domains: ["https://cdn.sanity.io", "https://player.vimeo.com"],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ["SANITY_PROJECT_ID", "SANITY_PROJECT_DATASET"],
       },
     },
     // {

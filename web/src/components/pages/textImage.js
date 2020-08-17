@@ -2,13 +2,7 @@ import React from "react";
 import PortableText from "../portableText";
 import { Link } from "gatsby";
 import Footer from "../layout/footer";
-import imageUrlBuilder from "@sanity/image-url";
-import { previewClient, productionClient } from "../../../sanityClient.js";
-
-const builder =
-  process.env.NODE_ENV == "development"
-    ? imageUrlBuilder(previewClient)
-    : imageUrlBuilder(productionClient);
+import builder from "../../../sanityClient.js";
 
 function urlFor(source) {
   return builder.image(source);
@@ -22,41 +16,25 @@ const TextImage = ({ image, text }) => {
     <div className="flex flex-wrap flex-col w-full">
       <div className="w-full">
         <figure className="gatsby-image-wrapper w-full">
-          {/* <div
-            aria-hidden="true"
-            style={{
-              backgroundSize: "cover",
-              backgroundImage: `url(${image.asset.metadata.lqip})`,
-              paddingTop: `31.25%`,
-            }}
-          ></div>
-          <img
-            src={urlFor(image.asset.id)
-              .size(1920, 600)
-              .fit("crop")
-              .crop("focalpoint")
-              .focalPoint(x, y)
-              .format("jpg")
-              .quality(100)
-              .url()}
-            className={"absolute inset-0"}
-            loading="lazy"
-          /> */}
           <picture className={"w-full"}>
-            <div>
-              <div
-                style={{
-                  backgroundSize: "cover",
-                  backgroundImage: `url(${image.asset.metadata.lqip})`,
-                  paddingTop: `31.25%`,
-                }}
-              ></div>
-            </div>
-            {/* <img
-                aria-hidden="true"
-                src={image.asset.metadata.lqip}
-                className="absolute inset-0"
-              /> */}
+            <div
+              className={"absolute inset-0"}
+              style={{
+                backgroundSize: "cover",
+                backgroundImage: `url(${image.asset.metadata.lqip})`,
+              }}
+            ></div>
+            <source
+              srcSet={urlFor(image.asset.id)
+                .width(800)
+                .height(400)
+                .quality(100)
+                .auto("format")
+                .url()}
+              width="800"
+              height="400"
+              media="(max-width:768px)"
+            />
             <img
               src={urlFor(image.asset.id)
                 .size(1920, 600)
@@ -66,13 +44,10 @@ const TextImage = ({ image, text }) => {
                 .auto("format")
                 .quality(100)
                 .url()}
-              className={"absolute inset-0"}
+              width="1920"
+              height="600"
               loading="lazy"
-              className="absolute inset-0"
-              loading="lazy"
-              //sizes="(min-width: 1536px) 100vw,
-              //       (min-width: 1366px) 100vw,
-              //       100vw"
+              className={"relative"}
               alt={image.alt}
             />
           </picture>

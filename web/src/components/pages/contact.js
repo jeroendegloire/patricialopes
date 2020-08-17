@@ -1,43 +1,50 @@
 import React from "react";
-import Img from "gatsby-image";
-import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
-import { Link } from "gatsby";
 import Footer from "../layout/footer";
+import builder from "../../../sanityClient";
 
-import {
-  FaInstagram,
-  FaFacebookSquare,
-  FaTwitter,
-  FaImdb,
-  FaLinkedin,
-  FaVimeoV,
-} from "react-icons/fa";
+function urlFor(source) {
+  return builder.image(source);
+}
 
-const Contact = ({
-  background,
-  title,
-  phone,
-  vat,
-  mail,
-  instagram,
-  imdb,
-  vimeo,
-  facebook,
-  linkedin,
-  twitter,
-}) => {
-  const sanityConfig = { projectId: "l2xxtj60", dataset: "production" };
+const Contact = ({ background, title, phone, vat, mail }) => {
   return (
     <div className="contact flex flex-1 lg:flex-initial items-center justify-center relative p-5 md:p-0 w-full contact-wrapper">
       <div>
         <div className="absolute inset-0">
-          <Img
-            fluid={getFluidGatsbyImage(
-              background.asset.id,
-              { width: 1920, height: 810 },
-              sanityConfig
-            )}
-          />
+          <picture className={"w-full"}>
+            <div
+              aria-hidden="true"
+              style={{
+                paddingTop: `41.7%`,
+                backgroundImage: `url(${background.asset?.metadata?.lqip})`,
+                backgroundSize: `cover`,
+              }}
+            ></div>
+            <source
+              srcSet={urlFor(background.asset.id)
+                .width(800)
+                .height(333)
+                .quality(100)
+                .auto("format")
+                .url()}
+              width="800"
+              height="333"
+              media="(max-width:768px)"
+            />
+            <img
+              src={urlFor(background.asset.id)
+                .width(1920)
+                .height(800)
+                .quality(100)
+                .auto("format")
+                .url()}
+              loading="lazy"
+              width="1920"
+              height="800"
+              className="absolute inset-0"
+              alt={background.alt}
+            />
+          </picture>
         </div>
 
         <div className="bg-white inline-block p-10 md:p-20 border contact text-center z-10 border-black md:px-32 relative">

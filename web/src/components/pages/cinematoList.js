@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import Cineitem from "../cinematography/cineitem";
 import Isotope from "isotope-layout/js/isotope";
-import LazyLoad from "vanilla-lazyload";
 
 const CinematoList = ({ list }) => {
   useEffect(() => {
-    var elem = document.querySelector(".item");
+    var elem = document.querySelector(".cinematoGrid");
     var iso = new Isotope(elem, {
       itemSelector: ".item__grid",
       layoutMode: "fitRows",
@@ -16,6 +15,13 @@ const CinematoList = ({ list }) => {
       var filterValue = event.target.getAttribute("data-filter");
       filterValue = filterValue;
       iso.arrange({ filter: filterValue });
+    });
+    filtersElem.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        var filterValue = event.target.getAttribute("data-filter");
+        filterValue = filterValue;
+        iso.arrange({ filter: filterValue });
+      }
     });
 
     // change is-checked class on buttons
@@ -33,49 +39,57 @@ const CinematoList = ({ list }) => {
     }
   }, []);
 
-  useEffect(() => {
-    let lazy = new LazyLoad({
-      elements_selector: ".lazy",
-      threshold: -100,
-      class_loaded: "is-loaded",
-    });
-
-    return () => {
-      lazy.destroy();
-    };
-  }, []);
-
   return (
     <section id="cinematography" className="flex-1 flex flex-col">
       <div className="mx-auto">
         <div className="flex justify-center">
           <ul className="list-none button-group filters-button-group p-6">
-            <li className="mx-3 cursor-pointer is-checked" data-filter="*">
+            <li
+              className="mx-3 cursor-pointer is-checked"
+              data-filter="*"
+              tabindex="0"
+            >
               All
             </li>
-            <li className="mx-3 cursor-pointer" data-filter=".fiction">
+            <li
+              className="mx-3 cursor-pointer"
+              data-filter=".fiction"
+              tabindex="0"
+            >
               Narrative
             </li>
-            <li className="mx-3 cursor-pointer" data-filter=".commercials">
+            <li
+              className="mx-3 cursor-pointer"
+              data-filter=".commercials"
+              tabindex="0"
+            >
               Commercial
             </li>
-            <li className="mx-3 cursor-pointer" data-filter=".music_video">
+            <li
+              className="mx-3 cursor-pointer"
+              data-filter=".music_video"
+              tabindex="0"
+            >
               Music Video
             </li>
-            <li className="mx-3 cursor-pointer" data-filter=".documentary">
+            <li
+              className="mx-3 cursor-pointer"
+              data-filter=".documentary"
+              tabindex="0"
+            >
               Documentary
             </li>
           </ul>
         </div>
       </div>
-      <div className="item mx-auto flex items-center flex-wrap -mt-1 -mx-1">
-        {list.map((test, i) => (
+      <div className="cinematoGrid mx-auto flex items-center flex-wrap -mt-1 -mx-1">
+        {list.map((item, i) => (
           <Cineitem
-            title={test.cinematoReference.title}
-            featuredImage={test?.featuredImage}
-            altImage={test?.featuredImage?.alt}
-            category={test.cinematoReference.category}
-            url={test.cinematoReference.slug.current}
+            title={item.cinematoReference.title}
+            featuredImage={item?.featuredImage}
+            altImage={item?.featuredImage?.alt}
+            category={item.cinematoReference.category}
+            url={item.cinematoReference.slug.current}
             key={i}
           />
         ))}

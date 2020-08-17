@@ -23,7 +23,7 @@ class SeoPreviews extends React.PureComponent {
     return (
       <>
         <GoogleSearchResult document={displayed} options={options} />
-        {/* <TwitterCard document={displayed} options={options} /> */}
+        <TwitterCard document={displayed} options={options} />
         <FacebookShare document={displayed} options={options} />
       </>
     )

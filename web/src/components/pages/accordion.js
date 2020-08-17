@@ -1,7 +1,4 @@
 import React, { useState, useRef } from "react";
-import Slider from "react-slick";
-import Img from "gatsby-image";
-import { getFluidGatsbyImage, getFixedGatsbyImage } from "gatsby-source-sanity";
 import PortableText from "../portableText";
 
 const Accordion = ({ title, text }) => {

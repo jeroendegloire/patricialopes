@@ -13,7 +13,7 @@ const urlFor = source => {
 }
 
 const author = {
-  name: 'Sanity.io',
+  name: 'Patricia Lopes',
   handle: 'patricialopes',
   image: 'https://pbs.twimg.com/profile_images/1135907399582199809/7uZ5d2to_400x400.jpg'
 }
@@ -32,7 +32,7 @@ class TwitterCard extends React.PureComponent {
 
   render() {
     const { document, width, options } = this.props
-    const { title, excerpt, mainImage } = document
+    const { title, seo, image } = document
     const url = assemblePageUrl({ document, options })
     const websiteUrlWithoutProtocol = url.split('://')[1]
     return (
@@ -63,16 +63,14 @@ class TwitterCard extends React.PureComponent {
             <div className={styles.tweetCardPreview}>
               <div className={styles.tweetCardImage}>
                 <img
-                  src={urlFor(mainImage)
+                  src={urlFor(image)
                     .width(300)
                     .url()}
                 />
               </div>
               <div className={styles.tweetCardContent}>
                 <h2 className={styles.tweetCardTitle}>{title}</h2>
-                {excerpt && (
-                  <div className={styles.tweetCardDescription}>{toPlainText(excerpt)}</div>
-                )}
+                <div className={styles.tweetCardDescription}>{seo.meta_description}</div>
                 <div className={styles.tweetCardDestination}>{websiteUrlWithoutProtocol}</div>
               </div>
             </div>

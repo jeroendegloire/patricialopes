@@ -1,22 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { previewClient, productionClient } from "../../../sanityClient.js";
+import builder from "../../../sanityClient.js";
 import LightBox from "./lightbox";
 import PropTypes from "prop-types";
 import Isotope from "isotope-layout/js/isotope";
-import LazyLoad from "vanilla-lazyload";
-import fallbackImage from "../../images/fallback.png";
-import imageUrlBuilder from "@sanity/image-url";
-
-const builder =
-  process.env.NODE_ENV == "development"
-    ? imageUrlBuilder(previewClient)
-    : imageUrlBuilder(productionClient);
 
 function urlFor(source) {
   return builder.image(source);
 }
 
-const Gird = ({ items }) => {
+const Grid = ({ items }) => {
   const [showLightbox, setShowLightbox] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -41,17 +33,6 @@ const Gird = ({ items }) => {
       layoutMode: "masonry",
       percentPosition: true,
     });
-  }, []);
-
-  useEffect(() => {
-    let lazy = new LazyLoad({
-      elements_selector: ".lazy",
-      class_loaded: "is-loaded",
-    });
-
-    return () => {
-      lazy.destroy();
-    };
   }, []);
 
   useEffect(() => {
@@ -83,40 +64,8 @@ const Gird = ({ items }) => {
                       backgroundSize: "cover",
                     }}
                   ></div>
-                  <source
-                    type="image/webp"
-                    data-srcset={[
-                      urlFor(item?.image?.asset?.id)
-                        .size(800, 400)
-                        .fit("crop")
-                        .crop("focalpoint")
-                        .focalPoint(
-                          item?.image?.hotspot?.x,
-                          item?.image?.hotspot?.y
-                        )
-                        .quality(100)
-                        .auto("format")
-                        .url() + " 768w,",
-                      urlFor(item?.image?.asset?.id)
-                        .size(1200, 600)
-                        .quality(100)
-                        .crop("focalpoint")
-                        .focalPoint(
-                          item?.image?.hotspot?.x,
-                          item?.image?.hotspot?.y
-                        )
-                        .fit("crop")
-                        .auto("format")
-                        .url() + " 1536w,",
-                    ]}
-                    data-sizes="(min-width: 1536px) 100vw, 
-                  (min-width: 1366px) 100vw,
-                  100vw"
-                    loading="lazy"
-                  />
                   <img
-                    src={fallbackImage}
-                    data-srcset={[
+                    srcSet={[
                       urlFor(item?.image?.asset?.id)
                         .size(800, 400)
                         .quality(100)
@@ -126,7 +75,7 @@ const Gird = ({ items }) => {
                         )
                         .crop("focalpoint")
                         .fit("crop")
-                        .format("jpg")
+                        .auto("format")
                         .url() + " 768w,",
                       urlFor(item?.image?.asset?.id)
                         .size(1200, 600)
@@ -137,11 +86,11 @@ const Gird = ({ items }) => {
                         )
                         .crop("focalpoint")
                         .fit("crop")
-                        .format("jpg")
+                        .auto("format")
                         .url() + " 1536w,",
                     ]}
                     alt={item?.image?.alt}
-                    className="lazy absolute inset-0"
+                    className="absolute inset-0"
                     loading="lazy"
                   />
                 </picture>
@@ -158,40 +107,8 @@ const Gird = ({ items }) => {
                       backgroundSize: "cover",
                     }}
                   ></div>
-                  <source
-                    type="image/webp"
-                    data-srcset={[
-                      urlFor(item?.image?.asset?.id)
-                        .size(800, 800)
-                        .fit("crop")
-                        .crop("focalpoint")
-                        .focalPoint(
-                          item?.image?.hotspot?.x,
-                          item?.image?.hotspot?.y
-                        )
-                        .quality(100)
-                        .auto("format")
-                        .url() + " 768w,",
-                      urlFor(item?.image?.asset?.id)
-                        .size(1000, 1000)
-                        .quality(100)
-                        .crop("focalpoint")
-                        .focalPoint(
-                          item?.image?.hotspot?.x,
-                          item?.image?.hotspot?.y
-                        )
-                        .fit("crop")
-                        .auto("format")
-                        .url() + " 1536w,",
-                    ]}
-                    data-sizes="(min-width: 1536px) 100vw, 
-                  (min-width: 1366px) 100vw,
-                  100vw"
-                    loading="lazy"
-                  />
                   <img
-                    src={item?.image?.asset?.metadata?.lqip}
-                    data-srcset={[
+                    srcSet={[
                       urlFor(item?.image?.asset?.id)
                         .size(800, 800)
                         .quality(100)
@@ -201,7 +118,7 @@ const Gird = ({ items }) => {
                         )
                         .crop("focalpoint")
                         .fit("crop")
-                        .format("jpg")
+                        .auto("format")
                         .url() + " 768w,",
                       urlFor(item?.image?.asset?.id)
                         .size(1000, 1000)
@@ -212,11 +129,11 @@ const Gird = ({ items }) => {
                         )
                         .crop("focalpoint")
                         .fit("crop")
-                        .format("jpg")
+                        .auto("format")
                         .url() + " 1536w,",
                     ]}
                     alt={item?.image?.alt}
-                    className="lazy absolute inset-0"
+                    className="absolute inset-0"
                     loading="lazy"
                   />
                 </picture>
@@ -233,40 +150,8 @@ const Gird = ({ items }) => {
                       backgroundSize: "cover",
                     }}
                   ></div>
-                  <source
-                    type="image/webp"
-                    data-srcset={[
-                      urlFor(item?.image?.asset?.id)
-                        .size(400, 800)
-                        .fit("crop")
-                        .crop("focalpoint")
-                        .focalPoint(
-                          item?.image?.hotspot?.x,
-                          item?.image?.hotspot?.y
-                        )
-                        .quality(100)
-                        .auto("format")
-                        .url() + " 768w,",
-                      urlFor(item?.image?.asset?.id)
-                        .size(500, 1000)
-                        .quality(100)
-                        .crop("focalpoint")
-                        .focalPoint(
-                          item?.image?.hotspot?.x,
-                          item?.image?.hotspot?.y
-                        )
-                        .fit("crop")
-                        .auto("format")
-                        .url() + " 1536w,",
-                    ]}
-                    data-sizes="(min-width: 1536px) 100vw, 
-                  (min-width: 1366px) 100vw,
-                  100vw"
-                    loading="lazy"
-                  />
                   <img
-                    src={item?.image?.asset?.metadata?.lqip}
-                    data-srcset={[
+                    srcSet={[
                       urlFor(item?.image?.asset?.id)
                         .size(400, 800)
                         .quality(100)
@@ -276,7 +161,7 @@ const Gird = ({ items }) => {
                         )
                         .crop("focalpoint")
                         .fit("crop")
-                        .format("jpg")
+                        .auto("format")
                         .url() + " 768w,",
                       urlFor(item?.image?.asset?.id)
                         .size(500, 800)
@@ -287,11 +172,11 @@ const Gird = ({ items }) => {
                         )
                         .crop("focalpoint")
                         .fit("crop")
-                        .format("jpg")
+                        .auto("format")
                         .url() + " 1536w,",
                     ]}
                     alt={item?.image?.alt}
-                    className="lazy absolute inset-0"
+                    className="absolute inset-0"
                     loading="lazy"
                   />
                 </picture>
@@ -313,9 +198,9 @@ const Gird = ({ items }) => {
   );
 };
 
-Gird.propTypes = {
+Grid.propTypes = {
   classes: PropTypes.object,
   items: PropTypes.array,
 };
 
-export default Gird;
+export default Grid;
