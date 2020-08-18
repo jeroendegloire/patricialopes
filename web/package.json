@@ -10,7 +10,6 @@
     "@sanity/image-url": "^0.140.19",
     "dotenv": "^8.2.0",
     "gatsby": "2.24.47",
-    "gatsby-image": "^2.4.16",
     "gatsby-plugin-canonical-urls": "^2.3.10",
     "gatsby-plugin-env-variables": "^2.0.0",
     "gatsby-plugin-google-analytics": "^2.3.13",
@@ -33,11 +32,12 @@
     "react-dom": "16.13.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^3.10.0",
+    "react-id-swiper": "^4.0.0",
     "react-onclickoutside": "^6.9.0",
     "react-player": "^2.6.0",
-    "react-slick": "^0.26.1",
-    "slick-carousel": "^1.8.1",
-    "styled-components": "^5.1.1"
+    "react-responsive-picture": "^3.2.2",
+    "styled-components": "^5.1.1",
+    "swiper": "^6.1.2"
   },
   "license": "MIT",
   "scripts": {
