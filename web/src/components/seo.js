@@ -36,6 +36,10 @@ const SEO = ({
         ? titleTemplate
         : `%s | ${defaultTitle}`;
 
+      console.log(url);
+      console.log(path);
+      console.log(url + path);
+
       return (
         <Helmet title={title} titleTemplate={defaultTemplate}>
           <html lang="en" />
@@ -45,7 +49,7 @@ const SEO = ({
           <meta property="og:title" content={title} />
           <meta property="og:description" content={seo.description} />
           <meta property="og:image" content={seo.image} />
-          <meta property="og:url" content={url + path} />
+          {/* <meta property="og:url" content={url + path} /> */}
           <meta property="og:type" content="website" />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={seo.description} />
