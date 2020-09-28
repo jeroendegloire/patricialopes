@@ -36,9 +36,9 @@ const SEO = ({
         ? titleTemplate
         : `%s | ${defaultTitle}`;
 
-      console.log(url);
-      console.log(path);
-      console.log(url + path);
+      // console.log(url);
+      // console.log(path);
+      // console.log(url + path);
 
       return (
         <Helmet title={title} titleTemplate={defaultTemplate}>
