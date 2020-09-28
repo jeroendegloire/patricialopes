@@ -62,8 +62,7 @@ header a:hover:before {
   text-transform: uppercase;
   font-size: 11px;
   display: inline-block;
-  margin: 8px;
-  cursor: pointer;
+  padding: 2px 8px;
   letter-spacing: 1px;
   opacity: 0.7;
 }
@@ -71,7 +70,7 @@ header a:hover:before {
   content: "";
   display: block;
   position: absolute;
-  width: 100%;
+  width: calc(100% - 16px);
   height: 2px;
   background-color: #000;
   opacity: 0;
@@ -587,10 +586,6 @@ main {
   .react-player__preview {
     max-height: calc(100vh - 145px);
     width: auto;
-  }
-
-  .swiper-lazy {
-    min-height: calc(100vh - 180px);
   }
 }
 

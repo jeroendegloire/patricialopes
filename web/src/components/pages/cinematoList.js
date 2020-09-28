@@ -33,8 +33,12 @@ const CinematoList = ({ list }) => {
 
     function radioButtonGroup(buttonGroup) {
       buttonGroup.addEventListener("click", function (event) {
-        buttonGroup.querySelector(".is-checked").classList.remove("is-checked");
-        event.target.classList.add("is-checked");
+        if (event.target.tagName == "LI") {
+          buttonGroup
+            .querySelector(".is-checked")
+            .classList.remove("is-checked");
+          event.target.classList.add("is-checked");
+        }
       });
     }
   }, []);
@@ -42,40 +46,36 @@ const CinematoList = ({ list }) => {
   return (
     <section id="cinematography" className="flex-1 flex flex-col">
       <div className="mx-auto">
-        <div className="flex justify-center">
-          <ul className="list-none button-group filters-button-group p-6">
+        <div className="flex justify-center m-8">
+          <ul className="flex flex-wrap list-none button-group filters-button-group">
             <li
-              className="mx-3 cursor-pointer is-checked"
+              className="cursor-pointer is-checked"
               data-filter="*"
-              tabindex="0"
+              tabIndex="0"
             >
               All
             </li>
-            <li
-              className="mx-3 cursor-pointer"
-              data-filter=".fiction"
-              tabindex="0"
-            >
+            <li className="cursor-pointer" data-filter=".fiction" tabIndex="0">
               Narrative
             </li>
             <li
-              className="mx-3 cursor-pointer"
+              className="cursor-pointer"
               data-filter=".commercials"
-              tabindex="0"
+              tabIndex="0"
             >
               Commercial
             </li>
             <li
-              className="mx-3 cursor-pointer"
+              className="cursor-pointer"
               data-filter=".music_video"
-              tabindex="0"
+              tabIndex="0"
             >
               Music Video
             </li>
             <li
-              className="mx-3 cursor-pointer"
+              className="cursor-pointer"
               data-filter=".documentary"
-              tabindex="0"
+              tabIndex="0"
             >
               Documentary
             </li>
