@@ -53,6 +53,8 @@ const TextImage = ({ image, text }) => {
               loading="lazy"
               className={"relative"}
               alt={image.alt}
+              width="1920"
+              height="600"
             />
           </picture>
         </figure>

@@ -66,8 +66,6 @@ const Slideshow = ({ images }) => {
                     .auto("format")
                     .url(),
                   media: "(max-width: 420px)",
-                  width: "800",
-                  height: "333.33",
                 },
                 {
                   srcSet: urlFor(image.asset.id)
@@ -76,12 +74,12 @@ const Slideshow = ({ images }) => {
                     .quality(100)
                     .auto("format")
                     .url(),
-                  width: "1920",
-                  height: "800",
                 },
               ]}
               alt={image.alt}
               loading="lazy"
+              width="1920"
+              height="800"
             />
           </div>
         ))}
