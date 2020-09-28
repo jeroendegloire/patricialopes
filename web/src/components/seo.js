@@ -49,7 +49,6 @@ const SEO = ({
           <meta property="og:title" content={title} />
           <meta property="og:description" content={seo.description} />
           <meta property="og:image" content={seo.image} />
-          {/* <meta property="og:url" content={url + path} /> */}
           <meta property="og:type" content="website" />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={seo.description} />
