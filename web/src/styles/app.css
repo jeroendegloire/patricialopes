@@ -584,10 +584,13 @@ main {
 
 @media all and (min-width: 768px) {
   .swiper-container img,
-  .react-player__preview,
-  .contact img {
+  .react-player__preview {
     max-height: calc(100vh - 145px);
     width: auto;
+  }
+
+  .swiper-lazy {
+    min-height: calc(100vh - 180px);
   }
 }
 
