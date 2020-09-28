@@ -46,6 +46,9 @@ const Slideshow = ({ images }) => {
         direction: "horizontal",
       },
     },
+    lazy: {
+      loadPrevNext: true,
+    },
   };
 
   return (
@@ -59,7 +62,7 @@ const Slideshow = ({ images }) => {
                   srcSet: urlFor(image.asset.id)
                     .width(1080)
                     .height(450)
-                    .quality(100)
+                    .quality(75)
                     .auto("format")
                     .url(),
                   media: "(max-width: 420px)",

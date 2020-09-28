@@ -25,6 +25,7 @@
     "gatsby-source-filesystem": "^2.3.24",
     "gatsby-source-sanity": "^5.0.6",
     "gatsby-source-sanity-transform-images": "0.0.7",
+    "gatsby-telemetry": "^1.3.35",
     "isotope-layout": "^3.0.6",
     "lightbox-react": "^0.3.8",
     "prop-types": "15.7.2",
