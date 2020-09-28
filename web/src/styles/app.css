@@ -587,6 +587,7 @@ main {
   .react-player__preview,
   .contact img {
     max-height: calc(100vh - 145px);
+    width: auto;
   }
 }
 
