@@ -17,7 +17,15 @@ const Slideshow = ({ images }) => {
     // Provide Swiper class as props
     Swiper,
     // Add modules you need
-    modules: [lazy],
+    modules: [
+      Navigation,
+      Pagination,
+      autoplay,
+      a11y,
+      effectFade,
+      keyboard,
+      lazy,
+    ],
     direction: "vertical",
     allowTouchMove: false,
     preloadImages: false,
@@ -25,40 +33,30 @@ const Slideshow = ({ images }) => {
       loadPrevNext: true,
       loadPrevNextAmount: 25,
     },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    },
+    speed: 1000,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    a11y: {
+      prevSlideMessage: "Previous slide",
+      nextSlideMessage: "Next slide",
+    },
+    keyboard: {
+      enabled: true,
+      onlyInViewport: false,
+    },
     breakpoints: {
       768: {
-        // Add modules you need
-        modules: [
-          Navigation,
-          Pagination,
-          autoplay,
-          a11y,
-          effectFade,
-          keyboard,
-          lazy,
-        ],
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        effect: "fade",
-        fadeEffect: {
-          crossFade: true,
-        },
-        speed: 1000,
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-        },
         direction: "horizontal",
-        a11y: {
-          prevSlideMessage: "Previous slide",
-          nextSlideMessage: "Next slide",
-        },
-        keyboard: {
-          enabled: true,
-          onlyInViewport: false,
-        },
         lazy: {
           loadPrevNext: true,
           loadPrevNextAmount: 3,
@@ -74,21 +72,34 @@ const Slideshow = ({ images }) => {
         {images.map((image, i) => (
           <div className="w-full" key={i}>
             <img
-              src={image.asset.metadata.lqip}
-              data-src={image.asset.metadata.lqip}
+              src={urlFor(image.asset.id)
+                .width(2560)
+                .height(1067)
+                .quality(1)
+                .blur(100)
+                .format("png")
+                .url()}
+              data-src={urlFor(image.asset.id)
+                .width(2560)
+                .height(1067)
+                .quality(1)
+                .blur(100)
+                .format("png")
+                .url()}
               data-srcset={[
                 urlFor(image.asset.id)
                   .width(800)
-                  .height(334)
+                  .height(333)
                   .quality(85)
                   .auto("format")
-                  .url() + "  360w",
+                  .url() + " 768w",
                 urlFor(image.asset.id)
                   .width(1080)
                   .height(450)
                   .quality(85)
                   .auto("format")
                   .url() + " 1080w",
+                ,
                 urlFor(image.asset.id)
                   .width(2560)
                   .height(1067)
@@ -99,8 +110,8 @@ const Slideshow = ({ images }) => {
               className="swiper-lazy"
               alt={image.alt}
               loading="lazy"
-              width="1920"
-              height="800"
+              width="1080"
+              height="450"
             />
           </div>
         ))}

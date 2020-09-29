@@ -581,6 +581,10 @@ main {
   }
 }
 
+.swiper-container img {
+  object-fit: cover;
+}
+
 @media all and (min-width: 768px) {
   .swiper-container img,
   .react-player__preview {
