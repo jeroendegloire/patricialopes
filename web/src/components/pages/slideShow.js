@@ -17,46 +17,48 @@ const Slideshow = ({ images }) => {
     // Provide Swiper class as props
     Swiper,
     // Add modules you need
-    modules: [
-      Navigation,
-      Pagination,
-      autoplay,
-      a11y,
-      effectFade,
-      keyboard,
-      lazy,
-    ],
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+    modules: [lazy],
     direction: "vertical",
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true,
-    },
-    speed: 1000,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    a11y: {
-      prevSlideMessage: "Previous slide",
-      nextSlideMessage: "Next slide",
-    },
-    keyboard: {
-      enabled: true,
-      onlyInViewport: false,
-    },
+    allowTouchMove: false,
     preloadImages: false,
     lazy: {
       loadPrevNext: true,
       loadPrevNextAmount: 25,
     },
-    allowTouchMove: false,
     breakpoints: {
       768: {
+        // Add modules you need
+        modules: [
+          Navigation,
+          Pagination,
+          autoplay,
+          a11y,
+          effectFade,
+          keyboard,
+          lazy,
+        ],
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        effect: "fade",
+        fadeEffect: {
+          crossFade: true,
+        },
+        speed: 1000,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
         direction: "horizontal",
+        a11y: {
+          prevSlideMessage: "Previous slide",
+          nextSlideMessage: "Next slide",
+        },
+        keyboard: {
+          enabled: true,
+          onlyInViewport: false,
+        },
         lazy: {
           loadPrevNext: true,
           loadPrevNextAmount: 3,
