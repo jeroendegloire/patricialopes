@@ -36,10 +36,10 @@ const Slideshow = ({ images }) => {
       crossFade: true,
     },
     speed: 1000,
-    // autoplay: {
-    //   delay: 3000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
     a11y: {
       prevSlideMessage: "Previous slide",
       nextSlideMessage: "Next slide",
@@ -75,6 +75,12 @@ const Slideshow = ({ images }) => {
               src={image.asset.metadata.lqip}
               data-src={image.asset.metadata.lqip}
               data-srcset={[
+                urlFor(image.asset.id)
+                  .width(360)
+                  .height(150)
+                  .quality(85)
+                  .auto("format")
+                  .url() + "  360w",
                 urlFor(image.asset.id)
                   .width(1080)
                   .height(450)
