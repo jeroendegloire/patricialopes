@@ -49,33 +49,37 @@ const CinematoList = ({ list }) => {
     <section id="cinematography" className="flex-1 flex flex-col">
       <div className="mx-auto">
         <div className="flex justify-center m-6">
-          <ul className="flex flex-wrap list-none button-group justify-around filters-button-group">
+          <ul className="flex flex-wrap list-none button-group justify-around filters-button-group pointer-events-none">
             <li
-              className="cursor-pointer is-checked"
+              className="pointer-events-auto cursor-pointer is-checked"
               data-filter="*"
               tabIndex="0"
             >
               All
             </li>
-            <li className="cursor-pointer" data-filter=".fiction" tabIndex="0">
+            <li
+              className="pointer-events-auto cursor-pointer"
+              data-filter=".fiction"
+              tabIndex="0"
+            >
               Narrative
             </li>
             <li
-              className="cursor-pointer"
+              className="pointer-events-auto cursor-pointer"
               data-filter=".commercials"
               tabIndex="0"
             >
               Commercial
             </li>
             <li
-              className="cursor-pointer"
+              className="pointer-events-auto cursor-pointer"
               data-filter=".music_video"
               tabIndex="0"
             >
               Music Video
             </li>
             <li
-              className="cursor-pointer"
+              className="pointer-events-auto cursor-pointer"
               data-filter=".documentary"
               tabIndex="0"
             >
