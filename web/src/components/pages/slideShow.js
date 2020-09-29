@@ -76,8 +76,8 @@ const Slideshow = ({ images }) => {
               data-src={image.asset.metadata.lqip}
               data-srcset={[
                 urlFor(image.asset.id)
-                  .width(360)
-                  .height(150)
+                  .width(800)
+                  .height(334)
                   .quality(85)
                   .auto("format")
                   .url() + "  360w",
