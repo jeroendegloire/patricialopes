@@ -72,20 +72,8 @@ const Slideshow = ({ images }) => {
         {images.map((image, i) => (
           <div className="w-full" key={i}>
             <img
-              src={urlFor(image.asset.id)
-                .width(2560)
-                .height(1067)
-                .quality(1)
-                .blur(100)
-                .format("png")
-                .url()}
-              data-src={urlFor(image.asset.id)
-                .width(2560)
-                .height(1067)
-                .quality(1)
-                .blur(100)
-                .format("png")
-                .url()}
+              src={image.asset.metadata.lqip}
+              data-src={image.asset.metadata.lqip}
               data-srcset={[
                 urlFor(image.asset.id)
                   .width(800)
