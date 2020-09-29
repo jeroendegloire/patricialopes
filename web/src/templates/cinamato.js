@@ -172,9 +172,11 @@ const ProjectTemplate = ({ data }) => {
             {directors[0] ? (
               <div>
                 <span>DIRECTED BY </span>
-                {directors.map((director) => (
-                  <span className="inline-block">{director}</span>
-                ))}
+                {directors
+                  .map((director) => (
+                    <span className="inline-block">{director}</span>
+                  ))
+                  .map((dop, index) => [index > 0 && ", ", dop])}
                 <br />
               </div>
             ) : null}
@@ -192,9 +194,9 @@ const ProjectTemplate = ({ data }) => {
             {dops[0] ? (
               <div>
                 <span>CINEMATOGRAPHY: </span>
-                {dops.map((dop) => (
-                  <span className="inline-block"> {dop}</span>
-                ))}
+                {dops
+                  .map((dop) => <span className="inline-block">{dop}</span>)
+                  .map((dop, index) => [index > 0 && ", ", dop])}
                 <br />
               </div>
             ) : null}
