@@ -43,6 +43,8 @@ const photoGridItem = (props) => {
         alt={props?.mainImage?.alt}
         className="lazy absolute inset-0"
         loading="lazy"
+        width="1200"
+        height="600"
       />
     </picture>
   );

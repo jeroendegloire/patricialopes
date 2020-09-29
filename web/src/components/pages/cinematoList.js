@@ -12,9 +12,11 @@ const CinematoList = ({ list }) => {
     });
     var filtersElem = document.querySelector(".filters-button-group");
     filtersElem.addEventListener("click", function (event) {
-      var filterValue = event.target.getAttribute("data-filter");
-      filterValue = filterValue;
-      iso.arrange({ filter: filterValue });
+      if (event.target.tagName == "LI") {
+        var filterValue = event.target.getAttribute("data-filter");
+        filterValue = filterValue;
+        iso.arrange({ filter: filterValue });
+      }
     });
     filtersElem.addEventListener("keypress", function (event) {
       if (event.key === "Enter") {
@@ -46,8 +48,8 @@ const CinematoList = ({ list }) => {
   return (
     <section id="cinematography" className="flex-1 flex flex-col">
       <div className="mx-auto">
-        <div className="flex justify-center m-8">
-          <ul className="flex flex-wrap list-none button-group filters-button-group">
+        <div className="flex justify-center m-6">
+          <ul className="flex flex-wrap list-none button-group justify-around filters-button-group">
             <li
               className="cursor-pointer is-checked"
               data-filter="*"
