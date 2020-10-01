@@ -4,6 +4,7 @@
   "version": "4.0.0",
   "author": "Jeroen Degloire",
   "dependencies": {
+    "@loadable/component": "^5.13.2",
     "@mkitio/gatsby-theme-password-protect": "^2.1.2",
     "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/client": "^1.149.18",
@@ -41,15 +42,6 @@
     "swiper": "^6.1.2"
   },
   "license": "MIT",
-  "scripts": {
-    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
   "devDependencies": {
     "gatsby-plugin-remove-trailing-slashes": "^2.3.11",
     "prettier": "2.0.5",
