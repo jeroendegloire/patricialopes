@@ -82,24 +82,18 @@ const Slideshow = ({ images }) => {
                   .auto("format")
                   .url() + " 768w",
                 urlFor(image.asset.id)
-                  .width(1080)
-                  .height(450)
+                  .width(1920)
+                  .height(800)
                   .quality(85)
                   .auto("format")
-                  .url() + " 1080w",
+                  .url() + " 1920w",
                 ,
-                urlFor(image.asset.id)
-                  .width(2560)
-                  .height(1067)
-                  .quality(85)
-                  .auto("format")
-                  .url() + " 2560w",
               ]}
               className="swiper-lazy"
               alt={image.alt}
               loading="lazy"
-              width="1080"
-              height="450"
+              width="1920"
+              height="800"
             />
           </div>
         ))}
