@@ -4,7 +4,7 @@
       { "resourceType": "document", "budget": 25 },
       { "resourceType": "stylesheet", "budget": 50 },
       { "resourceType": "font", "budget": 50 },
-      { "resourceType": "image", "budget": 300 },
+      { "resourceType": "image", "budget": 500 },
       { "resourceType": "script", "budget": 100 }
     ]
   }
