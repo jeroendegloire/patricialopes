@@ -30,7 +30,7 @@ const photoGridItem = (props) => {
             .crop("focalpoint")
             .fit("crop")
             .auto("format")
-            .url() + " 768w,",
+            .url() + " 768w",
           urlFor(props?.mainImage?.asset?.id)
             .size(1200, 600)
             .quality(100)
@@ -38,7 +38,7 @@ const photoGridItem = (props) => {
             .crop("focalpoint")
             .fit("crop")
             .auto("format")
-            .url() + " 1536w,",
+            .url() + " 1536w",
         ]}
         alt={props?.mainImage?.alt}
         className="lazy absolute inset-0"
