@@ -14,8 +14,12 @@ export const productionClient = sanityClient({
   useCdn: true,
 });
 
+console.log(process.env.NODE_ENV);
+
 const client =
   process.env.NODE_ENV == "development" ? previewClient : productionClient;
+
+console.log(client);
 
 const builder = imageUrlBuilder(client);
 

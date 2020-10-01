@@ -110,7 +110,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
-        allowList: ["SANITY_PROJECT_ID", "SANITY_DATASET", "SANITY_READ_TOKEN"],
+        allowList: ["SANITY_PROJECT_ID", "SANITY_DATASET", "SANITY_READ_TOKEN", "ENABLE_GATSBY_REFRESH_ENDPOINT", "SANITY_OVERLAY_DRAFTS"], "SANITY_WATCH_MODE"
       },
     },
     // {
