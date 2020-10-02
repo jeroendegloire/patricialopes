@@ -43,6 +43,7 @@ const Contact = ({ background, title, phone, vat, mail }) => {
               height="800"
               className="absolute inset-0"
               alt={background.alt}
+              aria-hidden='true'
             />
           </picture>
         </div>
