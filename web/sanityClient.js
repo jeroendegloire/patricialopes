@@ -17,8 +17,6 @@ export const productionClient = sanityClient({
 const client =
   process.env.NODE_ENV == "development" ? previewClient : productionClient;
 
-console.log(client);
-
 const builder = imageUrlBuilder(client);
 
 export default builder;
