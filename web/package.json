@@ -30,6 +30,7 @@
     "gatsby-telemetry": "^1.3.35",
     "isotope-layout": "^3.0.6",
     "lightbox-react": "^0.3.8",
+    "netlify-plugin-a11y": "0.0.12",
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
