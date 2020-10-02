@@ -1,74 +1,43 @@
-const createProjectPages = async (graphql, actions, reporter) => {
-  const { createPage } = actions;
-  const getProjectsResult = await graphql(`
-    {
-      allSanityCinematography {
-        nodes {
-          id
-          slug {
-            current
-          }
-        }
-      }
-      allSanityPage {
-        nodes {
-          id
-          slug {
-            current
-          }
-        }
-      }
-    }
-  `);
-  if (getProjectsResult.errors) {
-    throw getProjectsResult.errors;
-  }
-  //cinematography page
-  const projectsCinematography =
-    getProjectsResult.data.allSanityCinematography.nodes || [];
-  projectsCinematography.forEach((node) => {
-    const path = `${node.slug.current}`;
-    createPage({
-      path,
-      component: require.resolve("./src/templates/cinamato.js"),
-      context: { id: node.id },
-    });
-  });
-  // //dynamic page all page
-  // const projectsPages = getProjectsResult.data.allSanityPage.nodes || [];
-  // projectsPages.forEach((node) => {
-  //   const path = `${node.slug.current}`;
-  //   createPage({
-  //     path,
-  //     component: require.resolve("./src/templates/pages.js"),
-  //     context: { id: node?.id },
-  //   });
-  // });
-};
-
 const path = require(`path`);
 
 exports.createPages = async ({ graphql, getNode, actions }) => {
   const { createPage } = actions;
   const queryResult = await graphql(`
     query {
-      allSanityPage(filter: { slug: { current: { ne: null } } }) {
-        edges {
-          node {
-            id
-            slug {
-              current
-            }
+      cinematographies: allSanityCinematography(
+        filter: { slug: { current: { ne: null } } }
+      ) {
+        nodes {
+          id
+          slug {
+            current
+          }
+        }
+      }
+      pages: allSanityPage(filter: { slug: { current: { ne: null } } }) {
+        nodes {
+          id
+          slug {
+            current
           }
         }
       }
     }
   `);
-  nodes = queryResult.data.allSanityPage.edges;
-  nodes.forEach(({ node }) => {
+  nodePages = queryResult.data.pages.nodes;
+  nodePages.forEach((node) => {
     createPage({
       path: node.slug.current,
       component: path.resolve(`./src/templates/pages.js`),
+      context: { id: node.id },
+    });
+  });
+
+  nodeCinematographies = queryResult.data.cinematographies.nodes;
+  nodeCinematographies.forEach((node) => {
+    createPage({
+      path: `cinematography/${node.slug.current}`,
+      component: path.resolve(`./src/templates/cinemato.js`),
       context: { id: node.id },
     });
   });
@@ -86,5 +55,11 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
         ],
       },
     });
+  }
+
+  if (stage === "development") {
+    app.get('/',(req,res) => {
+      return res.send('Hello');
+      });
   }
 };

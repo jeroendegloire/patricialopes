@@ -13,4 +13,8 @@ module.exports = {
   // https://github.com/tailwindcss/custom-forms
   plugins: [],
   purge: false,
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+  },
 };

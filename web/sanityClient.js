@@ -14,11 +14,6 @@ export const productionClient = sanityClient({
   useCdn: true,
 });
 
-console.log(process.env.NODE_ENV);
-console.log(process.env.ENABLE_GATSBY_REFRESH_ENDPOINT);
-console.log(process.env.SANITY_OVERLAY_DRAFTS);
-console.log(process.env.SANITY_WATCH_MODE);
-
 const client =
   process.env.NODE_ENV == "development" ? previewClient : productionClient;
 

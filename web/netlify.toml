@@ -17,6 +17,9 @@
     best-practices = 0.8
     seo = 0.8
 
+  [[plugins.inputs.audits]]
+    url = "https://www.patricialopes.be"
+
 [[plugins]]
 package = "netlify-plugin-a11y"
 
