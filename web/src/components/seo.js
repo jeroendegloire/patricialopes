@@ -52,7 +52,6 @@ const SEO = ({
           <meta name="twitter:card" content="summary_large_image" />
           {/* <meta name="twitter:site" content="@patricialopes" />
           <meta name="twitter:creator" content="@patricialopes"></meta> */}
-          <script src="https://cdn.speedcurve.com/js/lux.js?id=599278489" async defer crossorigin="anonymous"></script>
           <script type="application/ld+json">
             {`[{
               "@context": "https://schema.org/",
