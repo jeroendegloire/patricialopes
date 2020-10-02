@@ -66,22 +66,22 @@ const Slideshow = ({ images }) => {
     },
   };
 
-  return (
+  return images ? (
     <div className="flex self-start w-full">
       <ReactIdSwiperCustom {...params} useEffect="fade">
         {images.map((image, i) => (
-          <div className="w-full" key={i}>
+          <div className="w-full" key={image.asset._key}>
             <img
-              src={image.asset.metadata.lqip}
-              data-src={image.asset.metadata.lqip}
+              src={image?.asset?.metadata?.lqip}
+              data-src={image?.asset?.metadata?.lqip}
               data-srcset={[
-                urlFor(image.asset.id)
+                urlFor(image?.asset?.id)
                   .width(800)
                   .height(333)
                   .quality(85)
                   .auto("format")
                   .url() + " 768w",
-                urlFor(image.asset.id)
+                urlFor(image?.asset?.id)
                   .width(1920)
                   .height(800)
                   .quality(85)
@@ -90,7 +90,7 @@ const Slideshow = ({ images }) => {
                 ,
               ]}
               className="swiper-lazy"
-              alt={image.alt}
+              alt={image?.alt}
               loading="lazy"
               width="1920"
               height="800"
@@ -99,7 +99,7 @@ const Slideshow = ({ images }) => {
         ))}
       </ReactIdSwiperCustom>
     </div>
-  );
+  ) : null;
 };
 
 export default Slideshow;

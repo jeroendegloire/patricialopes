@@ -3,7 +3,7 @@ import ReactPlayer from "react-player/lazy";
 import { FaPlay } from "react-icons/fa";
 
 const Video = ({ url, posterImage }) => {
-  return (
+  return url && posterImage ? (
     <div className="video w-full relative">
       <ReactPlayer
         url={url}
@@ -17,10 +17,10 @@ const Video = ({ url, posterImage }) => {
             <FaPlay size="45" color="white" />
           </button>
         }
-        light={posterImage.asset.url + "?h=810"}
+        light={posterImage?.asset?.url + "?h=810"}
       />
     </div>
-  );
+  ) : null;
 };
 
 export default Video;

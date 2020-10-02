@@ -6,6 +6,7 @@
   "dependencies": {
     "@loadable/component": "^5.13.2",
     "@mkitio/gatsby-theme-password-protect": "^2.1.2",
+    "@netlify/plugin-lighthouse": "^1.4.2",
     "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/client": "^1.149.18",
     "@sanity/image-url": "^0.140.19",

@@ -45,7 +45,7 @@ const CinematoList = ({ list }) => {
     }
   }, []);
 
-  return (
+  return list ? (
     <section id="cinematography" className="flex-1 flex flex-col">
       <div className="mx-auto">
         <div className="flex justify-center m-6">
@@ -101,7 +101,7 @@ const CinematoList = ({ list }) => {
         ))}
       </div>
     </section>
-  );
+  ) : null;
 };
 
 export default CinematoList;

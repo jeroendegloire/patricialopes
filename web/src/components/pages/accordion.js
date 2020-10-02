@@ -14,7 +14,7 @@ const Accordion = ({ title, text }) => {
 
   const content = useRef(null);
 
-  return (
+  return title && text ? (
     <section className={`mx-auto w-full max-w-6xl pt-10 px-10 xl:px-0`}>
       <button
         className={`accordion text-left inline-block ${setActive}`}
@@ -32,7 +32,7 @@ const Accordion = ({ title, text }) => {
         ))}
       </div>
     </section>
-  );
+  ) : null;
 };
 
 export default Accordion;

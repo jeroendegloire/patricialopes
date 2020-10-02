@@ -7,7 +7,7 @@ function urlFor(source) {
 }
 
 const Contact = ({ background, title, phone, vat, mail }) => {
-  return (
+  return background && title && phone && vat && mail ? (
     <div className="contact flex flex-1 lg:flex-initial items-center justify-center relative p-5 md:p-0 w-full contact-wrapper">
       <div>
         <div className="absolute inset-0">
@@ -21,7 +21,7 @@ const Contact = ({ background, title, phone, vat, mail }) => {
               }}
             ></div>
             <source
-              srcSet={urlFor(background.asset.id)
+              srcSet={urlFor(background?.asset?.id)
                 .width(800)
                 .height(333)
                 .quality(100)
@@ -32,7 +32,7 @@ const Contact = ({ background, title, phone, vat, mail }) => {
               media="(max-width:768px)"
             />
             <img
-              src={urlFor(background.asset.id)
+              src={urlFor(background?.asset?.id)
                 .width(1920)
                 .height(800)
                 .quality(100)
@@ -71,7 +71,7 @@ const Contact = ({ background, title, phone, vat, mail }) => {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default Contact;

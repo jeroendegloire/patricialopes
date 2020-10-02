@@ -34,21 +34,44 @@ const createProjectPages = async (graphql, actions, reporter) => {
       context: { id: node.id },
     });
   });
-  //dynamic page all page
-  const projectsPages = getProjectsResult.data.allSanityPage.nodes || [];
-  projectsPages.forEach((node) => {
-    const path = `${node.slug.current}`;
+  // //dynamic page all page
+  // const projectsPages = getProjectsResult.data.allSanityPage.nodes || [];
+  // projectsPages.forEach((node) => {
+  //   const path = `${node.slug.current}`;
+  //   createPage({
+  //     path,
+  //     component: require.resolve("./src/templates/pages.js"),
+  //     context: { id: node?.id },
+  //   });
+  // });
+};
+
+const path = require(`path`);
+
+exports.createPages = async ({ graphql, getNode, actions }) => {
+  const { createPage } = actions;
+  const queryResult = await graphql(`
+    query {
+      allSanityPage(filter: { slug: { current: { ne: null } } }) {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
+  nodes = queryResult.data.allSanityPage.edges;
+  nodes.forEach(({ node }) => {
     createPage({
-      path,
-      component: require.resolve("./src/templates/pages.js"),
+      path: node.slug.current,
+      component: path.resolve(`./src/templates/pages.js`),
       context: { id: node.id },
     });
   });
-};
-
-// You can delete this file if you're not using it
-exports.createPages = async ({ graphql, actions, reporter }) => {
-  await createProjectPages(graphql, actions, reporter);
 };
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {

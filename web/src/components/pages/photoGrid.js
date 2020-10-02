@@ -30,7 +30,7 @@ const photoGrid = ({ items }) => {
     });
   }, []);
 
-  return (
+  return items ? (
     <div className="photoGrid mx-auto w-full max-w-6xl pt-10 mx-10 xl:px-0 item mb-20 flex flex-col">
       <div>
         {items.map((item, i) => (
@@ -55,7 +55,7 @@ const photoGrid = ({ items }) => {
         )}
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default photoGrid;

@@ -44,7 +44,7 @@ const Grid = ({ items }) => {
     });
   });
 
-  return (
+  return items ? (
     <div className="flex items-center flex-wrap flex-1 -mb-4 masonry-wrapper">
       <div className="flex flex-1 grid">
         {items.map((item, i) => (
@@ -70,8 +70,10 @@ const Grid = ({ items }) => {
                         .size(800, 400)
                         .quality(100)
                         .focalPoint(
-                          item?.image?.hotspot?.x,
-                          item?.image?.hotspot?.y
+                          item?.image?.hotspot
+                            ? item?.image?.hotspot?.x
+                            : "0.5",
+                          item?.image?.hotspot ? item?.image?.hotspot?.y : "0.5"
                         )
                         .crop("focalpoint")
                         .fit("crop")
@@ -81,8 +83,10 @@ const Grid = ({ items }) => {
                         .size(1200, 600)
                         .quality(100)
                         .focalPoint(
-                          item?.image?.hotspot?.x,
-                          item?.image?.hotspot?.y
+                          item?.image?.hotspot
+                            ? item?.image?.hotspot?.x
+                            : "0.5",
+                          item?.image?.hotspot ? item?.image?.hotspot?.y : "0.5"
                         )
                         .crop("focalpoint")
                         .fit("crop")
@@ -113,8 +117,10 @@ const Grid = ({ items }) => {
                         .size(800, 800)
                         .quality(100)
                         .focalPoint(
-                          item?.image?.hotspot?.x,
-                          item?.image?.hotspot?.y
+                          item?.image?.hotspot
+                            ? item?.image?.hotspot?.x
+                            : "0.5",
+                          item?.image?.hotspot ? item?.image?.hotspot?.y : "0.5"
                         )
                         .crop("focalpoint")
                         .fit("crop")
@@ -124,8 +130,10 @@ const Grid = ({ items }) => {
                         .size(1000, 1000)
                         .quality(100)
                         .focalPoint(
-                          item?.image?.hotspot?.x,
-                          item?.image?.hotspot?.y
+                          item?.image?.hotspot
+                            ? item?.image?.hotspot?.x
+                            : "0.5",
+                          item?.image?.hotspot ? item?.image?.hotspot?.y : "0.5"
                         )
                         .crop("focalpoint")
                         .fit("crop")
@@ -156,8 +164,10 @@ const Grid = ({ items }) => {
                         .size(400, 800)
                         .quality(100)
                         .focalPoint(
-                          item?.image?.hotspot?.x,
-                          item?.image?.hotspot?.y
+                          item?.image?.hotspot
+                            ? item?.image?.hotspot?.x
+                            : "0.5",
+                          item?.image?.hotspot ? item?.image?.hotspot?.y : "0.5"
                         )
                         .crop("focalpoint")
                         .fit("crop")
@@ -167,8 +177,10 @@ const Grid = ({ items }) => {
                         .size(500, 800)
                         .quality(100)
                         .focalPoint(
-                          item?.image?.hotspot?.x,
-                          item?.image?.hotspot?.y
+                          item?.image?.hotspot
+                            ? item?.image?.hotspot?.x
+                            : "0.5",
+                          item?.image?.hotspot ? item?.image?.hotspot?.y : "0.5"
                         )
                         .crop("focalpoint")
                         .fit("crop")
@@ -195,7 +207,7 @@ const Grid = ({ items }) => {
         />
       )}
     </div>
-  );
+  ) : null;
 };
 
 Grid.propTypes = {
