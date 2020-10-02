@@ -34,13 +34,13 @@ const photoGrid = ({ items }) => {
     <div className="photoGrid mx-auto w-full max-w-6xl pt-10 mx-10 xl:px-0 item mb-20 flex flex-col">
       <div>
         {items.map((item, i) => (
-          <div
+          <button
             onClick={handleOpen(i)}
             className="w-full md:w-1/2 lg:w-1/3 flex flex-col relative item--grid"
             key={i}
           >
             <Item mainImage={item} altImage={item.alt} />
-          </div>
+          </button>
         ))}
       </div>
       <div>

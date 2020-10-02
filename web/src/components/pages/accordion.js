@@ -16,15 +16,18 @@ const Accordion = ({ title, text }) => {
 
   return title && text ? (
     <section className={`mx-auto w-full max-w-6xl pt-10 px-10 xl:px-0`}>
-      <button
+      <h2><button
+        aria-controls="accordion-content" id="accordion-header"
         className={`accordion text-left inline-block ${setActive}`}
         onClick={toggleAccordion}
       >
-        <h2 className="accordion__title inline-block">{title}</h2>
-      </button>
+        <span className="accordion__title inline-block">{title}</span>
+      </button></h2>
       <div
         className="accordion__content"
         ref={content}
+        aria-labelledby="accordion-header"
+        id="accordion-content"
         style={{ maxHeight: `${setHeight}` }}
       >
         {text.map((singleText) => (

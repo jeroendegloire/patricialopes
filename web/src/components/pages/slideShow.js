@@ -72,15 +72,32 @@ const Slideshow = ({ images }) => {
         {images.map((image, i) => (
           <div className="w-full" key={image.asset._key}>
             <img
-              src={image?.asset?.metadata?.lqip}
-              data-src={image?.asset?.metadata?.lqip}
+              src={urlFor(image?.asset?.id)
+              .width(324)
+              .height(133)
+              .quality(85)
+              .auto("format")
+              .url() + " 320w"}
               data-srcset={[
                 urlFor(image?.asset?.id)
-                  .width(800)
-                  .height(333)
+                  .width(324)
+                  .height(133)
+                  .quality(85)
+                  .auto("format")
+                  .url() + " 320w",
+                ,
+                urlFor(image?.asset?.id)
+                  .width(648)
+                  .height(270)
                   .quality(85)
                   .auto("format")
                   .url() + " 768w",
+                urlFor(image?.asset?.id)
+                  .width(1020)
+                  .height(425)
+                  .quality(85)
+                  .auto("format")
+                  .url() + " 1020w",
                 urlFor(image?.asset?.id)
                   .width(1920)
                   .height(800)
@@ -92,8 +109,7 @@ const Slideshow = ({ images }) => {
               className="swiper-lazy"
               alt={image?.alt}
               loading="lazy"
-              width="1920"
-              height="800"
+              sizes="100vw"
             />
           </div>
         ))}

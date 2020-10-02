@@ -34,7 +34,7 @@ function Footer() {
           twitter,
         } = data.sanitySiteSettings;
         return (
-          <nav className="self-end mt-10">
+          <nav className="self-end mt-10" aria-label="Social media menu">
             <ul className="flex justify-center -mx-2">
               <li className="px-2 hover:grow">
                 <a

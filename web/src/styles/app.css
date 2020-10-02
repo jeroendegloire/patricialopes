@@ -483,6 +483,14 @@ main {
   width: 100%;
 }
 
+.item-grid {
+  opacity: 0;
+}
+
+.isotope-initialized .item-grid {
+  opacity: 1; 
+}
+
 @media all and (min-width: 768px) {
   .item-grid {
     width: 25%;
@@ -620,6 +628,10 @@ figure img {
 
 .swiper-container img {
   margin: 0 auto;
+}
+
+h2 > * {
+  font: inherit;
 }
 
 /* purgecss stop ignore */

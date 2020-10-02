@@ -33,6 +33,8 @@ const Grid = ({ items }) => {
       layoutMode: "masonry",
       percentPosition: true,
     });
+
+    elem.classList.add('isotope-initialized');
   }, []);
 
   useEffect(() => {
@@ -48,7 +50,7 @@ const Grid = ({ items }) => {
     <div className="flex items-center flex-wrap flex-1 -mb-4 masonry-wrapper">
       <div className="flex flex-1 grid">
         {items.map((item, i) => (
-          <div
+          <button
             onClick={handleOpen(i)}
             className={"item-grid " + item.ratio}
             key={i}
@@ -194,7 +196,7 @@ const Grid = ({ items }) => {
                 </picture>
               </figure>
             )}
-          </div>
+          </button>
         ))}
       </div>
       {showLightbox && selectedImage !== null && (
