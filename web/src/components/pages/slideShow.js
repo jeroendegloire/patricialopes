@@ -70,14 +70,14 @@ const Slideshow = ({ images }) => {
     <div className="flex self-start w-full">
       <ReactIdSwiperCustom {...params} useEffect="fade">
         {images.map((image, i) => (
-          <div className="w-full" key={image.asset._key}>
+          <div className="w-full" key={image._key}>
             <img
               src={urlFor(image?.asset?.id)
               .width(324)
               .height(133)
               .quality(85)
               .auto("format")
-              .url() + " 320w"}
+              .url()}
               data-srcset={[
                 urlFor(image?.asset?.id)
                   .width(324)
@@ -85,7 +85,6 @@ const Slideshow = ({ images }) => {
                   .quality(85)
                   .auto("format")
                   .url() + " 320w",
-                ,
                 urlFor(image?.asset?.id)
                   .width(648)
                   .height(270)
@@ -104,7 +103,6 @@ const Slideshow = ({ images }) => {
                   .quality(85)
                   .auto("format")
                   .url() + " 1920w",
-                ,
               ]}
               className="swiper-lazy"
               alt={image?.alt}
