@@ -95,7 +95,7 @@ const CinematoList = ({ list }) => {
             featuredImage={item?.featuredImage}
             altImage={item?.featuredImage?.alt}
             category={item.cinematoReference.category}
-            url={`cinematography/${item.cinematoReference.slug.current}`}
+            url={item.cinematoReference.slug.current}
             key={i}
           />
         ))}
