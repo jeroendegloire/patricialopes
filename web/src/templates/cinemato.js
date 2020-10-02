@@ -173,8 +173,8 @@ const ProjectTemplate = ({ data }) => {
               <div>
                 <span>DIRECTED BY </span>
                 {directors
-                  .map((director) => (
-                    <span className="inline-block">{director}</span>
+                  .map((director, i) => (
+                    <span key={i} className="inline-block">{director}</span>
                   ))
                   .map((dop, index) => [index > 0 && ", ", dop])}
                 <br />
@@ -184,8 +184,8 @@ const ProjectTemplate = ({ data }) => {
             {productions[0] ? (
               <div>
                 <span>PRODUCTION: </span>
-                {productions.map((production) => (
-                  <span className="inline-block">{production}</span>
+                {productions.map((production, i) => (
+                  <span key={i} className="inline-block">{production}</span>
                 ))}
                 <br />
               </div>
@@ -195,7 +195,7 @@ const ProjectTemplate = ({ data }) => {
               <div>
                 <span>CINEMATOGRAPHY: </span>
                 {dops
-                  .map((dop) => <span className="inline-block">{dop}</span>)
+                  .map((dop, i) => <span key={i} className="inline-block">{dop}</span>)
                   .map((dop, index) => [index > 0 && ", ", dop])}
                 <br />
               </div>
