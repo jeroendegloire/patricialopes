@@ -98,7 +98,6 @@ const PagesTemplate = ({ data }) => {
           description={seo?.meta_description}
           title={seo?.seo_title}
         />
-
         <article className="flex-1 flex ">
           <h1 className="sr-only">{title}</h1>
           <div className="flex-1 flex flex-col">{content}</div>

@@ -13,50 +13,53 @@ function urlFor(source) {
   return builder.image(source);
 }
 
+const slideParams = {
+  modules: [Navigation, autoplay, a11y, effectFade, keyboard, lazy],
+  direction: "vertical",
+  allowTouchMove: false,
+  preloadImages: false,
+  lazy: {
+    loadPrevNext: true,
+    loadPrevNextAmount: 25,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  effect: "fade",
+  fadeEffect: {
+    crossFade: true,
+  },
+  speed: 1000,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  a11y: {
+    prevSlideMessage: "Previous slide",
+    nextSlideMessage: "Next slide",
+  },
+  keyboard: {
+    enabled: true,
+    onlyInViewport: false,
+  },
+  breakpoints: {
+    768: {
+      direction: "horizontal",
+      lazy: {
+        loadPrevNext: true,
+        loadPrevNextAmount: 3,
+      },
+      allowTouchMove: true,
+    },
+  },
+};
+
 const Slideshow = ({ images }) => {
   const params = {
     // Provide Swiper class as props
     Swiper,
     // Add modules you need
-    modules: [Navigation, autoplay, a11y, effectFade, keyboard, lazy],
-    direction: "vertical",
-    allowTouchMove: false,
-    preloadImages: false,
-    lazy: {
-      loadPrevNext: true,
-      loadPrevNextAmount: 25,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true,
-    },
-    speed: 1000,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    a11y: {
-      prevSlideMessage: "Previous slide",
-      nextSlideMessage: "Next slide",
-    },
-    keyboard: {
-      enabled: true,
-      onlyInViewport: false,
-    },
-    breakpoints: {
-      768: {
-        direction: "horizontal",
-        lazy: {
-          loadPrevNext: true,
-          loadPrevNextAmount: 3,
-        },
-        allowTouchMove: true,
-      },
-    },
   };
 
   return images ? (
