@@ -18,15 +18,7 @@ const Slideshow = ({ images }) => {
     // Provide Swiper class as props
     Swiper,
     // Add modules you need
-    modules: [
-      Navigation,
-      Pagination,
-      autoplay,
-      a11y,
-      effectFade,
-      keyboard,
-      lazy,
-    ],
+    modules: [Navigation, autoplay, a11y, effectFade, keyboard, lazy],
     direction: "vertical",
     allowTouchMove: false,
     preloadImages: false,
@@ -74,11 +66,11 @@ const Slideshow = ({ images }) => {
           <div className="w-full" key={image._key}>
             <img
               src={urlFor(image?.asset?.id)
-              .width(324)
-              .height(133)
-              .quality(85)
-              .auto("format")
-              .url()}
+                .width(324)
+                .height(133)
+                .quality(85)
+                .auto("format")
+                .url()}
               data-srcset={[
                 urlFor(image?.asset?.id)
                   .width(324)

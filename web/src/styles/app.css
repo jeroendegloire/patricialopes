@@ -253,7 +253,7 @@ p {
   margin: 0 0 0.8em;
 }
 
-.contact h2  {
+.contact h2 {
   font-size: 2em;
   line-height: 1em;
   font-weight: 400;
@@ -483,13 +483,13 @@ main {
   width: 100%;
 }
 
-/* .item-grid {
+.item-grid {
   opacity: 0;
 }
 
 .isotope-initialized .item-grid {
-  opacity: 1; 
-} */
+  opacity: 1;
+}
 
 @media all and (min-width: 768px) {
   .item-grid {
