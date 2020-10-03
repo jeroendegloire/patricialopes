@@ -7,6 +7,7 @@ import autoplay from "swiper/esm/components/autoplay/autoplay";
 import a11y from "swiper/esm/components/a11y/a11y";
 import keyboard from "swiper/esm/components/keyboard/keyboard";
 import lazy from "swiper/esm/components/lazy/lazy";
+import "swiper/swiper-bundle.css";
 
 function urlFor(source) {
   return builder.image(source);

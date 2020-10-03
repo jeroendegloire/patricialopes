@@ -58,8 +58,9 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   }
 
   if (stage === "development") {
-    app.get('/',(req,res) => {
-      return res.send('Hello');
-      });
+    actions.send("Hello");
+    app.get("/", (req, res) => {
+      return res.send("Hello");
+    });
   }
 };

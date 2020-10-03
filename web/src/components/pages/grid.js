@@ -34,7 +34,7 @@ const Grid = ({ items }) => {
       percentPosition: true,
     });
 
-    elem.classList.add('isotope-initialized');
+    elem?.classList.add('isotope-initialized');
   }, []);
 
   useEffect(() => {

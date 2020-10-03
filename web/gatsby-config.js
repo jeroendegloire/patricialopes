@@ -8,12 +8,12 @@ const isProd = process.env.NODE_ENV === "production";
 module.exports = {
   siteMetadata: {
     title: `Patricia Lopes - Director of photography`,
-    image: "https://cdn.sanity.io/images/l2xxtj60/production/d4a6a82b8c75f40cc2e1edee477dae1756fb6a93-4096x2730.jpg?w=1200&h=630&fm=jpg&q=80",
+    image:
+      "https://cdn.sanity.io/images/l2xxtj60/production/d4a6a82b8c75f40cc2e1edee477dae1756fb6a93-4096x2730.jpg?w=1200&h=630&fm=jpg&q=80",
     url: `https://www.patricialopes.be`,
     siteUrl: `https://www.patricialopes.be`,
   },
   plugins: [
-    `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: "gatsby-source-sanity",
       options: {
@@ -85,7 +85,7 @@ module.exports = {
         fonts: [
           {
             family: `Poppins`,
-            variants: [`200`, `400`,`500`, `600`],
+            variants: [`200`, `400`, `500`, `600`],
           },
         ],
       },
@@ -103,12 +103,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-preconnect",
-      options: {
-        domains: ["https://player.vimeo.com"],
-      },
-    },
-    {
       resolve: `gatsby-plugin-env-variables`,
       options: {
         allowList: [
@@ -121,7 +115,9 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-remove-serviceworker'
+    `gatsby-plugin-remove-trailing-slashes`,
+    "gatsby-plugin-remove-serviceworker",
+    "gatsby-plugin-no-javascript",
     // {
     //   resolve: "@mkitio/gatsby-theme-password-protect",
     //   options: {
