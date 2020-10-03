@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Slideshow from "../components/pages/slideShow";
+//import Slideshow from "../components/pages/slideShow";
 import Layout from "../components/layout/layout";
 import Accordion from "../components/pages/accordion";
 import Contact from "../components/pages/contact";
@@ -55,7 +55,7 @@ const PagesTemplate = ({ data }) => {
       let el = null;
       switch (c._type) {
         case "slideshow":
-          el = <Slideshow key={c._key} {...c} />;
+          el = `<Slideshow key={c._key} {...c} />`;
           break;
         case "textContent":
           el = <Text key={c._key} {...c} />;
