@@ -360,11 +360,13 @@ main {
   margin-left: -20px;
 }
 
-.swiper-container img {
+.swiper-wrapper img {
   opacity: 0;
+  transition: all linear 0.5s;
+  object-fit: cover;
 }
 
-.swiper-container-initialized img {
+.swiper-wrapper img.swiper-lazy-loaded {
   opacity: 1;
 }
 
