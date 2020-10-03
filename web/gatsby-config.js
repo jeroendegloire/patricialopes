@@ -99,13 +99,13 @@ module.exports = {
         head: false,
         // Setting this parameter is optional
         anonymize: true,
-        defer: false,
+        defer: true,
       },
     },
     {
       resolve: "gatsby-plugin-preconnect",
       options: {
-        domains: ["https://cdn.sanity.io", "https://player.vimeo.com"],
+        domains: ["https://player.vimeo.com"],
       },
     },
     {
@@ -121,6 +121,7 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-remove-serviceworker'
     // {
     //   resolve: "@mkitio/gatsby-theme-password-protect",
     //   options: {
