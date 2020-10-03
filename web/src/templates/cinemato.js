@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import { Link, graphql } from "gatsby";
 import SEO from "../components/seo";
 import Layout from "../components/layout/layout";
@@ -174,7 +175,9 @@ const ProjectTemplate = ({ data }) => {
                 <span>DIRECTED BY </span>
                 {directors
                   .map((director, i) => (
-                    <span key={i} className="inline-block">{director}</span>
+                    <span key={i} className="inline-block">
+                      {director}
+                    </span>
                   ))
                   .map((dop, index) => [index > 0 && ", ", dop])}
                 <br />
@@ -185,7 +188,9 @@ const ProjectTemplate = ({ data }) => {
               <div>
                 <span>PRODUCTION: </span>
                 {productions.map((production, i) => (
-                  <span key={i} className="inline-block">{production}</span>
+                  <span key={i} className="inline-block">
+                    {production}
+                  </span>
                 ))}
                 <br />
               </div>
@@ -195,7 +200,11 @@ const ProjectTemplate = ({ data }) => {
               <div>
                 <span>CINEMATOGRAPHY: </span>
                 {dops
-                  .map((dop, i) => <span key={i} className="inline-block">{dop}</span>)
+                  .map((dop, i) => (
+                    <span key={i} className="inline-block">
+                      {dop}
+                    </span>
+                  ))
                   .map((dop, index) => [index > 0 && ", ", dop])}
                 <br />
               </div>

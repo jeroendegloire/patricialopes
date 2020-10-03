@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+
 import Slideshow from "../components/pages/slideShow";
 import Layout from "../components/layout/layout";
 import Accordion from "../components/pages/accordion";

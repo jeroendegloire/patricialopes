@@ -3,6 +3,7 @@ require("dotenv").config({
   path: `.env`,
 });
 
+const path = require(`path`);
 const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
@@ -14,6 +15,7 @@ module.exports = {
     siteUrl: `https://www.patricialopes.be`,
   },
   plugins: [
+    `gatsby-plugin-preact`,
     {
       resolve: "gatsby-source-sanity",
       options: {
@@ -117,7 +119,29 @@ module.exports = {
     },
     `gatsby-plugin-remove-trailing-slashes`,
     "gatsby-plugin-remove-serviceworker",
-    "gatsby-plugin-no-javascript",
+    // {
+    //   resolve: `gatsby-plugin-no-javascript`,
+    // },
+    // {
+    //   resolve: "gatsby-plugin-webpack-entry",
+    //   options: {
+    //     entry: {
+    //       video: path.resolve(__dirname, "src/components/pages", "video.js"),
+    //       stills: path.resolve(__dirname, "src/components/pages", "grid.js"),
+    //       filterableGrid: path.resolve(
+    //         __dirname,
+    //         "src/components/pages",
+    //         "cinematoList.js"
+    //       ),
+    //     },
+    //   },
+    // },
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+      options: {
+        disable: true,
+      },
+    },
     // {
     //   resolve: "@mkitio/gatsby-theme-password-protect",
     //   options: {
