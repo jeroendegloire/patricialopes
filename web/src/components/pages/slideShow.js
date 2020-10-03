@@ -1,6 +1,6 @@
 import React from "react";
 import ReactIdSwiperCustom from "react-id-swiper/lib/ReactIdSwiper.custom";
-import { Swiper, Navigation, Pagination } from "swiper/swiper.esm";
+import { Swiper, Navigation } from "swiper/swiper.esm";
 import builder from "../../../sanityClient.js";
 import effectFade from "swiper/esm/components/effect-fade/effect-fade";
 import autoplay from "swiper/esm/components/autoplay/autoplay";
@@ -57,7 +57,6 @@ const Slideshow = ({ images }) => {
         allowTouchMove: true,
       },
     },
-    s,
   };
 
   return images ? (
