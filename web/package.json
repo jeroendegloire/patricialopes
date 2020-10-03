@@ -4,6 +4,7 @@
   "version": "4.0.0",
   "author": "Jeroen Degloire",
   "dependencies": {
+    "@loadable/babel-plugin": "^5.13.2",
     "@loadable/webpack-plugin": "^5.13.0",
     "@mkitio/gatsby-theme-password-protect": "^2.1.2",
     "@netlify/plugin-lighthouse": "^1.4.2",

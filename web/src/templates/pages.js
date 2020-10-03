@@ -13,8 +13,8 @@ import FilterableGrid from "../components/pages/photoGrid";
 import CinematoList from "../components/pages/cinematoList";
 
 export const query = graphql`
-  query PageTemplateQuery($slug: String!) {
-    route: sanityPage(slug: { eq: $slug }) {
+  query PageTemplateQuery($id: String!) {
+    route: sanityPage(id: { eq: $id }) {
       id
       title
       _key
