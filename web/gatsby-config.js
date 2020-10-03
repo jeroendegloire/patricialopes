@@ -8,7 +8,7 @@ const isProd = process.env.NODE_ENV === "production";
 module.exports = {
   siteMetadata: {
     title: `Patricia Lopes - Director of photography`,
-    image: "/logo.png",
+    image: "https://cdn.sanity.io/images/l2xxtj60/production/d4a6a82b8c75f40cc2e1edee477dae1756fb6a93-4096x2730.jpg?w=1200&h=630&fm=jpg&q=80",
     url: `https://www.patricialopes.be`,
     siteUrl: `https://www.patricialopes.be`,
   },
@@ -85,7 +85,7 @@ module.exports = {
         fonts: [
           {
             family: `Poppins`,
-            variants: [`200`, `400`, `500`, `600`, `700`],
+            variants: [`200`, `400`, `600`],
           },
         ],
       },
@@ -96,9 +96,10 @@ module.exports = {
         // The property ID; the tracking code won't be generated without it
         trackingId: "UA-133663513-1",
         // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: true,
+        head: false,
         // Setting this parameter is optional
         anonymize: true,
+        defer: false,
       },
     },
     {
