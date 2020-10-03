@@ -1,16 +1,16 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Slideshow from "../components/pages/slideShow";
-import Layout from "../components/layout/layout";
-import Accordion from "../components/pages/accordion";
-import Contact from "../components/pages/contact";
-import Text from "../components/pages/text";
-import TextImage from "../components/pages/textImage";
-import Grid from "../components/pages/grid";
-import Video from "../components/pages/video";
-import SEO from "../components/seo";
-import FilterableGrid from "../components/pages/photoGrid";
-import CinematoList from "../components/pages/cinematoList";
+const Slideshow = lazy(() => import("../components/pages/slideShow"))
+const Layout = lazy(() => import("../components/layout/layout"))
+const Accordion = lazy(() => import("../components/pages/accordion"))
+const Contact = lazy(() => import("../components/pages/contact"))
+const Text = lazy(() => import("../components/pages/text"))
+const TextImage = lazy(() => import("../components/pages/textImage"))
+const Grid = lazy(() => import("../components/pages/grid"))
+const Video = lazy(() => import("../components/pages/video"))
+const SEO = lazy(() => import("../components/seo"))
+const FilterableGrid = lazy(() => import("../components/pages/photoGrid"))
+const CinematoList = lazy(() => import("../components/pages/cinematoList"))
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {

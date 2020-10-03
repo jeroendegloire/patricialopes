@@ -108,6 +108,8 @@ const Slideshow = ({ images }) => {
               alt={image?.alt}
               loading="lazy"
               sizes="100vw"
+              width="1920"
+              height="800"
             />
           </div>
         ))}
