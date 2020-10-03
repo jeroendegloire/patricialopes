@@ -48,6 +48,11 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
     actions.setWebpackConfig({
       module: {
         rules: [
+          // {
+          //   exclude: [/node_modules\/(?!(swiper|dom7)\/).*/, /\.test\.js(x)?$/],
+          //   test: /\.js(x)?$/,
+          //   use: [{ loader: "babel-loader" }],
+          // },
           {
             test: /isotope-layout/,
             use: loaders.null(),
@@ -58,8 +63,8 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   }
 
   if (stage === "develop") {
-    // getNode.get("/", (req, res) => {
-    //   return res.send("Hello");
-    // });
+    getNode.get("/", (req, res) => {
+      return res.send("Hello");
+    });
   }
 };
