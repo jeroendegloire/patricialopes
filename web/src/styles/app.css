@@ -360,11 +360,11 @@ main {
   margin-left: -20px;
 }
 
-.swiper-container {
+.swiper-container img {
   opacity: 0;
 }
 
-.swiper-container-initialized {
+.swiper-container-initialized img {
   opacity: 1;
 }
 
