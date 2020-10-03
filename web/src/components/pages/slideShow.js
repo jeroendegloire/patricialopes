@@ -57,6 +57,7 @@ const Slideshow = ({ images }) => {
         allowTouchMove: true,
       },
     },
+    s,
   };
 
   return images ? (
@@ -65,12 +66,6 @@ const Slideshow = ({ images }) => {
         {images.map((image, i) => (
           <div className="w-full" key={image._key}>
             <img
-              src={urlFor(image?.asset?.id)
-                .width(324)
-                .height(133)
-                .quality(85)
-                .auto("format")
-                .url()}
               data-srcset={[
                 urlFor(image?.asset?.id)
                   .width(324)
