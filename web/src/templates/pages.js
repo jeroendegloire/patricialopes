@@ -1,16 +1,16 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { graphql } from "gatsby";
-const Slideshow = lazy(() => import("../components/pages/slideShow"))
-const Layout = lazy(() => import("../components/layout/layout"))
-const Accordion = lazy(() => import("../components/pages/accordion"))
-const Contact = lazy(() => import("../components/pages/contact"))
-const Text = lazy(() => import("../components/pages/text"))
-const TextImage = lazy(() => import("../components/pages/textImage"))
-const Grid = lazy(() => import("../components/pages/grid"))
-const Video = lazy(() => import("../components/pages/video"))
-const SEO = lazy(() => import("../components/seo"))
-const FilterableGrid = lazy(() => import("../components/pages/photoGrid"))
-const CinematoList = lazy(() => import("../components/pages/cinematoList"))
+const Slideshow = React.lazy(() => import("../components/pages/slideShow"))
+const Layout = React.lazy(() => import("../components/layout/layout"))
+const Accordion = React.lazy(() => import("../components/pages/accordion"))
+const Contact = React.lazy(() => import("../components/pages/contact"))
+const Text = React.lazy(() => import("../components/pages/text"))
+const TextImage = React.lazy(() => import("../components/pages/textImage"))
+const Grid = React.lazy(() => import("../components/pages/grid"))
+const Video = React.lazy(() => import("../components/pages/video"))
+const SEO = React.lazy(() => import("../components/seo"))
+const FilterableGrid = React.lazy(() => import("../components/pages/photoGrid"))
+const CinematoList = React.lazy(() => import("../components/pages/cinematoList"))
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
@@ -46,7 +46,7 @@ const PagesTemplate = ({ data }) => {
   const title = page.title;
 
   const theme = slug == "showreel" ? "dark-theme" : "light-theme";
-  const fixed = slug == "contact" ? "fixed" : "";
+  const fixed = slug == "contact" ? "fixed" : ""; 
 
   const content = (page._rawContent || [])
     .filter((c) => !c.disabled)
@@ -89,20 +89,22 @@ const PagesTemplate = ({ data }) => {
 
   return (
     <div className={"w-full " + theme + " " + fixed}>
-      <Layout>
-        <SEO
-          keywords={seo?.focus_keyword}
-          synonyms={seo?.focus_synonyms}
-          image={page?.image?.asset?.url}
-          description={seo?.meta_description}
-          title={seo?.seo_title}
-        />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Layout>
+          <SEO
+            keywords={seo?.focus_keyword}
+            synonyms={seo?.focus_synonyms}
+            image={page?.image?.asset?.url}
+            description={seo?.meta_description}
+            title={seo?.seo_title}
+          />
 
-        <article className="flex-1 flex ">
-          <h1 className="sr-only">{title}</h1>
-          <div className="flex-1 flex flex-col">{content}</div>
-        </article>
-      </Layout>
+          <article className="flex-1 flex ">
+            <h1 className="sr-only">{title}</h1>
+            <div className="flex-1 flex flex-col">{content}</div>
+          </article>
+        </Layout>
+      </Suspense>
     </div>
   );
 };
