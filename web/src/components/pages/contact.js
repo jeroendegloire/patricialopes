@@ -52,7 +52,7 @@ const Contact = ({ background, title, phone, vat, mail }) => {
           <div className="mb-10 -mt-10">
             <Footer />
           </div>
-          <h1 className="uppercase mb-8 relative">{title}</h1>
+          <h2 className="uppercase mb-8 relative">{title}</h2>
           <div className="my-2">
             <b>Email: </b>
             <a href="mailto:hello@patricialopes.be" title="Send me">

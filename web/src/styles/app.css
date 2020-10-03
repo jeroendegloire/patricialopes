@@ -253,7 +253,7 @@ p {
   margin: 0 0 0.8em;
 }
 
-h1 {
+.contact h2  {
   font-size: 2em;
   line-height: 1em;
   font-weight: 400;
@@ -348,7 +348,7 @@ main {
   text-transform: uppercase;
 }
 
-.contact h1:after {
+.contact h2:after {
   content: "";
   width: 40px;
   height: 2px;

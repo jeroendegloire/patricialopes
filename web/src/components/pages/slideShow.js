@@ -84,13 +84,13 @@ const Slideshow = ({ images }) => {
                   .height(133)
                   .quality(85)
                   .auto("format")
-                  .url() + " 320w",
+                  .url() + " 324w",
                 urlFor(image?.asset?.id)
                   .width(648)
                   .height(270)
                   .quality(85)
                   .auto("format")
-                  .url() + " 768w",
+                  .url() + " 648w",
                 urlFor(image?.asset?.id)
                   .width(1020)
                   .height(425)
