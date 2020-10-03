@@ -13,11 +13,7 @@ function urlFor(source) {
   return builder.image(source);
 }
 
-const [swiper, updateSwiper] = React.useState(null);
-
 const slideParams = {
-  loop: true,
-  getSwiper: updateSwiper,
   modules: [Navigation, autoplay, a11y, effectFade, keyboard, lazy],
   direction: "vertical",
   allowTouchMove: false,
