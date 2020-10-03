@@ -1,6 +1,6 @@
 # Global build commands
 [build]
-  command = "gatsby build"
+  command = "gatsby clean && gatsby build"
   publish = "public/"
   functions = "functions/"
 
