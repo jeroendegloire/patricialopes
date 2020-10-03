@@ -360,6 +360,14 @@ main {
   margin-left: -20px;
 }
 
+.swiper-container {
+  opacity: 0;
+}
+
+.swiper-container-initialized {
+  opacity: 1;
+}
+
 .swiper-button-prev:after,
 .swiper-button-next:after {
   content: none;
