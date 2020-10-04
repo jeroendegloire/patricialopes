@@ -1,7 +1,7 @@
 # Global build commands
 [build]
   command = "npm run build && cp netlify.toml dist && cp -r static dist"
-  publish = "public/"
+  publish = "dist/"
   functions = "functions/"
 
 [[headers]]
