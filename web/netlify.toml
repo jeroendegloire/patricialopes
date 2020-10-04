@@ -10,9 +10,9 @@
   for = "/*"
 
   [headers.values]
-    Content-Security-Policy= "default-src 'self'; img-src *"
-    X-Frame-Options = "SAMEORIGIN"
-    X-Content-Type-Options: "nosniff"
+    Content-Security-Policy = "default-src 'self'; img-src *",
+    X-Frame-Options = "SAMEORIGIN",
+    X-Content-Type-Options: "nosniff",
     X-XSS-Protection = "1; mode=block"
 
     # Multi-key header rules are expressed with multi-line strings.
