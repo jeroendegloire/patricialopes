@@ -1,8 +1,8 @@
 # Global build commands
 [build]
-  base = "web/"
+  base = "./web/"
   command = "gatsby build"
-  publish = "web/public/"
+  publish = "public/"
   functions = "functions/"
 
 [[headers]]
