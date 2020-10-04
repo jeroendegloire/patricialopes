@@ -63,8 +63,8 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   }
 };
 
-exports.onCreateDevServer = ({ app }) => {
-  app.get("/", function (req, res) {
-    res.send("Hello");
-  });
-};
+// exports.onCreateDevServer = ({ app }) => {
+//   app.get("/", function (req, res) {
+//     res.send("Hello");
+//   });
+// };
