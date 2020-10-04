@@ -11,9 +11,9 @@ export default function resolvePreviewUrl(document) {
       return `${baseUrl}/${document.slug.current}`
     case 'cinematography':
       if (!document.slug || !document.slug.current) {
-        return `${baseUrl}/cinematography/${document.slug.current}`
+        return `${baseUrl}`
       }
-      return null
+      return `${baseUrl}/cinematography/${document.slug.current}`
     default:
       return null
   }

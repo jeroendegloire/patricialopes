@@ -8,6 +8,7 @@ import a11y from "swiper/esm/components/a11y/a11y";
 import keyboard from "swiper/esm/components/keyboard/keyboard";
 import lazy from "swiper/esm/components/lazy/lazy";
 import "swiper/swiper-bundle.css";
+import fallbackImage from "../../images/fallback.png";
 
 function urlFor(source) {
   return builder.image(source);
@@ -61,10 +62,11 @@ const Slideshow = ({ images }) => {
 
   return images ? (
     <div className="flex self-start w-full">
-      <ReactIdSwiperCustom {...params} useEffect="fade">
+      <ReactIdSwiperCustom {...params}>
         {images.map((image, i) => (
-          <div className="w-full" key={image._key}>
+          <div className="w-full" key={i}>
             <img
+              src={fallbackImage}
               data-srcset={[
                 urlFor(image?.asset?.id)
                   .width(324)

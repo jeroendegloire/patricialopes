@@ -2,16 +2,6 @@ export default {
   widgets: [
     { name: 'structure-menu' },
     {
-      name: 'gatsby',
-      options: {
-        sites: [
-          {
-            siteUrl: 'https://preview.patricialopes.be'
-          }
-        ]
-      }
-    },
-    {
       name: 'project-info',
       options: {
         data: [

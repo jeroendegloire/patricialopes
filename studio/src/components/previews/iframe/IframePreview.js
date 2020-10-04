@@ -2,21 +2,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './IframePreview.css'
-import Cookies from 'universal-cookie'
+//import Cookies from 'universal-cookie'
 
 const assembleProjectUrl = ({ displayed, options }) => {
   const { slug } = displayed
   const { previewURL } = options
+
   if (!slug || !previewURL) {
     console.warn('Missing slug or previewURL', { slug, previewURL })
     return ''
   }
-  return `${previewURL}/${slug.current}`
+
+  switch (displayed._type) {
+    case 'page':
+      if (!displayed.slug || !displayed.slug.current) {
+        return `${previewURL}`
+      }
+      return `${previewURL}/${displayed.slug.current}`
+    case 'cinematography':
+      if (!displayed.slug || !displayed.slug.current) {
+        return `${previewURL}`
+      }
+      return `${previewURL}/cinematography/${displayed.slug.current}`
+    default:
+      return `${previewURL}`
+  }
 }
 
-const cookies = new Cookies()
+//const cookies = new Cookies()
 
-cookies.set('gatsby-theme-password-protect', 'sUp3rS3cR3t', [`domain:${assembleProjectUrl}`])
+//cookies.set('gatsby-theme-password-protect', 'sUp3rS3cR3t', [`domain:${assembleProjectUrl}`])
 
 class IframePreview extends React.PureComponent {
   static propTypes = {
@@ -30,6 +45,7 @@ class IframePreview extends React.PureComponent {
   render() {
     const { options } = this.props
     const { displayed } = this.props.document
+
     if (!displayed) {
       return (
         <div className={styles.componentWrapper}>
