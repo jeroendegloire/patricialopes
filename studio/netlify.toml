@@ -1,8 +1,9 @@
-[[redirects]]
-  from = "/*"
-  to = "/"
-  status = 200
-  
+# Global build commands
+[build]
+  command = "npm run build && cp netlify.toml dist && cp -r static dist"
+  publish = "public/"
+  functions = "functions/"
+
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
   for = "/*"

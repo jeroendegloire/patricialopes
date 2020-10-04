@@ -61,10 +61,10 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       },
     });
   }
+};
 
-  if (stage === "develop") {
-    getNode.get("/", (req, res) => {
-      return res.send("Hello");
-    });
-  }
+exports.onCreateDevServer = ({ app }) => {
+  app.get("/", function (req, res) {
+    res.send("Hello");
+  });
 };
