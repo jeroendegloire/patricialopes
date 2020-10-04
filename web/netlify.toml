@@ -10,7 +10,7 @@
   for = "/*"
 
   [headers.values]
-    Content-Security-Policy: "default-src https",
+    Content-Security-Policy: "default-src https:",
     X-Frame-Options = "SAMEORIGIN",
     X-Content-Type-Options: "nosniff",
     X-XSS-Protection = "1; mode=block";
