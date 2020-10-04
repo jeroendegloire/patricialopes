@@ -1,9 +1,9 @@
 # Global build commands
 [build]
-  base = "studio/"
-  publish = "dist/"
+  base = ""
+  publish = "studio/dist/"
   functions = "functions/"
-  command = "npm run build && cp netlify.toml dist && cp -r static dist"
+  command = "cd studio && npm run build && cp netlify.toml dist && cp -r static dist"
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
