@@ -2,7 +2,7 @@
 [build]
   base = "web/"
   command = "gatsby build"
-  publish = "web/public/"
+  publish = "public/"
   functions = "functions/"
 
 [[headers]]
