@@ -2,7 +2,7 @@
 [build]
   base = "studio/"
   command = "npm run build && cp netlify.toml dist && cp -r static dist"
-  publish = "studio/dist/"
+  publish = "dist/"
   functions = "functions/"
 
 [[headers]]
