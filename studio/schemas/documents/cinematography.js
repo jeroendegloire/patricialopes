@@ -113,6 +113,13 @@ export default {
       fieldset: 'details'
     },
     {
+      name: 'awards',
+      type: 'array',
+      title: 'Festivals & awards',
+      of: [{type: 'string'}],
+      fieldset: 'details'
+    },
+    {
       name: 'linkUrl',
       type: 'url',
       title: 'Link url',

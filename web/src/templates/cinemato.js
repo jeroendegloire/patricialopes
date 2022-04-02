@@ -36,6 +36,7 @@ export const query = graphql`
         }
         alt
       }
+      awards
       category
       subcategory
       directors
@@ -45,6 +46,8 @@ export const query = graphql`
       production
       linkUrl
       linkText
+      linkUrlTwo
+      linkTextTwo
       seo {
         seo_title
         meta_description
@@ -166,6 +169,19 @@ const ProjectTemplate = ({ data }) => {
                 {data.sanityCinematography.title}
               </h1>
             ) : null}
+
+            {data.sanityCinematography.category == "documentary" ? (
+              <div className="uppercase mb-4 underline">Documentary</div>
+            ) : null}
+            {data.sanityCinematography.category == "commercials" ? (
+              <div className="uppercase mb-4 underline">Commercial</div>
+            ) : null}
+            {data.sanityCinematography.category == "music_video" ? (
+              <div className="uppercase mb-4 underline">Music video</div>
+            ) : null}
+            {data.sanityCinematography.category == "fiction" ? (
+              <div className="uppercase mb-4 underline">Fiction</div>
+            ) : null}
             {data.sanityCinematography.subcategory == "short_film" ? (
               <div className="uppercase mb-4 underline">Short film</div>
             ) : null}
@@ -176,21 +192,21 @@ const ProjectTemplate = ({ data }) => {
 
             {directors[0] ? (
               <div>
-                <span>DIRECTED BY </span>
+                <span className="font-bold">DIRECTED BY </span>
                 {directors
                   .map((director, i) => (
                     <span key={i} className="inline-block">
                       {director}
                     </span>
                   ))
-                  .map((dop, index) => [index > 0 && ", ", dop])}
+                  .map((director, index) => [index > 0 && ", ", director])}
                 <br />
               </div>
             ) : null}
 
             {productions[0] ? (
               <div>
-                <span>PRODUCTION: </span>
+                <span className="font-bold">PRODUCTION: </span>
                 {productions.map((production, i) => (
                   <span key={i} className="inline-block">
                     {production}
@@ -202,7 +218,7 @@ const ProjectTemplate = ({ data }) => {
 
             {dops[0] ? (
               <div>
-                <span>CINEMATOGRAPHY: </span>
+                <span className="font-bold">CINEMATOGRAPHY: </span>
                 {dops
                   .map((dop, i) => (
                     <span key={i} className="inline-block">
@@ -216,8 +232,8 @@ const ProjectTemplate = ({ data }) => {
 
             {shoton[0] ? (
               <div>
-                <span>SHOT ON: </span>
-                {dops
+                <span className="font-bold">SHOT ON: </span>
+                {shoton
                   .map((shoton, i) => (
                     <span key={i} className="inline-block">
                       {shoton}
@@ -230,14 +246,28 @@ const ProjectTemplate = ({ data }) => {
 
             {grading[0] ? (
               <div>
-                <span>GRADING: </span>
-                {dops
+                <span className="font-bold">GRADING: </span>
+                {grading
                   .map((grading, i) => (
                     <span key={i} className="inline-block">
                       {grading}
                     </span>
                   ))
                   .map((grading, index) => [index > 0 && ", ", grading])}
+                <br />
+              </div>
+            ) : null}
+
+            {awards[0] ? (
+              <div>
+                <span className="font-bold">FESTIVALS &amp; AWARDS: </span>
+                {awards
+                  .map((awards, i) => (
+                    <span key={i} className="inline-block">
+                      {awards}
+                    </span>
+                  ))
+                  .map((awards, index) => [index > 0 && ", ", awards])}
                 <br />
               </div>
             ) : null}
