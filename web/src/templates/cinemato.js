@@ -69,7 +69,7 @@ export const query = graphql`
 
 const ProjectTemplate = ({ data }) => {
   const {
-    awards: award,
+    awards: awards,
     fragments: images,
     directors: directors,
     dops: dops,
@@ -172,28 +172,28 @@ const ProjectTemplate = ({ data }) => {
             ) : null}
 
             {data.sanityCinematography.category == "documentary" ? (
-              <div className="uppercase mb-4 underline">Documentary</div>
+              <div className="uppercase mb-4 underline inline-block">Documentary</div>
             ) : null}
             {data.sanityCinematography.category == "commercials" ? (
-              <div className="uppercase mb-4 underline">Commercial</div>
+              <div className="uppercase mb-4 underline inline-block">Commercial</div>
             ) : null}
             {data.sanityCinematography.category == "music_video" ? (
-              <div className="uppercase mb-4 underline">Music video</div>
+              <div className="uppercase mb-4 underline inline-block">Music video</div>
             ) : null}
             {data.sanityCinematography.category == "fiction" ? (
-              <div className="uppercase mb-4 underline">Fiction</div>
+              <div className="uppercase mb-4 underline inline-block">Fiction</div>
             ) : null}
             {data.sanityCinematography.subcategory == "short_film" ? (
-              <div className="uppercase mb-4 underline">Short film</div>
+              <div className="uppercase mb-4 underline inline-block">&nbsp;- Short film</div>
             ) : null}
 
             {data.sanityCinematography.subcategory == "feature_film" ? (
-              <div className="uppercase mb-4 underline">Feature film</div>
+              <div className="uppercase mb-4 underline inline-block">&nbsp;- Feature film</div>
             ) : null}
 
             {directors[0] ? (
               <div>
-                <span className="font-bold">DIRECTED BY </span>
+                <span className="font-normal">DIRECTED BY: </span>
                 {directors
                   .map((director, i) => (
                     <span key={i} className="inline-block">
@@ -207,7 +207,7 @@ const ProjectTemplate = ({ data }) => {
 
             {productions[0] ? (
               <div>
-                <span className="font-bold">PRODUCTION: </span>
+                <span className="font-normal">PRODUCTION: </span>
                 {productions.map((production, i) => (
                   <span key={i} className="inline-block">
                     {production}
@@ -219,7 +219,7 @@ const ProjectTemplate = ({ data }) => {
 
             {dops[0] ? (
               <div>
-                <span className="font-bold">CINEMATOGRAPHY: </span>
+                <span className="font-normal">CINEMATOGRAPHY: </span>
                 {dops
                   .map((dop, i) => (
                     <span key={i} className="inline-block">
@@ -233,7 +233,7 @@ const ProjectTemplate = ({ data }) => {
 
             {shoton[0] ? (
               <div>
-                <span className="font-bold">SHOT ON: </span>
+                <span className="font-normal">SHOT ON: </span>
                 {shoton
                   .map((shoton, i) => (
                     <span key={i} className="inline-block">
@@ -247,7 +247,7 @@ const ProjectTemplate = ({ data }) => {
 
             {grading[0] ? (
               <div>
-                <span className="font-bold">GRADING: </span>
+                <span className="font-normal">GRADING: </span>
                 {grading
                   .map((grading, i) => (
                     <span key={i} className="inline-block">
@@ -261,7 +261,7 @@ const ProjectTemplate = ({ data }) => {
 
             {awards[0] ? (
               <div>
-                <span className="font-bold">FESTIVALS &amp; AWARDS: </span>
+                <span className="font-normal">FESTIVALS &amp; AWARDS: </span>
                 {awards
                   .map((awards, i) => (
                     <span key={i} className="inline-block">

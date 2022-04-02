@@ -1,5 +1,13 @@
 /* purgecss start ignore */
 
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/static/fonts/Poppins-Regular.ttf) format('ttf');
+}
+
 .hover\:smaller:hover img {
   transform: scale(1);
 }
