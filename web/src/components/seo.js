@@ -51,7 +51,7 @@ const SEO = ({
           <meta name="twitter:image" content={seo.image} />
           <meta name="twitter:card" content="summary_large_image" />
           <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@200..900&display=swap"></link>
+          href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"></link>
           {/* <meta name="twitter:site" content="@patricialopes" />
           <meta name="twitter:creator" content="@patricialopes"></meta> */}
           <script type="application/ld+json">
