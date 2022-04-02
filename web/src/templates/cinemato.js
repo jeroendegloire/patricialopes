@@ -69,6 +69,7 @@ export const query = graphql`
 
 const ProjectTemplate = ({ data }) => {
   const {
+    awards: award,
     fragments: images,
     directors: directors,
     dops: dops,
