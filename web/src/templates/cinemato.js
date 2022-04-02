@@ -40,6 +40,8 @@ export const query = graphql`
       subcategory
       directors
       dops
+      shoton
+      grading
       production
       linkUrl
       linkText
@@ -68,6 +70,8 @@ const ProjectTemplate = ({ data }) => {
     directors: directors,
     dops: dops,
     production: productions,
+    shoton: shoton,
+    grading: grading,
     seo: seo,
     image: image,
   } = data.sanityCinematography;
@@ -209,6 +213,35 @@ const ProjectTemplate = ({ data }) => {
                 <br />
               </div>
             ) : null}
+
+            {shoton[0] ? (
+              <div>
+                <span>SHOT ON: </span>
+                {dops
+                  .map((shoton, i) => (
+                    <span key={i} className="inline-block">
+                      {shoton}
+                    </span>
+                  ))
+                  .map((shoton, index) => [index > 0 && ", ", shoton])}
+                <br />
+              </div>
+            ) : null}
+
+            {grading[0] ? (
+              <div>
+                <span>GRADING: </span>
+                {dops
+                  .map((grading, i) => (
+                    <span key={i} className="inline-block">
+                      {grading}
+                    </span>
+                  ))
+                  .map((grading, index) => [index > 0 && ", ", grading])}
+                <br />
+              </div>
+            ) : null}
+            
             {data.sanityCinematography.linkUrl ? (
               <div>
                 <Link
@@ -216,6 +249,17 @@ const ProjectTemplate = ({ data }) => {
                   className="underline hover:no-underline"
                 >
                   {data.sanityCinematography.linkText}
+                </Link>
+                <br />
+              </div>
+            ) : null}
+            {data.sanityCinematography.linkUrlTwo ? (
+              <div>
+                <Link
+                  to={data.sanityCinematography.linkUrlTwo}
+                  className="underline hover:no-underline"
+                >
+                  {data.sanityCinematography.linkTextTwo}
                 </Link>
                 <br />
               </div>

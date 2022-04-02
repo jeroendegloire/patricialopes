@@ -9,12 +9,12 @@ export default {
     {
       name: 'details',
       title: 'Details',
-      options: { collapsible: true, collapsed: false }
+      options: {collapsible: true, collapsed: false}
     },
     {
       name: 'seo',
       title: 'SEO settings and tools',
-      options: { collapsible: true, collapsed: true }
+      options: {collapsible: true, collapsed: true}
     }
   ],
   fields: [
@@ -52,10 +52,10 @@ export default {
       title: 'Category',
       options: {
         list: [
-          { title: 'Music video', value: 'music_video' },
-          { title: 'Narrative', value: 'fiction' },
-          { title: 'Documentary', value: 'documentary' },
-          { title: 'Commercial', value: 'commercials' }
+          {title: 'Music video', value: 'music_video'},
+          {title: 'Narrative', value: 'fiction'},
+          {title: 'Documentary', value: 'documentary'},
+          {title: 'Commercial', value: 'commercials'}
         ]
       },
       validation: Rule => Rule.required()
@@ -66,8 +66,8 @@ export default {
       title: 'Subcategory',
       options: {
         list: [
-          { title: 'Feature film', value: 'feature_film' },
-          { title: 'Short film', value: 'short_film' }
+          {title: 'Feature film', value: 'feature_film'},
+          {title: 'Short film', value: 'short_film'}
         ]
       }
     },
@@ -75,27 +75,41 @@ export default {
       name: 'fragments',
       type: 'array',
       title: 'Fragments',
-      of: [{ type: 'mainImage' }]
+      of: [{type: 'mainImage'}]
     },
     {
       name: 'directors',
       type: 'array',
       title: 'Director',
-      of: [{ type: 'string' }],
+      of: [{type: 'string'}],
       fieldset: 'details'
     },
     {
       name: 'production',
       type: 'array',
       title: 'Producer',
-      of: [{ type: 'string' }],
+      of: [{type: 'string'}],
       fieldset: 'details'
     },
     {
       name: 'dops',
       type: 'array',
       title: 'Director of photography',
-      of: [{ type: 'string' }],
+      of: [{type: 'string'}],
+      fieldset: 'details'
+    },
+    {
+      name: 'grading',
+      type: 'array',
+      title: 'Grading',
+      of: [{type: 'string'}],
+      fieldset: 'details'
+    },
+    {
+      name: 'shoton',
+      type: 'array',
+      title: 'Shot on',
+      of: [{type: 'string'}],
       fieldset: 'details'
     },
     {
@@ -109,6 +123,20 @@ export default {
       name: 'linkText',
       type: 'string',
       title: 'Link text',
+      description: 'Clickable text of link url.',
+      fieldset: 'details'
+    },
+    {
+      name: 'linkUrlTwo',
+      type: 'url',
+      title: 'Link url 2',
+      description: 'Can be used to link to imdb or other channels.',
+      fieldset: 'details'
+    },
+    {
+      name: 'linkTextTwo',
+      type: 'string',
+      title: 'Link text 2',
       description: 'Clickable text of link url.',
       fieldset: 'details'
     },
@@ -132,10 +160,10 @@ export default {
       fieldset: 'seo',
       options: {
         baseUrl: 'https://patricialopes-preview.herokuapp.com/', // (REQUIRED) This is the baseUrl for your site
-        baseUrl(doc) {
+        baseUrl (doc) {
           return 'https://patricialopes-preview.herokuapp.com/cinematography/' // for dynamic baseUrls
         },
-        slug(doc) {
+        slug (doc) {
           // (REQUIRED) a function to return the sug of the current page, which will be appended to the baseUrl
           return doc.slug.current
         },
