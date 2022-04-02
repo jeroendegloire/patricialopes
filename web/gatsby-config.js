@@ -82,17 +82,6 @@ module.exports = {
     },
     `gatsby-plugin-robots-txt`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Poppins`,
-            variants: [`200`, `400`, `500`, `600`],
-          },
-        ],
-      },
-    },
-    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
