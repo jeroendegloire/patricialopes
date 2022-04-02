@@ -171,24 +171,23 @@ const ProjectTemplate = ({ data }) => {
               </h1>
             ) : null}
 
-            {data.sanityCinematography.category == "documentary" ? (
+            {data.sanityCinematography.subcategory == "documentary" ? (
               <div className="uppercase mb-4 underline inline-block">Documentary</div>
             ) : null}
-            {data.sanityCinematography.category == "commercials" ? (
+            {data.sanityCinematography.subcategory == "commercial" ? (
               <div className="uppercase mb-4 underline inline-block">Commercial</div>
             ) : null}
-            {data.sanityCinematography.category == "music_video" ? (
+            {data.sanityCinematography.subcategory == "music_video" ? (
               <div className="uppercase mb-4 underline inline-block">Music video</div>
             ) : null}
-            {data.sanityCinematography.category == "fiction" ? (
-              <div className="uppercase mb-4 underline inline-block">Fiction</div>
+            {data.sanityCinematography.subcategory == "series" ? (
+              <div className="uppercase mb-4 underline inline-block">Series</div>
             ) : null}
             {data.sanityCinematography.subcategory == "short_film" ? (
-              <div className="uppercase mb-4 underline inline-block">&nbsp;- Short film</div>
+              <div className="uppercase mb-4 underline inline-block">Short film</div>
             ) : null}
-
             {data.sanityCinematography.subcategory == "feature_film" ? (
-              <div className="uppercase mb-4 underline inline-block">&nbsp;- Feature film</div>
+              <div className="uppercase mb-4 underline inline-block">Feature film</div>
             ) : null}
 
             {directors[0] ? (
@@ -231,22 +230,8 @@ const ProjectTemplate = ({ data }) => {
               </div>
             ) : null}
 
-            {shoton[0] ? (
-              <div>
-                <span className="font-normal">SHOT ON: </span>
-                {shoton
-                  .map((shoton, i) => (
-                    <span key={i} className="inline-block">
-                      {shoton}
-                    </span>
-                  ))
-                  .map((shoton, index) => [index > 0 && ", ", shoton])}
-                <br />
-              </div>
-            ) : null}
-
-            {grading[0] ? (
-              <div>
+{grading[0] ? (
+              <div className="mb-4">
                 <span className="font-normal">GRADING: </span>
                 {grading
                   .map((grading, i) => (
@@ -259,14 +244,28 @@ const ProjectTemplate = ({ data }) => {
               </div>
             ) : null}
 
+            {shoton[0] ? (
+              <div>
+                <span className="font-normal">SHOT ON: </span>
+                {shoton
+                  .map((shoton, i) => (
+                    <div key={i}>
+                      {shoton}
+                    </div>
+                  ))
+                  .map((shoton, index) => [index > 0 && ", ", shoton])}
+                <br />
+              </div>
+            ) : null}
+
             {awards[0] ? (
               <div>
                 <span className="font-normal">FESTIVALS &amp; AWARDS: </span>
                 {awards
                   .map((awards, i) => (
-                    <span key={i} className="inline-block">
+                    <div key={i}>
                       {awards}
-                    </span>
+                    </div>
                   ))
                   .map((awards, index) => [index > 0 && ", ", awards])}
                 <br />
@@ -274,7 +273,7 @@ const ProjectTemplate = ({ data }) => {
             ) : null}
             
             {data.sanityCinematography.linkUrl ? (
-              <div>
+              <div className="mt-4">
                 <Link
                   to={data.sanityCinematography.linkUrl}
                   className="underline hover:no-underline"
