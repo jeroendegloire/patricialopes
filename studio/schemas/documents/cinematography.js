@@ -151,6 +151,20 @@ export default {
       description: 'Clickable text of link url.',
       fieldset: 'details'
     },
+    {
+      name: 'linkUrlThree',
+      type: 'url',
+      title: 'Link url 3',
+      description: 'Can be used to link to imdb or other channels.',
+      fieldset: 'details'
+    },
+    {
+      name: 'linkTextThree',
+      type: 'string',
+      title: 'Link text 3',
+      description: 'Clickable text of link url.',
+      fieldset: 'details'
+    },
     // {
     //   type: 'bodyPortableText',
     //   name: 'text',

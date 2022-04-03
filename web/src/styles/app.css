@@ -642,4 +642,8 @@ h2 > * {
   font: inherit;
 }
 
+.w-full img.relative {
+  margin: 0 auto;
+}
+
 /* purgecss stop ignore */

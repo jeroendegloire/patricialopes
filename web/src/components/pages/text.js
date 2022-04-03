@@ -3,7 +3,7 @@ import PortableText from "../portableText";
 
 const Text = ({ text }) => {
   return text ? (
-    <div className="container max-w-5xl mx-auto flex items-center flex-wrap rounded">
+    <div className="container max-w-6xl mx-auto">
       {text.map((singleText) => (
         <PortableText blocks={singleText} />
       ))}
