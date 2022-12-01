@@ -3,11 +3,10 @@
   "name": "patricialopes",
   "version": "1.0.2",
   "scripts": {
-    "postinstall": "npm install --global gatsby-cli && cd web && npm install"
+    "postinstall": "npm install --global gatsby-cli@2.12.102 && cd web && npm install"
   },
   "devDependencies": {
     "@sanity/cli": "^1.149.16",
     "lerna": "^3.22.1"
-  },
-  "dependencies": {}
+  }
 }
