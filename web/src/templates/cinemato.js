@@ -174,8 +174,6 @@ const ProjectTemplate = ({ data }) => {
               </h1>
             ) : null}
 
-            {data.sanityCinematography.categoryTwo}
-
             {data.sanityCinematography.subcategory == "documentary" ? (
               <div className="uppercase mb-4 underline inline-block">Documentary</div>
             ) : null}
