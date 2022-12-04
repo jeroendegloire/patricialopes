@@ -73,24 +73,36 @@ const Slideshow = ({ images }) => {
                   .height(133)
                   .quality(85)
                   .auto("format")
+                  .crop("focalpoint")
+                  .fit('crop')
+                  .focalPoint(image?.hotspot?.x ? image?.hotspot?.x : '0.5', image?.hotspot?.y ? image?.hotspot?.y : '0.5')
                   .url() + " 324w",
                 urlFor(image?.asset?.id)
                   .width(648)
                   .height(270)
                   .quality(85)
                   .auto("format")
+                  .crop("focalpoint")
+                  .fit('crop')
+                  .focalPoint(image?.hotspot?.x ? image?.hotspot?.x : '0.5', image?.hotspot?.y ? image?.hotspot?.y : '0.5')
                   .url() + " 648w",
                 urlFor(image?.asset?.id)
                   .width(1020)
                   .height(425)
                   .quality(85)
                   .auto("format")
+                  .crop("focalpoint")
+                  .fit('crop')
+                  .focalPoint(image?.hotspot?.x ? image?.hotspot?.x : '0.5', image?.hotspot?.y ? image?.hotspot?.y : '0.5')
                   .url() + " 1020w",
                 urlFor(image?.asset?.id)
                   .width(1920)
                   .height(800)
                   .quality(85)
                   .auto("format")
+                  .crop("focalpoint")
+                  .fit('crop')
+                  .focalPoint(image?.hotspot?.x ? image?.hotspot?.x : '0.5', image?.hotspot?.y ? image?.hotspot?.y : '0.5')
                   .url() + " 1920w",
               ]}
               className="swiper-lazy"
