@@ -38,6 +38,7 @@ export const query = graphql`
       }
       awards
       category
+      categoryTwo
       subcategory
       directors
       dops
@@ -172,6 +173,8 @@ const ProjectTemplate = ({ data }) => {
                 {data.sanityCinematography.title}
               </h1>
             ) : null}
+
+            {data.sanityCinematography.categoryTwo}
 
             {data.sanityCinematography.subcategory == "documentary" ? (
               <div className="uppercase mb-4 underline inline-block">Documentary</div>

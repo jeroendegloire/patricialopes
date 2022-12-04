@@ -61,6 +61,19 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'categoryTwo',
+      type: 'string',
+      title: 'Category 2',
+      options: {
+        list: [
+          {title: 'Music video', value: 'music_video'},
+          {title: 'Narrative', value: 'fiction'},
+          {title: 'Documentary', value: 'documentary'},
+          {title: 'Commercial', value: 'commercials'}
+        ]
+      }
+    },
+    {
       name: 'subcategory',
       type: 'string',
       title: 'Subcategory',
