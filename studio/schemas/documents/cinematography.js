@@ -68,7 +68,7 @@ export default {
         list: [
           {title: 'Feature film', value: 'feature_film'},
           {title: 'Short film', value: 'short_film'},
-          {title: 'Series', value: 'series'},
+          {title: 'TV Series', value: 'series'},
           {title: 'Documentary', value: 'documentary'},
           {title: 'Commercial', value: 'commercial'},
           {title: 'Music video', value: 'music_cideo'}
