@@ -66,6 +66,7 @@ export default {
       title: 'Subcategory',
       options: {
         list: [
+          {title: 'Fashion film', value: 'fashion_film'},
           {title: 'Feature film', value: 'feature_film'},
           {title: 'Short film', value: 'short_film'},
           {title: 'TV Series', value: 'series'},

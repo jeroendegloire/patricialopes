@@ -48,6 +48,8 @@ export const query = graphql`
       linkText
       linkUrlTwo
       linkTextTwo
+      linkUrlThree
+      linkTextThree
       seo {
         seo_title
         meta_description
@@ -296,10 +298,10 @@ const ProjectTemplate = ({ data }) => {
             ) : null}
             <div>
                 <Link
-                  to={data.sanityCinematography.testUrl}
+                  to={data.sanityCinematography.linkUrlThree}
                   className="underline hover:no-underline"
                 >
-                  {data.sanityCinematography.testUrlText}
+                  {data.sanityCinematography.linkTextThree}
                 </Link>
                 <br />
               </div>
