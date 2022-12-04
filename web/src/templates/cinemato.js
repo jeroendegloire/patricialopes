@@ -272,17 +272,6 @@ const ProjectTemplate = ({ data }) => {
               </div>
             ) : null}
             
-            {data.sanityCinematography.linkUrl ? (
-              <div className="mt-4">
-                <Link
-                  to={data.sanityCinematography.linkUrl}
-                  className="underline hover:no-underline"
-                >
-                  {data.sanityCinematography.linkText}
-                </Link>
-                <br />
-              </div>
-            ) : null}
             {data.sanityCinematography.linkUrlTwo ? (
               <div>
                 <Link
@@ -294,6 +283,26 @@ const ProjectTemplate = ({ data }) => {
                 <br />
               </div>
             ) : null}
+            {data.sanityCinematography.linkUrl ? (
+              <div className="mt-4">
+                <Link
+                  to={data.sanityCinematography.linkUrl}
+                  className="underline hover:no-underline"
+                >
+                  {data.sanityCinematography.linkText}
+                </Link>
+                <br />
+              </div>
+            ) : null}
+            <div>
+                <Link
+                  to={data.sanityCinematography.testUrl}
+                  className="underline hover:no-underline"
+                >
+                  {data.sanityCinematography.testUrlText}
+                </Link>
+                <br />
+              </div>
             {/* 
             {data.sanityCinematography.text ? (
               <div className="mt-4">
