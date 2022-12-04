@@ -91,11 +91,11 @@ const CinematoList = ({ list }) => {
       <div className="cinematoGrid mx-auto flex items-center flex-wrap -mt-1 -mx-1">
         {list.map((item, i) => (
           <Cineitem
-            title={item.cinematoReference.title}
+            title={item?.cinematoReference?.title}
             featuredImage={item?.featuredImage}
             altImage={item?.featuredImage?.alt}
-            category={item.cinematoReference.category}
-            url={`cinematography/${item.cinematoReference.slug.current}`}
+            category={item?.cinematoReference?.category}
+            url={`cinematography/${item?.cinematoReference?.slug?.current}`}
             key={i}
           /> 
         ))}

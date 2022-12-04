@@ -138,9 +138,9 @@ const ProjectTemplate = ({ data }) => {
                 <div
                   aria-hidden="true"
                   style={{
-                    backgroundImage: `url(${image.asset.metadata.lqip})`,
+                    backgroundImage: `url(${image?.asset?.metadata?.lqip})`,
                     backgroundSize: "cover",
-                    paddingTop: `calc(100% / ${image.asset.metadata.dimensions.aspectRatio})`,
+                    paddingTop: `calc(100% / ${image?.asset?.metadata?.dimensions?.aspectRatio})`,
                   }}
                 ></div>
                 <img
@@ -181,7 +181,7 @@ const ProjectTemplate = ({ data }) => {
               <div className="uppercase mb-4 underline inline-block">Music video</div>
             ) : null}
             {data.sanityCinematography.subcategory == "series" ? (
-              <div className="uppercase mb-4 underline inline-block">Series</div>
+              <div className="uppercase mb-4 underline inline-block">TV Series</div>
             ) : null}
             {data.sanityCinematography.subcategory == "short_film" ? (
               <div className="uppercase mb-4 underline inline-block">Short film</div>
