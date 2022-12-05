@@ -15,7 +15,7 @@ module.exports = {
     siteUrl: `https://www.patricialopes.be`,
   },
   plugins: [
-    `gatsby-plugin-preact`,
+    //`gatsby-plugin-preact`,
     {
       resolve: "gatsby-source-sanity",
       options: {
