@@ -6,7 +6,6 @@
     "postinstall": "yarn global add gatsby-cli && cd web && yarn install"
   },
   "devDependencies": {
-    "@sanity/cli": "^1.149.16",
-    "lerna": "^3.22.1"
+    "@sanity/cli": "^1.149.16"
   }
 }
