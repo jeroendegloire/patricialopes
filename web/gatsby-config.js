@@ -37,6 +37,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-gatsby-cloud`,
     // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {
@@ -96,7 +97,7 @@ module.exports = {
         excludes: [`/home`],
       },
     },
-    `gatsby-plugin-robots-txt`,
+    //`gatsby-plugin-robots-txt`,
     //"gatsby-plugin-remove-serviceworker",
     // {
     //   resolve: `gatsby-plugin-no-javascript`,

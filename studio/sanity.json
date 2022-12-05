@@ -27,6 +27,10 @@
     "dashboard-widget-gatsby"
   ],
   "parts": [
+    { 
+      "implements": "part:@sanity/base/document-actions/resolver", 
+      "path": "resolveDocumentActions.js" 
+    } ,
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema.js"
