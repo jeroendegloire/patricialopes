@@ -34,13 +34,16 @@ module.exports = {
           }),
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `images`,
+    //     path: `${__dirname}/src/images`,
+    //   },
+    // },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -52,6 +55,19 @@ module.exports = {
         theme_color: "#000",
         display: `minimal-ui`,
         icon: `src/images/favicon.svg`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: [
+          "SANITY_PROJECT_ID",
+          "SANITY_DATASET",
+          "SANITY_READ_TOKEN",
+          "ENABLE_GATSBY_REFRESH_ENDPOINT",
+          "SANITY_OVERLAY_DRAFTS",
+          "SANITY_WATCH_MODE",
+        ],
       },
     },
     {
@@ -77,37 +93,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: [`/home`],
+        excludes: [`/home`],
       },
     },
     `gatsby-plugin-robots-txt`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-133663513-1",
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: false,
-        // Setting this parameter is optional
-        anonymize: true,
-        defer: true,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-env-variables`,
-      options: {
-        allowList: [
-          "SANITY_PROJECT_ID",
-          "SANITY_DATASET",
-          "SANITY_READ_TOKEN",
-          "ENABLE_GATSBY_REFRESH_ENDPOINT",
-          "SANITY_OVERLAY_DRAFTS",
-          "SANITY_WATCH_MODE",
-        ],
-      },
-    },
-    `gatsby-plugin-remove-trailing-slashes`,
-    "gatsby-plugin-remove-serviceworker",
+    //"gatsby-plugin-remove-serviceworker",
     // {
     //   resolve: `gatsby-plugin-no-javascript`,
     // },
@@ -123,18 +113,6 @@ module.exports = {
     //         "cinematoList.js"
     //       ),
     //     },
-    //   },
-    // },
-    {
-      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
-      options: {
-        disable: false,
-      },
-    },
-    // {
-    //   resolve: "@mkitio/gatsby-theme-password-protect",
-    //   options: {
-    //     password: process.env.PASSWORD, // delete or `undefined` to disable password protection
     //   },
     // },
   ],

@@ -55,6 +55,7 @@ const TextImage = ({ image, text }) => {
                 loading="lazy"
                 className={"relative"}
                 alt={image?.alt}
+                sizes={"100vw"}
                 width="1920"
                 height="600"
               />

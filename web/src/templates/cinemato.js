@@ -26,13 +26,6 @@ export const query = graphql`
               aspectRatio
             }
           }
-          fluid {
-            base64
-            aspectRatio
-            src
-            srcSet
-            sizes
-          }
         }
         alt
       }
