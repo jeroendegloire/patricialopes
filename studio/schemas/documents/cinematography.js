@@ -198,9 +198,9 @@ export default {
       type: 'seo-tools', // use seo-tools type
       fieldset: 'seo',
       options: {
-        baseUrl: 'https://patricialopes-preview.herokuapp.com/', // (REQUIRED) This is the baseUrl for your site
+        baseUrl: 'https://preview-patricialopesmaster.gatsbyjs.io/', // (REQUIRED) This is the baseUrl for your site
         baseUrl (doc) {
-          return 'https://patricialopes-preview.herokuapp.com/cinematography/' // for dynamic baseUrls
+          return 'https://preview-patricialopesmaster.gatsbyjs.io//cinematography/' // for dynamic baseUrls
         },
         slug (doc) {
           // (REQUIRED) a function to return the sug of the current page, which will be appended to the baseUrl

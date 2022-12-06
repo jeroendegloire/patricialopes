@@ -17,7 +17,7 @@ export default {
           },
           {
             title: 'Preview',
-            value: 'https://preview.patricialopes.be',
+            value: 'https://preview-patricialopesmaster.gatsbyjs.io/',
             category: 'apps'
           }
         ]
