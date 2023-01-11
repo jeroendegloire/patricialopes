@@ -29,25 +29,16 @@ const TextImage = ({ image, text }) => {
               <img
                 srcSet={
                   urlFor(image?.asset?.id)
-                    .size(500, 600)
-                    .fit("crop")
-                    .crop("focalpoint")
+                    .width(500)
+                    .height(600)
                     .focalPoint(x, y)
-                    .quality(100)
-                    .auto("format")
-                    .url() +
-                  ` 420w,` +
-                  urlFor(image?.asset?.id)
-                    .size(1600, 1067)
-                    .fit("crop")
                     .crop("focalpoint")
-                    .focalPoint(x, y)
-                    .quality(100)
+                    .fit("crop")
                     .auto("format")
-                    .url() +
-                  ` 800w,` +
+                    .url() + ` 1000w, ` +
                   urlFor(image?.asset?.id)
-                    .size(1600, 1067)
+                    .width(1600)
+                    .height(1067)
                     .fit("crop")
                     .crop("focalpoint")
                     .focalPoint(x, y)
@@ -59,7 +50,9 @@ const TextImage = ({ image, text }) => {
                 loading="lazy"
                 className={"relative"}
                 alt={image?.alt}
-                sizes={"100vw"}
+                sizes="(max-width: 1000px) 100vw, (max-width: 800px) 100vw"
+                width="1600"
+                height="1067"
               />
             </picture>
           </figure>

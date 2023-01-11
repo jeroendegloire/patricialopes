@@ -646,8 +646,8 @@ h2 > * {
   margin: 0 auto;
 }
 
-.gatsby-image-wrapper.w-full {
-  height: 600px;
+.gatsby-image-wrapper.w-full img {
+  position: relative;
 }
 
 /* purgecss stop ignore */
