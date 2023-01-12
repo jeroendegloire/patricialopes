@@ -3,6 +3,7 @@ import PortableText from "../portableText";
 import { Link } from "gatsby";
 import Footer from "../layout/footer";
 import builder from "../../../sanityClient.js";
+import SanityImage from "gatsby-plugin-sanity-image"
 
 function urlFor(source) {
   return builder.image(source);
@@ -19,40 +20,8 @@ const TextImage = ({ image, text }) => {
         <div className="w-full">
           <figure className="gatsby-image-wrapper w-full">
             <picture className={"w-full"}>
-              <div
-                className={"absolute inset-0"}
-                style={{
-                  backgroundSize: "cover",
-                  backgroundImage: `url(${image?.asset?.metadata?.lqip})`,
-                }}
-              ></div>
-              <img
-                srcSet={
-                  urlFor(image?.asset?.id)
-                    .width(500)
-                    .height(600)
-                    .focalPoint(x, y)
-                    .crop("focalpoint")
-                    .fit("crop")
-                    .auto("format")
-                    .url() + ` 1000w, ` +
-                  urlFor(image?.asset?.id)
-                    .width(1600)
-                    .height(1067)
-                    .fit("crop")
-                    .crop("focalpoint")
-                    .focalPoint(x, y)
-                    .auto("format")
-                    .quality(100)
-                    .url() +
-                  ` 1920w`
-                }
-                loading="lazy"
-                className={"relative"}
-                alt={image?.alt}
-                sizes="(max-width: 1000px) 100vw, (max-width: 800px) 100vw"
-                width="1600"
-                height="1067"
+              <SanityImage {...image}
+                width={2000} alt=""
               />
             </picture>
           </figure>
