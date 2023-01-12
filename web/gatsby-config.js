@@ -38,6 +38,14 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-gatsby-cloud`,
+    {
+      resolve: "gatsby-plugin-sanity-image",
+      options: {
+        // Sanity project info (required)
+        projectId: process.env.SANITY_PROJECT_ID,
+        dataset: process.env.SANITY_DATASET,
+      },
+    },
     // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {
