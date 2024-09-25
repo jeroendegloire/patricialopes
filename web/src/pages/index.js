@@ -7,6 +7,7 @@ import TextImage from "../components/pages/textImage";
 import Grid from "../components/pages/grid";
 import Video from "../components/pages/video";
 import SEO from "../components/seo";
+import MediaGallery from "../components/pages/mediaGallery";
 
 export const query = graphql`
   query indexPageTemplateQuery {
@@ -50,25 +51,28 @@ const Index = ({ data }) => {
       let el = null;
       switch (c._type) {
         case "slideshow":
-          el = <Slideshow key={c._key} {...c} key={i} />;
+          el = <Slideshow key={c._key} {...c} />;
           break;
         case "textContent":
-          el = <Text key={c._key} {...c} key={i} />;
+          el = <Text key={c._key} {...c} />;
           break;
         case "textWithImage":
-          el = <TextImage key={c._key} {...c} key={i} />;
+          el = <TextImage key={c._key} {...c} />;
           break;
         case "gallery":
-          el = <Grid key={c._key} {...c} key={i} />;
+          el = <Grid key={c._key} {...c} />;
           break;
         case "videoEmbed":
-          el = <Video key={c._key} {...c} key={i} />;
+          el = <Video key={c._key} {...c} />;
           break;
         case "contact":
-          el = <Contact key={c._key} {...c} key={i} />;
+          el = <Contact key={c._key} {...c} />;
           break;
         case "accordion":
-          el = <Accordion key={c._key} {...c} key={i} />;
+          el = <Accordion key={c._key} {...c} />;
+          break;
+        case "mediaGallery":
+          el = <MediaGallery key={c._key} {...c} />;
           break;
 
         default:
@@ -81,11 +85,9 @@ const Index = ({ data }) => {
   const focus_synonyms = seo?.focus_synonyms ? seo.focus_synonyms : " ";
 
   return (
-    <div className={"w-full " + fixed}>
+    <div className={"w-full "}>
       <Layout>
         <SEO
-          keywords={focus_keywords}
-          synonyms={focus_synonyms}
           image={page?.image?.asset?.url}
           description={seo?.meta_description}
           title={siteSettings.siteTitle}

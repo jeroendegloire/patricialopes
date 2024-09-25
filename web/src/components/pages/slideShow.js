@@ -65,7 +65,8 @@ const Slideshow = ({ images }) => {
       <ReactIdSwiperCustom {...params}>
         {images.map((image, i) => (
           <div className="w-full" key={i}>
-            <img
+            {image._type === 'localVideo' && <Player src={image.asset.url} autoPlay muted loop><ControlBar disableCompletely={true} /></Player>}
+            {image._type === 'mainImage' && (<><img
               src={fallbackImage}
               data-srcset={[
                 urlFor(image?.asset?.id)
@@ -112,6 +113,16 @@ const Slideshow = ({ images }) => {
               width="1920"
               height="800"
             />
+            <div className={'absolute bottom-0 left-0 right-0 text-white px-16 pb-8 lg:pb-16 lg:pb-24 slide__inner mx-auto'}>
+              <span className={''}>{image?.category}</span>
+              <h2>{image.title}</h2>
+              <h3 className={'m-0'}>{image.subtitle}</h3>
+            </div>
+
+              <a href={`cinematography/${image?.cinematoReference?.slug?.current}`} className={'absolute inset-0 z-1'}>
+                <span className="sr-only">Go to {image?.cinematoReference?.title}</span>
+              </a>
+            </>)}
           </div>
         ))}
       </ReactIdSwiperCustom>

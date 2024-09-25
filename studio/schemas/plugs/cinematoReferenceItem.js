@@ -9,6 +9,14 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      title: 'Featured images',
+      name: 'images',
+      type: 'array',
+      of: [{ type: 'mainImage' }],
+      validation: Rule => Rule.required(),
+      description: 'Max 3 files, second one is we use on mobile'
+    },
+    {
       type: 'mainImage',
       name: 'featuredImage'
     }

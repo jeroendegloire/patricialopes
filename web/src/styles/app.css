@@ -1,11 +1,11 @@
 /* purgecss start ignore */
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/fonts/Poppins-Regular.ttf) format('ttf');
+  src: url(/fonts/Poppins-Regular.ttf) format("ttf");
 }
 
 .hover\:smaller:hover img {
@@ -28,6 +28,7 @@ body {
   font-weight: 200;
 }
 
+footer,
 header {
   padding: 20px;
   max-width: 1800px;
@@ -38,31 +39,18 @@ header nav {
 }
 
 @media all and (min-width: 768px) {
+  footer,
   header {
     padding: 35px 40px;
   }
 }
-header a:before {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 1px;
-  background-color: #000;
-  bottom: 6px;
-  left: 0;
-  width: 100%;
-  -webkit-transform: scaleX(0);
-  -ms-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+
+header a:hover, header a.is-active {
+  font-weight: bold;
 }
 
-header a.is-active:before,
-header a:hover:before {
-  -webkit-transform: scaleX(1);
-  -ms-transform: scaleX(1);
-  transform: scaleX(1);
+.dark-theme header ul {
+  background: black;
 }
 
 .filters-button-group li {
@@ -195,13 +183,52 @@ header a:hover:before {
 }
 
 .logo {
-  width: 400px;
+  width: 500px;
   max-width: 80%;
 }
 
 @media all and (min-width: 1024px) {
   .logo {
+    width: 500px;
     max-width: 30%;
+  }
+
+  header ul ul {
+    top: 100%;
+    min-width: 220px;
+    display: none;
+    padding: 1rem 0;
+  }
+
+  header a:hover {
+    font-weight: normal;
+  }
+
+  header a.is-active:hover {
+    font-weight: bold;
+  }
+
+  header a:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 1px;
+    background-color: #000;
+    bottom: 6px;
+    left: 0;
+    width: 100%;
+    -webkit-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  header a.is-active:before,
+  header a:hover:before {
+    -webkit-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
   }
 }
 
@@ -304,10 +331,6 @@ h4 {
 
 .scroll-button {
   margin-top: -3rem;
-}
-
-main {
-  overflow: hidden;
 }
 
 .masonry-wrapper {
@@ -549,19 +572,19 @@ main {
   transition: max-height 0.6s ease;
 }
 
-.video {
-  padding-top: 50%;
-}
-
 .video iframe {
   width: 100%;
   height: 100%;
 }
 
-@media all and (min-width: 1024px) {
-  .video {
-    padding-top: 41.7%;
-  }
+.video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+.video-react .video-react-big-play-button {
+  display: none !important;
 }
 
 .react-player__preview {
@@ -655,3 +678,108 @@ h2 > * {
 gatsby-qod {
   display: none;
 }
+
+
+.splide__slide.is-active img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.splide__slide img {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.splide__slide {
+  height: auto !important;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.slide__inner {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.st0{fill:none;}
+.st1{font-family: "Roboto-Thin";}
+.st2{font-size:80px;}
+
+.textImage {
+  h2 {
+    margin-bottom: 2rem;
+  }
+}
+
+.twocolumntextwithimage {
+
+
+  h2, h3, h4 {
+    line-height: 1;
+  }
+
+  .press {
+    text-align: right;
+
+    a {
+      background: black;
+      color: white;
+      padding: .5rem;
+      font-size: 16px;
+      text-decoration: underline;
+
+      &:hover {
+         text-decoration: none;
+       }
+    }
+
+    ul {
+      margin-bottom: 1rem;
+    }
+
+    ul:first-of-type {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.video-react .video-react-poster {
+  background-position-y: top !important;
+}
+
+.playButton {
+  position: absolute;
+  right: 0;
+  left: 47%;
+  bottom: 50%;
+}
+
+
+@media screen and (max-width: 768px) {
+  .slide__inner {
+  h2 {
+    font-size: 16px;
+  }
+  h3 {
+    font-size: 14px;
+  }
+}
+
+.swiper-slide {
+  pointer-events: initial !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+}
+

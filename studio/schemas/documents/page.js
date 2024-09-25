@@ -60,7 +60,9 @@ export default {
         { type: 'textWithImage' },
         { type: 'contact' },
         { type: 'accordion' },
-        { type: 'cinematoList' }
+        { type: 'cinematoList' },
+        { type: 'mediaGallery' },
+        { type: 'twoColumnTextWithImage' }
       ]
     },
     {

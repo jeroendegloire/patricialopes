@@ -15,9 +15,10 @@ const Cineitem = (props) => {
     : "0";
 
   return (
+    props?.images?.length >= 3 &&
     <div
       className={
-        "w-full md:w-1/2 lg:w-1/3 flex flex-col item__grid relative " +
+        "w-full flex flex-col item__grid relative " +
         props.category + " " + props.categoryTwo
       }
     >
@@ -27,39 +28,105 @@ const Cineitem = (props) => {
           title={`Read more about ${props.title}`}
           className="absolute inset-0 z-10"
         />
-        <picture className={"w-full"}>
-          <div
-            aria-hidden="true"
-            style={{
-              backgroundImage: `url(${props?.featuredImage?.asset?.metadata?.lqip})`,
-              backgroundSize: "cover",
-              paddingTop: `calc(100% / 2 * 1)`,
-            }}
-          ></div>
-          <img
-            srcSet={[
-              urlFor(props?.featuredImage?.asset?.id)
-                .size(800, 400)
-                .quality(100)
-                .focalPoint(x, y)
-                .crop("focalpoint")
-                .fit("crop")
-                .auto("format")
-                .url() + " 768w,",
-              urlFor(props?.featuredImage?.asset?.id)
-                .size(1200, 600)
-                .quality(100)
-                .focalPoint(x, y)
-                .crop("focalpoint")
-                .fit("crop")
-                .auto("format")
-                .url() + " 1536w,",
-            ]}
-            alt={props?.featuredImage?.alt}
-            className="absolute inset-0"
-            loading="lazy"
-          />
-        </picture>
+        <div className={'flex gap-1'}>
+          <picture className={"w-full relative hidden md:block"}>
+            <div
+              aria-hidden="true"
+              style={{
+                backgroundImage: `url(${props?.images[0]?.asset?.metadata?.lqip})`,
+                backgroundSize: "cover",
+                paddingTop: `calc(100% / 2 * 1)`,
+              }}
+            ></div>
+            <img
+              srcSet={[
+                urlFor(props?.images[0]?.asset?.id)
+                  .size(800, 400)
+                  .quality(100)
+                  .focalPoint(.5, .5)
+                  .crop("focalpoint")
+                  .auto("format")
+                  .url() + " 768w,",
+                urlFor(props?.images[0]?.asset?.id)
+                  .size(1200, 600)
+                  .quality(100)
+                  .focalPoint(.5, .5)
+                  .crop("focalpoint")
+                  .auto("format")
+                  .url() + " 1536w,",
+              ]}
+              alt={props?.images[0]?.alt}
+              className="absolute inset-0"
+              loading="lazy"
+            />
+          </picture>
+          <picture className={"w-full relative"}>
+            <div
+              aria-hidden="true"
+              style={{
+                backgroundImage: `url(${props?.images[1]?.asset?.metadata?.lqip})`,
+                backgroundSize: "cover",
+                paddingTop: `calc(100% / 2 * 1)`,
+              }}
+            ></div>
+            <img
+              srcSet={[
+                urlFor(props?.images[1]?.asset?.id)
+                  .size(800, 400)
+                  .quality(100)
+                  .focalPoint(.5, .5)
+                  .crop("focalpoint")
+                  .fit("crop")
+                  .auto("format")
+                  .url() + " 768w,",
+                urlFor(props?.images[1]?.asset?.id)
+                  .size(1200, 600)
+                  .quality(100)
+                  .focalPoint(.5, .5)
+                  .crop("focalpoint")
+                  .fit("crop")
+                  .auto("format")
+                  .url() + " 1536w,",
+              ]}
+              alt={props?.images[1]?.alt}
+              className="absolute inset-0"
+              loading="lazy"
+            />
+          </picture>
+          <picture className={"w-full relative hidden md:block"}>
+            <div
+              aria-hidden="true"
+              style={{
+                backgroundImage: `url(${props?.featuredImage?.asset?.metadata?.lqip})`,
+                backgroundSize: "cover",
+                paddingTop: `calc(100% / 2 * 1)`,
+              }}
+            ></div>
+            <img
+              srcSet={[
+                urlFor(props?.images[2]?.asset?.id)
+                  .size(800, 400)
+                  .quality(100)
+                  .focalPoint(.5, .5)
+                  .crop("focalpoint")
+                  .fit("crop")
+                  .auto("format")
+                  .url() + " 768w,",
+                urlFor(props?.images[2]?.asset?.id)
+                  .size(1200, 600)
+                  .quality(100)
+                  .focalPoint(.5, .5)
+                  .crop("focalpoint")
+                  .fit("crop")
+                  .auto("format")
+                  .url() + " 1536w,",
+              ]}
+              alt={props?.images[2]?.alt}
+              className="absolute inset-0"
+              loading="lazy"
+            />
+          </picture>
+        </div>
         <div className="hover absolute flex items-center justify-center inset-0">
           <h2 className="uppercase font-semibold px-10 text-center">
             {props.title}

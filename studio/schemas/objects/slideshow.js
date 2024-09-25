@@ -7,7 +7,7 @@ export default {
       title: 'Images',
       name: 'images',
       type: 'array',
-      of: [{ type: 'mainImage' }],
+      of: [{ type: 'mainImage' }, { type: 'localVideo' }],
       validation: Rule => Rule.required()
     }
   ],

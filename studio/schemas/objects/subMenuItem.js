@@ -1,6 +1,6 @@
 export default {
-  title: 'Menu item',
-  name: 'menuItem',
+  title: 'Child Menu item',
+  name: 'subMenuItem',
   type: 'object',
   fields: [
     {
@@ -14,11 +14,7 @@ export default {
       title: 'Url',
       validation: Rule => Rule.uri({ allowRelative: true })
     },
-    {
-      type: 'array',
-      name: 'items',
-      of: [{ type: 'subMenuItem' }]
-    }
+
   ],
   preview: {
     select: {

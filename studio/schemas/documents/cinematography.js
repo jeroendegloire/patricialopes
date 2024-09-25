@@ -1,10 +1,10 @@
-import MovieIcon from 'react-icons/lib/md/local-movies'
+import { MdMovieCreation } from "react-icons/md";
 
 export default {
   type: 'document',
   name: 'cinematography',
   title: 'Cinematography',
-  icon: MovieIcon,
+  icon: MdMovieCreation,
   fieldsets: [
     {
       name: 'details',
@@ -90,6 +90,13 @@ export default {
       }
     },
     {
+      name: 'video',
+      type: 'file',
+      title: 'Local video',
+      description: 'Upload video',
+      fieldset: 'details'
+    },
+    {
       name: 'fragments',
       type: 'array',
       title: 'Fragments',
@@ -140,15 +147,8 @@ export default {
     {
       name: 'linkUrl',
       type: 'url',
-      title: 'Link url',
-      description: 'Can be used to link to imdb or other channels.',
-      fieldset: 'details'
-    },
-    {
-      name: 'linkText',
-      type: 'string',
-      title: 'Link text',
-      description: 'Clickable text of link url.',
+      title: 'Youtube/vimeo url',
+      description: 'Used as Youtube/vimeo video',
       fieldset: 'details'
     },
     {
@@ -198,9 +198,8 @@ export default {
       type: 'seo-tools', // use seo-tools type
       fieldset: 'seo',
       options: {
-        baseUrl: 'https://preview-patricialopesmaster.gatsbyjs.io/', // (REQUIRED) This is the baseUrl for your site
         baseUrl (doc) {
-          return 'https://preview-patricialopesmaster.gatsbyjs.io//cinematography/' // for dynamic baseUrls
+          return 'https://patricialopes.be/cinematography/' // for dynamic baseUrls
         },
         slug (doc) {
           // (REQUIRED) a function to return the sug of the current page, which will be appended to the baseUrl

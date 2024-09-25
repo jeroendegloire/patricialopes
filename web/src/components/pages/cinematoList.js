@@ -92,10 +92,10 @@ const CinematoList = ({ list }) => {
         {list.map((item, i) => (
           <Cineitem
             title={item?.cinematoReference?.title}
-            featuredImage={item?.featuredImage}
             altImage={item?.featuredImage?.alt}
             category={item?.cinematoReference?.category}
             categoryTwo={item?.cinematoReference?.categoryTwo}
+            images={item?.images}
             url={`cinematography/${item?.cinematoReference?.slug?.current}`}
             key={i}
           />

@@ -1,6 +1,6 @@
 import S from '@sanity/desk-tool/structure-builder'
 import PreviewIFrame from './src/components/previews/previewIFrame'
-import { GoSettings } from 'react-icons/lib/go'
+import { IoSettingsSharp } from "react-icons/io5";
 import EyeIcon from 'part:@sanity/base/eye-icon'
 import EditIcon from 'part:@sanity/base/edit-icon'
 
@@ -26,7 +26,7 @@ export default () =>
       S.documentListItem()
         .schemaType('siteSettings')
         .title('Site settings')
-        .icon(GoSettings)
+        .icon(IoSettingsSharp)
         .child(
           S.document()
             .schemaType('siteSettings')

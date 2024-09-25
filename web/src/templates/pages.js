@@ -12,6 +12,8 @@ import Video from "../components/pages/video";
 import SEO from "../components/seo";
 import FilterableGrid from "../components/pages/photoGrid";
 import CinematoList from "../components/pages/cinematoList";
+import MediaGallery from "../components/pages/mediaGallery";
+import TwoColumnTextWithImage from "../components/pages/twoColumnTextWithImage";
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
@@ -47,7 +49,7 @@ const PagesTemplate = ({ data }) => {
   const title = page.title;
 
   const theme = slug == "showreel" ? "dark-theme" : "light-theme";
-  const fixed = slug == "contact" ? "fixed" : "";
+  //const fixed = slug == "contact" ? "fixed" : "";
 
   const content = (page._rawContent || [])
     .filter((c) => !c.disabled)
@@ -81,7 +83,12 @@ const PagesTemplate = ({ data }) => {
         case "cinematoList":
           el = <CinematoList key={c._key} {...c} />;
           break;
-
+        case "mainGallery":
+          el = <MediaGallery key={c._key} {...c} />;
+          break;
+        case "twoColumnTextWithImage":
+          el = <TwoColumnTextWithImage key={c._key} {...c} />;
+          break;
         default:
           el = null;
       }
@@ -89,11 +96,9 @@ const PagesTemplate = ({ data }) => {
     });
 
   return (
-    <div className={"w-full " + theme + " " + fixed}>
+    <div className={"w-full " + theme + " "}>
       <Layout>
         <SEO
-          keywords={seo?.focus_keyword}
-          synonyms={seo?.focus_synonyms}
           image={page?.image?.asset?.url}
           description={seo?.meta_description}
           title={seo?.seo_title}

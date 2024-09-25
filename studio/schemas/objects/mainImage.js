@@ -12,7 +12,38 @@ export default {
       title: 'Alternative text',
       description:
         'Important for SEO and accessibility. Use the decision tree to get correct alt text for your image: <a href="https://www.w3.org/WAI/tutorials/images/decision-tree/',
-      validation: Rule => Rule.error('You have to fill out the alternative text.').required(),
+      options: {
+        isHighlighted: true
+      }
+    },
+    {
+      name: 'title',
+      type: 'string',
+      title: 'Title (home)',
+      options: {
+        isHighlighted: true
+      }
+    },
+    {
+      name: 'subtitle',
+      type: 'string',
+      title: 'Subtitle (home)',
+      options: {
+        isHighlighted: true
+      }
+    },
+    {
+      name: 'category',
+      type: 'string',
+      title: 'Category (home)',
+      options: {
+        isHighlighted: true
+      }
+    },
+    {
+      type: 'reference',
+      name: 'cinematoReference',
+      to: [{ type: 'cinematography' }],
       options: {
         isHighlighted: true
       }
@@ -20,7 +51,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'alt',
+      title: 'title',
       imageUrl: 'asset.url'
     }
   }

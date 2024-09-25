@@ -1,7 +1,7 @@
 import React from "react";
 import PortableText from "../portableText";
 import { Link } from "gatsby";
-import Footer from "../layout/footer";
+import Social from "../layout/social";
 import builder from "../../../sanityClient.js";
 import SanityImage from "gatsby-plugin-sanity-image"
 
@@ -16,31 +16,25 @@ const TextImage = ({ image, text }) => {
   return (
     image,
     text ? (
-      <div className="flex flex-wrap flex-col w-full">
-        <div className="w-full">
-          <figure className="gatsby-image-wrapper w-full">
-            <picture className={"w-full"}>
-              <SanityImage {...image}
-                width={2000} alt=""
-              />
-            </picture>
-          </figure>
-        </div>
-
-        <div className="mx-auto w-full flex max-w-6xl flex flex-col md:flex-row pt-10 px-10 xl:px-0">
+      <div className="flex flex-col md:flex-row w-full items-center bg-black text-white">
+        <div className="mx-auto w-full flex max-w-6xl flex flex-col md:flex-row p-10 white textImage">
           {text ? (
-            <div className="md:w-2/3">
+            <div className="prose text-sm">
               {text.map((singleText) => (
                 <PortableText blocks={singleText} />
               ))}
             </div>
           ) : null}
-          <div className="flex flex-col self-end md:w-1/3 mb-5">
-            <Link to="/contact" className="btn block self-end">
-              Contact me
-            </Link>
-            <Footer />
-          </div>
+        </div>
+
+        <div className="w-full" style={{'flex': '1 1 auto'}}>
+          <figure className="gatsby-image-wrapper w-full">
+            <picture className={"w-full"}>
+              <SanityImage {...image}
+                           width={1200} alt=""
+              />
+            </picture>
+          </figure>
         </div>
       </div>
     ) : null

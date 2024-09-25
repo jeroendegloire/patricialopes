@@ -27,9 +27,13 @@ import photoGrid from './objects/photoGrid'
 import accordion from './objects/accordion'
 import slideshow from './objects/slideshow'
 import menuItem from './objects/menuItem'
+import localVideo from './objects/localVideo'
+import subMenuItem from './objects/subMenuItem'
 import contact from './objects/contact'
 import cinematoList from './plugs/cinematoList'
 import cinematoReferenceItem from './plugs/cinematoReferenceItem'
+import twoColumnTextWithImage from './plugs/twoColumnTextWithImage'
+import mediaGallery from "./objects/mediaGallery";
 
 const allPlugs = Object.values(plugs).map(plug => {
   return { ...plug, fields: plugDefaultFields.concat(plug.fields) }
@@ -46,6 +50,7 @@ export default createSchema({
       siteSettings,
       navMenu,
       page,
+      localVideo,
       mainImage,
       galleryImage,
       videoEmbed,
@@ -55,11 +60,14 @@ export default createSchema({
       gallery,
       cinematography,
       menuItem,
+      subMenuItem,
       contact,
       photoGrid,
       accordion,
       cinematoList,
-      cinematoReferenceItem
+      cinematoReferenceItem,
+      mediaGallery,
+      twoColumnTextWithImage
     ])
     .concat(allPlugs)
 })

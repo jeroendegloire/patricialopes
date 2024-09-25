@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
-
-import { Link, graphql } from "gatsby";
+import React, {useState, useEffect} from "react";
+import {Link, graphql} from "gatsby";
 import SEO from "../components/seo";
 import Layout from "../components/layout/layout";
-import { FaAngleLeft } from "react-icons/fa";
-import LightBox from "../components/pages/lightbox";
+import {FaAngleLeft} from "react-icons/fa";
 import fallbackImage from "../images/fallback.png";
 import builder from "../../sanityClient.js";
+import ReactPlayer from "react-player/lazy";
+import Splide from "@splidejs/splide";
+import "@splidejs/splide/dist/css/splide.min.css"; // Importing Splide CSS
+import {Player} from 'video-react';
+import "video-react/dist/video-react.css"; // import css
 
 function urlFor(source) {
   return builder.image(source);
@@ -29,6 +32,11 @@ export const query = graphql`
         }
         alt
       }
+      video {
+        asset {
+          url
+        }
+      }
       awards
       category
       categoryTwo
@@ -39,7 +47,6 @@ export const query = graphql`
       grading
       production
       linkUrl
-      linkText
       linkUrlTwo
       linkTextTwo
       linkUrlThree
@@ -47,8 +54,6 @@ export const query = graphql`
       seo {
         seo_title
         meta_description
-        focus_synonyms
-        focus_keyword
       }
       image {
         asset {
@@ -63,7 +68,7 @@ export const query = graphql`
   }
 `;
 
-const ProjectTemplate = ({ data }) => {
+const ProjectTemplate = ({data}) => {
   const {
     awards: awards,
     fragments: images,
@@ -74,247 +79,262 @@ const ProjectTemplate = ({ data }) => {
     grading: grading,
     seo: seo,
     image: image,
+    title: title,
+    video: video
   } = data.sanityCinematography;
 
-  const [showLightbox, setShowLightbox] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  const handleOpen = (i) => (e) => {
-    setShowLightbox(true);
-    setSelectedImage(i);
-  };
-  const handleClose = () => {
-    setShowLightbox(false);
-    setSelectedImage(null);
-  };
-  const handlePrevRequest = (i, length) => (e) => {
-    setSelectedImage((i - 1 + length) % length);
-  };
-  const handleNextRequest = (i, length) => (e) => {
-    setSelectedImage((i + 1) % length);
-  };
-
   useEffect(() => {
-    document.addEventListener("contextmenu", (e) => {
-      if (e.target.tagName === "IMG") {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    });
-  });
+    // Initialize Splide for the main slider
+    const mainSplide = new Splide("#main-slider", {
+      type: "fade",
+      pagination: false,
+      arrows: true,
+      autoHeight: true,
+      keyboard: 'global',
+      cover: true
+    }).mount();
+
+    // Initialize Splide for the thumbnail slider
+    const thumbSplide = new Splide("#thumbnail-slider", {
+      autoHeight: true,
+      fixedWidth: '50%',
+      gap: 10,
+      focus: "center",
+      arrows: false,
+      pagination: false,
+      isNavigation: true,
+      keyboard: 'global',
+      cover: true
+    }).mount();
+
+    // Sync the two sliders
+    mainSplide.sync(thumbSplide);
+  }, []);
 
   return (
     <Layout>
       <SEO
-        keywords={seo?.focus_keyword}
-        synonyms={seo?.focus_synonyms}
         image={image?.asset?.url}
         description={seo?.meta_description}
-        title={seo?.seo_title}
+        title={title}
       />
-      <section
-        id="cinematography-templete"
-        className="bg-white py-6 md:p-10 flex-1"
-      >
-        <div className="max-w-6xl mx-auto flex items-center flex-wrap relative">
+      <section id="cinematography-template" className="bg-white pb-6 flex-1">
+        <div className={'xl:sticky top-0'}>
           <Link
             to="/cinematography"
-            className="m-0 absolute bottom-0 inline-block left-auto right-2 xl:top-0 xl:-left-6 xl:right-auto"
+            className="xl:absolute m-0 ml-4 relative flex  mr-8 py-4 items-center"
           >
-            <FaAngleLeft size={30} className="inline-block" /> Back
+            <FaAngleLeft size={30} className="inline-block"/> Back
           </Link>
+        </div>
+        <div className="flex max-w-5xl mx-auto flex-col md:flex-row">
+          <div className="flex items-center flex-wrap relative">
+            {data.sanityCinematography.linkUrl && <div className="w-full relative mb-4 video">
+              <ReactPlayer
+                url={data.sanityCinematography.linkUrl}
+                width={"100%"}
+                height={"auto"}
+                playing={true}
+                muted={true}
+                controls
+              />
+            </div>}
 
-          {images.map((image, i) => (
+            {data.sanityCinematography.video?.asset?.url &&
+              <Player src={data.sanityCinematography.video.asset.url} className={'mb-4'} autoPlay muted/>}
+
             <div
-              className="mb-4 cinemato-image relative cursor-pointer"
-              onClick={handleOpen(i)}
-              key={i}
-            >
-              <picture className={"w-full"}>
-                <div
-                  aria-hidden="true"
-                  style={{
-                    backgroundImage: `url(${image?.asset?.metadata?.lqip})`,
-                    backgroundSize: "cover",
-                    paddingTop: `calc(100% / ${image?.asset?.metadata?.dimensions?.aspectRatio})`,
-                  }}
-                ></div>
-                <img
-                  src={fallbackImage}
-                  srcSet={[
-                    urlFor(image?.asset?.id)
-                      .width(1000)
-                      .quality(100)
-                      .auto("format")
-                      .url() + " 768w,",
-                    urlFor(image?.asset?.id)
-                      .width(2000)
-                      .quality(100)
-                      .auto("format")
-                      .url() + " 1536w,",
-                  ]}
-                  alt={image.alt}
-                  className="absolute inset-0"
-                  loading="lazy"
-                />
-              </picture>
-            </div>
-          ))}
-          <div className="font-thin px-6 lg:px-0 mb-8">
-            {data.sanityCinematography.title ? (
-              <h1 className="font-normal text-xl uppercase text-base mb-4">
-                {data.sanityCinematography.title}
-              </h1>
-            ) : null}
+              className={`font-thin px-6 lg:px-0 mb-4 text-sm ${!data.sanityCinematography.video?.asset?.url && !data.sanityCinematography.linkUrl ? 'order-2' : null}`}>
+              {data.sanityCinematography.title ? (
+                <h1 className="font-normal text-lg uppercase text-base mb-2">
+                  {data.sanityCinematography.title}
+                </h1>
+              ) : null}
 
-            {data.sanityCinematography.subcategory == "documentary" ? (
-              <div className="uppercase mb-4 underline inline-block">Documentary</div>
-            ) : null}
-            {data.sanityCinematography.subcategory == "commercial" ? (
-              <div className="uppercase mb-4 underline inline-block">Commercial</div>
-            ) : null}
-            {data.sanityCinematography.subcategory == "music_video" ? (
-              <div className="uppercase mb-4 underline inline-block">Music video</div>
-            ) : null}
-            {data.sanityCinematography.subcategory == "series" ? (
-              <div className="uppercase mb-4 underline inline-block">TV Series</div>
-            ) : null}
-            {data.sanityCinematography.subcategory == "short_film" ? (
-              <div className="uppercase mb-4 underline inline-block">Short film</div>
-            ) : null}
-            {data.sanityCinematography.subcategory == "feature_film" ? (
-              <div className="uppercase mb-4 underline inline-block">Feature film</div>
-            ) : null}
+              {/*{data.sanityCinematography.subcategory == "documentary" ? (*/}
+              {/*  <div className="uppercase mb-4 underline inline-block">Documentary</div>*/}
+              {/*) : null}*/}
+              {/*{data.sanityCinematography.subcategory == "commercial" ? (*/}
+              {/*  <div className="uppercase mb-4 underline inline-block">Commercial</div>*/}
+              {/*) : null}*/}
+              {/*{data.sanityCinematography.subcategory == "music_video" ? (*/}
+              {/*  <div className="uppercase mb-4 underline inline-block">Music video</div>*/}
+              {/*) : null}*/}
+              {/*{data.sanityCinematography.subcategory == "series" ? (*/}
+              {/*  <div className="uppercase mb-4 underline inline-block">TV Series</div>*/}
+              {/*) : null}*/}
+              {/*{data.sanityCinematography.subcategory == "short_film" ? (*/}
+              {/*  <div className="uppercase mb-4 underline inline-block">Short film</div>*/}
+              {/*) : null}*/}
+              {/*{data.sanityCinematography.subcategory == "feature_film" ? (*/}
+              {/*  <div className="uppercase mb-4 underline inline-block">Feature film</div>*/}
+              {/*) : null}*/}
 
-            {directors[0] ? (
-              <div>
-                <span className="font-normal">DIRECTED BY: </span>
-                {directors
-                  .map((director, i) => (
-                    <span key={i} className="inline-block">
+              {directors[0] ? (
+                <div>
+                  <span className="font-normal">DIRECTED BY: </span>
+                  {directors
+                    .map((director, i) => (
+                      <span key={i} className="inline-block">
                       {director}
                     </span>
-                  ))
-                  .map((director, index) => [index > 0 && ", ", director])}
-                <br />
-              </div>
-            ) : null}
+                    ))
+                    .map((director, index) => [index > 0 && ", ", director])}
+                  <br/>
+                </div>
+              ) : null}
 
-            {productions[0] ? (
-              <div>
-                <span className="font-normal">PRODUCTION: </span>
-                {productions.map((production, i) => (
-                  <span key={i} className="inline-block">
-                    {production}
-                  </span>
-                ))}
-                <br />
-              </div>
-            ) : null}
-
-            {dops[0] ? (
-              <div>
-                <span className="font-normal">CINEMATOGRAPHY: </span>
-                {dops
-                  .map((dop, i) => (
+              {productions[0] ? (
+                <div>
+                  <span className="font-normal">PRODUCTION: </span>
+                  {productions.map((production, i) => (
                     <span key={i} className="inline-block">
+                      {production}
+                      {i < productions.length - 1 && <span>,&nbsp;</span>}
+                    </span>
+                  ))}
+                  <br/>
+                </div>
+              ) : null}
+
+              {dops[0] ? (
+                <div>
+                  <span className="font-normal">CINEMATOGRAPHY: </span>
+                  {dops
+                    .map((dop, i) => (
+                      <span key={i} className="inline-block">
                       {dop}
                     </span>
-                  ))
-                  .map((dop, index) => [index > 0 && ", ", dop])}
-                <br />
-              </div>
-            ) : null}
+                    ))
+                    .map((dop, index) => [index > 0 && ", ", dop])}
+                  <br/>
+                </div>
+              ) : null}
 
-{grading[0] ? (
-              <div className="mb-4">
-                <span className="font-normal">GRADING: </span>
-                {grading
-                  .map((grading, i) => (
-                    <span key={i} className="inline-block">
+              {grading[0] ? (
+                <div>
+                  <span className="font-normal">GRADING: </span>
+                  {grading
+                    .map((grading, i) => (
+                      <span key={i} className="inline-block">
                       {grading}
                     </span>
-                  ))
-                  .map((grading, index) => [index > 0 && ", ", grading])}
-                <br />
-              </div>
-            ) : null}
+                    ))
+                    .map((grading, index) => [index > 0 && ", ", grading])}
+                  <br/>
+                </div>
+              ) : null}
 
-            {shoton[0] ? (
-              <div>
-                <span className="font-normal">SHOT ON: </span>
-                {shoton
-                  .map((shoton, i) => (
-                    <div key={i}>
-                      {shoton}
-                    </div>
-                  ))
-                  .map((shoton, index) => [index > 0 && ", ", shoton])}
-                <br />
-              </div>
-            ) : null}
+              {shoton[0] ? (
+                <div>
+                  <span className="font-normal">SHOT ON: </span>
+                  {shoton
+                    .map((shoton, i) => (
+                      <span className={'inline-block'} key={i}>
+                        {shoton}
+                      </span>
+                    ))
+                    .map((shoton, index) => [index > 0 && ", ", shoton])}
+                </div>
+              ) : null}
 
-            {awards[0] ? (
-              <div>
-                <span className="font-normal">FESTIVALS &amp; AWARDS: </span>
-                {awards
-                  .map((awards, i) => (
-                    <div key={i}>
-                      {awards}
-                    </div>
-                  ))
-                  .map((awards, index) => [index > 0 && ", ", awards])}
-                <br />
-              </div>
-            ) : null}
-            
-            {data.sanityCinematography.linkUrlTwo ? (
-              <div>
-                <Link
-                  to={data.sanityCinematography.linkUrlTwo}
-                  className="underline hover:no-underline"
-                >
-                  {data.sanityCinematography.linkTextTwo}
-                </Link>
-                <br />
-              </div>
-            ) : null}
-            {data.sanityCinematography.linkUrl ? (
-              <div className="mt-4">
-                <Link
-                  to={data.sanityCinematography.linkUrl}
-                  className="underline hover:no-underline"
-                >
-                  {data.sanityCinematography.linkText}
-                </Link>
-                <br />
-              </div>
-            ) : null}
-            <div>
-                <Link
-                  to={data.sanityCinematography.linkUrlThree}
-                  className="underline hover:no-underline"
-                >
-                  {data.sanityCinematography.linkTextThree}
-                </Link>
-                <br />
-              </div>
-            {/* 
-            {data.sanityCinematography.text ? (
-              <div className="mt-4">
-                <PortableText blocks={data.sanityCinematography.text[0]} />
-              </div>
-            ) : null} */}
+              {awards[0] ? (
+                <div>
+                  <span className="font-normal">FESTIVALS &amp; AWARDS: </span>
+                  {awards
+                    .map((awards, i) => (
+                      <div key={i}>
+                        {awards}
+                      </div>
+                    ))
+                    .map((awards, index) => [index > 0 && ", ", awards])}
+                  <br/>
+                </div>
+              ) : null}
 
-            {showLightbox && selectedImage !== null && (
-              <LightBox
-                images={images}
-                handleClose={handleClose}
-                handleNextRequest={handleNextRequest}
-                handlePrevRequest={handlePrevRequest}
-                selectedImage={selectedImage}
-              />
-            )}
+              {data.sanityCinematography.linkUrlTwo ? (
+                <div className='mt-2'>
+                  <Link
+                    to={data.sanityCinematography.linkUrlTwo}
+                    className="underline hover:no-underline"
+                  >
+                    {data.sanityCinematography.linkTextTwo}
+                  </Link>
+                  <br/>
+                </div>
+              ) : null}
+              {/*{data.sanityCinematography.linkUrl ? (*/}
+              {/*  <div className="mt-4">*/}
+              {/*    <Link*/}
+              {/*      to={data.sanityCinematography.linkUrl}*/}
+              {/*      className="underline hover:no-underline"*/}
+              {/*    >*/}
+              {/*      {data.sanityCinematography.linkText}*/}
+              {/*    </Link>*/}
+              {/*    <br/>*/}
+              {/*  </div>*/}
+              {/*) : null}*/}
+              {data.sanityCinematography.linkUrlThree ? (
+                <div>
+                  <Link
+                    to={data.sanityCinematography.linkUrlThree}
+                    className="underline hover:no-underline"
+                  >
+                    {data.sanityCinematography.linkTextThree}
+                  </Link>
+                  <br/>
+                </div>
+              ) : null}
+            </div>
+
+            {/* Main Splide Slider */}
+            <div id="main-slider" className="splide w-full">
+              <div className="splide__track">
+                <ul className="splide__list">
+                  {images.map((image, i) => (
+                    <li className="splide__slide" key={i}>
+                      <img
+                        src={fallbackImage}
+                        srcSet={[
+                          urlFor(image?.asset?.id)
+                            .width(1000)
+                            .quality(100)
+                            .auto("format")
+                            .url() + " 768w,",
+                          urlFor(image?.asset?.id)
+                            .width(2000)
+                            .quality(100)
+                            .auto("format")
+                            .url() + " 1536w,",
+                        ]}
+                        alt={image.alt}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Thumbnail Splide Slider */}
+            <div id="thumbnail-slider" className="splide mt-4 w-full">
+              <div className="splide__track">
+                <ul className="splide__list">
+                  {images.map((image, i) => (
+                    <li className="splide__slide" key={i}>
+                      <img
+                        src={urlFor(image?.asset?.id)
+                          .width(1000)
+                          .quality(100)
+                          .auto("format")
+                          .url()}
+                        className="thumbnail"
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
