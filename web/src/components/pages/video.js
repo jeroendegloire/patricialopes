@@ -25,8 +25,8 @@ const Video = ({ localVideo, url, posterImage }) => {
     <div className="w-full relative mx-auto cursor-pointer" style={{ maxWidth: "1800px" }} onClick={handlePlay}>
       <Player
         ref={playerRef}
-        src={localVideo.asset.url}
-        poster={posterImage.asset.url}
+        src={localVideo?.asset.url}
+        poster={posterImage?.asset.url}
         className="w-full h-auto"
         autoPlay={false}
         controls
