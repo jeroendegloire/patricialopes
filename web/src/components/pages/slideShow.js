@@ -113,7 +113,7 @@ const Slideshow = ({ images }) => {
               width="1920"
               height="800"
             />
-            <div className={'absolute bottom-0 left-0 right-0 text-white px-16 pb-8 lg:pb-16 lg:pb-24 slide__inner mx-auto'}>
+            <div className={'absolute bottom-0 left-0 right-0 text-white px-16 pb-8 lg:pb-16 hidden lg:block lg:pb-24 slide__inner mx-auto'}>
               <span className={''}>{image?.category}</span>
               <h2>{image.title}</h2>
               <h3 className={'m-0'}>{image.subtitle}</h3>
