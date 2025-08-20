@@ -17,7 +17,7 @@ export default {
           },
           {
             title: 'Preview',
-            value: 'https://preview-patricialopesmaster.gatsbyjs.io/',
+            value: 'https://devserver-master--patricialopes.netlify.app',
             category: 'apps'
           }
         ]
