@@ -2,7 +2,7 @@ const env = process.env.NODE_ENV || 'development'
 
 export default function resolvePreviewUrl(document) {
   const baseUrl =
-    env === 'development' ? 'http://localhost:8000' : 'https://preview-patricialopesmaster.gatsbyjs.io/'
+    env === 'development' ? 'http://localhost:8000' : 'https://devserver-master--patricialopes.netlify.app'
   switch (document._type) {
     case 'page':
       if (!document.slug || !document.slug.current) {
